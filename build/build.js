@@ -25,7 +25,20 @@ roles.student.look = '大庄運動服';
 
 const DATA = {
   ...sqData,
-  evidence: orig.evidence,
+  evidence: {
+    plan: {
+      name: '大會程序表正式依據（實線橋）',
+      nameEn: 'Official Program Schedule (Solid)'
+    },
+    news: {
+      name: '賽事活動紀實報導',
+      nameEn: 'Event & News Record'
+    },
+    link: {
+      name: '五力傳承主題閉環（虛線橋）',
+      nameEn: 'Five Powers Thematic Link (Dashed)'
+    }
+  },
   phases: {
     1: { name: '開幕與律動 (08:00–09:25)', nameEn: 'Opening & Dance (08:00–09:25)' },
     2: { name: '趣味與徑賽 (09:30–12:00)', nameEn: 'Fun Games & Track (09:30–12:00)' },
@@ -222,6 +235,7 @@ rep("d.kind === 'event' ? tr('怎麼參與', 'HOW STUDENTS TAKE PART') : tr('怎
 rep("tr('學到什麼能力', 'SKILLS STUDENTS BUILD')", "tr('鍛鍊五力素養', 'FIVE POWERS BUILT')");
 rep("tr('島主教育家', 'Isle host')", "tr('駐島運動傳奇', 'Sports Legend Host')");
 rep("tr('課程計畫寫明', 'Written in the curriculum plan')", "tr('大會程序表主軸動線', 'Main Program Route')");
+rep("<dt>${tr('證據等級', 'Evidence')}</dt>", "<dt>${tr('動線依據等級', 'Evidence Level')}</dt>");
 rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')) : tr(n + ' 個單元', n + (n > 1 ? ' units' : ' unit'));", "const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));");
 rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)");
 rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "tr(u.periods + ' 場次/分鐘', u.periods + ' min')");

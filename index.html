@@ -4412,16 +4412,16 @@ const DATA = {
   ],
   "evidence": {
     "plan": {
-      "name": "課程計畫有據",
-      "nameEn": "In the curriculum plan"
+      "name": "大會程序表正式依據（實線橋）",
+      "nameEn": "Official Program Schedule (Solid)"
     },
     "news": {
-      "name": "新聞報導",
-      "nameEn": "Reported in school news"
+      "name": "賽事活動紀實報導",
+      "nameEn": "Event & News Record"
     },
     "link": {
-      "name": "主題連結",
-      "nameEn": "Thematic link"
+      "name": "五力傳承主題閉環（虛線橋）",
+      "nameEn": "Five Powers Thematic Link (Dashed)"
     }
   },
   "phases": {
@@ -10220,7 +10220,7 @@ function initUI(ctx) {
       <div class="ui-flowline">${isl(a)}<span class="ui-arrow">${uiSvg('arrow').replace('<svg', '<svg width="22" height="22" style="stroke:currentColor;fill:none;stroke-width:2"')}</span>${isl(b)}</div>
       <div class="ui-note">${uiEsc(L(f, 'note'))}</div>
       <div class="ui-sec"><dl class="ui-kv">
-        <dt>${tr('證據等級', 'Evidence')}</dt><dd><i class="ui-sw ui-sw-${f.evidence}"></i> ${uiEsc(ev ? L(ev, 'name') : f.evidence)}</dd>
+        <dt>${tr('動線依據等級', 'Evidence Level')}</dt><dd><i class="ui-sw ui-sw-${f.evidence}"></i> ${uiEsc(ev ? L(ev, 'name') : f.evidence)}</dd>
         <dt>${tr('搬運物', 'Carrying')}</dt><dd>${uiEsc(uiCarryName(f.carry))}</dd>
         <dt>${tr('領隊運動傳奇', 'Led by Legend')}</dt><dd>${uiEsc(host ? L(host, 'name') : '')}</dd>
         <dt>${tr('同行', 'Crew')}</dt><dd>${tr(f.crew.length + ' 人', f.crew.length + ' people')}</dd>
