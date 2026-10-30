@@ -2,6 +2,8 @@
 
 - **更新時間**：2026-10-30
 - **專案目錄**：`c:\Users\User\Documents\2026 AGY\sports-quest-island`
+- **正式線上網址**：https://dcps-sports-71-island.vercel.app
+- **GitHub 儲存庫**：https://github.com/blueymch-star/dcps-sports-71-island (branch: `main`)
 - **大會主題**：新竹市香山區大庄國民小學「七一大庄、五力飛揚」71 週年校慶運動會 (*Da-Chuang's 71st: Soaring with the Five Powers*)
 
 ---
