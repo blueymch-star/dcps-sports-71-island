@@ -998,12 +998,12 @@ module.exports = {
     }
   ],
   "flows": [
-    { "id": "f01", "from": "s01", "to": "s02", "carry": "note", "evidence": "plan", "crew": ["coubertin", "student", "student", "teacher"], "note": "開幕進場與表揚後，全校目光轉向美感藝能島欣賞六學年主題舞蹈演出。" },
-    { "id": "f02", "from": "s02", "to": "s05", "carry": "toolbox", "evidence": "plan", "crew": ["brucelee", "student", "parent", "teacher"], "note": "09:25 親子律動「蕉你一起動一動」結束後，緊接著展開 09:30 趣味競賽嘉年華。" },
-    { "id": "f03", "from": "s05", "to": "s03", "carry": "medal", "evidence": "plan", "crew": ["jordan", "student", "student", "volunteer"], "note": "10:40 親子趣味競賽完成後，一二年級小選手前往六道紫色跑道準備 50 公尺跑走。" },
-    { "id": "f04", "from": "s03", "to": "s04", "carry": "medal", "evidence": "plan", "crew": ["chicheng", "student", "student", "teacher"], "note": "個人衝刺完賽後，三至五年級各班菁英集結接力區，迎接 11:20 大隊接力決賽。" },
-    { "id": "f05", "from": "s04", "to": "s06", "carry": "diploma", "evidence": "news", "crew": ["owens", "student", "parent", "teacher"], "note": "12:00 庄情薪傳接力賽圓滿衝線，全校齊聚頒獎台迎接 12:20 閉幕頒獎典禮。" },
-    { "id": "f06", "from": "s06", "to": "s01", "carry": "medal", "evidence": "link", "crew": ["yangck", "student", "volunteer", "scout"], "note": "集滿五力印章的挑戰者回到中央七一耀動聖火台，引燃勝利煙火並領取金牌證書！" }
+    { "id": "f01", "from": "s01", "to": "s02", "carry": "note", "evidence": "plan", "crew": ["coubertin", "student", "student", "teacher"], "note": "08:35 開幕典禮與表揚完成後，古柏坦引導全校目光移師美感藝能島，展開 08:55 六學年大會舞盛典。" },
+    { "id": "f02", "from": "s02", "to": "s05", "carry": "toolbox", "evidence": "plan", "crew": ["brucelee", "student", "parent", "teacher"], "note": "09:25 親子律動「蕉你一起動一動」熱身完畢，李小龍帶隊護送道具箱展開 09:30 八大趣味競賽！" },
+    { "id": "f03", "from": "s05", "to": "s03", "carry": "medal", "evidence": "plan", "crew": ["jordan", "student", "student", "volunteer"], "note": "10:40 親子趣味競賽完賽，喬丹帶領一二年級小選手前往六道紫色跑道準備 11:00 50公尺跑走！" },
+    { "id": "f04", "from": "s03", "to": "s04", "carry": "baton", "evidence": "plan", "crew": ["chicheng", "student", "student", "teacher"], "note": "個人徑賽衝刺完賽，紀政率領三至五年級各班接力健兒就位，迎接 11:20 大隊接力決賽！" },
+    { "id": "f05", "from": "s04", "to": "s06", "carry": "diploma", "evidence": "news", "crew": ["owens", "student", "parent", "teacher"], "note": "12:00 庄情薪傳接力賽圓滿衝線，歐文斯護送大隊接力錦旗與獎狀齊聚頒獎台迎接 12:20 閉幕典禮。" },
+    { "id": "f06", "from": "s06", "to": "s01", "carry": "trophy", "evidence": "link", "crew": ["yangck", "student", "volunteer", "scout"], "note": "挑戰者集滿大庄五力印章，楊傳廣引領回到中央聖火台引燃全景 3D 勝利煙火並頒發五力金牌證書！" }
   ],
   "dayCycle": [
     { "from": 480, "to": 495, "name": "08:00 社團開場秀（街舞・跆拳・日本傘舞）", "items": ["s02i1", "s02i2"] },

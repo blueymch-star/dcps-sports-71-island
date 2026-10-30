@@ -3812,7 +3812,7 @@ const DATA = {
         "student",
         "teacher"
       ],
-      "note": "開幕進場與表揚後，全校目光轉向美感藝能島欣賞六學年主題舞蹈演出。"
+      "note": "08:35 開幕典禮與表揚完成後，古柏坦引導全校目光移師美感藝能島，展開 08:55 六學年大會舞盛典。"
     },
     {
       "id": "f02",
@@ -3826,7 +3826,7 @@ const DATA = {
         "parent",
         "teacher"
       ],
-      "note": "09:25 親子律動「蕉你一起動一動」結束後，緊接著展開 09:30 趣味競賽嘉年華。"
+      "note": "09:25 親子律動「蕉你一起動一動」熱身完畢，李小龍帶隊護送道具箱展開 09:30 八大趣味競賽！"
     },
     {
       "id": "f03",
@@ -3840,13 +3840,13 @@ const DATA = {
         "student",
         "volunteer"
       ],
-      "note": "10:40 親子趣味競賽完成後，一二年級小選手前往六道紫色跑道準備 50 公尺跑走。"
+      "note": "10:40 親子趣味競賽完賽，喬丹帶領一二年級小選手前往六道紫色跑道準備 11:00 50公尺跑走！"
     },
     {
       "id": "f04",
       "from": "s03",
       "to": "s04",
-      "carry": "medal",
+      "carry": "baton",
       "evidence": "plan",
       "crew": [
         "chicheng",
@@ -3854,7 +3854,7 @@ const DATA = {
         "student",
         "teacher"
       ],
-      "note": "個人衝刺完賽後，三至五年級各班菁英集結接力區，迎接 11:20 大隊接力決賽。"
+      "note": "個人徑賽衝刺完賽，紀政率領三至五年級各班接力健兒就位，迎接 11:20 大隊接力決賽！"
     },
     {
       "id": "f05",
@@ -3868,13 +3868,13 @@ const DATA = {
         "parent",
         "teacher"
       ],
-      "note": "12:00 庄情薪傳接力賽圓滿衝線，全校齊聚頒獎台迎接 12:20 閉幕頒獎典禮。"
+      "note": "12:00 庄情薪傳接力賽圓滿衝線，歐文斯護送大隊接力錦旗與獎狀齊聚頒獎台迎接 12:20 閉幕典禮。"
     },
     {
       "id": "f06",
       "from": "s06",
       "to": "s01",
-      "carry": "medal",
+      "carry": "trophy",
       "evidence": "link",
       "crew": [
         "yangck",
@@ -3882,7 +3882,7 @@ const DATA = {
         "volunteer",
         "scout"
       ],
-      "note": "集滿五力印章的挑戰者回到中央七一耀動聖火台，引燃勝利煙火並領取金牌證書！"
+      "note": "挑戰者集滿大庄五力印章，楊傳廣引領回到中央聖火台引燃全景 3D 勝利煙火並頒發五力金牌證書！"
     }
   ],
   "dayCycle": [
@@ -4456,16 +4456,16 @@ const DATA = {
       "nameEn": "a globe"
     },
     "note": {
-      "name": "樂譜",
-      "nameEn": "sheet music"
+      "name": "大會程序手冊",
+      "nameEn": "Program Handbook"
     },
     "medal": {
-      "name": "獎牌",
-      "nameEn": "medals"
+      "name": "個人賽獎牌",
+      "nameEn": "Sprint Medals"
     },
     "diploma": {
-      "name": "畢業證書",
-      "nameEn": "diplomas"
+      "name": "大隊接力錦旗與獎狀",
+      "nameEn": "Relay Banners & Awards"
     },
     "lens": {
       "name": "放大鏡",
@@ -4480,12 +4480,20 @@ const DATA = {
       "nameEn": "postcards"
     },
     "toolbox": {
-      "name": "工具箱",
-      "nameEn": "a toolbox"
+      "name": "趣味競賽道具箱",
+      "nameEn": "Games Gear Box"
     },
     "scarf": {
       "name": "童軍領巾",
       "nameEn": "scout scarves"
+    },
+    "baton": {
+      "name": "黃金接力棒",
+      "nameEn": "Golden Relay Baton"
+    },
+    "trophy": {
+      "name": "五力金牌榮譽勳章",
+      "nameEn": "Five Powers Gold Trophy"
     }
   },
   "roles": {
@@ -8226,11 +8234,13 @@ function wkCarryProp(add, key) {
       add('ball', '#211d1d', A, [0.012, -0.104, 0.03], [0.007, 0.006, 0.003]);
       add('box', '#211d1d', A, [0, -0.09, 0.03], [0.03, 0.004, 0.003]);
       return false;
+    case 'trophy':
     case 'medal':
       add('box', '#db6a41', A, [0, -0.1, 0.012], [0.014, 0.036, 0.004]);
       add('cyl', '#e7b53c', A, [0, -0.128, 0.012], [0.022, 0.007, 0.022], [Math.PI / 2, 0, 0]);
       add('cyl', '#f6d777', A, [0, -0.128, 0.016], [0.013, 0.004, 0.013], [Math.PI / 2, 0, 0]);
       return true;
+    case 'baton':
     case 'diploma':
       add('cyl', '#f6ecd2', A, [0, -0.09, 0.022], [0.014, 0.092, 0.014], [0, 0, Math.PI / 2]);
       add('cyl', '#c8453a', A, [0, -0.09, 0.022], [0.016, 0.012, 0.016], [0, 0, Math.PI / 2]);
@@ -8632,10 +8642,12 @@ function wkBadgeTexture(key) {
       g.beginPath(); g.ellipse(48, 82, 10, 7, -0.4, 0, Math.PI * 2); g.fill();
       g.beginPath(); g.ellipse(82, 74, 10, 7, -0.4, 0, Math.PI * 2); g.fill();
       L([[57, 80], [57, 40]]); L([[91, 72], [91, 32]]); g.lineWidth = 9; L([[57, 41], [91, 33]]); break;
+    case 'trophy':
     case 'medal': // 獎牌：V 形緞帶＋圓牌＋星
       g.strokeStyle = PAL.coral; g.lineWidth = 9; L([[46, 30], [60, 58]]); L([[82, 30], [68, 58]]);
       g.strokeStyle = PAL.ink; g.lineWidth = 6; C(64, 74, 19);
       { const p = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 4.5 : 10; p.push([64 + r * Math.cos(a), 75 + r * Math.sin(a)]); } F(p, PAL.coral); } break;
+    case 'baton':
     case 'diploma': // 捲起的證書＋紅緞帶
       g.lineWidth = 24; L([[38, 80], [90, 44]]); g.strokeStyle = PAL.cream; g.lineWidth = 12; L([[38, 80], [90, 44]]);
       g.fillStyle = PAL.ink; C(90, 44, 6, true);

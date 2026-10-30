@@ -44,7 +44,15 @@ const DATA = {
     2: { name: '趣味與徑賽 (09:30–12:00)', nameEn: 'Fun Games & Track (09:30–12:00)' },
     3: { name: '薪傳與閉幕 (12:00–13:00)', nameEn: 'Relay & Awards (12:00–13:00)' }
   },
-  carries: orig.carries,
+  carries: {
+    ...orig.carries,
+    note: { name: '大會程序手冊', nameEn: 'Program Handbook' },
+    toolbox: { name: '趣味競賽道具箱', nameEn: 'Games Gear Box' },
+    medal: { name: '個人賽獎牌', nameEn: 'Sprint Medals' },
+    baton: { name: '黃金接力棒', nameEn: 'Golden Relay Baton' },
+    diploma: { name: '大隊接力錦旗與獎狀', nameEn: 'Relay Banners & Awards' },
+    trophy: { name: '五力金牌榮譽勳章', nameEn: 'Five Powers Gold Trophy' }
+  },
   roles,
   travelers: {
     ...orig.travelers,
@@ -236,6 +244,8 @@ rep("tr('學到什麼能力', 'SKILLS STUDENTS BUILD')", "tr('鍛鍊五力素養
 rep("tr('島主教育家', 'Isle host')", "tr('駐島運動傳奇', 'Sports Legend Host')");
 rep("tr('課程計畫寫明', 'Written in the curriculum plan')", "tr('大會程序表主軸動線', 'Main Program Route')");
 rep("<dt>${tr('證據等級', 'Evidence')}</dt>", "<dt>${tr('動線依據等級', 'Evidence Level')}</dt>");
+rep("case 'medal':", "case 'trophy':\n    case 'medal':", true);
+rep("case 'diploma':", "case 'baton':\n    case 'diploma':", true);
 rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')) : tr(n + ' 個單元', n + (n > 1 ? ' units' : ' unit'));", "const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));");
 rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)");
 rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "tr(u.periods + ' 場次/分鐘', u.periods + ' min')");
