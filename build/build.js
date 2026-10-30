@@ -151,10 +151,59 @@ rep(
 rep('<div class="loader-title" data-en="Dazhuang · Kiln & Sea Isles">大庄．窯海島</div>', '<div class="loader-title" data-en="Da-Chuang 71st · Sports Quest Island">奔馳榮耀島・校慶運動大冒險</div>');
 rep('<div id="loader-msg" data-en="Assembling the Dazhuang campus…">正在組合大庄校園…</div>', '<div id="loader-msg" data-en="Preparing the 6-lane purple track & 5-power arenas…">正在鋪設六道紫色跑道與五力賽場…</div>');
 
-// 頂部品牌卡、工具列與快速入口
-rep('<div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="9 SIGNATURE COURSES · 5 YEARLY EVENTS">9 門特色課程 · 5 個年度活動</div>', '<div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="DA-CHUANG 71ST · 6 ARENA ISLES · 32 EVENTS">71 週年校慶 · 6 座五力賽場島 · 32 項程序</div>');
-rep('<h1 class="ui-brand-title" id="ui-brand-title" data-en="Dazhuang · Kiln & Sea Isles">大庄．窯海島</h1>', '<h1 class="ui-brand-title" id="ui-brand-title" data-en="Sports Quest Island">奔馳榮耀島・校慶運動大冒險</h1>');
-rep('<div class="ui-brand-sub" id="ui-brand-sub" data-en="Dazhuang ES · Flexible curriculum &amp; yearly events">大庄國小・特色課程與年度活動</div>', '<div class="ui-brand-sub" id="ui-brand-sub" data-en="Da-Chuang\'s 71st: Soaring with the Five Powers">七一大庄、五力飛揚｜71 週年校慶運動會</div>');
+// 頂部品牌卡（支援 方案一：收合卡片 與 方案二：頂部真・動態島 試用切換）
+const origBrandHeader = `<header id="ui-brand" class="ui-glass">
+      <div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="9 SIGNATURE COURSES · 5 YEARLY EVENTS">9 門特色課程 · 5 個年度活動</div>
+      <h1 class="ui-brand-title" id="ui-brand-title" data-en="Dazhuang · Kiln & Sea Isles">大庄．窯海島</h1>
+      <div class="ui-brand-sub" id="ui-brand-sub" data-en="Dazhuang ES · Flexible curriculum &amp; yearly events">大庄國小・特色課程與年度活動</div>
+      <div class="ui-brand-sub ui-brand-mob" id="ui-brand-mob"></div>
+      <button class="ui-trav-badge" id="ui-trav-badge" type="button" hidden></button>
+    </header>`;
+
+const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
+      <!-- 方案一／方案二 即時切換試用列 -->
+      <div class="sq-ab-bar" id="sq-ab-bar">
+        <span class="sq-ab-label">📱 試用方案：</span>
+        <div class="sq-ab-btns" role="group" aria-label="版面方案切換">
+          <button type="button" class="sq-ab-btn is-active" data-sq-mode="1" title="方案一：收合卡片（拖曳地圖自動收合，極致避讓）">方案一：收合卡片</button>
+          <button type="button" class="sq-ab-btn" data-sq-mode="2" title="方案二：頂部動態島（置中黑色膠囊，點擊展開）">方案二：頂部動態島</button>
+        </div>
+      </div>
+
+      <!-- 精巧膠囊（方案一收合態 / 方案二動態島膠囊） -->
+      <button type="button" class="sq-capsule-pill" id="sq-capsule-pill" aria-label="展開校慶運動會卡片">
+        <span class="sq-pill-icon">🏃</span>
+        <span class="sq-pill-title">奔馳榮耀島</span>
+        <span class="sq-pill-dot">·</span>
+        <span class="sq-pill-badge" id="sq-pill-prog">🏅 0/5章 · 0/19關</span>
+        <span class="sq-pill-arrow">▾</span>
+      </button>
+
+      <!-- 展開卡片主體 -->
+      <div class="sq-brand-body" id="sq-brand-body">
+        <div class="sq-brand-header-actions">
+          <div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="DA-CHUANG 71ST · 6 ARENA ISLES · 32 EVENTS">71 週年校慶 · 6 座五力賽場島 · 32 項程序</div>
+          <button type="button" class="sq-fold-btn" id="sq-fold-btn" title="收起卡片，釋放 3D 賽場視野" aria-label="收起卡片">
+            <span class="sq-fold-txt">收合</span> <span class="sq-fold-icon">▲</span>
+          </button>
+        </div>
+        <h1 class="ui-brand-title" id="ui-brand-title" data-en="Sports Quest Island">奔馳榮耀島・校慶運動大冒險</h1>
+        <div class="ui-brand-sub" id="ui-brand-sub" data-en="Da-Chuang's 71st: Soaring with the Five Powers">七一大庄、五力飛揚｜71 週年校慶運動會</div>
+        <div class="ui-brand-sub ui-brand-mob" id="ui-brand-mob"></div>
+        <button class="ui-trav-badge" id="ui-trav-badge" type="button" hidden></button>
+        <div class="sq-brand-actions" id="sq-brand-actions">
+          <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表">📅 程序表(32)</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 10/21–11/25 賽前已完賽個人賽與大隊接力戰報">🏃 賽前戰報</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label">選手設定</span></button>
+        </div>
+        <!-- 試用提示小字 -->
+        <div class="sq-ab-hint" id="sq-ab-hint">
+          💡 <strong>試用提示：</strong>點擊上方按鈕可即時切換方案一／二。旋轉或拖曳地圖可體驗自動避讓效果！
+        </div>
+      </div>
+    </header>`;
+rep(origBrandHeader, sportsBrandHeader);
 rep(
   `$('ui-brand-eyebrow').textContent = tr(\`\${nC} 門特色課程 · \${nE} 個年度活動\`, \`\${nC} SIGNATURE COURSES · \${nE} YEARLY EVENTS\`);`,
   `$('ui-brand-eyebrow').textContent = tr('71 週年校慶 · 6 座五力賽場島 · 32 項程序', '71ST ANNIVERSARY · 6 ARENA ISLES · 32 EVENTS');`
@@ -305,13 +354,7 @@ rep('<span><i class="ui-lgd-num" aria-hidden="true">01</i><span data-en="Signatu
 rep('<span><i class="ui-lgd-num is-event" aria-hidden="true">10</i><span data-en="Yearly event (gold ring)">年度活動（金框）</span></span>', '<span><i class="ui-lgd-num is-event" aria-hidden="true">01</i><span data-en="Ceremony & Relay Isle (gold ring)">校慶盛典與接力島（金框）</span></span>');
 rep("grp(tr('特色課程', 'Signature courses'), isl.filter(d => d.kind !== 'event'))}${grp(tr('年度活動', 'Yearly events')", "grp(tr('五力競賽與展演島', 'Competition Isles'), isl.filter(d => d.kind !== 'event'))}${grp(tr('校慶盛典與接力島', 'Ceremony Isles')");
 
-rep('<button class="ui-trav-badge" id="ui-trav-badge" type="button" hidden></button>', `<button class="ui-trav-badge" id="ui-trav-badge" type="button" hidden></button>
-      <div class="sq-brand-actions" id="sq-brand-actions">
-        <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
-        <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表">📅 程序表(32)</button>
-        <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 10/21–11/25 賽前已完賽個人賽與大隊接力戰報">🏃 賽前戰報</button>
-        <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label">選手設定</span></button>
-      </div>`);
+// sq-brand-actions 已內建於 sportsBrandHeader
 
 // 將建築卡片中的「進行時間（上學期／下學期／全學年）」改為校慶運動會專屬「登場時段・運動會三階段」＋「建築物專屬五力闖關挑戰卡」
 rep(
@@ -375,6 +418,311 @@ dialog::backdrop {
   overscroll-behavior: contain;
   background-color: rgba(15, 23, 42, 0.58);
   backdrop-filter: blur(5px);
+}
+
+/* ================= 手機版面試用方案 A/B 切換系統 ================= */
+.sq-ab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding-bottom: 7px;
+  border-bottom: 1px dashed rgba(2, 132, 199, 0.22);
+}
+.sq-ab-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #0284c7;
+  white-space: nowrap;
+}
+.sq-ab-btns {
+  display: flex;
+  gap: 4px;
+}
+.sq-ab-btn {
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: 1.2px solid rgba(2, 132, 199, 0.32);
+  background: rgba(255, 255, 255, 0.9);
+  color: #0369a1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.sq-ab-btn:hover {
+  background: #e0f2fe;
+  border-color: #0284c7;
+}
+.sq-ab-btn.is-active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+  font-weight: 800;
+}
+
+/* 品牌卡頂部標題與收合按鈕列 */
+.sq-brand-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.sq-fold-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  background: rgba(240, 249, 255, 0.9);
+  color: #0284c7;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.sq-fold-btn:hover {
+  background: #e0f2fe;
+  color: #0369a1;
+  transform: translateY(-1px);
+}
+
+/* 試用說明提示小字 */
+.sq-ab-hint {
+  margin-top: 8px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(2, 132, 199, 0.08);
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: #0369a1;
+}
+
+/* 精巧膠囊（方案一收合態 / 方案二動態島膠囊） */
+.sq-capsule-pill {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sq-pill-icon { font-size: 14px; }
+.sq-pill-title { font-weight: 900; font-size: 12.5px; }
+.sq-pill-dot { opacity: 0.5; font-size: 12px; }
+.sq-pill-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.sq-pill-arrow { font-size: 11px; font-weight: 900; transition: transform 0.2s ease; }
+
+/* ---------------- 方案一：收合卡片 (Mode 1) ---------------- */
+body[data-sq-mode="1"] #sq-capsule-pill {
+  display: none;
+}
+
+/* 方案一收合狀態 */
+body[data-sq-mode="1"] #ui-brand.is-collapsed {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  max-width: none !important;
+  width: auto !important;
+}
+body[data-sq-mode="1"] #ui-brand.is-collapsed #sq-ab-bar,
+body[data-sq-mode="1"] #ui-brand.is-collapsed #sq-brand-body {
+  display: none !important;
+}
+body[data-sq-mode="1"] #ui-brand.is-collapsed #sq-capsule-pill {
+  display: inline-flex !important;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+  color: #0369a1;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body[data-sq-mode="1"] #ui-brand.is-collapsed #sq-capsule-pill:hover {
+  background: #f0fdfa;
+  border-color: #0284c7;
+  transform: translateY(-1px);
+}
+body[data-sq-mode="1"] #ui-brand.is-collapsed .sq-pill-badge {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+/* ---------------- 方案二：頂部真・動態島 (Mode 2) ---------------- */
+body[data-sq-mode="2"] #ui-top {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 95vw !important;
+}
+body[data-sq-mode="2"] #ui-brand {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  max-width: none !important;
+}
+
+/* 方案二預設微型膠囊（iOS Dynamic Island 質感） */
+body[data-sq-mode="2"] #sq-capsule-pill {
+  display: inline-flex !important;
+  padding: 7px 18px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #f8fafc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 14px rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+body[data-sq-mode="2"] #sq-capsule-pill:hover {
+  background: rgba(15, 23, 42, 0.98);
+  border-color: #38bdf8;
+  transform: scale(1.02);
+}
+body[data-sq-mode="2"] #sq-capsule-pill .sq-pill-title {
+  color: #f8fafc;
+}
+body[data-sq-mode="2"] #sq-capsule-pill .sq-pill-badge {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+}
+body[data-sq-mode="2"] #sq-capsule-pill .sq-pill-arrow {
+  color: #38bdf8;
+}
+
+/* 方案二收合狀態下不顯示大卡片 */
+body[data-sq-mode="2"] #ui-brand:not(.is-di-expanded) #sq-ab-bar,
+body[data-sq-mode="2"] #ui-brand:not(.is-di-expanded) #sq-brand-body {
+  display: none !important;
+}
+
+/* 方案二展開狀態：自膠囊向下平滑展開為深色高級懸浮面板 */
+body[data-sq-mode="2"] #ui-brand.is-di-expanded #sq-capsule-pill {
+  margin-bottom: 8px;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded #sq-capsule-pill .sq-pill-arrow {
+  transform: rotate(180deg);
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded #sq-brand-body {
+  display: block !important;
+  width: min(340px, 92vw);
+  background: rgba(15, 23, 42, 0.96) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
+  border-radius: 22px !important;
+  padding: 16px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15) !important;
+  color: #f8fafc !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  animation: sqDiExpand 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .ui-eyebrow {
+  color: #38bdf8 !important;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .ui-brand-title {
+  color: #ffffff !important;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .ui-brand-sub {
+  color: #94a3b8 !important;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-brand-actions {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-brand-pill {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #e2e8f0;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-brand-pill:hover {
+  background: rgba(51, 65, 85, 0.95);
+  color: #38bdf8;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-brand-pill.is-gold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-color: #fbbf24;
+  color: #ffffff;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-ab-bar {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-ab-label {
+  color: #38bdf8;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-ab-btn {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-ab-btn.is-active {
+  background: #0284c7;
+  color: #ffffff;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-ab-hint {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc;
+}
+body[data-sq-mode="2"] #ui-brand.is-di-expanded .sq-fold-btn {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+}
+
+@keyframes sqDiExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 試用切換吐司通知 (Toast) */
+.sq-toast {
+  position: fixed;
+  bottom: 74px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 99;
+}
+.sq-toast.is-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* 品牌卡內嵌功能列（取代原本頂部懸浮狀態列） */
@@ -1162,9 +1510,11 @@ function initSportsQuest(ctx) {
     const icEl = document.getElementById('sq-athlete-icon');
     const lbEl = document.getElementById('sq-athlete-label');
     const prEl = document.getElementById('sq-progress-txt');
+    const pillProgEl = document.getElementById('sq-pill-prog');
     if (icEl) icEl.textContent = state.icon || '🐯';
     if (lbEl) lbEl.textContent = state.name || state.role;
     if (prEl) prEl.textContent = stampedCount + '/5章 · ' + clearedCount + '/19關';
+    if (pillProgEl) pillProgEl.textContent = '🏅 ' + stampedCount + '/5章 · ' + clearedCount + '/19關';
   }
 
   // 1. 運動員註冊卡邏輯
@@ -1738,6 +2088,124 @@ function initSportsQuest(ctx) {
     a.href = canvas.toDataURL('image/png');
     a.click();
   });
+
+  // ================= 手機版面試用切換 (方案一：收合卡片 vs 方案二：頂部動態島) =================
+  const brandEl = document.getElementById('ui-brand');
+  const capsulePill = document.getElementById('sq-capsule-pill');
+  const foldBtn = document.getElementById('sq-fold-btn');
+  const foldTxt = foldBtn ? foldBtn.querySelector('.sq-fold-txt') : null;
+  const foldIcon = foldBtn ? foldBtn.querySelector('.sq-fold-icon') : null;
+  const abBtns = document.querySelectorAll('.sq-ab-btn');
+
+  let currentMode = localStorage.getItem('sq-mobile-ui-mode') || '1';
+
+  function applyMode(mode, showToastMsg) {
+    currentMode = mode;
+    localStorage.setItem('sq-mobile-ui-mode', mode);
+    document.body.setAttribute('data-sq-mode', mode);
+
+    abBtns.forEach(b => {
+      b.classList.toggle('is-active', b.dataset.sqMode === mode);
+    });
+
+    if (mode === '1') {
+      // 方案一：初始可收合（如果原本在動態島展開狀態則重設）
+      if (brandEl) {
+        brandEl.classList.remove('is-di-expanded');
+      }
+      if (foldTxt) foldTxt.textContent = '收合';
+      if (foldIcon) foldIcon.textContent = '▲';
+      if (showToastMsg) showToast('✨ 已切換至「方案一：收合卡片」模式！可手動收合或滑動地圖自動避讓。');
+    } else {
+      // 方案二：預設為頂部動態島膠囊
+      if (brandEl) {
+        brandEl.classList.remove('is-collapsed');
+        brandEl.classList.remove('is-di-expanded');
+      }
+      if (foldTxt) foldTxt.textContent = '關閉';
+      if (foldIcon) foldIcon.textContent = '✕';
+      if (showToastMsg) showToast('✨ 已切換至「方案二：頂部動態島」模式！置中深色膠囊，點擊可展開。');
+    }
+    if (typeof updateInsets === 'function') updateInsets();
+  }
+
+  // 綁定 A/B 按鈕點擊
+  abBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyMode(btn.dataset.sqMode, true);
+    });
+  });
+
+  // 綁定收合/展開按鈕
+  foldBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (currentMode === '1') {
+      brandEl?.classList.add('is-collapsed');
+    } else {
+      brandEl?.classList.remove('is-di-expanded');
+    }
+    if (typeof updateInsets === 'function') updateInsets();
+  });
+
+  // 點擊膠囊展開
+  capsulePill?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (currentMode === '1') {
+      brandEl?.classList.remove('is-collapsed');
+    } else {
+      brandEl?.classList.toggle('is-di-expanded');
+    }
+    if (typeof updateInsets === 'function') updateInsets();
+  });
+
+  // 點擊外部關閉動態島展開面板
+  document.addEventListener('click', (e) => {
+    if (currentMode === '2' && brandEl && brandEl.classList.contains('is-di-expanded')) {
+      if (!brandEl.contains(e.target)) {
+        brandEl.classList.remove('is-di-expanded');
+        if (typeof updateInsets === 'function') updateInsets();
+      }
+    }
+  });
+
+  // 方案一智慧聯動：滑動或拖曳 3D 畫布時，卡片自動平滑收合！
+  const mainCanvas = document.querySelector('canvas') || document.getElementById('c');
+  if (mainCanvas) {
+    mainCanvas.addEventListener('pointerdown', () => {
+      if (currentMode === '1' && brandEl && !brandEl.classList.contains('is-collapsed')) {
+        if (window.innerWidth <= 768) {
+          brandEl.classList.add('is-collapsed');
+          if (typeof updateInsets === 'function') updateInsets();
+        }
+      } else if (currentMode === '2' && brandEl && brandEl.classList.contains('is-di-expanded')) {
+        brandEl.classList.remove('is-di-expanded');
+        if (typeof updateInsets === 'function') updateInsets();
+      }
+    }, { passive: true });
+  }
+
+  // 吐司提示訊息
+  let toastEl = document.getElementById('sq-toast');
+  if (!toastEl) {
+    toastEl = document.createElement('div');
+    toastEl.id = 'sq-toast';
+    toastEl.className = 'sq-toast';
+    document.body.appendChild(toastEl);
+  }
+  let toastTimer = null;
+  function showToast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastEl.classList.remove('is-show');
+    }, 2800);
+  }
+
+  // 初始化套用模式
+  applyMode(currentMode, false);
 
   renderHud();
 
