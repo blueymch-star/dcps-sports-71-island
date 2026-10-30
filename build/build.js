@@ -244,6 +244,20 @@ rep('<span class="ui-btn-txt" data-en="My traveler">我的旅人</span>', '<span
 rep('<span class="ui-btn-txt" data-en="6-yr journey">六年旅程</span>', '<span class="ui-btn-txt" data-en="Full Tour">運動會全覽</span>');
 rep('<div class="ui-clock-slot" id="ui-clock-slot">上課</div>', '<div class="ui-clock-slot" id="ui-clock-slot">運動會進行中</div>');
 
+// 大庄國小官方學校願景與校訂課程三大主軸（https://www.ttps.hc.edu.tw/nss/p/wish）
+rep(
+  "const UI_WIN = { W: ['Inquiry', '在地探究', 'local inquiry'], I: ['Character', '品格生活', 'character & life'], N: ['Arts & sports', '藝能運動', 'arts & sports'] };",
+  "const UI_WIN = { W: ['Inquiry', '庄進自強～超越自己', 'Self-improvement'], I: ['Character', '庄園窯啊餚～樂活成長', 'Kiln & Growth'], N: ['Arts & sports', '康庄鐵道行～藝術小旅行', 'Railway & Art'] };"
+);
+rep(
+  "function uiWinTag(w) { const d = UI_WIN[w], n = DATA.winNotes && DATA.winNotes[w]; return d ? `<span class=\"ui-wintag\">${tr('課程類型', 'Type')}${tr('・', ' · ')}<b class=\"ui-win\" aria-hidden=\"true\">${w}</b>${uiEsc(n ? L(n, 'name') : tr(d[1].split('／')[0], d[0]))}</span>` : ''; }",
+  "function uiWinTag(w) { const d = UI_WIN[w], n = DATA.winNotes && DATA.winNotes[w]; return d ? `<span class=\"ui-wintag\">${tr('校訂課程', 'Curriculum')}${tr('・', ' · ')}<b class=\"ui-win\" aria-hidden=\"true\">${w}</b>${uiEsc(n ? L(n, 'name') : tr(d[1].split('／')[0], d[0]))}</span>` : ''; }"
+);
+rep(
+  "tr('「學校願景」是大庄的四個方向：探究、創藝、友善、健康。「課程類型」是大庄三大主軸：W 在地探究、I 品格生活、N 藝能運動。', '“Vision” is one of Dazhuang’s four aims (vitality, creativity, cooperation, reason). “Type” follows the school’s WIN framework: W integrated themes, I team building, N clubs & crafts.')",
+  "tr('【學校願景】大庄三大核心基石：感恩、學習、健康（課程願景：友善關懷、學習探索、健康樂活），培育「道德力、知識力、美感力、體能力、群體力」五力均備之新世紀優質公民！【校訂課程三大主軸】W 庄進自強～超越自己、I 庄園窯啊餚～樂活成長、N 康庄鐵道行～藝術小旅行。', '“School Vision” follows Dazhuang ES official foundation: Gratitude, Learning, Health (Care, Inquiry, Vitality), building students with all Five Powers. Curriculum WIN: W Self-improvement, I Kiln & Growth, N Railway & Art.')"
+);
+
 // 說明面板 (#ui-help) 與關於面板 (#ui-about)
 rep('<h2 id="ui-help-title" data-en="Fourteen isles, one school year">十四座島，一整個大庄學年</h2>', '<h2 id="ui-help-title" data-en="Six Arena Isles, One Glorious Sports Day">六座五力賽場島，一場熱血的 71 週年校慶運動會</h2>');
 rep(
@@ -318,6 +332,15 @@ const customStyles = `
   --sq-purple: #7c3aed;
   --sq-gold: #f59e0b;
 }
+
+/* 大庄國小官方學校願景標籤色系（感恩・學習・健康・五力均備） */
+.ui-vis-gratitude, .ui-vis-cooperative { --v: #059669 !important; background: #059669 !important; color: #ffffff !important; }
+.ui-vis-learning, .ui-vis-rational { --v: #0284c7 !important; background: #0284c7 !important; color: #ffffff !important; }
+.ui-vis-health, .ui-vis-vital { --v: #ea580c !important; background: #ea580c !important; color: #ffffff !important; }
+.ui-vis-five_powers, .ui-vis-creative { --v: #d97706 !important; background: #d97706 !important; color: #ffffff !important; }
+.ui-wintag { font-weight: 800; border: 1px solid rgba(2, 132, 199, 0.25); background: #ffffff; }
+.ui-isl-tags summary { font-size: 13.5px; font-weight: 800; color: #0284c7; }
+.ui-help-note { line-height: 1.6; font-size: 13px; color: #334155; }
 
 /* Modern Web Guidance: Prevent scroll chaining on modal dialogs and their backdrops */
 dialog:modal {

@@ -966,6 +966,15 @@ body.ui-big .lbl.bubble.is-me{font-size:15px;padding:4px 11px}
   --sq-gold: #f59e0b;
 }
 
+/* 大庄國小官方學校願景標籤色系（感恩・學習・健康・五力均備） */
+.ui-vis-gratitude, .ui-vis-cooperative { --v: #059669 !important; background: #059669 !important; color: #ffffff !important; }
+.ui-vis-learning, .ui-vis-rational { --v: #0284c7 !important; background: #0284c7 !important; color: #ffffff !important; }
+.ui-vis-health, .ui-vis-vital { --v: #ea580c !important; background: #ea580c !important; color: #ffffff !important; }
+.ui-vis-five_powers, .ui-vis-creative { --v: #d97706 !important; background: #d97706 !important; color: #ffffff !important; }
+.ui-wintag { font-weight: 800; border: 1px solid rgba(2, 132, 199, 0.25); background: #ffffff; }
+.ui-isl-tags summary { font-size: 13.5px; font-weight: 800; color: #0284c7; }
+.ui-help-note { line-height: 1.6; font-size: 13px; color: #334155; }
+
 /* Modern Web Guidance: Prevent scroll chaining on modal dialogs and their backdrops */
 dialog:modal {
   overscroll-behavior: contain;
@@ -2130,35 +2139,51 @@ const DATA = {
     "subEn": "Welcome to Da-Chuang Elementary School's 71st Anniversary Sports Day! Collect all 5 Power Stamps across 6 islands to ignite the 3D Victory Fireworks and claim your Gold Certificate."
   },
   "visions": {
-    "rational": {
-      "name": "知識力",
-      "nameEn": "Knowledge"
+    "gratitude": {
+      "name": "感恩・友善關懷",
+      "nameEn": "Gratitude & Care"
     },
-    "creative": {
-      "name": "美感力",
-      "nameEn": "Aesthetics"
+    "learning": {
+      "name": "學習・學習探索",
+      "nameEn": "Learning & Inquiry"
+    },
+    "health": {
+      "name": "健康・健康樂活",
+      "nameEn": "Health & Vitality"
+    },
+    "five_powers": {
+      "name": "五力均備・優質公民",
+      "nameEn": "All Five Powers"
     },
     "cooperative": {
-      "name": "群體＆道德力",
-      "nameEn": "Team & Moral"
+      "name": "感恩・友善關懷",
+      "nameEn": "Gratitude & Care"
+    },
+    "creative": {
+      "name": "學習・學習探索",
+      "nameEn": "Learning & Inquiry"
     },
     "vital": {
-      "name": "體能力",
-      "nameEn": "Vitality"
+      "name": "健康・健康樂活",
+      "nameEn": "Health & Vitality"
+    },
+    "rational": {
+      "name": "學習・學習探索",
+      "nameEn": "Learning & Inquiry"
     }
   },
   "winNotes": {
     "W": {
-      "name": "知識趣味",
-      "zh": "知識力：幼兒至六年級與親子趣味競賽，考驗反應、協調與腦力策略。"
+      "name": "庄進自強～超越自己",
+      "zh": "【學習探索・知識力】以素養為導向，依學習需求建構閱讀任務階梯，運用資訊與多元學習奠基知識力，自我展能；運動會中化為各年級智謀趣味競賽。"
     },
     "I": {
-      "name": "道德群體",
-      "zh": "道德力與群體力：運動員進場、開幕表揚資深志工與家長會、庄情薪傳跨世代接力。"
+      "name": "庄園窯啊餚～樂活成長",
+      "zh": "【友善關懷・道德＆群體力】以人文關懷出發，善用庄園柴燒窯料理與校園可食植物，感恩惜福；運動會中展現為運動員進場、熱心助學志工表揚與跨世代庄情薪傳接力賽。"
     },
     "N": {
-      "name": "體能美感",
-      "zh": "體能力與美感力：社團與學年主題舞蹈、個人 60m/100m/200m 賽跑與大隊接力決賽。"
+      "name": "康庄鐵道行～藝術小旅行",
+      "zh": "【健康樂活・美感＆體能力】透過鐵道美學與藝術探索感知，強健體魄，展現活力自信；運動會中化為大會開場街舞、各學年大會舞展演、個人徑賽與大隊接力決賽。"
     }
   },
   "customRoles": {
@@ -2755,7 +2780,7 @@ const DATA = {
         "9"
       ],
       "periods": "08:15 進場｜08:35 開幕｜08:50–08:54 表揚｜13:00 復原",
-      "vision": "cooperative",
+      "vision": "gratitude",
       "win": "I",
       "q": 0,
       "r": 0,
@@ -2956,7 +2981,7 @@ const DATA = {
         "9"
       ],
       "periods": "08:00–08:15 開場秀｜08:55–09:25 學年舞蹈與親子律動",
-      "vision": "creative",
+      "vision": "learning",
       "win": "N",
       "q": 1,
       "r": 0,
@@ -3125,7 +3150,7 @@ const DATA = {
         "9"
       ],
       "periods": "10/21–11/13 三至六年級預決賽｜當日 11:00 低年級 50m 跑走",
-      "vision": "vital",
+      "vision": "health",
       "win": "N",
       "q": 0,
       "r": 1,
@@ -3289,7 +3314,7 @@ const DATA = {
         "9"
       ],
       "periods": "11/25 六年級完賽｜當日 10:50 幼兒、11:20–11:40 三至五年級、12:00 庄情薪傳",
-      "vision": "cooperative",
+      "vision": "gratitude",
       "win": "I",
       "q": -1,
       "r": 1,
@@ -3458,7 +3483,7 @@ const DATA = {
         "9"
       ],
       "periods": "09:30–10:40 八場次趣味競賽連番登場",
-      "vision": "rational",
+      "vision": "learning",
       "win": "W",
       "q": -1,
       "r": 0,
@@ -3626,8 +3651,8 @@ const DATA = {
         "9"
       ],
       "periods": "12:20 閉幕頒獎｜全天候五力金牌證書核發",
-      "vision": "cooperative",
-      "win": "I",
+      "vision": "five_powers",
+      "win": "W",
       "q": 0,
       "r": -1,
       "ground": "brick",
@@ -4203,9 +4228,12 @@ const DATA = {
     "sections": [
       {
         "id": "vision",
-        "title": "七一大庄・五力飛揚",
+        "title": "大庄國小學校願景與五力學生圖像",
         "body": [
-          "大庄國小 71 週年校慶運動會以「道德力、群體力、美感力、知識力、體能力」五大核心素養貫穿全場 32 個節目與賽前個人賽，讓每位孩子在六道紫色跑道與翠綠草茵上盡情揮灑汗水。"
+          "學校願景三大基石：【感恩】、【學習】、【健康】。",
+          "課程願景三大向度：【友善關懷】（精進教學、創意創新）、【學習探索】（追求卓越、相互合作）、【健康樂活】（溫馨校園、支持信任）。",
+          "學生圖像與五力均備：經由友善關懷、學習探索、健康樂活素養學習，成為「道德力、知識力、美感力、體能力、群體力」五力均備的新世紀優質公民！",
+          "大庄校訂課程三大主軸（WIN 架構）：W 庄進自強～超越自己（學習探索・閱讀奠基知識力）、I 庄園窯啊餚～樂活成長（友善關懷・柴燒窯與可食植物實踐道德與體能力）、N 康庄鐵道行～藝術小旅行（健康樂活・鐵道鄉土美學策展）。"
         ]
       },
       {
@@ -9299,7 +9327,7 @@ const UI_NEWS_SHOW = 5;
 const UI_HONOR_SHOW = 5;
 const UI_BAR_H = 56; // 卡片 sticky 小標頭高度
 const UI_SEM_EN = { 上: 'F', 下: 'S', 全: 'Y', 一學期: '1' };
-const UI_WIN = { W: ['Inquiry', '在地探究', 'local inquiry'], I: ['Character', '品格生活', 'character & life'], N: ['Arts & sports', '藝能運動', 'arts & sports'] };
+const UI_WIN = { W: ['Inquiry', '庄進自強～超越自己', 'Self-improvement'], I: ['Character', '庄園窯啊餚～樂活成長', 'Kiln & Growth'], N: ['Arts & sports', '康庄鐵道行～藝術小旅行', 'Railway & Art'] };
 const UI_GRADES = [['低', '7'], ['中', '8'], ['高', '9']];
 const UI_LOG_MAX = 60;
 const UI_OFF_ISLAND = [3.4, 6.4, 7.6];
@@ -9364,7 +9392,7 @@ function uiSemName(sem) { return sem === '上' ? uiPhaseName(1) : sem === '下' 
 function uiNewsUrl(n) { return 'https://schnews.hc.edu.tw/?schoolName=' + encodeURIComponent('大庄國小') + '&keyword=' + encodeURIComponent(Array.from(String(n.title || '')).slice(0, 12).join('')); }
 // 願景／WIN 標籤直接帶前綴文字（不靠 title）
 function uiVisTag(v) { const d = DATA.visions && DATA.visions[v]; return d ? `<span class="ui-vis ui-vis-${uiEsc(v)}">${uiEsc(tr('學校願景・', 'Vision · ') + L(d, 'name'))}</span>` : ''; }
-function uiWinTag(w) { const d = UI_WIN[w], n = DATA.winNotes && DATA.winNotes[w]; return d ? `<span class="ui-wintag">${tr('課程類型', 'Type')}${tr('・', ' · ')}<b class="ui-win" aria-hidden="true">${w}</b>${uiEsc(n ? L(n, 'name') : tr(d[1].split('／')[0], d[0]))}</span>` : ''; }
+function uiWinTag(w) { const d = UI_WIN[w], n = DATA.winNotes && DATA.winNotes[w]; return d ? `<span class="ui-wintag">${tr('校訂課程', 'Curriculum')}${tr('・', ' · ')}<b class="ui-win" aria-hidden="true">${w}</b>${uiEsc(n ? L(n, 'name') : tr(d[1].split('／')[0], d[0]))}</span>` : ''; }
 // 島圖示文字：英文版用 nameEn 字首縮寫
 function uiGlyphText(d) { return LANG === 'en' ? String(d.nameEn || d.name || '').split(/[\s&–-]+/).filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase() : d.icon; }
 // 年級關鍵字（搜尋＋篩選用）：「全校」視為七八九
@@ -10142,7 +10170,7 @@ function initUI(ctx) {
     const wn = DATA.winNotes && DATA.winNotes[d.win];
     const tagsFold = (d.vision || d.win) ? `<details class="ui-fold ui-isl-tags"><summary><span class="ui-eyebrow">${tr('這座島的學校標籤', 'SCHOOL TAGS FOR THIS ISLE')}</span></summary>
         <div class="ui-meta">${uiVisTag(d.vision)}${uiWinTag(d.win)}</div>
-        <p class="ui-help-note">${uiEsc(tr('「學校願景」是大庄的四個方向：探究、創藝、友善、健康。「課程類型」是大庄三大主軸：W 在地探究、I 品格生活、N 藝能運動。', '“Vision” is one of Dazhuang’s four aims (vitality, creativity, cooperation, reason). “Type” follows the school’s WIN framework: W integrated themes, I team building, N clubs & crafts.'))}${wn ? '<br>' + uiEsc(L(wn, 'name') + tr('：', ': ') + (LANG === 'en' ? wn.en || wn.zh : wn.zh)) : ''}</p></details>` : '';
+        <p class="ui-help-note">${uiEsc(tr('【學校願景】大庄三大核心基石：感恩、學習、健康（課程願景：友善關懷、學習探索、健康樂活），培育「道德力、知識力、美感力、體能力、群體力」五力均備之新世紀優質公民！【校訂課程三大主軸】W 庄進自強～超越自己、I 庄園窯啊餚～樂活成長、N 康庄鐵道行～藝術小旅行。', '“School Vision” follows Dazhuang ES official foundation: Gratitude, Learning, Health (Care, Inquiry, Vitality), building students with all Five Powers. Curriculum WIN: W Self-improvement, I Kiln & Growth, N Railway & Art.'))}${wn ? '<br>' + uiEsc(L(wn, 'name') + tr('：', ': ') + (LANG === 'en' ? wn.en || wn.zh : wn.zh)) : ''}</p></details>` : '';
     return `<div class="ui-eyebrow">${uiKindName(d.kind)} · ${d.num}</div>
       <div class="ui-head">${glyph(d)}<div><h2>${uiEsc(L(d, 'full'))}</h2></div></div>
       <p class="ui-lead">${leadHtml}</p>

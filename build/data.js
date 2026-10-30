@@ -10,15 +10,29 @@ module.exports = {
     "subEn": "Welcome to Da-Chuang Elementary School's 71st Anniversary Sports Day! Collect all 5 Power Stamps across 6 islands to ignite the 3D Victory Fireworks and claim your Gold Certificate."
   },
   "visions": {
-    "rational": { "name": "知識力", "nameEn": "Knowledge" },
-    "creative": { "name": "美感力", "nameEn": "Aesthetics" },
-    "cooperative": { "name": "群體＆道德力", "nameEn": "Team & Moral" },
-    "vital": { "name": "體能力", "nameEn": "Vitality" }
+    "gratitude": { "name": "感恩・友善關懷", "nameEn": "Gratitude & Care" },
+    "learning": { "name": "學習・學習探索", "nameEn": "Learning & Inquiry" },
+    "health": { "name": "健康・健康樂活", "nameEn": "Health & Vitality" },
+    "five_powers": { "name": "五力均備・優質公民", "nameEn": "All Five Powers" },
+    // 相容性別名
+    "cooperative": { "name": "感恩・友善關懷", "nameEn": "Gratitude & Care" },
+    "creative": { "name": "學習・學習探索", "nameEn": "Learning & Inquiry" },
+    "vital": { "name": "健康・健康樂活", "nameEn": "Health & Vitality" },
+    "rational": { "name": "學習・學習探索", "nameEn": "Learning & Inquiry" }
   },
   "winNotes": {
-    "W": { "name": "知識趣味", "zh": "知識力：幼兒至六年級與親子趣味競賽，考驗反應、協調與腦力策略。" },
-    "I": { "name": "道德群體", "zh": "道德力與群體力：運動員進場、開幕表揚資深志工與家長會、庄情薪傳跨世代接力。" },
-    "N": { "name": "體能美感", "zh": "體能力與美感力：社團與學年主題舞蹈、個人 60m/100m/200m 賽跑與大隊接力決賽。" }
+    "W": {
+      "name": "庄進自強～超越自己",
+      "zh": "【學習探索・知識力】以素養為導向，依學習需求建構閱讀任務階梯，運用資訊與多元學習奠基知識力，自我展能；運動會中化為各年級智謀趣味競賽。"
+    },
+    "I": {
+      "name": "庄園窯啊餚～樂活成長",
+      "zh": "【友善關懷・道德＆群體力】以人文關懷出發，善用庄園柴燒窯料理與校園可食植物，感恩惜福；運動會中展現為運動員進場、熱心助學志工表揚與跨世代庄情薪傳接力賽。"
+    },
+    "N": {
+      "name": "康庄鐵道行～藝術小旅行",
+      "zh": "【健康樂活・美感＆體能力】透過鐵道美學與藝術探索感知，強健體魄，展現活力自信；運動會中化為大會開場街舞、各學年大會舞展演、個人徑賽與大隊接力決賽。"
+    }
   },
   "customRoles": {
     "coubertin": {
@@ -290,7 +304,7 @@ module.exports = {
       "grade": "全校師生與來賓",
       "grades": ["7", "8", "9"],
       "periods": "08:15 進場｜08:35 開幕｜08:50–08:54 表揚｜13:00 復原",
-      "vision": "cooperative",
+      "vision": "gratitude",
       "win": "I",
       "q": 0,
       "r": 0,
@@ -430,7 +444,7 @@ module.exports = {
       "grade": "幼兒園至六年級＆社團新住民",
       "grades": ["7", "8", "9"],
       "periods": "08:00–08:15 開場秀｜08:55–09:25 學年舞蹈與親子律動",
-      "vision": "creative",
+      "vision": "learning",
       "win": "N",
       "q": 1,
       "r": 0,
@@ -543,7 +557,7 @@ module.exports = {
       "grade": "一至六年級短跑健將",
       "grades": ["7", "8", "9"],
       "periods": "10/21–11/13 三至六年級預決賽｜當日 11:00 低年級 50m 跑走",
-      "vision": "vital",
+      "vision": "health",
       "win": "N",
       "q": 0,
       "r": 1,
@@ -655,7 +669,7 @@ module.exports = {
       "grade": "幼兒園、三至六年級、校友親師",
       "grades": ["7", "8", "9"],
       "periods": "11/25 六年級完賽｜當日 10:50 幼兒、11:20–11:40 三至五年級、12:00 庄情薪傳",
-      "vision": "cooperative",
+      "vision": "gratitude",
       "win": "I",
       "q": -1,
       "r": 1,
@@ -768,7 +782,7 @@ module.exports = {
       "grade": "幼兒園、一至六年級、學生與家長",
       "grades": ["7", "8", "9"],
       "periods": "09:30–10:40 八場次趣味競賽連番登場",
-      "vision": "rational",
+      "vision": "learning",
       "win": "W",
       "q": -1,
       "r": 0,
@@ -881,8 +895,8 @@ module.exports = {
       "grade": "全校獲獎健兒＆闖關挑戰者",
       "grades": ["7", "8", "9"],
       "periods": "12:20 閉幕頒獎｜全天候五力金牌證書核發",
-      "vision": "cooperative",
-      "win": "I",
+      "vision": "five_powers",
+      "win": "W",
       "q": 0,
       "r": -1,
       "ground": "brick",
@@ -1064,9 +1078,12 @@ module.exports = {
     "sections": [
       {
         "id": "vision",
-        "title": "七一大庄・五力飛揚",
+        "title": "大庄國小學校願景與五力學生圖像",
         "body": [
-          "大庄國小 71 週年校慶運動會以「道德力、群體力、美感力、知識力、體能力」五大核心素養貫穿全場 32 個節目與賽前個人賽，讓每位孩子在六道紫色跑道與翠綠草茵上盡情揮灑汗水。"
+          "學校願景三大基石：【感恩】、【學習】、【健康】。",
+          "課程願景三大向度：【友善關懷】（精進教學、創意創新）、【學習探索】（追求卓越、相互合作）、【健康樂活】（溫馨校園、支持信任）。",
+          "學生圖像與五力均備：經由友善關懷、學習探索、健康樂活素養學習，成為「道德力、知識力、美感力、體能力、群體力」五力均備的新世紀優質公民！",
+          "大庄校訂課程三大主軸（WIN 架構）：W 庄進自強～超越自己（學習探索・閱讀奠基知識力）、I 庄園窯啊餚～樂活成長（友善關懷・柴燒窯與可食植物實踐道德與體能力）、N 康庄鐵道行～藝術小旅行（健康樂活・鐵道鄉土美學策展）。"
         ]
       },
       {
