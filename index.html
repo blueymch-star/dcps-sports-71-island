@@ -1405,6 +1405,72 @@ dialog::backdrop {
   text-align: left;
   transition: all 0.15s ease;
 }
+.sq-rc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.sq-rc-diff {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sq-rc-diff.diff-easy, .sq-bq-diff-badge.diff-easy { background: #ecfdf5; color: #065f46; border: 1px solid #10b981; }
+.sq-rc-diff.diff-medium, .sq-bq-diff-badge.diff-medium { background: #e0f2fe; color: #0369a1; border: 1px solid #0284c7; }
+.sq-rc-diff.diff-hard, .sq-bq-diff-badge.diff-hard { background: #fef2f2; color: #991b1b; border: 1px solid #ef4444; }
+.sq-rc-diff.diff-parent, .sq-bq-diff-badge.diff-parent { background: #fff7ed; color: #9a3412; border: 1px solid #f97316; }
+.sq-rc-diff.diff-alumni, .sq-bq-diff-badge.diff-alumni { background: #fdf4ff; color: #86198f; border: 1px solid #c026d3; }
+
+.sq-bq-diff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sq-role-hint-box {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.sq-role-hint-box.diff-easy {
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+  color: #065f46;
+}
+.sq-role-hint-box.diff-hard {
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
+}
+.sq-role-hint-box.diff-parent {
+  background: #fff7ed;
+  border-left: 4px solid #f97316;
+  color: #9a3412;
+}
+.sq-role-hint-box.diff-alumni {
+  background: #fdf4ff;
+  border-left: 4px solid #c026d3;
+  color: #86198f;
+}
+.sq-role-hint-box.diff-medium {
+  background: #f0f9ff;
+  border-left: 4px solid #0284c7;
+  color: #0369a1;
+}
+
 .sq-role-card:hover { border-color: #7dd3fc; background: #f8fafc; }
 .sq-role-card.is-active {
   border-color: #0284c7;
@@ -1910,24 +1976,24 @@ dialog::backdrop {
       <label class="sq-form-label">🎽 選擇你的參賽代表身分：</label>
       <div class="sq-role-grid" id="sq-role-grid">
         <button type="button" class="sq-role-card is-active" data-role="低年級小選手" data-icon="🐯">
-          <strong>🐯 低年級小選手</strong>
-          <span>50m 紫色跑道跑走、跳跳虎、粒粒皆辛苦</span>
+          <div class="sq-rc-top"><strong>🐯 低年級小選手</strong> <span class="sq-rc-diff diff-easy">⭐ 入門友善</span></div>
+          <span>難度入門：充能門檻減半、附專屬小選手答題錦囊，輕鬆集章！</span>
         </button>
         <button type="button" class="sq-role-card" data-role="中年級飛毛腿" data-icon="⚡">
-          <strong>⚡ 中年級飛毛腿</strong>
-          <span>60m/100m 衝刺、巾球運送、罐罐相連、半圈接力</span>
+          <div class="sq-rc-top"><strong>⚡ 中年級飛毛腿</strong> <span class="sq-rc-diff diff-medium">⭐⭐ 標準進階</span></div>
+          <span>標準難度：標準賽程挑戰、紫色跑道起跑反應與運動常識考驗</span>
         </button>
         <button type="button" class="sq-role-card" data-role="高年級破風手" data-icon="🔥">
-          <strong>🔥 高年級破風手</strong>
-          <span>扇耀舞台、棍舞盛典、100m/200m 與全圈接力</span>
+          <div class="sq-rc-top"><strong>🔥 高年級破風手</strong> <span class="sq-rc-diff diff-hard">⭐⭐⭐ 競速破風</span></div>
+          <span>高難度挑戰：手速爆發連擊充能、嚴格起跑評等、專業賽事無提示！</span>
         </button>
         <button type="button" class="sq-role-card" data-role="熱血應援家長" data-icon="📸">
-          <strong>📸 熱血應援家長</strong>
-          <span>親子圈力衝刺、蕉你一起動一動、全程應援</span>
+          <div class="sq-rc-top"><strong>📸 熱血應援家長</strong> <span class="sq-rc-diff diff-parent">⭐⭐ 親子應援</span></div>
+          <span>親子難度：活力應援鼓掌連擊、親子觀賽亮點小貼士與攝影視角</span>
         </button>
         <button type="button" class="sq-role-card" data-role="親善校友貴賓" data-icon="🏅">
-          <strong>🏅 親善校友貴賓</strong>
-          <span>重溫六道紫色跑道、12:00 庄情薪傳接力賽</span>
+          <div class="sq-rc-top"><strong>🏅 親善校友貴賓</strong> <span class="sq-rc-diff diff-alumni">⭐⭐⭐ 校友薪傳</span></div>
+          <span>傳承難度：薪傳蓄力連擊、校史榮耀考驗、重溫大庄 71 年風華！</span>
         </button>
       </div>
     </div>
@@ -11441,9 +11507,83 @@ function initSportsQuest(ctx) {
     saveState();
     renderHud();
     if (regDlg.open) regDlg.close();
+    // 依據新身分立即刷新當前建築關卡難度
+    if (ctx.selection && ctx.selection.type === 'item') {
+      mountBuildingChallenge(ctx.selection.id);
+    } else {
+      const curMount = document.getElementById('sq-item-quest-mount');
+      if (curMount && curMount.dataset.itemId) {
+        mountBuildingChallenge(curMount.dataset.itemId);
+      }
+    }
   });
 
-  // 2. 19 座建築物卡片內嵌「專屬闖關挑戰」渲染器
+  // ================= 關卡難度自適應系統 (依照選擇角色動態調控) =================
+  function getRoleDifficulty(role) {
+    if (role === '低年級小選手') {
+      return {
+        level: 1,
+        star: '⭐',
+        name: '入門友善',
+        tagClass: 'diff-easy',
+        tapFactor: 0.6,
+        minTap: 2,
+        actionLabel: '只要連點',
+        reactEvaluator: (rt) => '🌟 超棒起跑！小選手反應：' + rt + ' 秒！姿勢 100 分，體能潛力無限！'
+      };
+    } else if (role === '高年級破風手') {
+      return {
+        level: 3,
+        star: '⭐⭐⭐',
+        name: '競速破風',
+        tagClass: 'diff-hard',
+        tapFactor: 1.5,
+        minTap: 6,
+        actionLabel: '🔥 爆發連擊',
+        reactEvaluator: (rt) => {
+          if (rt <= 0.28) return '🔥【神級破風反應】破大會紀錄！反應 ' + rt + ' 秒！頂級爆發力！';
+          if (rt <= 0.38) return '⚡【甲組選手水準】起跑敏捷反應：' + rt + ' 秒！破風表現亮眼！';
+          return '🏃【標準起跑】反應：' + rt + ' 秒！高年級破風手目標是突破 0.3 秒以內！';
+        }
+      };
+    } else if (role === '熱血應援家長') {
+      return {
+        level: 2,
+        star: '⭐⭐',
+        name: '親子應援',
+        tagClass: 'diff-parent',
+        tapFactor: 1.0,
+        minTap: 3,
+        actionLabel: '👏 應援掌聲',
+        reactEvaluator: (rt) => '📸 快門神捕捉！在第 ' + rt + ' 秒精準拍下孩子起跑的英姿！'
+      };
+    } else if (role === '親善校友貴賓') {
+      return {
+        level: 3,
+        star: '⭐⭐⭐',
+        name: '校友薪傳',
+        tagClass: 'diff-alumni',
+        tapFactor: 1.3,
+        minTap: 5,
+        actionLabel: '🏅 薪傳蓄力',
+        reactEvaluator: (rt) => '🏅 薪傳領跑！在第 ' + rt + ' 秒接棒衝刺，傳承大庄七一風華！'
+      };
+    } else {
+      // 預設 中年級飛毛腿
+      return {
+        level: 2,
+        star: '⭐⭐',
+        name: '標準進階',
+        tagClass: 'diff-medium',
+        tapFactor: 1.0,
+        minTap: 3,
+        actionLabel: '連擊充能',
+        reactEvaluator: (rt) => '⚡ 敏捷起跑！反應時間：' + rt + ' 秒！保持領先速度！'
+      };
+    }
+  }
+
+  // 2. 19 座建築物卡片內嵌「專屬闖關挑戰」渲染器（依照身分難度動態調節）
   function mountBuildingChallenge(itemId) {
     const mount = document.getElementById('sq-item-quest-mount');
     if (!mount) return;
@@ -11457,18 +11597,24 @@ function initSportsQuest(ctx) {
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
     const clearedCount = Object.keys(state.clearedItems || {}).filter(k => state.clearedItems[k]).length;
 
+    // 依據運動員身分獲取難易度設定
+    const curRole = state.role || '低年級小選手';
+    const diff = getRoleDifficulty(curRole);
+
     let stage1Done = isCleared;
-    let tapCount = isCleared ? (ch.targetCount || 3) : 0;
+    const baseTarget = ch.targetCount || 3;
+    // 依角色難度係數縮放連擊目標次數
+    const target = Math.max(diff.minTap, Math.round(baseTarget * diff.tapFactor));
+    let tapCount = isCleared ? target : 0;
     let seqIdx = isCleared ? ((ch.sequenceItems || []).length) : 0;
 
     let stage1Html = '';
     if (ch.mode === 'tap_charge') {
-      const target = ch.targetCount || 3;
       const pct = Math.min(100, Math.round((tapCount / target) * 100));
       stage1Html =
         '<div class="sq-bq-stage1">' +
           '<button type="button" class="sq-act-btn" id="sq-bq-act-btn" style="width:100%;justify-content:center;padding:8px 12px;font-size:13px;">' +
-            ch.actionBtn + ' (<span id="sq-bq-tap-num">' + tapCount + '/' + target + '</span>)' +
+            ch.actionBtn + ' (' + diff.actionLabel + ' <span id="sq-bq-tap-num">' + tapCount + '/' + target + '</span>)' +
           '</button>' +
           '<div class="sq-bq-meter"><div class="sq-bq-meter-fill" id="sq-bq-meter-fill" style="width:' + pct + '%;"></div></div>' +
           '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
@@ -11494,10 +11640,28 @@ function initSportsQuest(ctx) {
         '</div>';
     }
 
+    // 依據角色難度生成問答錦囊提示
+    const correctOpt = (ch.options && ch.options[ch.answer]) ? ch.options[ch.answer] : '';
+    let quizHintHtml = '';
+    if (curRole === '低年級小選手') {
+      quizHintHtml = '<div class="sq-role-hint-box diff-easy">💡 <strong>低年級小選手錦囊：</strong>答案是「' + correctOpt + '」喔！找找看在哪個選項！</div>';
+    } else if (curRole === '高年級破風手') {
+      quizHintHtml = '<div class="sq-role-hint-box diff-hard">🔥 <strong>高年級破風手挑戰：</strong>無提示！請運用你對大庄校慶賽程與運動精神的專業理解作答！</div>';
+    } else if (curRole === '熱血應援家長') {
+      quizHintHtml = '<div class="sq-role-hint-box diff-parent">📸 <strong>家長觀賽小貼士：</strong>此項目是大會親師生同樂的重要亮點，記得在看台為孩子們熱情喝采拍照！</div>';
+    } else if (curRole === '親善校友貴賓') {
+      quizHintHtml = '<div class="sq-role-hint-box diff-alumni">🏅 <strong>校友薪傳記憶：</strong>71 年傳承風華，此項活動承載著大庄歷代師生的共同記憶與運動家精神！</div>';
+    } else {
+      quizHintHtml = '<div class="sq-role-hint-box diff-medium">⚡ <strong>中年級飛毛腿提示：</strong>仔細閱讀題目與三個選項，選出真正符合大庄運動家精神的答案！</div>';
+    }
+
     mount.innerHTML =
       '<div class="sq-bldg-quest ' + (isCleared ? 'is-cleared' : '') + '" id="sq-bldg-quest-card">' +
         '<div class="sq-bq-head">' +
-          '<span class="sq-bq-tag">🎯 建築關卡｜' + ch.power + '</span>' +
+          '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
+            '<span class="sq-bq-tag">🎯 建築關卡｜' + ch.power + '</span>' +
+            '<span class="sq-bq-diff-badge ' + diff.tagClass + '">' + diff.star + ' ' + curRole + '（' + diff.name + '）</span>' +
+          '</div>' +
           '<span class="sq-bq-status" id="sq-bq-status">' + (isCleared ? '✅ 本建築已過關' : '⏳ 待闖關挑戰') + '</span>' +
         '</div>' +
         '<h3 class="sq-bq-title">' + ch.title + '</h3>' +
@@ -11505,6 +11669,7 @@ function initSportsQuest(ctx) {
         stage1Html +
         '<div id="sq-bq-quiz-wrap">' +
           '<p class="sq-bq-q">❓ ' + ch.question + '</p>' +
+          quizHintHtml +
           '<div class="sq-bq-opts" id="sq-bq-opts">' +
             (ch.options || []).map((opt, idx) =>
               '<button type="button" class="sq-bq-opt ' + (isCleared && idx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + idx + '">' +
@@ -11528,7 +11693,6 @@ function initSportsQuest(ctx) {
     // 綁定第一階段互動事件
     const msgEl = document.getElementById('sq-bq-stage1-msg');
     if (ch.mode === 'tap_charge') {
-      const target = ch.targetCount || 3;
       const actBtn = document.getElementById('sq-bq-act-btn');
       const numEl = document.getElementById('sq-bq-tap-num');
       const fillEl = document.getElementById('sq-bq-meter-fill');
@@ -11556,7 +11720,14 @@ function initSportsQuest(ctx) {
           } else {
             if (msgEl) {
               msgEl.hidden = false;
-              msgEl.textContent = '💡 請按照 ① ➔ ② ➔ ③ 的順序依序點擊喔！';
+              if (curRole === '高年級破風手') {
+                // 高年級嚴格重置
+                seqIdx = 0;
+                seqBtns.forEach(b => b.classList.remove('is-done'));
+                msgEl.textContent = '⚠️ 節奏錯誤！破風手請按照嚴格戰術節拍重新點擊！';
+              } else {
+                msgEl.textContent = '💡 請按照 ① ➔ ② ➔ ③ 的順序依序點擊喔！';
+              }
             }
           }
         });
@@ -11588,7 +11759,7 @@ function initSportsQuest(ctx) {
           reactBtn.style.background = '#ffffff';
           if (msgEl) {
             msgEl.hidden = false;
-            msgEl.textContent = '⚡ 砰！你在六道紫色跑道的起跑反應為 ' + rt + ' 秒！接著請回答下方問題：';
+            msgEl.textContent = diff.reactEvaluator(rt) + ' 接著請回答下方問題：';
           }
         }
       });
@@ -11911,7 +12082,8 @@ function initSportsQuest(ctx) {
     const playerName = state.name || '大庄運動小健將';
     c.fillStyle = '#1e293b';
     c.font = '28px "Microsoft JhengHei", sans-serif';
-    c.fillText('茲證明　' + state.icon + ' 【' + state.role + '】', W / 2, 295);
+    const curDiff = getRoleDifficulty(state.role);
+    c.fillText('茲證明　' + state.icon + ' 【' + state.role + '】（挑戰難度：' + curDiff.star + ' ' + curDiff.name + '）', W / 2, 295);
 
     c.fillStyle = '#0284c7';
     c.font = 'bold 60px "Microsoft JhengHei", sans-serif';
