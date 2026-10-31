@@ -1725,6 +1725,248 @@ dialog::backdrop {
 }
 
 
+/* 16 項個人賽與決賽英雄榜樣式 */
+.sq-race-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.sq-stat-card {
+  background: #ffffff;
+  border: 1.5px solid #e0f2fe;
+  border-radius: 12px;
+  padding: 8px 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.05);
+}
+.sq-stat-val {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #0284c7;
+  line-height: 1.2;
+}
+.sq-stat-lbl {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin-top: 2px;
+}
+.sq-race-toolbar {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sq-race-filters-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.sq-filter-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  min-width: 44px;
+}
+.sq-chip-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.sq-view-toggle {
+  margin-left: auto;
+  display: flex;
+  gap: 5px;
+}
+.sq-race-search-box {
+  position: relative;
+  width: 100%;
+}
+.sq-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.2s;
+}
+.sq-search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+.sq-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+.sq-races-mount {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sq-race-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.sq-race-card-head {
+  background: linear-gradient(90deg, #f0fdf4 0%, #f0f9ff 100%);
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sq-race-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sq-grade-pill {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.sq-race-meta {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sq-toggle-table-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284c7;
+  cursor: pointer;
+}
+.sq-toggle-table-btn:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+.sq-race-card-body {
+  padding: 10px 14px 14px 14px;
+}
+.sq-finalists-subhead {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 8px;
+}
+.sq-finalists-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+.sq-finalist-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+.sq-finalist-item.is-matched {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+.sq-rank-medal {
+  font-size: 13px;
+  font-weight: 800;
+}
+.sq-score-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 900;
+  font-size: 13px;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.sq-q-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.sq-q-badge.is-Q {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+.sq-q-badge.is-q {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.sq-table-compact th, .sq-table-compact td {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.sq-table tr.is-matched-row td {
+  background: #fef3c7 !important;
+  color: #92400e;
+  font-weight: 800;
+}
+.sq-table tr.is-q-row td {
+  background: #f0fdf4;
+}
+.sq-table tr.is-smallq-row td {
+  background: #f0f9ff;
+}
+.sq-rules-details {
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #f8fafc;
+}
+.sq-rules-summary {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
 </style>
 <div id="loader">
   <div class="loader-clay" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -2114,26 +2356,85 @@ dialog::backdrop {
       </div>
     </div>
     <div id="sq-pane-pre" hidden>
-      <div class="sq-clue-box" style="margin-bottom:12px;">
-        <strong>📌 71 週年校慶運動會競賽規程重點（比賽時間：115 年 10 月 21 日至 12 月 12 日）：</strong><br>
-        • <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。<br>
-        • <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<strong>※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</strong>
+      <!-- 頂部四大數據統計卡 -->
+      <div class="sq-race-stats-bar">
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">16</span>
+          <span class="sq-stat-lbl">個人賽單項</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">240</span>
+          <span class="sq-stat-lbl">參賽短跑健將</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">96</span>
+          <span class="sq-stat-lbl">晉級決賽英雄 (Q/q)</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">6 道</span>
+          <span class="sq-stat-lbl">紫色跑道預決賽</span>
+        </div>
       </div>
-      <div class="sq-table-wrap">
-        <table class="sq-table">
-          <thead>
-            <tr>
-              <th>日期</th>
-              <th>階段</th>
-              <th>比賽項目</th>
-              <th>點名時間</th>
-              <th>比賽時間</th>
-              <th>狀態與規程說明</th>
-            </tr>
-          </thead>
-          <tbody id="sq-pre-tbody"></tbody>
-        </table>
+
+      <!-- 搜尋與篩選工具列 -->
+      <div class="sq-race-toolbar">
+        <div class="sq-race-filters-row">
+          <span class="sq-filter-label">年級：</span>
+          <div class="sq-chip-group" id="sq-race-grade-chips">
+            <button type="button" class="sq-chip is-active" data-rgrade="ALL">全部 (16)</button>
+            <button type="button" class="sq-chip" data-rgrade="3">三年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="4">四年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="5">五年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="6">六年級 (4)</button>
+          </div>
+        </div>
+        <div class="sq-race-filters-row">
+          <span class="sq-filter-label">性別：</span>
+          <div class="sq-chip-group" id="sq-race-gender-chips">
+            <button type="button" class="sq-chip is-active" data-rgender="ALL">全部性別</button>
+            <button type="button" class="sq-chip" data-rgender="男">👦 男生組 (8)</button>
+            <button type="button" class="sq-chip" data-rgender="女">👧 女生組 (8)</button>
+          </div>
+          <div class="sq-view-toggle">
+            <button type="button" class="sq-chip is-active" id="sq-btn-view-finalists">🏅 決賽 6 強榜</button>
+            <button type="button" class="sq-chip" id="sq-btn-view-all">📋 完整 3 組道次</button>
+          </div>
+        </div>
+        <div class="sq-race-search-box">
+          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋選手姓名、班級（例如：四丙、林奕僑、六乙）..." autocomplete="off">
+          <button type="button" class="sq-search-clear" id="sq-race-search-clear" hidden>✕</button>
+        </div>
       </div>
+
+      <!-- 16 項個人賽卡片與成績渲染容器 -->
+      <div id="sq-races-mount" class="sq-races-mount"></div>
+
+      <!-- 競賽規程重點與賽程日程總表（折疊） -->
+      <details class="sq-rules-details" style="margin-top:16px;">
+        <summary class="sq-rules-summary">
+          <span>📌 運動會競賽規程重點與日程表總表（點此展開／收合）</span>
+        </summary>
+        <div class="sq-clue-box" style="margin: 10px 0 12px 0;">
+          <strong>📌 71 週年校慶運動會競賽規程重點（比賽時間：115 年 10 月 21 日至 12 月 12 日）：</strong><br>
+          • <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。<br>
+          • <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<strong>※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</strong>
+        </div>
+        <div class="sq-table-wrap">
+          <table class="sq-table">
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>階段</th>
+                <th>比賽項目</th>
+                <th>點名時間</th>
+                <th>比賽時間</th>
+                <th>狀態與規程說明</th>
+              </tr>
+            </thead>
+            <tbody id="sq-pre-tbody"></tbody>
+          </table>
+        </div>
+      </details>
     </div>
     <div id="sq-pane-models" hidden>
       <div class="sq-table-wrap">
@@ -3375,7 +3676,7 @@ const DATA = {
       "tree": "pine",
       "color": "#7c3aed",
       "lead": "體能力｜大庄招牌六道立體紫色跑道：標記 50m、60m、100m、200m 起跑標線與賽前個人賽完賽英雄榜",
-      "summary": "「疾風個人賽道」完美重現大庄國小最著名的六道紫色橡膠跑道！跑道上精準標記了 50m（一二年級跑走）、60m（中年級）、100m（中高年級）與 200m（高年級彎道分道差）四組起跑標線。三至六年級個人賽已於 10/21～11/13 晨間熱血完賽，各學年男女各取 6 人決賽，前 3 名獲頒獎牌與獎狀、4～6 名獲頒獎狀！",
+      "summary": "「疾風個人賽道」完美重現大庄國小最著名的六道紫色橡膠跑道！大會真實收錄三至六年級 16 項個人賽、240 位大庄短跑健將分組名冊與成績、96 位晉級決賽英雄榜。三至六年級個人賽已於 10/21～11/13 晨間熱血完賽，各學年男女各取 6 人決賽，前 3 名獲頒獎牌與獎狀、4～6 名獲頒獎狀！",
       "keywords": [
         "體能力",
         "紫色跑道",
@@ -3487,11 +3788,11 @@ const DATA = {
           "id": "s03i3",
           "model": "bulletin",
           "name": "賽前完賽英雄公告欄",
-          "desc": "公布 10/21～11/13 已完賽的三至六年級 60m、100m、200m 個人賽英雄榜！前三名獲頒獎牌與獎狀，四至六名獲頒獎狀。",
+          "desc": "收錄 16 項個人賽（60m、100m、200m）240 位參賽小健將分組道次名冊、實測成績與 96 位晉級決賽英雄榜！前三名獲頒獎牌與獎狀，四至六名獲頒獎狀。",
           "facts": [
-            "11/10 中年級 60m/100m 決賽",
-            "11/13 高年級 100m/200m 決賽",
-            "每位同學個人單項至多參加一項"
+            "大會三至六年級 16 項個人賽共 240 位小選手熱血角逐",
+            "各項目分 3 組取每組第 1 名(Q)＋擇優 3 名(q)共 6 人挺進決賽",
+            "四丙林奕僑 9.90s、六甲楊昕翰 31.95s、六乙韓宥能 15.36s 榮登各項預賽風雲榜"
           ],
           "when": "11/10（二）中年級決賽｜11/13（五）高年級決賽完賽公告",
           "phase": 2,
@@ -4495,9 +4796,9 @@ const DATA = {
       "kind": "sprint",
       "topic": "sprint",
       "island": "s03",
-      "title": "【已完賽】中年級 60 公尺決賽（三年級、四年級男女子組前六強）",
+      "title": "【已完賽】中年級 60 公尺決賽（三、四年級男女共 4 項 60 人參賽，24 強晉級決賽）",
       "award": "前 3 名頒發獎牌及獎狀｜4～6 名頒發獎狀",
-      "org": "10/21 預賽晉級 → 11/10（二）08:10–08:40 決賽完賽"
+      "org": "10/21 預賽（四丙林奕僑 9.90s 榜首）→ 11/10 決賽"
     },
     {
       "id": "h02",
@@ -4506,9 +4807,9 @@ const DATA = {
       "kind": "sprint",
       "topic": "sprint",
       "island": "s03",
-      "title": "【已完賽】中年級 100 公尺決賽（三年級、四年級男女子組前六強）",
+      "title": "【已完賽】中年級 100 公尺決賽（三、四年級男女共 4 項 60 人參賽，24 強晉級決賽）",
       "award": "前 3 名頒發獎牌及獎狀｜4～6 名頒發獎狀",
-      "org": "10/28 預賽晉級 → 11/10（二）08:10–08:40 決賽完賽"
+      "org": "10/27 預賽（四丙韓祐諺 17.36s 榜首）→ 11/10 決賽"
     },
     {
       "id": "h03",
@@ -4517,9 +4818,9 @@ const DATA = {
       "kind": "sprint",
       "topic": "sprint",
       "island": "s03",
-      "title": "【已完賽】高年級 100 公尺決賽（五年級、六年級男女子組前六強）",
+      "title": "【已完賽】高年級 100 公尺決賽（五、六年級男女共 4 項 60 人參賽，24 強晉級決賽）",
       "award": "前 3 名頒發獎牌及獎狀｜4～6 名頒發獎狀",
-      "org": "10/27 預賽晉級 → 11/13（五）08:10–08:40 決賽完賽"
+      "org": "10/28 預賽（六乙韓宥能 15.36s 榜首）→ 11/13 決賽"
     },
     {
       "id": "h04",
@@ -4528,9 +4829,9 @@ const DATA = {
       "kind": "sprint",
       "topic": "sprint",
       "island": "s03",
-      "title": "【已完賽】高年級 200 公尺決賽（五年級、六年級男女子組前六強）",
+      "title": "【已完賽】高年級 200 公尺決賽（五、六年級男女共 4 項 60 人參賽，24 強晉級決賽）",
       "award": "前 3 名頒發獎牌及獎狀｜4～6 名頒發獎狀",
-      "org": "10/30 預賽晉級 → 11/13（五）08:10–08:40 決賽完賽"
+      "org": "10/30 預賽（六甲楊昕翰 31.95s 榜首）→ 11/13 決賽"
     },
     {
       "id": "h05",
@@ -4625,6 +4926,3768 @@ const DATA = {
       "title": "【體能力＆群體力決賽 24–30】幼兒接力、低年級 50m 跑走、大隊接力決賽與庄情薪傳",
       "summary": "10:50 幼兒親子接力、11:00 一二年級 50m 跑走、11:20–11:40 三四五年級大隊接力決賽（六年級已於 11/25 完賽），12:00 校友親師「庄情薪傳接力賽」壓軸登場！",
       "url": "#schedule"
+    },
+    {
+      "id": "n07",
+      "date": "10/21 08:10",
+      "island": "s03",
+      "title": "【體能極速】四年級男子 60m 預賽：四丙林奕僑飆出 9.90 秒驚豔全場，奪分組第 1 強勢晉級！",
+      "summary": "四丙林奕僑在第 2 組第 4 道飆出全校中年級唯一 9 秒級成績（9.90s），攜手四甲鄭安芥(10.07s)、彭威皓(10.08s)等 6 位強者挺進決賽！",
+      "url": "#pre-events"
+    },
+    {
+      "id": "n08",
+      "date": "10/28 08:10",
+      "island": "s03",
+      "title": "【高年級破風】六年級男子 100m 預賽：六乙韓宥能 15.36 秒疾風領跑六年級百米大關！",
+      "summary": "六乙韓宥能於第 3 組跑出 15.36 秒奪下全大會百米最快預賽成績，六甲杜哲安(16.26s)、六乙吳承軒(16.29s)等 6 強挺進六道紫色跑道決賽！",
+      "url": "#pre-events"
+    },
+    {
+      "id": "n09",
+      "date": "10/30 08:10",
+      "island": "s03",
+      "title": "【彎道巔峰對決】六年級楊昕翰 31.95 秒、五年級鄭翔亦 31.96 秒雙雙打破 32 秒大關晉級 200m！",
+      "summary": "六甲楊昕翰(31.95s)與五乙鄭翔亦(31.96s)展現強大爆發力與彎道掌控力，分別榮膺高年級 200 公尺預賽榜首，強勢晉級 11/13 決賽！",
+      "url": "#pre-events"
+    },
+    {
+      "id": "n10",
+      "date": "10/21–10/28",
+      "island": "s03",
+      "title": "【巾幗不讓鬚眉】三至六年級女子短跑四后陳彩芊、胡伊凡、宋玉玲、洪莞喻風光摘下各學年預賽后座！",
+      "summary": "三丙陳彩芊(60m 11.10s)、四丙胡伊凡(60m 10.57s)、五乙宋玉玲(100m 16.77s)、六乙洪莞喻(100m 16.64s)展現大庄女孩體能力，勇奪各年段預賽第一！",
+      "url": "#pre-events"
+    }
+  ],
+  "individualRaces": [
+    {
+      "id": "ir01",
+      "name": "三年級男生組 60 公尺",
+      "grade": 3,
+      "gradeLabel": "三年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "60m",
+      "prelimDate": "115.10.21",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "胡俊瑋",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 10.27,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "徐御宸",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 10.61,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "蘇恩喜",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 10.69,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "陳宥奕",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "score": 10.84,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "蔡愷倫",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 10.98,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "張庭米",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 11.01,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "劉浩然",
+          "score": 11.33,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "盧禹澄",
+          "score": 11.3,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "陳宥奕",
+          "score": 10.84,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "張庭米",
+          "score": 11.01,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "余睿軒",
+          "score": 12.04,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "李旻軒",
+          "score": 11.17,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "李名冠",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "楊啟鋒",
+          "score": 12.22,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "蘇恩喜",
+          "score": 10.69,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "胡俊瑋",
+          "score": 10.27,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "陳明昊",
+          "score": 11.86,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 3,
+          "name": "陳柏翰",
+          "score": 12.04,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "陳少宇",
+          "score": 11.45,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "徐御宸",
+          "score": 10.61,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "蔡愷倫",
+          "score": 10.98,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    {
+      "id": "ir02",
+      "name": "三年級女生組 60 公尺",
+      "grade": 3,
+      "gradeLabel": "三年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "60m",
+      "prelimDate": "115.10.21",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳彩芊",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 11.1,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "何書菲",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 11.3,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 3,
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "江沁芸",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 11.46,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "蔡星慧",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 11.53,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "張羽樂",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "score": 11.59,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "陳雋昀",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 11.62,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "趙晨恩",
+          "score": 16.75,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "陳苡若",
+          "score": 12.36,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "許思榕",
+          "score": 13.04,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "郭妍甯",
+          "score": 12.53,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "陳雋昀",
+          "score": 11.62,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "王苡羽",
+          "score": 13.35,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "張羽樂",
+          "score": 11.59,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "蔡星慧",
+          "score": 11.53,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "江沁芸",
+          "score": 11.46,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "徐瑀岑",
+          "score": 12.21,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "三丁",
+          "studentNo": 3,
+          "name": "蔡芯語",
+          "score": 13.02,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "王佑姿",
+          "score": 12.76,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "施妤潔",
+          "score": 12.05,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "何書菲",
+          "score": 11.3,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳彩芊",
+          "score": 11.1,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        }
+      ]
+    },
+    {
+      "id": "ir03",
+      "name": "三年級男生組 100 公尺",
+      "grade": 3,
+      "gradeLabel": "三年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "100m",
+      "prelimDate": "115.10.27",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳星凱",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 18.74,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "潘霆杰",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 18.87,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "萬晧呈",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 19.14,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳勇吉",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 19.36,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "葉寶鴻",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "score": 19.39,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "林宇晨",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 19.46,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "張佳叡",
+          "score": 22.34,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "葉寶鴻",
+          "score": 19.39,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "陳竑銧",
+          "score": 20.58,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳勇吉",
+          "score": 19.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "林宇晨",
+          "score": 19.46,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "三丁",
+          "studentNo": 3,
+          "name": "李國睿",
+          "score": 20.81,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "林修聿",
+          "score": 20.61,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "吳宥仁",
+          "score": 20.37,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "潘霆杰",
+          "score": 18.87,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "鍾岳君",
+          "score": 20.62,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "任家煦",
+          "score": 20.77,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "趙旻澤",
+          "score": 20.8,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "江宥辰",
+          "score": 20.07,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳星凱",
+          "score": 18.74,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "萬晧呈",
+          "score": 19.14,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    {
+      "id": "ir04",
+      "name": "三年級女生組 100 公尺",
+      "grade": 3,
+      "gradeLabel": "三年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "100m",
+      "prelimDate": "115.10.27",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "鍾瑀芩",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 18.92,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "劉庭孜",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "score": 19.34,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 3,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "林榆霏",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 19.65,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "胡蕎羽",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 19.68,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳蘭欣",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 20.88,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 6,
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "洪詩瑜",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 20.93,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "三丁",
+          "studentNo": 3,
+          "name": "陳思瑄",
+          "score": 33.98,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "陳芋樺",
+          "score": 25.56,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "劉庭孜",
+          "score": 19.34,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "吳晨希",
+          "score": 21.99,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "鍾瑀芩",
+          "score": 18.92,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "蕭以莃",
+          "score": 24.15,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "鄭予菲",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "陳思妘",
+          "score": 22.15,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "林榆霏",
+          "score": 19.65,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "胡蕎羽",
+          "score": 19.68,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "韓采儀",
+          "score": 25.89,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "吳妘妍",
+          "score": 25.29,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳蘭欣",
+          "score": 20.88,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "洪詩瑜",
+          "score": 20.93,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "沈思函",
+          "score": 23.89,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir05",
+      "name": "四年級男生組 60 公尺",
+      "grade": 4,
+      "gradeLabel": "四年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "60m",
+      "prelimDate": "115.10.21",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "林奕僑",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 9.9,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "鄭安芥",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 10.07,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "彭威皓",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 10.08,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳奕宇",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 10.11,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "賴奕晟",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 10.15,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "林敬閎",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 10.35,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "朱復暉",
+          "score": 11.5,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "陳柏晏",
+          "score": 11.6,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "陳佑宗",
+          "score": 10.95,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "鄭安芥",
+          "score": 10.07,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "賴奕晟",
+          "score": 10.15,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "徐彥凱",
+          "score": 12.71,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "李紹滔",
+          "score": 10.62,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 3,
+          "name": "梁瑀曜",
+          "score": 10.69,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "林奕僑",
+          "score": 9.9,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "彭威皓",
+          "score": 10.08,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "李冠亦",
+          "score": 10.7,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "四甲",
+          "studentNo": 3,
+          "name": "王宥崴",
+          "score": 11,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "林敬閎",
+          "score": 10.35,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳奕宇",
+          "score": 10.11,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "許宥誠",
+          "score": 10.9,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir06",
+      "name": "四年級女生組 60 公尺",
+      "grade": 4,
+      "gradeLabel": "四年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "60m",
+      "prelimDate": "115.10.21",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "胡伊凡",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "score": 10.57,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "陳湘妮",
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "score": 10.9,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "黃楷芯",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 10.95,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "汪碩妍",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 11.41,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "張筱雨",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 11.42,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "孫以悅",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 11.44,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "四戊",
+          "studentNo": 3,
+          "name": "李岱錦",
+          "score": 12.01,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "胡伊凡",
+          "score": 10.57,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "四甲",
+          "studentNo": 3,
+          "name": "吳采霏",
+          "score": 11.78,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "孫沛郁",
+          "score": 11.51,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "孫以悅",
+          "score": 11.44,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "張嫙真",
+          "score": 12.4,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "胡蕎尹",
+          "score": 11.7,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "周言芯",
+          "score": 11.93,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "黃楷芯",
+          "score": 10.95,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "張筱雨",
+          "score": 11.42,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "吳芮菲",
+          "score": 11.48,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "陳湘妮",
+          "score": 10.9,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "范瑄容",
+          "score": 12.11,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "汪碩妍",
+          "score": 11.41,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "萬梓妍",
+          "score": 12.69,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir07",
+      "name": "四年級男生組 100 公尺",
+      "grade": 4,
+      "gradeLabel": "四年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "100m",
+      "prelimDate": "115.10.27",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "韓祐諺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 17.36,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "林楷祐",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 17.39,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "吳苡廷",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 17.66,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "陳莅諳",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "score": 18.16,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "韓宇信",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 18.48,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 6,
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "陳均銘",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 18.6,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "四甲",
+          "studentNo": 3,
+          "name": "蔡靖煊",
+          "score": 20.89,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "四戊",
+          "studentNo": 3,
+          "name": "張承頤",
+          "score": 20.39,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "陳莅諳",
+          "score": 18.16,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "董耘鋕",
+          "score": 18.61,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "韓祐諺",
+          "score": 17.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "李國佑",
+          "score": 22.14,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "張文遠",
+          "score": 19.34,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "蔡承哲",
+          "score": 18.61,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "吳苡廷",
+          "score": 17.66,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "林楷祐",
+          "score": 17.39,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "余莀翔",
+          "score": 23.28,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "張庭宇",
+          "score": 20.32,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "陳誌珩",
+          "score": 18.67,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "韓宇信",
+          "score": 18.48,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "陳均銘",
+          "score": 18.6,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    {
+      "id": "ir08",
+      "name": "四年級女生組 100 公尺",
+      "grade": 4,
+      "gradeLabel": "四年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "100m",
+      "prelimDate": "115.10.27",
+      "finalDate": "115.11.10",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "郭鈺菲",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 18.98,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "李品希",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 19.26,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "李穎嫿",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 19.36,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳玟僑",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 19.85,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "林巧睎",
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "score": 19.9,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "林羽桐",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 20.33,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "林珈伃",
+          "score": 21.25,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "潘家芯",
+          "score": 20.45,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "林芷榆",
+          "score": 20.75,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳玟僑",
+          "score": 19.85,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "郭鈺菲",
+          "score": 18.98,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "林巧睎",
+          "score": 19.9,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "四甲",
+          "studentNo": 3,
+          "name": "林彩婷",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "李穎嫿",
+          "score": 19.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "劉欣怡",
+          "score": 20.76,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "林羽桐",
+          "score": 20.33,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "郭紜菲",
+          "score": 22.21,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "四戊",
+          "studentNo": 3,
+          "name": "彭伂岑",
+          "score": 20.89,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "李品希",
+          "score": 19.26,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "康芷瑜",
+          "score": 20.46,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "陳霈昕",
+          "score": 21.39,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir09",
+      "name": "五年級男生組 100 公尺",
+      "grade": 5,
+      "gradeLabel": "五年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "100m",
+      "prelimDate": "115.10.28",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "江昆霖",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 15.91,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "王裕碩",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 16.42,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "李秉榤",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 16.58,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "陳博瑞",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "score": 16.86,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "陳祤承",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 17.07,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "陳劭昆",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 17.26,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "高伯昇",
+          "score": 19.52,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "陳博瑞",
+          "score": 16.86,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 2,
+          "name": "劉宇恩",
+          "score": 18.36,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "王裕碩",
+          "score": 16.42,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "陳祤承",
+          "score": 17.07,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "陳品安",
+          "score": 21.72,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "五丁",
+          "studentNo": 3,
+          "name": "林軒詣",
+          "score": 20.35,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "陳劭昆",
+          "score": 17.26,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "李秉榤",
+          "score": 16.58,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "余弘毅",
+          "score": 18.44,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "五戊",
+          "studentNo": 2,
+          "name": "林辰熙",
+          "score": 19.67,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "五丁",
+          "studentNo": 2,
+          "name": "林宇浩",
+          "score": 19.62,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "蔡易宸",
+          "score": 19.13,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "江昆霖",
+          "score": 15.91,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "張少陽",
+          "score": 17.31,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir10",
+      "name": "五年級女生組 100 公尺",
+      "grade": 5,
+      "gradeLabel": "五年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "100m",
+      "prelimDate": "115.10.28",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "宋玉玲",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 16.77,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "蔡妤臻",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 17.1,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "齊祤堂",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 17.25,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "張云瑄",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 17.92,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "林芷歆",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 18.56,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "傅巧昕",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 18.58,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "五丁",
+          "studentNo": 2,
+          "name": "高梓茜",
+          "score": 19.62,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "張心姮",
+          "score": 20.27,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 2,
+          "name": "張綺真",
+          "score": 19.52,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "張云瑄",
+          "score": 17.92,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "林芷歆",
+          "score": 18.56,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "蘇珈薰",
+          "score": 19.08,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "五戊",
+          "studentNo": 2,
+          "name": "劉庭昀",
+          "score": 19.42,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "齊祤堂",
+          "score": 17.25,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "宋玉玲",
+          "score": 16.77,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "傅巧昕",
+          "score": 18.58,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "五丁",
+          "studentNo": 3,
+          "name": "吳艾恩",
+          "score": 20.6,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "張巧霓",
+          "score": 19.85,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "張礽蕙",
+          "score": 18.88,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "蔡妤臻",
+          "score": 17.1,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "詹語佳",
+          "score": 19.82,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir11",
+      "name": "五年級男生組 200 公尺",
+      "grade": 5,
+      "gradeLabel": "五年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "200m",
+      "prelimDate": "115.10.30",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "鄭翔亦",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 31.96,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "呂謹安",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 34.61,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "蘇恩旭",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 36.04,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "許書禕",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 36.65,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "林昱宏",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 37.35,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "彭祥宇",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 38.02,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "徐晟瑋",
+          "score": 43.94,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "葉秉宥",
+          "score": 38.09,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "五戊",
+          "studentNo": 2,
+          "name": "鄧旭呈",
+          "score": 39.15,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "許書禕",
+          "score": 36.65,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "許文豪",
+          "score": 38.28,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "五甲",
+          "studentNo": 2,
+          "name": "張宏睿",
+          "score": 45.56,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "五丁",
+          "studentNo": 2,
+          "name": "潘仕強",
+          "score": 41.15,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "黃韋辰",
+          "score": 38.88,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "呂謹安",
+          "score": 34.61,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "蘇恩旭",
+          "score": 36.04,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "江育臣",
+          "score": 42.09,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "五丁",
+          "studentNo": 3,
+          "name": "許承楷",
+          "score": 45.66,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "林昱宏",
+          "score": 37.35,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "鄭翔亦",
+          "score": 31.96,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "彭祥宇",
+          "score": 38.02,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    {
+      "id": "ir12",
+      "name": "五年級女生組 200 公尺",
+      "grade": 5,
+      "gradeLabel": "五年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "200m",
+      "prelimDate": "115.10.30",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "黃婉媃",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 33.86,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "李尚妍",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 37.57,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "蔡昕穎",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 39.53,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "徐璟萱",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 39.66,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 5,
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "張芯僑",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 39.71,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "邱怡捷",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "score": 40.57,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "楊詠琳",
+          "score": 46.91,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "邱怡捷",
+          "score": 40.57,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "五丁",
+          "studentNo": 2,
+          "name": "柯喬予",
+          "score": 41.92,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "徐璟萱",
+          "score": 39.66,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "陳芊羽",
+          "score": 41.39,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "五戊",
+          "studentNo": 2,
+          "name": "劉伃恬",
+          "score": 46.68,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "簡苡芯",
+          "score": 42.61,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 2,
+          "name": "吳芷媃",
+          "score": 41.02,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "李尚妍",
+          "score": 37.57,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "張芯僑",
+          "score": 39.71,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "五丁",
+          "studentNo": 3,
+          "name": "洪慧英",
+          "score": 41.17,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "張芷柔",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "蔡昕穎",
+          "score": 39.53,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "黃婉媃",
+          "score": 33.86,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "蔡昀臻",
+          "score": 42.28,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir13",
+      "name": "六年級男生組 100 公尺",
+      "grade": 6,
+      "gradeLabel": "六年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "100m",
+      "prelimDate": "115.10.28",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "韓宥能",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 15.36,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "杜哲安",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 16.26,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "吳承軒",
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "score": 16.29,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "李國詣",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 16.34,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "陳莅翔",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 16.45,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 6,
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "吳晟佑",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 16.49,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "吳承軒",
+          "score": 16.29,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "柯凱紘",
+          "score": 16.98,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "陳昱年",
+          "score": 16.96,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "杜哲安",
+          "score": 16.26,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "六戊",
+          "studentNo": 2,
+          "name": "詹元廷",
+          "score": 17.45,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "李昱叡",
+          "score": 18.18,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "張凱傑",
+          "score": 18.27,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "陳莅翔",
+          "score": 16.45,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "陳宥勳",
+          "score": 16.53,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "吳晟佑",
+          "score": 16.49,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "六甲",
+          "studentNo": 3,
+          "name": "施貿淞",
+          "score": 17.41,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "六丙",
+          "studentNo": 3,
+          "name": "陳耘秧",
+          "score": 17.34,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "李國詣",
+          "score": 16.34,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "韓宥能",
+          "score": 15.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "林晉玄",
+          "score": 17.04,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir14",
+      "name": "六年級女生組 100 公尺",
+      "grade": 6,
+      "gradeLabel": "六年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "100m",
+      "prelimDate": "115.10.28",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "洪莞喻",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 16.64,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "鍾瑀芯",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 16.66,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "何欣蓉",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "score": 16.81,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 4,
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "陳雨晴",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "score": 16.92,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "康芷嫣",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "score": 17.02,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 6,
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "楊惟歆",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "score": 17.13,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "六甲",
+          "studentNo": 3,
+          "name": "張語倪",
+          "score": 19.67,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "方楀喬",
+          "score": 18.83,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "六丙",
+          "studentNo": 3,
+          "name": "陳柔安",
+          "score": 18.04,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "洪莞喻",
+          "score": 16.64,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "何欣蓉",
+          "score": 16.81,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "施佩妘",
+          "score": 19.64,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "陳雨晴",
+          "score": 16.92,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "楊惟歆",
+          "score": 17.13,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "鍾瑀芯",
+          "score": 16.66,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "吳昕芸",
+          "score": 18.22,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "洪貝瑄",
+          "score": 19.14,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 2,
+          "name": "翁筠茹",
+          "score": 18.47,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "康芷嫣",
+          "score": 17.02,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "林筠珊",
+          "score": 17.22,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "張羽晴",
+          "score": 17.56,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        }
+      ]
+    },
+    {
+      "id": "ir15",
+      "name": "六年級男生組 200 公尺",
+      "grade": 6,
+      "gradeLabel": "六年級",
+      "gender": "男",
+      "genderLabel": "男生組",
+      "distance": "200m",
+      "prelimDate": "115.10.30",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "楊昕翰",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 31.95,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "張凱勛",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 32.94,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "柯旻佑",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 33.33,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "陳宥綸",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 33.44,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "林恩左",
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "score": 34.07,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "黃楷宸",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "score": 34.26,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "江柏彥",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 2,
+          "name": "翟建智",
+          "score": 39.68,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "胡立杭",
+          "score": 35.29,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "柯旻佑",
+          "score": 33.33,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "陳奕安",
+          "score": 34.65,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "陳柏叡",
+          "score": 37.5,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六甲",
+          "studentNo": 3,
+          "name": "張閩佑",
+          "score": 43.35,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "汪碩澄",
+          "score": 35.79,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "陳宥綸",
+          "score": 33.44,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "張凱勛",
+          "score": 32.94,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "六丙",
+          "studentNo": 3,
+          "name": "施允珩",
+          "score": 37.87,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "林恩左",
+          "score": 34.07,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "楊誠安",
+          "score": 37.9,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "楊昕翰",
+          "score": 31.95,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "黃楷宸",
+          "score": 34.26,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    {
+      "id": "ir16",
+      "name": "六年級女生組 200 公尺",
+      "grade": 6,
+      "gradeLabel": "六年級",
+      "gender": "女",
+      "genderLabel": "女生組",
+      "distance": "200m",
+      "prelimDate": "115.10.30",
+      "finalDate": "115.11.13",
+      "athleteCount": 15,
+      "finalistCount": 6,
+      "finalists": [
+        {
+          "rank": 1,
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "王筱雯",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "score": 34.07,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 2,
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "吳苡菲",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "score": 35.42,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 3,
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "顏羽萱",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "score": 35.67,
+          "heatRank": "第 1 名",
+          "status": "晉級 (Q)"
+        },
+        {
+          "rank": 4,
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "張芷妤",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "score": 37.1,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 5,
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "陳欣昀",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "score": 37.49,
+          "heatRank": "第 2 名",
+          "status": "擇優晉級 (q)"
+        },
+        {
+          "rank": 6,
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "孫妤婕",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "score": 37.54,
+          "heatRank": "第 3 名",
+          "status": "擇優晉級 (q)"
+        }
+      ],
+      "athletes": [
+        {
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "陳亭嫣",
+          "score": 43.07,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "張簡宇芩",
+          "score": 44.46,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "張芷妤",
+          "score": 37.1,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "吳苡菲",
+          "score": 35.42,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "柯雨婕",
+          "score": "未出賽",
+          "heatRank": "未出賽",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "六戊",
+          "studentNo": 2,
+          "name": "周言芮",
+          "score": 42.01,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "陳欣昀",
+          "score": 37.49,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "吳芮蓁",
+          "score": 39.15,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "顏羽萱",
+          "score": 35.67,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "孫妤婕",
+          "score": 37.54,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "1 道",
+          "className": "六甲",
+          "studentNo": 3,
+          "name": "楊宜蓁",
+          "score": 40.27,
+          "heatRank": "第 4 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "六丙",
+          "studentNo": 3,
+          "name": "萬芮羽",
+          "score": 41.29,
+          "heatRank": "第 5 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "楊惟馨",
+          "score": 37.58,
+          "heatRank": "第 2 名",
+          "qualified": ""
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "王筱雯",
+          "score": 34.07,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "謝沛玹",
+          "score": 39.48,
+          "heatRank": "第 3 名",
+          "qualified": ""
+        }
+      ]
     }
   ],
   "evidence": {
@@ -11791,6 +15854,7 @@ function initSportsQuest(ctx) {
           '<div style="display:flex;gap:5px;">' +
             '<button type="button" class="sq-brand-pill" id="sq-bq-next-btn">👉 下一個建築關卡</button>' +
             '<button type="button" class="sq-brand-pill is-gold" id="sq-bq-cert-btn">🏆 護照與證書</button>' +
+            (it.id === 's03i3' ? '<button type="button" class="sq-brand-pill" id="sq-bq-races-btn" style="background:#7c3aed;color:#fff;border-color:#6d28d9;">🏃 查看 16 項個人賽成績</button>' : '') +
           '</div>' +
         '</div>' +
       '</div>';
@@ -11931,6 +15995,11 @@ function initSportsQuest(ctx) {
     document.getElementById('sq-bq-cert-btn')?.addEventListener('click', () => {
       triggerGrandFinale();
     });
+    document.getElementById('sq-bq-races-btn')?.addEventListener('click', () => {
+      renderScheduleTables('ALL');
+      switchSchedTab('pre');
+      if (!schedDlg.open) schedDlg.showModal();
+    });
   }
 
   // 當打開「島嶼卡（islandCard）」時，在島嶼卡裡的建築清單標示每棟建築的闖關狀態
@@ -12014,17 +16083,23 @@ function initSportsQuest(ctx) {
       });
     });
 
+    // 渲染大會賽程表規程總表
     const preTbody = document.getElementById('sq-pre-tbody');
-    preTbody.innerHTML = (DATA.preEvents || []).map(p =>
-      '<tr>' +
-        '<td><strong>' + p.date + '</strong></td>' +
-        '<td><span class="sq-power-badge sq-p-體能力">' + p.stage + '</span></td>' +
-        '<td><strong>' + p.item + '</strong></td>' +
-        '<td>' + p.callTime + '</td>' +
-        '<td>' + p.raceTime + '</td>' +
-        '<td>' + p.rule + '</td>' +
-      '</tr>'
-    ).join('');
+    if (preTbody) {
+      preTbody.innerHTML = (DATA.preEvents || []).map(p =>
+        '<tr>' +
+          '<td><strong>' + p.date + '</strong></td>' +
+          '<td><span class="sq-power-badge sq-p-體能力">' + p.stage + '</span></td>' +
+          '<td><strong>' + p.item + '</strong></td>' +
+          '<td>' + p.callTime + '</td>' +
+          '<td>' + p.raceTime + '</td>' +
+          '<td>' + p.rule + '</td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    // 渲染三至六年級 16 項個人賽完整大會名冊與決賽 6 強英雄榜
+    renderIndividualRaces();
 
     const modelsTbody = document.getElementById('sq-models-tbody');
     const modelRows = [];
@@ -12061,6 +16136,197 @@ function initSportsQuest(ctx) {
       renderScheduleTables(chip.dataset.pfilter);
     });
   });
+
+  // ================= 三至六年級 16 項個人賽與決賽英雄榜控制器 =================
+  let raceFilterGrade = 'ALL';
+  let raceFilterGender = 'ALL';
+  let raceFilterKw = '';
+  let raceViewMode = 'finalists'; // 'finalists' | 'all'
+  const expandedRaceIds = new Set();
+
+  function renderIndividualRaces() {
+    const mount = document.getElementById('sq-races-mount');
+    if (!mount) return;
+    const allRaces = DATA.individualRaces || [];
+    const kw = raceFilterKw.trim().toLowerCase();
+
+    const filtered = allRaces.filter(r => {
+      if (raceFilterGrade !== 'ALL' && String(r.grade) !== raceFilterGrade) return false;
+      if (raceFilterGender !== 'ALL' && r.gender !== raceFilterGender) return false;
+      if (kw) {
+        const inTitle = r.name.toLowerCase().includes(kw);
+        const inAthletes = (r.athletes || []).some(a =>
+          (a.name && a.name.toLowerCase().includes(kw)) ||
+          (a.className && a.className.toLowerCase().includes(kw)) ||
+          String(a.studentNo || '').includes(kw)
+        );
+        if (!inTitle && !inAthletes) return false;
+      }
+      return true;
+    });
+
+    if (filtered.length === 0) {
+      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林奕僑、六乙）。</div>';
+      return;
+    }
+
+    mount.innerHTML = filtered.map(r => {
+      const isExpanded = raceViewMode === 'all' || expandedRaceIds.has(r.id);
+      const gradeColor = r.grade === 3 ? '#9333ea' : r.grade === 4 ? '#0284c7' : r.grade === 5 ? '#0d9488' : '#d97706';
+
+      // 6 位晉級決賽英雄名單
+      const finHtml = (r.finalists || []).map((f, fIdx) => {
+        const isMatch = kw && ((f.name && f.name.toLowerCase().includes(kw)) || (f.className && f.className.toLowerCase().includes(kw)));
+        const rankMedal = fIdx === 0 ? '🥇' : fIdx === 1 ? '🥈' : fIdx === 2 ? '🥉' : '第 ' + (fIdx + 1) + ' 名';
+        const qBadge = f.status && f.status.includes('(Q)')
+          ? '<span class="sq-q-badge is-Q" title="分組第 1 名直接晉級決賽">晉級 (Q)</span>'
+          : '<span class="sq-q-badge is-q" title="擇優成績晉級決賽">擇優 (q)</span>';
+        const scoreStr = typeof f.score === 'number' ? f.score.toFixed(2) + 's' : (f.score || '-');
+        return (
+          '<div class="sq-finalist-item ' + (isMatch ? 'is-matched' : '') + '">' +
+            '<div style="display:flex;align-items:center;gap:6px;">' +
+              '<span class="sq-rank-medal">' + rankMedal + '</span>' +
+              '<strong>' + f.className + ' ' + f.name + '</strong>' +
+              '<span style="font-size:11px;color:#64748b;">(' + f.heat + ' ' + f.lane + ')</span>' +
+            '</div>' +
+            '<div style="display:flex;align-items:center;gap:6px;">' +
+              '<span class="sq-score-badge">' + scoreStr + '</span>' +
+              qBadge +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+
+      // 15 位完整道次表格（展開狀態）
+      let tableHtml = '';
+      if (isExpanded) {
+        tableHtml =
+          '<div class="sq-table-wrap" style="margin-top:10px;">' +
+            '<table class="sq-table sq-table-compact">' +
+              '<thead>' +
+                '<tr>' +
+                  '<th>組別</th>' +
+                  '<th>道次</th>' +
+                  '<th>班級</th>' +
+                  '<th>座號</th>' +
+                  '<th>姓名</th>' +
+                  '<th>預賽成績</th>' +
+                  '<th>分組名次</th>' +
+                  '<th>晉級狀態</th>' +
+                '</tr>' +
+              '</thead>' +
+              '<tbody>' +
+                (r.athletes || []).map(a => {
+                  const isMatch = kw && ((a.name && a.name.toLowerCase().includes(kw)) || (a.className && a.className.toLowerCase().includes(kw)));
+                  const isQ = a.qualified && a.qualified.includes('(Q)');
+                  const isq = a.qualified && a.qualified.includes('(q)');
+                  const rowClass = isMatch ? 'is-matched-row' : isQ ? 'is-q-row' : isq ? 'is-smallq-row' : '';
+                  const scoreStr = typeof a.score === 'number' ? a.score.toFixed(2) + 's' : (a.score || '-');
+                  return (
+                    '<tr class="' + rowClass + '">' +
+                      '<td>' + a.heat + '</td>' +
+                      '<td>' + a.lane + '</td>' +
+                      '<td><strong>' + a.className + '</strong></td>' +
+                      '<td>' + a.studentNo + '</td>' +
+                      '<td><strong>' + a.name + '</strong></td>' +
+                      '<td><span class="sq-score-badge">' + scoreStr + '</span></td>' +
+                      '<td>' + (a.heatRank || '-') + '</td>' +
+                      '<td>' + (isQ ? '<span class="sq-q-badge is-Q">晉級 (Q)</span>' : isq ? '<span class="sq-q-badge is-q">擇優 (q)</span>' : '-') + '</td>' +
+                    '</tr>'
+                  );
+                }).join('') +
+              '</tbody>' +
+            '</table>' +
+          '</div>';
+      }
+
+      const toggleBtnTxt = isExpanded ? '收合 3 組 15 道次 ▲' : '展開 3 組 15 道次完整名冊 ▼';
+
+      return (
+        '<div class="sq-race-card" data-race-id="' + r.id + '">' +
+          '<div class="sq-race-card-head">' +
+            '<div class="sq-race-title">' +
+              '<span class="sq-grade-pill" style="background:' + gradeColor + ';">' + r.gradeLabel + '</span>' +
+              '<span>' + r.name + '</span>' +
+            '</div>' +
+            '<div class="sq-race-meta">' +
+              '<span>🗓️ 預賽 ' + r.prelimDate + ' ｜ 決賽 ' + r.finalDate + '</span>' +
+              '<button type="button" class="sq-toggle-table-btn" data-toggle-race="' + r.id + '">' + toggleBtnTxt + '</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="sq-race-card-body">' +
+            '<div class="sq-finalists-subhead">🏅 決賽 6 強晉級名單（第 1 組至第 3 組第一名及擇優 3 名）：</div>' +
+            '<div class="sq-finalists-list">' + finHtml + '</div>' +
+            tableHtml +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    mount.querySelectorAll('[data-toggle-race]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rid = btn.dataset.toggleRace;
+        if (expandedRaceIds.has(rid)) expandedRaceIds.delete(rid);
+        else expandedRaceIds.add(rid);
+        renderIndividualRaces();
+      });
+    });
+  }
+
+  // 篩選與搜尋事件綁定
+  document.querySelectorAll('#sq-race-grade-chips .sq-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#sq-race-grade-chips .sq-chip').forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      raceFilterGrade = c.dataset.rgrade;
+      renderIndividualRaces();
+    });
+  });
+
+  document.querySelectorAll('#sq-race-gender-chips .sq-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#sq-race-gender-chips .sq-chip').forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      raceFilterGender = c.dataset.rgender;
+      renderIndividualRaces();
+    });
+  });
+
+  const btnViewFin = document.getElementById('sq-btn-view-finalists');
+  const btnViewAll = document.getElementById('sq-btn-view-all');
+  if (btnViewFin && btnViewAll) {
+    btnViewFin.addEventListener('click', () => {
+      btnViewFin.classList.add('is-active');
+      btnViewAll.classList.remove('is-active');
+      raceViewMode = 'finalists';
+      renderIndividualRaces();
+    });
+    btnViewAll.addEventListener('click', () => {
+      btnViewAll.classList.add('is-active');
+      btnViewFin.classList.remove('is-active');
+      raceViewMode = 'all';
+      renderIndividualRaces();
+    });
+  }
+
+  const raceSearchInput = document.getElementById('sq-race-search-input');
+  const raceSearchClear = document.getElementById('sq-race-search-clear');
+  if (raceSearchInput) {
+    raceSearchInput.addEventListener('input', () => {
+      raceFilterKw = raceSearchInput.value;
+      if (raceSearchClear) raceSearchClear.hidden = !raceFilterKw;
+      renderIndividualRaces();
+    });
+  }
+  if (raceSearchClear) {
+    raceSearchClear.addEventListener('click', () => {
+      raceSearchInput.value = '';
+      raceFilterKw = '';
+      raceSearchClear.hidden = true;
+      renderIndividualRaces();
+      raceSearchInput.focus();
+    });
+  }
 
   function switchSchedTab(tabName) {
     document.querySelectorAll('#sq-schedule-dialog .sq-tab').forEach(t => {

@@ -1145,6 +1145,248 @@ dialog::backdrop {
   white-space: nowrap;
 }
 
+
+/* 16 項個人賽與決賽英雄榜樣式 */
+.sq-race-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.sq-stat-card {
+  background: #ffffff;
+  border: 1.5px solid #e0f2fe;
+  border-radius: 12px;
+  padding: 8px 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.05);
+}
+.sq-stat-val {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #0284c7;
+  line-height: 1.2;
+}
+.sq-stat-lbl {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin-top: 2px;
+}
+.sq-race-toolbar {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sq-race-filters-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.sq-filter-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  min-width: 44px;
+}
+.sq-chip-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.sq-view-toggle {
+  margin-left: auto;
+  display: flex;
+  gap: 5px;
+}
+.sq-race-search-box {
+  position: relative;
+  width: 100%;
+}
+.sq-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.2s;
+}
+.sq-search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+.sq-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+.sq-races-mount {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sq-race-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.sq-race-card-head {
+  background: linear-gradient(90deg, #f0fdf4 0%, #f0f9ff 100%);
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sq-race-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sq-grade-pill {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.sq-race-meta {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sq-toggle-table-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284c7;
+  cursor: pointer;
+}
+.sq-toggle-table-btn:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+.sq-race-card-body {
+  padding: 10px 14px 14px 14px;
+}
+.sq-finalists-subhead {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 8px;
+}
+.sq-finalists-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+.sq-finalist-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+.sq-finalist-item.is-matched {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+.sq-rank-medal {
+  font-size: 13px;
+  font-weight: 800;
+}
+.sq-score-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 900;
+  font-size: 13px;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.sq-q-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.sq-q-badge.is-Q {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+.sq-q-badge.is-q {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.sq-table-compact th, .sq-table-compact td {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.sq-table tr.is-matched-row td {
+  background: #fef3c7 !important;
+  color: #92400e;
+  font-weight: 800;
+}
+.sq-table tr.is-q-row td {
+  background: #f0fdf4;
+}
+.sq-table tr.is-smallq-row td {
+  background: #f0f9ff;
+}
+.sq-rules-details {
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #f8fafc;
+}
+.sq-rules-summary {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+  user-select: none;
+}
+
+
 `;
 
 rep('</style>', customStyles + '\n</style>');
@@ -1262,26 +1504,85 @@ const customHtml = `
       </div>
     </div>
     <div id="sq-pane-pre" hidden>
-      <div class="sq-clue-box" style="margin-bottom:12px;">
-        <strong>📌 71 週年校慶運動會競賽規程重點（比賽時間：115 年 10 月 21 日至 12 月 12 日）：</strong><br>
-        • <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。<br>
-        • <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<strong>※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</strong>
+      <!-- 頂部四大數據統計卡 -->
+      <div class="sq-race-stats-bar">
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">16</span>
+          <span class="sq-stat-lbl">個人賽單項</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">240</span>
+          <span class="sq-stat-lbl">參賽短跑健將</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">96</span>
+          <span class="sq-stat-lbl">晉級決賽英雄 (Q/q)</span>
+        </div>
+        <div class="sq-stat-card">
+          <span class="sq-stat-val">6 道</span>
+          <span class="sq-stat-lbl">紫色跑道預決賽</span>
+        </div>
       </div>
-      <div class="sq-table-wrap">
-        <table class="sq-table">
-          <thead>
-            <tr>
-              <th>日期</th>
-              <th>階段</th>
-              <th>比賽項目</th>
-              <th>點名時間</th>
-              <th>比賽時間</th>
-              <th>狀態與規程說明</th>
-            </tr>
-          </thead>
-          <tbody id="sq-pre-tbody"></tbody>
-        </table>
+
+      <!-- 搜尋與篩選工具列 -->
+      <div class="sq-race-toolbar">
+        <div class="sq-race-filters-row">
+          <span class="sq-filter-label">年級：</span>
+          <div class="sq-chip-group" id="sq-race-grade-chips">
+            <button type="button" class="sq-chip is-active" data-rgrade="ALL">全部 (16)</button>
+            <button type="button" class="sq-chip" data-rgrade="3">三年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="4">四年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="5">五年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="6">六年級 (4)</button>
+          </div>
+        </div>
+        <div class="sq-race-filters-row">
+          <span class="sq-filter-label">性別：</span>
+          <div class="sq-chip-group" id="sq-race-gender-chips">
+            <button type="button" class="sq-chip is-active" data-rgender="ALL">全部性別</button>
+            <button type="button" class="sq-chip" data-rgender="男">👦 男生組 (8)</button>
+            <button type="button" class="sq-chip" data-rgender="女">👧 女生組 (8)</button>
+          </div>
+          <div class="sq-view-toggle">
+            <button type="button" class="sq-chip is-active" id="sq-btn-view-finalists">🏅 決賽 6 強榜</button>
+            <button type="button" class="sq-chip" id="sq-btn-view-all">📋 完整 3 組道次</button>
+          </div>
+        </div>
+        <div class="sq-race-search-box">
+          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋選手姓名、班級（例如：四丙、林奕僑、六乙）..." autocomplete="off">
+          <button type="button" class="sq-search-clear" id="sq-race-search-clear" hidden>✕</button>
+        </div>
       </div>
+
+      <!-- 16 項個人賽卡片與成績渲染容器 -->
+      <div id="sq-races-mount" class="sq-races-mount"></div>
+
+      <!-- 競賽規程重點與賽程日程總表（折疊） -->
+      <details class="sq-rules-details" style="margin-top:16px;">
+        <summary class="sq-rules-summary">
+          <span>📌 運動會競賽規程重點與日程表總表（點此展開／收合）</span>
+        </summary>
+        <div class="sq-clue-box" style="margin: 10px 0 12px 0;">
+          <strong>📌 71 週年校慶運動會競賽規程重點（比賽時間：115 年 10 月 21 日至 12 月 12 日）：</strong><br>
+          • <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。<br>
+          • <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<strong>※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</strong>
+        </div>
+        <div class="sq-table-wrap">
+          <table class="sq-table">
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>階段</th>
+                <th>比賽項目</th>
+                <th>點名時間</th>
+                <th>比賽時間</th>
+                <th>狀態與規程說明</th>
+              </tr>
+            </thead>
+            <tbody id="sq-pre-tbody"></tbody>
+          </table>
+        </div>
+      </details>
     </div>
     <div id="sq-pane-models" hidden>
       <div class="sq-table-wrap">
@@ -1654,6 +1955,7 @@ function initSportsQuest(ctx) {
           '<div style="display:flex;gap:5px;">' +
             '<button type="button" class="sq-brand-pill" id="sq-bq-next-btn">👉 下一個建築關卡</button>' +
             '<button type="button" class="sq-brand-pill is-gold" id="sq-bq-cert-btn">🏆 護照與證書</button>' +
+            (it.id === 's03i3' ? '<button type="button" class="sq-brand-pill" id="sq-bq-races-btn" style="background:#7c3aed;color:#fff;border-color:#6d28d9;">🏃 查看 16 項個人賽成績</button>' : '') +
           '</div>' +
         '</div>' +
       '</div>';
@@ -1794,6 +2096,11 @@ function initSportsQuest(ctx) {
     document.getElementById('sq-bq-cert-btn')?.addEventListener('click', () => {
       triggerGrandFinale();
     });
+    document.getElementById('sq-bq-races-btn')?.addEventListener('click', () => {
+      renderScheduleTables('ALL');
+      switchSchedTab('pre');
+      if (!schedDlg.open) schedDlg.showModal();
+    });
   }
 
   // 當打開「島嶼卡（islandCard）」時，在島嶼卡裡的建築清單標示每棟建築的闖關狀態
@@ -1877,17 +2184,23 @@ function initSportsQuest(ctx) {
       });
     });
 
+    // 渲染大會賽程表規程總表
     const preTbody = document.getElementById('sq-pre-tbody');
-    preTbody.innerHTML = (DATA.preEvents || []).map(p =>
-      '<tr>' +
-        '<td><strong>' + p.date + '</strong></td>' +
-        '<td><span class="sq-power-badge sq-p-體能力">' + p.stage + '</span></td>' +
-        '<td><strong>' + p.item + '</strong></td>' +
-        '<td>' + p.callTime + '</td>' +
-        '<td>' + p.raceTime + '</td>' +
-        '<td>' + p.rule + '</td>' +
-      '</tr>'
-    ).join('');
+    if (preTbody) {
+      preTbody.innerHTML = (DATA.preEvents || []).map(p =>
+        '<tr>' +
+          '<td><strong>' + p.date + '</strong></td>' +
+          '<td><span class="sq-power-badge sq-p-體能力">' + p.stage + '</span></td>' +
+          '<td><strong>' + p.item + '</strong></td>' +
+          '<td>' + p.callTime + '</td>' +
+          '<td>' + p.raceTime + '</td>' +
+          '<td>' + p.rule + '</td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    // 渲染三至六年級 16 項個人賽完整大會名冊與決賽 6 強英雄榜
+    renderIndividualRaces();
 
     const modelsTbody = document.getElementById('sq-models-tbody');
     const modelRows = [];
@@ -1924,6 +2237,197 @@ function initSportsQuest(ctx) {
       renderScheduleTables(chip.dataset.pfilter);
     });
   });
+
+  // ================= 三至六年級 16 項個人賽與決賽英雄榜控制器 =================
+  let raceFilterGrade = 'ALL';
+  let raceFilterGender = 'ALL';
+  let raceFilterKw = '';
+  let raceViewMode = 'finalists'; // 'finalists' | 'all'
+  const expandedRaceIds = new Set();
+
+  function renderIndividualRaces() {
+    const mount = document.getElementById('sq-races-mount');
+    if (!mount) return;
+    const allRaces = DATA.individualRaces || [];
+    const kw = raceFilterKw.trim().toLowerCase();
+
+    const filtered = allRaces.filter(r => {
+      if (raceFilterGrade !== 'ALL' && String(r.grade) !== raceFilterGrade) return false;
+      if (raceFilterGender !== 'ALL' && r.gender !== raceFilterGender) return false;
+      if (kw) {
+        const inTitle = r.name.toLowerCase().includes(kw);
+        const inAthletes = (r.athletes || []).some(a =>
+          (a.name && a.name.toLowerCase().includes(kw)) ||
+          (a.className && a.className.toLowerCase().includes(kw)) ||
+          String(a.studentNo || '').includes(kw)
+        );
+        if (!inTitle && !inAthletes) return false;
+      }
+      return true;
+    });
+
+    if (filtered.length === 0) {
+      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林奕僑、六乙）。</div>';
+      return;
+    }
+
+    mount.innerHTML = filtered.map(r => {
+      const isExpanded = raceViewMode === 'all' || expandedRaceIds.has(r.id);
+      const gradeColor = r.grade === 3 ? '#9333ea' : r.grade === 4 ? '#0284c7' : r.grade === 5 ? '#0d9488' : '#d97706';
+
+      // 6 位晉級決賽英雄名單
+      const finHtml = (r.finalists || []).map((f, fIdx) => {
+        const isMatch = kw && ((f.name && f.name.toLowerCase().includes(kw)) || (f.className && f.className.toLowerCase().includes(kw)));
+        const rankMedal = fIdx === 0 ? '🥇' : fIdx === 1 ? '🥈' : fIdx === 2 ? '🥉' : '第 ' + (fIdx + 1) + ' 名';
+        const qBadge = f.status && f.status.includes('(Q)')
+          ? '<span class="sq-q-badge is-Q" title="分組第 1 名直接晉級決賽">晉級 (Q)</span>'
+          : '<span class="sq-q-badge is-q" title="擇優成績晉級決賽">擇優 (q)</span>';
+        const scoreStr = typeof f.score === 'number' ? f.score.toFixed(2) + 's' : (f.score || '-');
+        return (
+          '<div class="sq-finalist-item ' + (isMatch ? 'is-matched' : '') + '">' +
+            '<div style="display:flex;align-items:center;gap:6px;">' +
+              '<span class="sq-rank-medal">' + rankMedal + '</span>' +
+              '<strong>' + f.className + ' ' + f.name + '</strong>' +
+              '<span style="font-size:11px;color:#64748b;">(' + f.heat + ' ' + f.lane + ')</span>' +
+            '</div>' +
+            '<div style="display:flex;align-items:center;gap:6px;">' +
+              '<span class="sq-score-badge">' + scoreStr + '</span>' +
+              qBadge +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+
+      // 15 位完整道次表格（展開狀態）
+      let tableHtml = '';
+      if (isExpanded) {
+        tableHtml =
+          '<div class="sq-table-wrap" style="margin-top:10px;">' +
+            '<table class="sq-table sq-table-compact">' +
+              '<thead>' +
+                '<tr>' +
+                  '<th>組別</th>' +
+                  '<th>道次</th>' +
+                  '<th>班級</th>' +
+                  '<th>座號</th>' +
+                  '<th>姓名</th>' +
+                  '<th>預賽成績</th>' +
+                  '<th>分組名次</th>' +
+                  '<th>晉級狀態</th>' +
+                '</tr>' +
+              '</thead>' +
+              '<tbody>' +
+                (r.athletes || []).map(a => {
+                  const isMatch = kw && ((a.name && a.name.toLowerCase().includes(kw)) || (a.className && a.className.toLowerCase().includes(kw)));
+                  const isQ = a.qualified && a.qualified.includes('(Q)');
+                  const isq = a.qualified && a.qualified.includes('(q)');
+                  const rowClass = isMatch ? 'is-matched-row' : isQ ? 'is-q-row' : isq ? 'is-smallq-row' : '';
+                  const scoreStr = typeof a.score === 'number' ? a.score.toFixed(2) + 's' : (a.score || '-');
+                  return (
+                    '<tr class="' + rowClass + '">' +
+                      '<td>' + a.heat + '</td>' +
+                      '<td>' + a.lane + '</td>' +
+                      '<td><strong>' + a.className + '</strong></td>' +
+                      '<td>' + a.studentNo + '</td>' +
+                      '<td><strong>' + a.name + '</strong></td>' +
+                      '<td><span class="sq-score-badge">' + scoreStr + '</span></td>' +
+                      '<td>' + (a.heatRank || '-') + '</td>' +
+                      '<td>' + (isQ ? '<span class="sq-q-badge is-Q">晉級 (Q)</span>' : isq ? '<span class="sq-q-badge is-q">擇優 (q)</span>' : '-') + '</td>' +
+                    '</tr>'
+                  );
+                }).join('') +
+              '</tbody>' +
+            '</table>' +
+          '</div>';
+      }
+
+      const toggleBtnTxt = isExpanded ? '收合 3 組 15 道次 ▲' : '展開 3 組 15 道次完整名冊 ▼';
+
+      return (
+        '<div class="sq-race-card" data-race-id="' + r.id + '">' +
+          '<div class="sq-race-card-head">' +
+            '<div class="sq-race-title">' +
+              '<span class="sq-grade-pill" style="background:' + gradeColor + ';">' + r.gradeLabel + '</span>' +
+              '<span>' + r.name + '</span>' +
+            '</div>' +
+            '<div class="sq-race-meta">' +
+              '<span>🗓️ 預賽 ' + r.prelimDate + ' ｜ 決賽 ' + r.finalDate + '</span>' +
+              '<button type="button" class="sq-toggle-table-btn" data-toggle-race="' + r.id + '">' + toggleBtnTxt + '</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="sq-race-card-body">' +
+            '<div class="sq-finalists-subhead">🏅 決賽 6 強晉級名單（第 1 組至第 3 組第一名及擇優 3 名）：</div>' +
+            '<div class="sq-finalists-list">' + finHtml + '</div>' +
+            tableHtml +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    mount.querySelectorAll('[data-toggle-race]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rid = btn.dataset.toggleRace;
+        if (expandedRaceIds.has(rid)) expandedRaceIds.delete(rid);
+        else expandedRaceIds.add(rid);
+        renderIndividualRaces();
+      });
+    });
+  }
+
+  // 篩選與搜尋事件綁定
+  document.querySelectorAll('#sq-race-grade-chips .sq-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#sq-race-grade-chips .sq-chip').forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      raceFilterGrade = c.dataset.rgrade;
+      renderIndividualRaces();
+    });
+  });
+
+  document.querySelectorAll('#sq-race-gender-chips .sq-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#sq-race-gender-chips .sq-chip').forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      raceFilterGender = c.dataset.rgender;
+      renderIndividualRaces();
+    });
+  });
+
+  const btnViewFin = document.getElementById('sq-btn-view-finalists');
+  const btnViewAll = document.getElementById('sq-btn-view-all');
+  if (btnViewFin && btnViewAll) {
+    btnViewFin.addEventListener('click', () => {
+      btnViewFin.classList.add('is-active');
+      btnViewAll.classList.remove('is-active');
+      raceViewMode = 'finalists';
+      renderIndividualRaces();
+    });
+    btnViewAll.addEventListener('click', () => {
+      btnViewAll.classList.add('is-active');
+      btnViewFin.classList.remove('is-active');
+      raceViewMode = 'all';
+      renderIndividualRaces();
+    });
+  }
+
+  const raceSearchInput = document.getElementById('sq-race-search-input');
+  const raceSearchClear = document.getElementById('sq-race-search-clear');
+  if (raceSearchInput) {
+    raceSearchInput.addEventListener('input', () => {
+      raceFilterKw = raceSearchInput.value;
+      if (raceSearchClear) raceSearchClear.hidden = !raceFilterKw;
+      renderIndividualRaces();
+    });
+  }
+  if (raceSearchClear) {
+    raceSearchClear.addEventListener('click', () => {
+      raceSearchInput.value = '';
+      raceFilterKw = '';
+      raceSearchClear.hidden = true;
+      renderIndividualRaces();
+      raceSearchInput.focus();
+    });
+  }
 
   function switchSchedTab(tabName) {
     document.querySelectorAll('#sq-schedule-dialog .sq-tab').forEach(t => {

@@ -1,0 +1,1159 @@
+{
+  "total_prelim": 240,
+  "total_seeding": 240,
+  "total_regs": 240,
+  "events": {
+    "六年級女生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "洪莞喻",
+          "resultScore": 16.64,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "鍾瑀芯",
+          "resultScore": 16.66,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "何欣蓉",
+          "resultScore": 16.81,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "陳雨晴",
+          "resultScore": 16.92,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "康芷嫣",
+          "resultScore": 17.02,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "楊惟歆",
+          "resultScore": 17.13,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "六年級女生組 200 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "王筱雯",
+          "resultScore": 34.07,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "吳苡菲",
+          "resultScore": 35.42,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "顏羽萱",
+          "resultScore": 35.67,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "六丙",
+          "studentNo": 2,
+          "name": "張芷妤",
+          "resultScore": 37.1,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "六甲",
+          "studentNo": 2,
+          "name": "陳欣昀",
+          "resultScore": 37.49,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級女生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六乙",
+          "studentNo": 2,
+          "name": "孫妤婕",
+          "resultScore": 37.54,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "六年級男生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "韓宥能",
+          "resultScore": 15.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "杜哲安",
+          "resultScore": 16.26,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "1 道",
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "吳承軒",
+          "resultScore": 16.29,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "李國詣",
+          "resultScore": 16.34,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "陳莅翔",
+          "resultScore": 16.45,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六丙",
+          "studentNo": 1,
+          "name": "吳晟佑",
+          "resultScore": 16.49,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "六年級男生組 200 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "楊昕翰",
+          "resultScore": 31.95,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "張凱勛",
+          "resultScore": 32.94,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "六丁",
+          "studentNo": 1,
+          "name": "柯旻佑",
+          "resultScore": 33.33,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "六戊",
+          "studentNo": 1,
+          "name": "陳宥綸",
+          "resultScore": 33.44,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "林恩左",
+          "resultScore": 34.07,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "六年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "黃楷宸",
+          "resultScore": 34.26,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "五年級女生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "宋玉玲",
+          "resultScore": 16.77,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "蔡妤臻",
+          "resultScore": 17.1,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "齊祤堂",
+          "resultScore": 17.25,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "張云瑄",
+          "resultScore": 17.92,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "林芷歆",
+          "resultScore": 18.56,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "傅巧昕",
+          "resultScore": 18.58,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "五年級女生組 200 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "黃婉媃",
+          "resultScore": 33.86,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "李尚妍",
+          "resultScore": 37.57,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "蔡昕穎",
+          "resultScore": 39.53,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五甲",
+          "studentNo": 3,
+          "name": "徐璟萱",
+          "resultScore": 39.66,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "張芯僑",
+          "resultScore": 39.71,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級女生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "邱怡捷",
+          "resultScore": 40.57,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "五年級男生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 2,
+          "name": "江昆霖",
+          "resultScore": 15.91,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "王裕碩",
+          "resultScore": 16.42,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "李秉榤",
+          "resultScore": 16.58,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "陳博瑞",
+          "resultScore": 16.86,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "陳祤承",
+          "resultScore": 17.07,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "五甲",
+          "studentNo": 1,
+          "name": "陳劭昆",
+          "resultScore": 17.26,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "五年級男生組 200 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "五乙",
+          "studentNo": 1,
+          "name": "鄭翔亦",
+          "resultScore": 31.96,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "五戊",
+          "studentNo": 1,
+          "name": "呂謹安",
+          "resultScore": 34.61,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "蘇恩旭",
+          "resultScore": 36.04,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "五丙",
+          "studentNo": 1,
+          "name": "許書禕",
+          "resultScore": 36.65,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "五戊",
+          "studentNo": 3,
+          "name": "林昱宏",
+          "resultScore": 37.35,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "五年級男生組 200 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "五丙",
+          "studentNo": 2,
+          "name": "彭祥宇",
+          "resultScore": 38.02,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "四年級女生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "郭鈺菲",
+          "resultScore": 18.98,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "李品希",
+          "resultScore": 19.26,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "四戊",
+          "studentNo": 1,
+          "name": "李穎嫿",
+          "resultScore": 19.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳玟僑",
+          "resultScore": 19.85,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "1 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "林巧睎",
+          "resultScore": 19.9,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "林羽桐",
+          "resultScore": 20.33,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "四年級女生組 60 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "胡伊凡",
+          "resultScore": 10.57,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "2 道",
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "陳湘妮",
+          "resultScore": 10.9,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "黃楷芯",
+          "resultScore": 10.95,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "汪碩妍",
+          "resultScore": 11.41,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四丁",
+          "studentNo": 2,
+          "name": "張筱雨",
+          "resultScore": 11.42,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級女生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "孫以悅",
+          "resultScore": 11.44,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "四年級男生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "韓祐諺",
+          "resultScore": 17.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "林楷祐",
+          "resultScore": 17.39,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 3,
+          "name": "吳苡廷",
+          "resultScore": 17.66,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "四丁",
+          "studentNo": 1,
+          "name": "陳莅諳",
+          "resultScore": 18.16,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "韓宇信",
+          "resultScore": 18.48,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "陳均銘",
+          "resultScore": 18.6,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "四年級男生組 60 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "四丙",
+          "studentNo": 2,
+          "name": "林奕僑",
+          "resultScore": 9.9,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "鄭安芥",
+          "resultScore": 10.07,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "彭威皓",
+          "resultScore": 10.08,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳奕宇",
+          "resultScore": 10.11,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "賴奕晟",
+          "resultScore": 10.15,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "四年級男生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "四丙",
+          "studentNo": 1,
+          "name": "林敬閎",
+          "resultScore": 10.35,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "三年級女生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "鍾瑀芩",
+          "resultScore": 18.92,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "劉庭孜",
+          "resultScore": 19.34,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "林榆霏",
+          "resultScore": 19.65,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "胡蕎羽",
+          "resultScore": 19.68,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "3 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳蘭欣",
+          "resultScore": 20.88,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級女生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "洪詩瑜",
+          "resultScore": 20.93,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "三年級女生組 60 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳彩芊",
+          "resultScore": 11.1,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "何書菲",
+          "resultScore": 11.3,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三丙",
+          "studentNo": 3,
+          "name": "江沁芸",
+          "resultScore": 11.46,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "3 道",
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "蔡星慧",
+          "resultScore": 11.53,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "張羽樂",
+          "resultScore": 11.59,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級女生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "陳雋昀",
+          "resultScore": 11.62,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        }
+      ]
+    },
+    "三年級男生組 100 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳星凱",
+          "resultScore": 18.74,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三戊",
+          "studentNo": 3,
+          "name": "潘霆杰",
+          "resultScore": 18.87,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "萬晧呈",
+          "resultScore": 19.14,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳勇吉",
+          "resultScore": 19.36,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "2 道",
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "葉寶鴻",
+          "resultScore": 19.39,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級男生組 100 公尺",
+          "heat": "第 1 組",
+          "lane": "5 道",
+          "className": "三丙",
+          "studentNo": 2,
+          "name": "林宇晨",
+          "resultScore": 19.46,
+          "heatRank": "第 3 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    },
+    "三年級男生組 60 公尺": {
+      "athlete_count": 15,
+      "qualified_count": 6,
+      "top_athletes": [
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "5 道",
+          "className": "三甲",
+          "studentNo": 3,
+          "name": "胡俊瑋",
+          "resultScore": 10.27,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "徐御宸",
+          "resultScore": 10.61,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 2 組",
+          "lane": "4 道",
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "蘇恩喜",
+          "resultScore": 10.69,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "3 道",
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "陳宥奕",
+          "resultScore": 10.84,
+          "heatRank": "第 1 名",
+          "qualified": "晉級 (Q)"
+        },
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 3 組",
+          "lane": "5 道",
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "蔡愷倫",
+          "resultScore": 10.98,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        },
+        {
+          "event": "三年級男生組 60 公尺",
+          "heat": "第 1 組",
+          "lane": "4 道",
+          "className": "三丁",
+          "studentNo": 1,
+          "name": "張庭米",
+          "resultScore": 11.01,
+          "heatRank": "第 2 名",
+          "qualified": "擇優晉級 (q)"
+        }
+      ]
+    }
+  }
+}
