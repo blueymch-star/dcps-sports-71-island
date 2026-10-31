@@ -471,6 +471,54 @@ dialog::backdrop {
 }
 .sq-pill-arrow { font-size: 11px; font-weight: 900; color: #0284c7; }
 
+/* 重設按鈕與浮動提示 Toast */
+.sq-danger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+  background: rgba(254, 242, 242, 0.9);
+  color: #b91c1c;
+  font-size: 13.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.sq-danger-btn:hover {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+  transform: translateY(-1px);
+}
+
+.sq-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+  white-space: nowrap;
+}
+.sq-toast.is-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* 收合狀態 (.is-collapsed) */
 #ui-brand.is-collapsed {
   padding: 0 !important;
@@ -1145,7 +1193,10 @@ const customHtml = `
         </button>
       </div>
     </div>
-    <button type="button" class="sq-primary-btn" id="sq-reg-submit">🚀 領取五力集章護照，進入島嶼建築闖關！</button>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+      <button type="button" class="sq-primary-btn" id="sq-reg-submit" style="flex:1;">🚀 儲存身分設定，出發闖關！</button>
+      <button type="button" class="sq-danger-btn" id="sq-btn-reset-data" title="清除所有五力印章與建築過關紀錄，重新開始">🔄 重設闖關紀錄（重新開始）</button>
+    </div>
   </div>
 </dialog>
 
@@ -1267,6 +1318,7 @@ const customHtml = `
     <div class="sq-cert-actions">
       <button type="button" class="sq-primary-btn" id="sq-btn-dl-cert">💾 下載高畫質金牌證書 (PNG)</button>
       <button type="button" class="sq-act-btn is-gold" id="sq-btn-fireworks" style="justify-content:center;font-size:14.5px;padding:11px 16px;">🎆 飛往聖火台・再次施放 3D 勝利煙火！</button>
+      <button type="button" class="sq-danger-btn" id="sq-btn-reset-cert" style="justify-content:center;">🔄 重設闖關紀錄（重新開始）</button>
     </div>
   </div>
 </dialog>
@@ -1359,10 +1411,63 @@ function initSportsQuest(ctx) {
     });
   });
 
+  // 浮動提示 Toast 系統
+  let toastEl = document.getElementById('sq-toast');
+  if (!toastEl) {
+    toastEl = document.createElement('div');
+    toastEl.id = 'sq-toast';
+    toastEl.className = 'sq-toast';
+    document.body.appendChild(toastEl);
+  }
+  let toastTimer = null;
+  function showToast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastEl.classList.remove('is-show');
+    }, 3000);
+  }
+
+  // 打開選手設定對話框時，同步目前的身分與姓名
   document.getElementById('sq-btn-athlete')?.addEventListener('click', () => {
     nameInput.value = state.name || '';
+    roleCards.forEach(c => {
+      c.classList.toggle('is-active', c.dataset.role === state.role);
+    });
     if (!regDlg.open) regDlg.showModal();
   });
+
+  // 重新設定／清除闖關資料（全部重新集章）
+  function resetQuestData() {
+    const ok = window.confirm('確定要重新開始闖關嗎？\\n\\n這將會清除您目前獲得的 5 枚五力印章與所有建築物的過關紀錄，讓您可以重新挑戰集章！\\n（運動員姓名與身分設定會保留）');
+    if (!ok) return;
+
+    state.stamps = {};
+    state.clearedItems = {};
+    state.celebrated = false;
+    saveState();
+    renderHud();
+
+    // 重新渲染當前開啟中的建築闖關卡
+    if (ctx.selection && ctx.selection.type === 'item') {
+      mountBuildingChallenge(ctx.selection.id);
+    } else {
+      const curMount = document.getElementById('sq-item-quest-mount');
+      if (curMount && curMount.dataset.itemId) {
+        mountBuildingChallenge(curMount.dataset.itemId);
+      }
+    }
+
+    if (regDlg && regDlg.open) regDlg.close();
+    if (certDlg && certDlg.open) certDlg.close();
+
+    showToast('🔄 闖關資料已重設！印章與關卡已歸零，可重新開始挑戰！');
+  }
+
+  document.getElementById('sq-btn-reset-data')?.addEventListener('click', resetQuestData);
+  document.getElementById('sq-btn-reset-cert')?.addEventListener('click', resetQuestData);
 
   document.getElementById('sq-reg-submit')?.addEventListener('click', () => {
     state.name = (nameInput.value || '').trim() || '大庄小健將';
