@@ -1240,6 +1240,14 @@ dialog::backdrop {
   border-color: #10b981;
   background: #d1fae5;
   color: #065f46;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+.sq-bq-seq-btn.is-wrong {
+  animation: sqShake 0.35s ease;
+  border-color: #ef4444 !important;
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
 }
 .sq-bq-meter {
   height: 8px;
@@ -3452,11 +3460,11 @@ const DATA = {
             "actionDone": "🔥 聖火能量 100% 滿載！海風藍與黃金聖火熊熊燃起！",
             "question": "大庄國小 71 週年校慶運動會「七一大庄、五力飛揚」，請問「大庄五力」包含哪五種力量？",
             "options": [
-              "道德力、群體力、美感力、知識力、體能力",
+              "火力、水力、風力、電力、地熱力",
               "超能力、魔法力、飛行力、隱形力、瞬間移動",
-              "火力、水力、風力、電力、地熱力"
+              "道德力、群體力、美感力、知識力、體能力"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "完全正確！大庄五力就是「道德力、群體力、美感力、知識力、體能力」，貫穿全場 32 項精彩節目！"
           }
         },
@@ -3488,8 +3496,8 @@ const DATA = {
             "question": "程序表第 04 項「運動員進場」於幾點幾分開始，由誰帶領全校師生揭開序幕？",
             "options": [
               "08:15 開始，全校師生進場（許雅惠校長主持）",
-              "11:30 才開始進場",
-              "只有六年級代表進場"
+              "只有六年級代表進場",
+              "11:30 才開始進場"
             ],
             "answer": 0,
             "explain": "答對了！08:15 全校師生在許雅惠校長主持下創意進場，展現精神抖擻的群體力與禮貌秩序！"
@@ -3518,11 +3526,11 @@ const DATA = {
             "actionDone": "🏳️ 大會旗已升至頂端迎著香山海風飄揚！全場行注目禮！",
             "question": "在司令升旗台前進行「運動員宣誓」，真正符合大庄「道德力」的運動家精神是什麼？",
             "options": [
-              "遵守比賽規則、服從裁判判決，勝不驕、敗不餒",
               "為了贏球可以隨意推擠對手",
-              "沒得第一名就拒絕參加閉幕典禮"
+              "沒得第一名就拒絕參加閉幕典禮",
+              "遵守比賽規則、服從裁判判決，勝不驕、敗不餒"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太棒了！遵守規則、尊重對手與裁判，正是運動會「道德力」的核心精神！"
           }
         },
@@ -3553,11 +3561,11 @@ const DATA = {
             "actionDone": "💖 全場掌聲雷動！謝謝家長會、熱心助學夥伴與資深志工無私奉獻！",
             "question": "在 08:35 開幕典禮後（項目 06–08），許雅惠校長特別頒發證書、感謝狀並表揚哪群默默守護大庄孩子的夥伴？",
             "options": [
-              "家長會、熱心助學夥伴與資深志工團隊",
+              "外太空探險隊",
               "職業棒球裁判團",
-              "外太空探險隊"
+              "家長會、熱心助學夥伴與資深志工團隊"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "答對了！程序表第 06–08 項特別安排「頒發家長會當選證書」、「頒發熱心助學感謝狀」與「表揚資深志工」，是大庄「道德力（感恩惜福）」的最佳典範！"
           }
         }
@@ -3656,11 +3664,11 @@ const DATA = {
             "actionDone": "✨ 聚光燈全開！熱舞社、跆拳道社與新住民日本傘舞驚豔全場！",
             "question": "08:00～08:15 的三場開場表演（Miki 街舞、大庄跆拳道、日本傘舞）由哪位老師擔任主持人？",
             "options": [
-              "維潔老師",
               "李小龍島主",
-              "聖誕老人"
+              "聖誕老人",
+              "維潔老師"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "完全正確！程序表第 01–03 項由維潔老師熱力主持，展現大庄多元社團與新住民文化的美感力！"
           }
         },
@@ -3687,11 +3695,11 @@ const DATA = {
             "actionDone": "🎵 音響測試完畢！動感節奏傳遍整座大庄校園！",
             "question": "09:25 由如瀅老師主持、幼兒園學生與家長一起開心唱跳的親子律動，節目名稱是什麼？",
             "options": [
-              "親子律動：「蕉」你一起動一動",
               "親子舉重錦標賽",
-              "高空彈跳特技秀"
+              "高空彈跳特技秀",
+              "親子律動：「蕉」你一起動一動"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太可愛了！09:25 項目 15 正是由幼兒園寶貝與家長共同演出的《親子律動：「蕉」你一起動一動》！"
           }
         },
@@ -3722,11 +3730,11 @@ const DATA = {
             "actionDone": "🎨 扇舞與彩帶齊飛！一至六年級六大主題舞蹈完美呈現！",
             "question": "08:55 率先登場的六年級學長姐舞蹈表演，結合氣勢磅礴的開扇動作，節目名稱是什麼？",
             "options": [
-              "風起・扇耀舞台",
+              "大夢想家（二年級）",
               "想成功向前衝（一年級）",
-              "大夢想家（二年級）"
+              "風起・扇耀舞台"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "答對了！08:55 六年級《風起・扇耀舞台》、09:00 五年級《棍舞歡騰盛典》、09:05 一年級《想成功向前衝》、09:10 二年級《大夢想家》、09:15 三年級《花漾・春日綻放》、09:20 四年級《武躍・錦彩飛揚》！"
           }
         }
@@ -3820,11 +3828,11 @@ const DATA = {
             "actionDone": "⚡ 砰！極速起跑衝出紫色跑道！",
             "question": "大庄六道立體紫色跑道標有 50m、60m、100m、200m 四組起跑線，請問低、中、高年級分別挑戰哪些項目？",
             "options": [
-              "低年級 50m 跑走；中年級 60m/100m；高年級 100m/200m",
+              "只有高年級可以踏上紫色跑道",
               "所有年級一律跑 400m 跨欄",
-              "只有高年級可以踏上紫色跑道"
+              "低年級 50m 跑走；中年級 60m/100m；高年級 100m/200m"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "完全正確！運動會當天 11:00–11:10 一二年級挑戰 50 公尺跑走；三四年級挑戰 60m/100m、五六年級挑戰 100m/200m！"
           }
         },
@@ -3855,11 +3863,11 @@ const DATA = {
             "actionDone": "⏱️ 電子碼錶歸零待命！6 道決賽選手全數就位！",
             "question": "根據競賽規程，個人賽預賽各學年每班男、女生各派 3 人參加，分 3 組比賽，請問如何選出晉級決賽的選手？",
             "options": [
-              "每組取前 1 名（共 3 人），再從其餘選手擇優 3 名，合計 6 人晉級決賽",
+              "抽籤選出 20 人同時擠在跑道上跑",
               "猜拳決定誰進決賽",
-              "抽籤選出 20 人同時擠在跑道上跑"
+              "每組取前 1 名（共 3 人），再從其餘選手擇優 3 名，合計 6 人晉級決賽"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太精準了！分 3 組各取第 1 名（3 人）加上擇優 3 名，正好 6 位選手站滿大庄「六道紫色跑道」進行決賽！"
           }
         },
@@ -3989,11 +3997,11 @@ const DATA = {
             "actionDone": "🔥 傳接棒成功！校友、師長、家長與大庄學子齊心衝線！",
             "question": "12:00 登場的第 30 項「庄情薪傳接力賽」（毓中、永明老師主持），是由哪些夥伴共同組隊參賽？",
             "options": [
-              "校友、教職員、家長與在校生同場接力傳承",
+              "機器人自動駕駛比賽",
               "只有外校校長參加",
-              "機器人自動駕駛比賽"
+              "校友、教職員、家長與在校生同場接力傳承"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太感人了！「庄情薪傳接力賽」匯聚了歷屆校友、教職員師長、家長會與在校生，把大庄 71 週年的群體力一棒接一棒傳承下去！"
           }
         },
@@ -4024,11 +4032,11 @@ const DATA = {
             "actionDone": "⚡ 戰術完美執行！流暢切入第 1 道並從右側安全超越對手！",
             "question": "根據大庄 71 週年校慶大隊接力競賽規程，比賽中若要超越前方選手，應從哪一側加速超越才合乎規則又安全？",
             "options": [
+              "大喊借過請對方讓開第 1 道",
               "從前方選手的右側（外側跑道）加速超越",
-              "從內側草皮切西瓜超越",
-              "大喊借過請對方讓開第 1 道"
+              "從內側草皮切西瓜超越"
             ],
-            "answer": 0,
+            "answer": 1,
             "explain": "觀念一百分！規程明定：中年級第 3 棒、高年級第 2 棒接棒後搶第 1 道，且「要超越前方選手時，應加速從前方選手的右側（外側跑道）超越」！"
           }
         },
@@ -4055,11 +4063,11 @@ const DATA = {
             "actionDone": "📣 加油分貝破表！全班與家長的吶喊聲讓場上選手充滿力量！",
             "question": "三～六年級大隊接力每班共派 16 名選手出賽（前三名頒發錦旗），請問男、女生棒次與跑圈距離如何安排？",
             "options": [
-              "女生 8 人跑前 8 棒、男生 8 人跑後 8 棒（中年級每人跑半圈、高年級每人跑一圈）",
+              "每人跑 5 圈操場",
               "全部 16 棒都由老師代跑",
-              "每人跑 5 圈操場"
+              "女生 8 人跑前 8 棒、男生 8 人跑後 8 棒（中年級每人跑半圈、高年級每人跑一圈）"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "完全正確！每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）；中年級每人跑半圈（第 3 棒搶道），高年級每人跑一圈（第 2 棒搶道）！"
           }
         }
@@ -4157,11 +4165,11 @@ const DATA = {
             "actionDone": "⛺ 道具全數就緒！09:30–10:40 八場次趣味競賽準時開賽！",
             "question": "程序表第 16～23 項（09:30～10:40）的一連八場趣味競賽，在「大庄五力」中主要代表哪一種力量的實踐？",
             "options": [
-              "知識力（運用手眼協調、巧思策略與團隊默契解決問題）",
               "睡眠力",
-              "潛水力"
+              "潛水力",
+              "知識力（運用手眼協調、巧思策略與團隊默契解決問題）"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "答對了！程序表將第 16–23 項趣味競賽全數歸類為「知識力」，讓孩子在闖關中動腦思考策略、培養協調與默契！"
           }
         },
@@ -4192,11 +4200,11 @@ const DATA = {
             "actionDone": "🧠 平衡與技巧滿分！巾球、連環罐與呼啦圈全部順利過關！",
             "question": "在 09:40～10:10 登場的中高年級趣味競賽中，請問三年級與六年級各是什麼項目？",
             "options": [
-              "三年級「巾」球運送（王家薇主持）；六年級「呼啦圈小鐵人」（曹雅雯主持）",
+              "三年級「冰壺」；六年級「撐竿跳」",
               "三年級「跳跳虎」；六年級「串串接接」",
-              "三年級「冰壺」；六年級「撐竿跳」"
+              "三年級「巾」球運送（王家薇主持）；六年級「呼啦圈小鐵人」（曹雅雯主持）"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太厲害了！09:40 三年級《「巾」球運送》、09:50 四年級《罐罐相連》、10:00 五年級《大庄躍進》、10:10 六年級《呼啦圈小鐵人》！"
           }
         },
@@ -4223,11 +4231,11 @@ const DATA = {
             "actionDone": "🐯 跳跳虎三連跳成功！全場大小朋友笑聲不斷！",
             "question": "10:20、10:30 與 10:40 依序登場的二年級、一年級與學生家長親子趣味競賽，名稱分別是什麼？",
             "options": [
-              "二年級《粒粒皆辛苦》、一年級《跳跳虎》、親子《圈力衝刺》",
               "全部都是跑 200 公尺",
-              "拔河大賽"
+              "拔河大賽",
+              "二年級《粒粒皆辛苦》、一年級《跳跳虎》、親子《圈力衝刺》"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "完全正確！加上 09:30 幼兒園的《串串接接》，讓幼兒園、低年級與爸爸媽媽都能在草地上盡情同樂！"
           }
         }
@@ -4350,11 +4358,11 @@ const DATA = {
             "actionDone": "🏆 金盃閃閃發光！映照出大庄 71 週年五力飛揚的笑臉！",
             "question": "程序表最後一項（第 32 項，13:00）展現「道德力」有始有終、愛護校園環境的項目是什麼？",
             "options": [
-              "場地復原（由學務處、總務處帶領全校共同整理復原賽場）",
+              "拆掉紫色跑道",
               "把垃圾留在草地上直接回家",
-              "拆掉紫色跑道"
+              "場地復原（由學務處、總務處帶領全校共同整理復原賽場）"
             ],
-            "answer": 0,
+            "answer": 2,
             "explain": "太棒了！13:00 第 32 項「場地復原」由許雅惠校長與學務處、總務處帶領全體師生將校園恢復整潔，完美實踐大庄「道德力」！"
           }
         },
@@ -4386,8 +4394,8 @@ const DATA = {
             "question": "根據大庄 71 週年校慶運動會程序表，請問當日「開幕典禮（項目 05）」與「閉幕典禮（項目 31）」分別在幾點舉行？",
             "options": [
               "開幕典禮 08:35；閉幕典禮 12:20",
-              "開幕典禮 06:00；閉幕典禮 22:00",
-              "開幕典禮 12:00；閉幕典禮 12:05"
+              "開幕典禮 12:00；閉幕典禮 12:05",
+              "開幕典禮 06:00；閉幕典禮 22:00"
             ],
             "answer": 0,
             "explain": "完全正確！08:00 社團開場、08:15 運動員進場、08:35 開幕典禮，歷經精彩展演與競賽後，於 12:20 舉行閉幕典禮、13:00 場地復原！"
@@ -15868,11 +15876,24 @@ function initSportsQuest(ctx) {
         '</div>';
     } else if (ch.mode === 'sequence') {
       const items = ch.sequenceItems || [];
+      // 隨機打亂排序按鈕的顯示位置（強迫玩家必須思考順序，不再只是由左至右盲點）
+      const seqList = items.map((label, origIdx) => ({ label, origIdx }));
+      if (seqList.length > 1) {
+        let attempts = 0;
+        do {
+          for (let i = seqList.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [seqList[i], seqList[j]] = [seqList[j], seqList[i]];
+          }
+          attempts++;
+        } while (attempts < 10 && seqList.every((it, i) => it.origIdx === i));
+      }
       stage1Html =
         '<div class="sq-bq-stage1">' +
+          '<div style="font-size:12px;color:#475569;margin-bottom:6px;font-weight:700;">🧩 順序考驗（按鈕位置已隨機打亂，請依正確先後步驟點擊）：</div>' +
           '<div class="sq-bq-seq-row" id="sq-bq-seq-row">' +
-            items.map((label, idx) =>
-              '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + idx + '">' + label + '</button>'
+            seqList.map(item =>
+              '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + item.origIdx + '">' + item.label + '</button>'
             ).join('') +
           '</div>' +
           '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
@@ -15918,9 +15939,9 @@ function initSportsQuest(ctx) {
           '<p class="sq-bq-q">❓ ' + ch.question + '</p>' +
           quizHintHtml +
           '<div class="sq-bq-opts" id="sq-bq-opts">' +
-            (ch.options || []).map((opt, idx) =>
-              '<button type="button" class="sq-bq-opt ' + (isCleared && idx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + idx + '">' +
-                ['A. ', 'B. ', 'C. '][idx] + opt +
+            shuffledOpts.map((optItem, displayIdx) =>
+              '<button type="button" class="sq-bq-opt ' + (isCleared && optItem.origIdx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + optItem.origIdx + '">' +
+                ['A. ', 'B. ', 'C. ', 'D. '][displayIdx] + optItem.text +
               '</button>'
             ).join('') +
           '</div>' +
@@ -15958,23 +15979,34 @@ function initSportsQuest(ctx) {
       seqBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = Number(btn.dataset.seqIdx);
-          if (idx === seqIdx || idx <= seqIdx) {
+          if (idx === seqIdx) {
             btn.classList.add('is-done');
-            if (idx === seqIdx) seqIdx++;
+            seqIdx++;
+            if (msgEl) {
+              msgEl.hidden = false;
+              if (seqIdx < seqBtns.length) {
+                msgEl.innerHTML = '✨ 步驟 ' + seqIdx + ' 正確！請繼續找出下一步！';
+              } else {
+                msgEl.innerHTML = ch.actionDone;
+              }
+            }
             if (seqIdx >= seqBtns.length) {
               stage1Done = true;
-              if (msgEl) msgEl.hidden = false;
             }
+          } else if (idx < seqIdx) {
+            btn.classList.add('is-done');
           } else {
+            btn.classList.add('is-wrong');
+            setTimeout(() => btn.classList.remove('is-wrong'), 450);
             if (msgEl) {
               msgEl.hidden = false;
               if (curRole === '高年級破風手') {
                 // 高年級嚴格重置
                 seqIdx = 0;
                 seqBtns.forEach(b => b.classList.remove('is-done'));
-                msgEl.textContent = '⚠️ 節奏錯誤！破風手請按照嚴格戰術節拍重新點擊！';
+                msgEl.textContent = '⚠️ 順序錯誤！破風手難度：所有步驟重置，請重新由第一步開始點擊！';
               } else {
-                msgEl.textContent = '💡 請按照 ① ➔ ② ➔ ③ 的順序依序點擊喔！';
+                msgEl.textContent = '💡 順序不對喔！目前請先找出「第 ' + (seqIdx + 1) + ' 步」點擊！';
               }
             }
           }

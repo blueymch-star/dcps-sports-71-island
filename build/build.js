@@ -661,6 +661,14 @@ dialog::backdrop {
   border-color: #10b981;
   background: #d1fae5;
   color: #065f46;
+  font-weight: 800;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+.sq-bq-seq-btn.is-wrong {
+  animation: sqShake 0.35s ease;
+  border-color: #ef4444 !important;
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
 }
 .sq-bq-meter {
   height: 8px;
@@ -1969,11 +1977,24 @@ function initSportsQuest(ctx) {
         '</div>';
     } else if (ch.mode === 'sequence') {
       const items = ch.sequenceItems || [];
+      // 隨機打亂排序按鈕的顯示位置（強迫玩家必須思考順序，不再只是由左至右盲點）
+      const seqList = items.map((label, origIdx) => ({ label, origIdx }));
+      if (seqList.length > 1) {
+        let attempts = 0;
+        do {
+          for (let i = seqList.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [seqList[i], seqList[j]] = [seqList[j], seqList[i]];
+          }
+          attempts++;
+        } while (attempts < 10 && seqList.every((it, i) => it.origIdx === i));
+      }
       stage1Html =
         '<div class="sq-bq-stage1">' +
+          '<div style="font-size:12px;color:#475569;margin-bottom:6px;font-weight:700;">🧩 順序考驗（按鈕位置已隨機打亂，請依正確先後步驟點擊）：</div>' +
           '<div class="sq-bq-seq-row" id="sq-bq-seq-row">' +
-            items.map((label, idx) =>
-              '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + idx + '">' + label + '</button>'
+            seqList.map(item =>
+              '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + item.origIdx + '">' + item.label + '</button>'
             ).join('') +
           '</div>' +
           '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
@@ -2019,9 +2040,9 @@ function initSportsQuest(ctx) {
           '<p class="sq-bq-q">❓ ' + ch.question + '</p>' +
           quizHintHtml +
           '<div class="sq-bq-opts" id="sq-bq-opts">' +
-            (ch.options || []).map((opt, idx) =>
-              '<button type="button" class="sq-bq-opt ' + (isCleared && idx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + idx + '">' +
-                ['A. ', 'B. ', 'C. '][idx] + opt +
+            shuffledOpts.map((optItem, displayIdx) =>
+              '<button type="button" class="sq-bq-opt ' + (isCleared && optItem.origIdx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + optItem.origIdx + '">' +
+                ['A. ', 'B. ', 'C. ', 'D. '][displayIdx] + optItem.text +
               '</button>'
             ).join('') +
           '</div>' +
@@ -2059,23 +2080,34 @@ function initSportsQuest(ctx) {
       seqBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = Number(btn.dataset.seqIdx);
-          if (idx === seqIdx || idx <= seqIdx) {
+          if (idx === seqIdx) {
             btn.classList.add('is-done');
-            if (idx === seqIdx) seqIdx++;
+            seqIdx++;
+            if (msgEl) {
+              msgEl.hidden = false;
+              if (seqIdx < seqBtns.length) {
+                msgEl.innerHTML = '✨ 步驟 ' + seqIdx + ' 正確！請繼續找出下一步！';
+              } else {
+                msgEl.innerHTML = ch.actionDone;
+              }
+            }
             if (seqIdx >= seqBtns.length) {
               stage1Done = true;
-              if (msgEl) msgEl.hidden = false;
             }
+          } else if (idx < seqIdx) {
+            btn.classList.add('is-done');
           } else {
+            btn.classList.add('is-wrong');
+            setTimeout(() => btn.classList.remove('is-wrong'), 450);
             if (msgEl) {
               msgEl.hidden = false;
               if (curRole === '高年級破風手') {
                 // 高年級嚴格重置
                 seqIdx = 0;
                 seqBtns.forEach(b => b.classList.remove('is-done'));
-                msgEl.textContent = '⚠️ 節奏錯誤！破風手請按照嚴格戰術節拍重新點擊！';
+                msgEl.textContent = '⚠️ 順序錯誤！破風手難度：所有步驟重置，請重新由第一步開始點擊！';
               } else {
-                msgEl.textContent = '💡 請按照 ① ➔ ② ➔ ③ 的順序依序點擊喔！';
+                msgEl.textContent = '💡 順序不對喔！目前請先找出「第 ' + (seqIdx + 1) + ' 步」點擊！';
               }
             }
           }
