@@ -772,35 +772,53 @@ dialog::backdrop {
   50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
 }
 
-/* 通用現代 Dialog 樣式 */
+/* 通用現代 Dialog 樣式（完美適配手機版 Safari / Chrome 網址列與動態島） */
 .sq-dialog {
   border: none;
   border-radius: 24px;
   padding: 0;
   max-width: 620px;
   width: calc(100vw - 28px);
-  max-height: 88vh;
+  box-sizing: border-box;
+  /* 支援 svh (Small Viewport) / dvh (Dynamic Viewport)，扣除瀏覽器網址列與工具列 */
+  max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 52px);
+  max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 52px);
+  max-height: 82vh;
   background: linear-gradient(165deg, #ffffff 0%, #f0f9ff 55%, #ecfdf5 100%);
   color: #0f172a;
   box-shadow: 0 24px 60px rgba(2, 132, 199, 0.28), 0 0 0 2px rgba(16, 185, 129, 0.3);
   font-family: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+  /* 防止 margin: auto 將卡片頂端推入負座標/網址列下方 */
+  margin: auto;
+  margin-top: max(env(safe-area-inset-top, 0px) + 24px, 44px);
+  margin-bottom: max(env(safe-area-inset-bottom, 0px) + 16px, 20px);
 }
 .sq-dialog.sq-dialog-wide {
   max-width: 820px;
 }
 .sq-dlg-inner {
-  padding: 22px 24px;
+  padding: 18px 24px 22px;
   overflow-y: auto;
-  max-height: 86vh;
+  max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 52px);
+  max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 52px);
+  max-height: 80vh;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 .sq-dlg-head {
+  position: sticky;
+  top: -18px;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  z-index: 25;
+  padding: 12px 0 10px 0;
+  margin: -18px 0 14px 0;
+  border-bottom: 1.5px solid rgba(2, 132, 199, 0.15);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1.5px solid rgba(2, 132, 199, 0.15);
-  padding-bottom: 12px;
-  margin-bottom: 16px;
 }
 .sq-dlg-kicker {
   display: inline-block;
@@ -820,17 +838,77 @@ dialog::backdrop {
   line-height: 1.3;
 }
 .sq-dlg-close {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
   border-radius: 50%;
-  border: 1px solid #cbd5e1;
+  border: 1.5px solid #cbd5e1;
   background: #ffffff;
   color: #334155;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
   cursor: pointer;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
-.sq-dlg-close:hover { background: #f1f5f9; }
+.sq-dlg-close:hover {
+  background: #fee2e2;
+  color: #ef4444;
+  border-color: #fca5a5;
+  transform: scale(1.05);
+}
+.sq-dlg-close:active {
+  transform: scale(0.92);
+}
+
+/* 行動裝置專屬優化（針對 Safari / Chrome 手機動態網址列與動態島安全區） */
+@media (max-width: 768px) {
+  .sq-dialog {
+    width: calc(100vw - 18px);
+    max-width: calc(100vw - 18px);
+    border-radius: 20px;
+    /* 頂部強制作為固定錨點安全距離，避開任何手機頂部網址列與動態島 */
+    margin-top: calc(env(safe-area-inset-top, 0px) + 56px) !important;
+    margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px) !important;
+    max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+  }
+  .sq-dialog.sq-dialog-wide {
+    max-width: calc(100vw - 18px);
+  }
+  .sq-dlg-inner {
+    padding: 14px 16px 20px !important;
+    max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+  }
+  .sq-dlg-head {
+    top: -14px;
+    margin: -14px 0 10px 0;
+    padding: 10px 0 8px 0;
+  }
+  .sq-dlg-title {
+    font-size: 17.5px;
+    line-height: 1.25;
+  }
+  .sq-dlg-kicker {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+  .sq-dlg-close {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 17px;
+  }
+}
 
 /* 運動員註冊卡 */
 .sq-form-group { margin-bottom: 16px; }
@@ -1601,6 +1679,7 @@ const customHtml = `
         </table>
       </div>
     </div>
+    <div style="margin-top:16px;text-align:right;"><button type="button" class="sq-primary-btn" data-sq-close="sq-schedule-dialog" style="padding:8px 18px;font-size:13px;">✕ 關閉此視窗</button></div>
   </div>
 </dialog>
 
