@@ -1549,7 +1549,7 @@ const customHtml = `
           </div>
         </div>
         <div class="sq-race-search-box">
-          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋選手姓名、班級（例如：四丙、林奕僑、六乙）..." autocomplete="off">
+          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋選手姓名、班級（例如：四丙、林○僑、六乙）..." autocomplete="off">
           <button type="button" class="sq-search-clear" id="sq-race-search-clear" hidden>✕</button>
         </div>
       </div>
@@ -2267,7 +2267,7 @@ function initSportsQuest(ctx) {
     });
 
     if (filtered.length === 0) {
-      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林奕僑、六乙）。</div>';
+      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林○僑、六乙）。</div>';
       return;
     }
 
@@ -2309,7 +2309,7 @@ function initSportsQuest(ctx) {
                   '<th>組別</th>' +
                   '<th>道次</th>' +
                   '<th>班級</th>' +
-                  '<th>座號</th>' +
+                  '<th>序號</th>' +
                   '<th>姓名</th>' +
                   '<th>預賽成績</th>' +
                   '<th>分組名次</th>' +
