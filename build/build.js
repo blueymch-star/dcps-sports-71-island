@@ -2024,6 +2024,16 @@ function initSportsQuest(ctx) {
       quizHintHtml = '<div class="sq-role-hint-box diff-medium">⚡ <strong>中年級飛毛腿提示：</strong>仔細閱讀題目與三個選項，選出真正符合大庄運動家精神的答案！</div>';
     }
 
+    // 每次開啟關卡動態隨機打亂問答題選項（保證正確答案隨機落在 A, B, C，不固定為第一項）
+    const rawOpts = (ch.options || []).map((text, origIdx) => ({ text, origIdx }));
+    const shuffledOpts = [...rawOpts];
+    if (shuffledOpts.length > 1) {
+      for (let i = shuffledOpts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOpts[i], shuffledOpts[j]] = [shuffledOpts[j], shuffledOpts[i]];
+      }
+    }
+
     mount.innerHTML =
       '<div class="sq-bldg-quest ' + (isCleared ? 'is-cleared' : '') + '" id="sq-bldg-quest-card">' +
         '<div class="sq-bq-head">' +
