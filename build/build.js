@@ -685,6 +685,57 @@ dialog::backdrop {
   color: #64748b;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+.sq-music-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sq-music-menu-btn {
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #cbd5e1;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+.sq-music-menu-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+.sq-mp-power-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1.5px solid #ef4444;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 13.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sq-mp-power-btn:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+.sq-mp-power-btn.is-muted {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  color: #15803d;
+}
 .sq-music-pop {
   width: 260px;
   background: rgba(255, 255, 255, 0.96);
@@ -1097,27 +1148,31 @@ dialog::backdrop {
 /* 行動裝置專屬優化（針對 Safari / Chrome 手機動態網址列與動態島安全區） */
 @media (max-width: 768px) {
   .sq-dialog {
-    width: calc(100vw - 18px);
-    max-width: calc(100vw - 18px);
-    border-radius: 20px;
-    /* 頂部強制作為固定錨點安全距離，避開任何手機頂部網址列與動態島 */
-    margin-top: calc(env(safe-area-inset-top, 0px) + 56px) !important;
-    margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px) !important;
-    max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
-    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+    position: fixed !important;
+    top: max(env(safe-area-inset-top, 0px) + 54px, 58px) !important;
+    bottom: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    border-radius: 20px !important;
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 72px) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
   }
   .sq-dialog.sq-dialog-wide {
-    max-width: calc(100vw - 18px);
+    max-width: calc(100vw - 20px) !important;
   }
   .sq-dlg-inner {
-    padding: 14px 16px 20px !important;
-    max-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
-    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 78px) !important;
+    padding: 16px 16px 22px !important;
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 72px) !important;
   }
   .sq-dlg-head {
-    top: -14px;
-    margin: -14px 0 10px 0;
-    padding: 10px 0 8px 0;
+    position: sticky !important;
+    top: 0 !important;
+    margin: 0 0 12px 0 !important;
+    padding: 4px 0 10px 0 !important;
+    background: rgba(255, 255, 255, 0.98) !important;
   }
   .sq-dlg-title {
     font-size: 17.5px;
@@ -1933,8 +1988,11 @@ const customHtml = `
 <div class="sq-music-widget" id="sq-music-widget">
   <div class="sq-music-pop" id="sq-music-pop" hidden>
     <div class="sq-mp-head">
-      <span>🎼 闖關背景音樂曲目</span>
+      <span>🎼 闖關背景音樂設定</span>
       <button type="button" class="sq-mp-close" id="sq-mp-close" aria-label="關閉音樂選單">✕</button>
+    </div>
+    <div style="margin-bottom:10px;">
+      <button type="button" class="sq-mp-power-btn" id="sq-mp-power-btn">⏹️ 關閉音樂 (靜音)</button>
     </div>
     <div class="sq-mp-tracks">
       <button type="button" class="sq-mp-track is-active" data-track="0">🏃 熱血運動會進行曲 <span>▶</span></button>
@@ -1943,16 +2001,22 @@ const customHtml = `
     </div>
     <div class="sq-mp-vol">
       <span>🔊 音量：</span>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0">🔇 關閉/靜音</button>
       <button type="button" class="sq-mp-vol-btn" data-vol="0.18">微風 20%</button>
       <button type="button" class="sq-mp-vol-btn is-active" data-vol="0.38">標準 50%</button>
       <button type="button" class="sq-mp-vol-btn" data-vol="0.75">熱血 100%</button>
     </div>
   </div>
-  <button type="button" class="sq-music-toggle-btn" id="sq-music-main-btn" title="切換闖關背景音樂 (點擊展開曲目選單)">
-    <span class="sq-music-icon">🎵</span>
-    <span class="sq-music-name" id="sq-music-name">熱血進行曲</span>
-    <span class="sq-eq" id="sq-music-eq"><i></i><i></i><i></i><i></i></span>
-  </button>
+  <div class="sq-music-btn-group">
+    <button type="button" class="sq-music-toggle-btn" id="sq-music-main-btn" title="一鍵開關闖關背景音樂">
+      <span class="sq-music-icon" id="sq-music-icon">🎵</span>
+      <span class="sq-music-name" id="sq-music-name">熱血進行曲 (點擊關閉)</span>
+      <span class="sq-eq" id="sq-music-eq"><i></i><i></i><i></i><i></i></span>
+    </button>
+    <button type="button" class="sq-music-menu-btn" id="sq-music-menu-btn" title="切換曲目與音量設定">
+      🎼 選曲
+    </button>
+  </div>
 </div>
 
 `;
@@ -2380,15 +2444,15 @@ function initSportsQuest(ctx) {
       if (topBtn) {
         if (muted) {
           topBtn.className = 'sq-brand-pill is-audio is-muted';
-          topBtn.innerHTML = '🔇 音樂(靜音)';
+          topBtn.innerHTML = '🔇 音樂：已關閉 (點擊開啟)';
           topBtn.title = '點擊開啟闖關背景音樂 (可切換 3 首熱血曲風)';
         } else if (isPlaying) {
           topBtn.className = 'sq-brand-pill is-audio is-playing';
           topBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + ' ' + eqHtml;
-          topBtn.title = '正在播放：' + TRACK_NAMES[curTrack] + ' (點擊切換曲目或展開控制盒)';
+          topBtn.title = '正在播放：' + TRACK_NAMES[curTrack] + ' (點擊關閉音樂)';
         } else {
           topBtn.className = 'sq-brand-pill is-audio';
-          topBtn.innerHTML = '🎵 開啟闖關音樂';
+          topBtn.innerHTML = '🎵 播放闖關音樂';
           topBtn.title = '點擊播放闖關背景音樂';
         }
       }
@@ -2396,27 +2460,44 @@ function initSportsQuest(ctx) {
       if (bqBtn) {
         if (muted) {
           bqBtn.className = 'sq-bq-audio-btn is-muted';
-          bqBtn.innerHTML = '🔇 音樂已靜音';
+          bqBtn.innerHTML = '🔇 音樂已關閉 (點擊開啟)';
+          bqBtn.title = '點擊開啟闖關背景音樂';
         } else if (isPlaying) {
           bqBtn.className = 'sq-bq-audio-btn is-playing';
-          bqBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + ' ' + eqHtml;
+          bqBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + ' (點擊關閉)';
+          bqBtn.title = '正在播放，點擊關閉音樂';
         } else {
           bqBtn.className = 'sq-bq-audio-btn';
           bqBtn.innerHTML = '🎵 播放闖關音樂';
+          bqBtn.title = '點擊播放闖關音樂';
         }
       }
       const widgetBtn = document.getElementById('sq-music-main-btn');
       const widgetName = document.getElementById('sq-music-name');
+      const widgetIcon = document.getElementById('sq-music-icon');
       const widgetEq = document.getElementById('sq-music-eq');
+      const powerBtn = document.getElementById('sq-mp-power-btn');
       if (widgetBtn) {
         widgetBtn.classList.toggle('is-muted', muted);
-        widgetBtn.classList.toggle('is-playing', isPlaying);
+        widgetBtn.classList.toggle('is-playing', isPlaying && !muted);
       }
       if (widgetName) {
-        widgetName.textContent = muted ? '音樂靜音' : (isPlaying ? TRACK_NAMES[curTrack] : '點擊播放');
+        widgetName.textContent = muted ? '音樂已關閉 (點擊開啟)' : (isPlaying ? TRACK_NAMES[curTrack] + ' (點擊關閉)' : '點擊播放音樂');
+      }
+      if (widgetIcon) {
+        widgetIcon.textContent = muted ? '🔇' : '🎵';
       }
       if (widgetEq) {
         widgetEq.style.display = (isPlaying && !muted) ? 'inline-flex' : 'none';
+      }
+      if (powerBtn) {
+        if (muted) {
+          powerBtn.className = 'sq-mp-power-btn is-muted';
+          powerBtn.innerHTML = '▶️ 開啟闖關音樂播放';
+        } else {
+          powerBtn.className = 'sq-mp-power-btn';
+          powerBtn.innerHTML = '⏹️ 關閉音樂 (靜音)';
+        }
       }
       document.querySelectorAll('.sq-mp-track').forEach(btn => {
         const tIdx = parseInt(btn.dataset.track || '0', 10);
@@ -2424,7 +2505,11 @@ function initSportsQuest(ctx) {
       });
       document.querySelectorAll('.sq-mp-vol-btn').forEach(btn => {
         const v = parseFloat(btn.dataset.vol || '0.38');
-        btn.classList.toggle('is-active', Math.abs(v - curVol) < 0.1);
+        if (v === 0) {
+          btn.classList.toggle('is-active', muted || curVol === 0);
+        } else {
+          btn.classList.toggle('is-active', !muted && Math.abs(v - curVol) < 0.1);
+        }
       });
     };
 
@@ -2446,8 +2531,9 @@ function initSportsQuest(ctx) {
   })();
 
 
-  // 監聽頁面任何互動手勢，第一時間解鎖 Web Audio 並啟動熱血闖關音樂
+  // 監聽頁面任何互動手勢，解鎖 Web Audio（若使用者已主動關閉/靜音音樂則不強制播放）
   const onUserGestureUnlock = () => {
+    if (soundEngine.isMuted()) return;
     soundEngine.unlock();
   };
   ['pointerdown', 'click', 'touchstart', 'keydown'].forEach(evt => {
@@ -2552,6 +2638,63 @@ function initSportsQuest(ctx) {
   }
 
   // 打開選手設定對話框時，同步目前的身分與姓名
+  // 綁定音訊系統所有控制按鈕事件（一鍵關閉/開啟、曲目切換、音量調整、選單開關）
+  document.getElementById('sq-btn-audio')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    soundEngine.toggleMute();
+  });
+
+  document.getElementById('sq-music-main-btn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    soundEngine.toggleMute();
+  });
+
+  const musicPop = document.getElementById('sq-music-pop');
+  document.getElementById('sq-music-menu-btn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (musicPop) musicPop.hidden = !musicPop.hidden;
+  });
+
+  document.getElementById('sq-mp-close')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (musicPop) musicPop.hidden = true;
+  });
+
+  document.getElementById('sq-mp-power-btn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    soundEngine.toggleMute();
+  });
+
+  document.querySelectorAll('.sq-mp-track').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tIdx = parseInt(btn.dataset.track || '0', 10);
+      if (soundEngine.isMuted()) {
+        soundEngine.toggleMute();
+      }
+      soundEngine.startBgm(tIdx);
+    });
+  });
+
+  document.querySelectorAll('.sq-mp-vol-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const v = parseFloat(btn.dataset.vol || '0.38');
+      if (v === 0) {
+        if (!soundEngine.isMuted()) soundEngine.toggleMute();
+      } else {
+        if (soundEngine.isMuted()) soundEngine.toggleMute();
+        soundEngine.setVolume(v);
+      }
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    if (musicPop && !musicPop.hidden && !musicPop.contains(e.target) && !e.target.closest('#sq-music-menu-btn')) {
+      musicPop.hidden = true;
+    }
+  });
+
   document.getElementById('sq-btn-athlete')?.addEventListener('click', () => {
     nameInput.value = state.name || '';
     roleCards.forEach(c => {
@@ -2896,6 +3039,12 @@ function initSportsQuest(ctx) {
         }
       });
     }
+
+    // 綁定建築卡片內的音樂開關按鈕
+    document.getElementById('sq-bq-audio-toggle')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      soundEngine.toggleMute();
+    });
 
     // 綁定第二階段選擇題作答事件
     const fbEl = document.getElementById('sq-bq-fb');
