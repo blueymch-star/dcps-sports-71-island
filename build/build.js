@@ -3724,14 +3724,41 @@ function initSportsQuest(ctx) {
   }
 
   function triggerGrandFinale() {
-    if (ctx.frameIsland) ctx.frameIsland('s01');
-    spawn3DFireworks();
-    drawCertificate();
     const quests = DATA.quests || [];
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
-    document.getElementById('sq-cert-hint').innerHTML = stampedCount >= quests.length
-      ? '🎉 <strong>太棒了！你已集滿全部 5 枚大庄五力印章！</strong>中央「七一耀動聖火台」已為你點燃 3D 勝利煙火，你可以直接截圖或點擊下方按鈕下載證書保存！'
-      : '💡 目前已收集 <strong>' + stampedCount + ' / 5</strong> 枚印章。集滿 5 章即可解鎖全金徽章與聖火台煙火！（你也可以隨時預覽或下載目前證書）';
+    const isAllStamped = stampedCount >= 5;
+
+    drawCertificate();
+
+    const hintEl = document.getElementById('sq-cert-hint');
+    const fwBtn = document.getElementById('sq-btn-fireworks');
+
+    if (isAllStamped) {
+      // 集滿 5 個章才引燃聖火台 3D 勝利煙火
+      if (ctx.frameIsland) ctx.frameIsland('s01');
+      spawn3DFireworks();
+      if (hintEl) {
+        hintEl.innerHTML = '🎉 <strong>太棒了！你已集滿全部 5 枚大庄五力印章！</strong>中央「七一耀動聖火台」已為你點燃全景 3D 勝利煙火，你可以直接截圖或點擊下方按鈕下載證書保存！';
+      }
+      if (fwBtn) {
+        fwBtn.disabled = false;
+        fwBtn.style.opacity = '1';
+        fwBtn.style.cursor = 'pointer';
+        fwBtn.innerHTML = '🎆 飛往聖火台・再次施放 3D 勝利煙火！';
+      }
+    } else {
+      // 未集滿 5 個章不釋放煙火
+      const remaining = 5 - stampedCount;
+      if (hintEl) {
+        hintEl.innerHTML = '💡 目前已收集 <strong>' + stampedCount + ' / 5</strong> 枚印章（還差 <strong>' + remaining + '</strong> 枚）。<strong>必須集滿全部 5 枚五力印章</strong>，才會在中央「七一聖火台」引燃全景 3D 勝利煙火！（目前可隨時預覽或下載進度證書）';
+      }
+      if (fwBtn) {
+        fwBtn.disabled = true;
+        fwBtn.style.opacity = '0.55';
+        fwBtn.style.cursor = 'not-allowed';
+        fwBtn.innerHTML = '🔒 集滿 5 枚印章解鎖 3D 勝利煙火（目前 ' + stampedCount + ' / 5）';
+      }
+    }
     if (!certDlg.open) certDlg.showModal();
   }
 
@@ -3740,6 +3767,12 @@ function initSportsQuest(ctx) {
   });
 
   document.getElementById('sq-btn-fireworks').addEventListener('click', () => {
+    const quests = DATA.quests || [];
+    const stampedCount = quests.filter(q => state.stamps[q.id]).length;
+    if (stampedCount < 5) {
+      alert('🔒 五力集章尚未完成！目前已收集 ' + stampedCount + ' / 5 枚印章。\\n必須集滿全部 5 枚五力印章，才能在聖火台引燃 3D 勝利煙火喔！加油！');
+      return;
+    }
     if (certDlg.open) certDlg.close();
     if (ctx.frameIsland) ctx.frameIsland('s01');
     spawn3DFireworks();
