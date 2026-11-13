@@ -1912,7 +1912,6 @@ const customHtml = `
               <th>節目名稱</th>
               <th>大庄五力</th>
               <th>表演者／參賽者</th>
-              <th>主持人</th>
               <th>3D 定位</th>
             </tr>
           </thead>
@@ -3240,7 +3239,6 @@ function initSportsQuest(ctx) {
         '<td>' + r.title + '</td>' +
         '<td><span class="sq-power-badge sq-p-' + r.power + '">' + r.power + '</span></td>' +
         '<td>' + r.performer + '</td>' +
-        '<td>' + r.host + '</td>' +
         '<td><button type="button" class="sq-chip" data-fly-isl="' + r.island + '">📍 ' + (isl ? isl.name : r.island) + '</button></td>' +
       '</tr>';
     }).join('');
