@@ -342,6 +342,48 @@ rep('<span><i class="ui-lgd-num" aria-hidden="true">01</i><span data-en="Signatu
 rep('<span><i class="ui-lgd-num is-event" aria-hidden="true">10</i><span data-en="Yearly event (gold ring)">年度活動（金框）</span></span>', '<span><i class="ui-lgd-num is-event" aria-hidden="true">01</i><span data-en="Ceremony & Relay Isle (gold ring)">校慶盛典與接力島（金框）</span></span>');
 rep("grp(tr('特色課程', 'Signature courses'), isl.filter(d => d.kind !== 'event'))}${grp(tr('年度活動', 'Yearly events')", "grp(tr('五力競賽與展演島', 'Competition Isles'), isl.filter(d => d.kind !== 'event'))}${grp(tr('校慶盛典與接力島', 'Ceremony Isles')");
 
+// 說明面板：更新清單說明、協作動線圖例、校訂課程三大主軸 (WIN) 與官方資料來源
+rep(
+  '<li><b data-en="Campus news">校園動態</b><span data-en="campus news and the honor roll (newest first, filter by isle or topic); &quot;Walkers&quot; shows the little animated trips between isles (an animation, not real events). Use the arrow keys inside a list.">看「校園新聞」「榮譽榜」（新到舊，可依島或主題篩選）；「小人動態」是島與島之間的搬運動畫，不是真實事件。清單裡用上下鍵移動。</span></li>',
+  '<li><b data-en="News &amp; Honors">大會賽況</b><span data-en="race news and the honor roll (newest first, filter by sprint, relay or ceremony); &quot;Walkers&quot; shows athlete animations on the bridges. Use the arrow keys inside a list.">看「賽程快訊」「完賽英雄榜」（依個人賽、大隊接力、感恩榮譽分類）；「小人動態」為小選手與島主在賽場動線奔馳的動畫。清單裡可用上下鍵移動。</span></li>'
+);
+rep(
+  '<li><b data-en="About">關於</b><span data-en="the school\'s profile, history and what each office does.">大庄國小的簡介、沿革與各處室業務。</span></li>',
+  '<li><b data-en="About">大會簡介</b><span data-en="the event overview, school vision, five powers, and event hosting &amp; organizing staff.">大會主題、學校願景五力圖像與大會主持與籌備團隊。</span></li>'
+);
+rep(
+  `<div class="ui-eyebrow" data-en="LINK LINES (STORY)">協作線圖例（故事設定）</div>
+      <div class="ui-legend">
+        <span><i class="ui-sw ui-sw-plan"></i><span data-en="In the curriculum plan">課程計畫有據</span></span>
+        <span><i class="ui-sw ui-sw-news"></i><span data-en="Reported in school news">新聞報導</span></span>
+        <span><i class="ui-sw ui-sw-link"></i><span data-en="Thematic link">主題連結</span></span>
+      </div>`,
+  `<div class="ui-eyebrow" data-en="LINK LINES (STORY)">協作動線圖例（故事設定）</div>
+      <div class="ui-legend">
+        <span><i class="ui-sw ui-sw-plan"></i><span data-en="Official Program Schedule (Solid)">大會程序表依據（實線橋）</span></span>
+        <span><i class="ui-sw ui-sw-news"></i><span data-en="Event &amp; News Record">賽事紀實報導</span></span>
+        <span><i class="ui-sw ui-sw-link"></i><span data-en="Five Powers Thematic Link (Dashed)">五力傳承主題閉環（虛線橋）</span></span>
+      </div>`
+);
+rep(
+  `<div class="ui-eyebrow" data-en="DAZHUANG WIN">大庄三大主軸</div>
+      <div class="ui-legend">
+        <span><b class="ui-win">W</b><span data-en="Local inquiry">W 在地探究</span></span>
+        <span><b class="ui-win">I</b><span data-en="Character & life">I 品格生活</span></span>
+        <span><b class="ui-win">N</b><span data-en="Arts &amp; sports">N 藝能運動</span></span>
+      </div>`,
+  `<div class="ui-eyebrow" data-en="DAZHUANG WIN CURRICULUM">大庄校訂課程三大主軸（WIN 架構）</div>
+      <div class="ui-legend">
+        <span><b class="ui-win">W</b><span data-en="W: Self-transcendence (Learning &amp; Knowledge)">W 庄進自強～超越自己（學習探索・閱讀奠基知識力）</span></span>
+        <span><b class="ui-win">I</b><span data-en="I: Joyful Growth (Caring, Morality &amp; Fitness)">I 庄園窯啊餚～樂活成長（友善關懷・柴燒窯與可食植物實踐道德與體能力）</span></span>
+        <span><b class="ui-win">N</b><span data-en="N: Railway Journey (Health, Aesthetics &amp; Fitness)">N 康庄鐵道行～藝術小旅行（健康樂活・鐵道鄉土美學策展）</span></span>
+      </div>`
+);
+rep(
+  '<p class="ui-help-note" data-en="Sources — courses: Dazhuang ES public curriculum info; news: Hsinchu City Education News (schnews.hc.edu.tw). News summaries are rewritten without personal names.">資料來源：課程：大庄國小 公開課程資訊與校園新聞；新聞：新竹市教育新聞網（schnews.hc.edu.tw）。新聞摘要已改寫，不含個人姓名。</p>',
+  '<p class="ui-help-note" data-en="Sources — School Vision &amp; WIN Curriculum: Dazhuang ES Official Website (www.ttps.hc.edu.tw/nss/p/wish); Program &amp; Rules: 115th Academic Year &amp; 71st Anniversary Sports Day Regulations and Schedule; Race Results: Sports Day Individual Finals Database. All student names are de-identified with masking.">資料來源：學校願景三大基石與校訂課程三大主軸依據大庄國小官方網站（www.ttps.hc.edu.tw/nss/p/wish）；運動會賽程與各項規程依據大庄國小 115 學年度暨 71 週年校慶運動會競賽規程與程序表；個人賽決賽成績依據校慶賽況資料庫。所有小選手姓名皆落實去識別化遮罩。</p>'
+);
+
 // sq-brand-actions 已內建於 sportsBrandHeader
 
 // 將建築卡片中的「進行時間（上學期／下學期／全學年）」改為校慶運動會專屬「登場時段・運動會三階段」＋「建築物專屬五力闖關挑戰卡」
