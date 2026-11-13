@@ -1,5 +1,966 @@
 {
   "status": "success",
   "action": "getFinalResults",
-  "data": []
+  "data": [
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "1 道",
+      "className": "六丙",
+      "studentNo": 2,
+      "name": "楊○歆",
+      "finalScore": 17.75,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "2 道",
+      "className": "六丁",
+      "studentNo": 2,
+      "name": "康○嫣",
+      "finalScore": 16.71,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "3 道",
+      "className": "六丁",
+      "studentNo": 3,
+      "name": "陳○晴",
+      "finalScore": 17.05,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "4 道",
+      "className": "六乙",
+      "studentNo": 2,
+      "name": "洪○喻",
+      "finalScore": 16.25,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "5 道",
+      "className": "六乙",
+      "studentNo": 1,
+      "name": "鍾○芯",
+      "finalScore": 16.85,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "六年級女生組 100 公尺",
+      "lane": "6 道",
+      "className": "六丁",
+      "studentNo": 1,
+      "name": "何○蓉",
+      "finalScore": 16.26,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "1 道",
+      "className": "六乙",
+      "studentNo": 2,
+      "name": "孫○婕",
+      "finalScore": 37.34,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "2 道",
+      "className": "六甲",
+      "studentNo": 2,
+      "name": "陳○昀",
+      "finalScore": 37.23,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "3 道",
+      "className": "六丙",
+      "studentNo": 2,
+      "name": "張○妤",
+      "finalScore": 36.39,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "4 道",
+      "className": "六乙",
+      "studentNo": 1,
+      "name": "王○雯",
+      "finalScore": 33.53,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "5 道",
+      "className": "六甲",
+      "studentNo": 1,
+      "name": "吳○菲",
+      "finalScore": 34.93,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "六年級女生組 200 公尺",
+      "lane": "6 道",
+      "className": "六丙",
+      "studentNo": 1,
+      "name": "顏○萱",
+      "finalScore": 34.69,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "1 道",
+      "className": "六丙",
+      "studentNo": 1,
+      "name": "吳○佑",
+      "finalScore": 16.05,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "2 道",
+      "className": "六丁",
+      "studentNo": 2,
+      "name": "陳○翔",
+      "finalScore": 16,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "3 道",
+      "className": "六丁",
+      "studentNo": 1,
+      "name": "李○詣",
+      "finalScore": 15.99,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "4 道",
+      "className": "六乙",
+      "studentNo": 1,
+      "name": "韓○能",
+      "finalScore": 15.3,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "5 道",
+      "className": "六甲",
+      "studentNo": 1,
+      "name": "杜○安",
+      "finalScore": 16.55,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "六年級男生組 100 公尺",
+      "lane": "6 道",
+      "className": "六乙",
+      "studentNo": 3,
+      "name": "吳○軒",
+      "finalScore": 16.29,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "1 道",
+      "className": "六丁",
+      "studentNo": 3,
+      "name": "黃○宸",
+      "finalScore": 34.34,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "2 道",
+      "className": "六戊",
+      "studentNo": 3,
+      "name": "林○左",
+      "finalScore": 34.35,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "3 道",
+      "className": "六戊",
+      "studentNo": 1,
+      "name": "陳○綸",
+      "finalScore": 32.99,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "4 道",
+      "className": "六甲",
+      "studentNo": 1,
+      "name": "楊○翰",
+      "finalScore": 31.99,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "5 道",
+      "className": "六丁",
+      "studentNo": 2,
+      "name": "張○勛",
+      "finalScore": 32.47,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "六年級男生組 200 公尺",
+      "lane": "6 道",
+      "className": "六丁",
+      "studentNo": 1,
+      "name": "柯○佑",
+      "finalScore": 32.37,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "1 道",
+      "className": "五丙",
+      "studentNo": 3,
+      "name": "傅○昕",
+      "finalScore": 18.87,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "2 道",
+      "className": "五戊",
+      "studentNo": 1,
+      "name": "林○歆",
+      "finalScore": 18.42,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "3 道",
+      "className": "五乙",
+      "studentNo": 3,
+      "name": "張○瑄",
+      "finalScore": 18.12,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "4 道",
+      "className": "五乙",
+      "studentNo": 2,
+      "name": "宋○玲",
+      "finalScore": 16.44,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "5 道",
+      "className": "五乙",
+      "studentNo": 1,
+      "name": "蔡○臻",
+      "finalScore": 16.51,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "五年級女生組 100 公尺",
+      "lane": "6 道",
+      "className": "五甲",
+      "studentNo": 3,
+      "name": "齊○堂",
+      "finalScore": 17.61,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "1 道",
+      "className": "五丙",
+      "studentNo": 1,
+      "name": "邱○捷",
+      "finalScore": 39.99,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "2 道",
+      "className": "五乙",
+      "studentNo": 2,
+      "name": "張○僑",
+      "finalScore": 39.07,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "3 道",
+      "className": "五甲",
+      "studentNo": 3,
+      "name": "徐○萱",
+      "finalScore": 38.7,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "4 道",
+      "className": "五甲",
+      "studentNo": 1,
+      "name": "黃○媃",
+      "finalScore": 33.75,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "5 道",
+      "className": "五丁",
+      "studentNo": 1,
+      "name": "李○妍",
+      "finalScore": 48.47,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "五年級女生組 200 公尺",
+      "lane": "6 道",
+      "className": "五乙",
+      "studentNo": 3,
+      "name": "蔡○穎",
+      "finalScore": 39.77,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "1 道",
+      "className": "五甲",
+      "studentNo": 1,
+      "name": "陳○昆",
+      "finalScore": 17.32,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "2 道",
+      "className": "五乙",
+      "studentNo": 3,
+      "name": "陳○承",
+      "finalScore": 17.52,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "3 道",
+      "className": "五戊",
+      "studentNo": 1,
+      "name": "陳○瑞",
+      "finalScore": 17.22,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "4 道",
+      "className": "五乙",
+      "studentNo": 2,
+      "name": "江○霖",
+      "finalScore": 15.79,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "5 道",
+      "className": "五丙",
+      "studentNo": 3,
+      "name": "王○碩",
+      "finalScore": 16.79,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "五年級男生組 100 公尺",
+      "lane": "6 道",
+      "className": "五乙",
+      "studentNo": 1,
+      "name": "李○榤",
+      "finalScore": 16.76,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "1 道",
+      "className": "五丙",
+      "studentNo": 2,
+      "name": "彭○宇",
+      "finalScore": 37.3,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "2 道",
+      "className": "五戊",
+      "studentNo": 3,
+      "name": "林○宏",
+      "finalScore": 37.19,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "3 道",
+      "className": "五丙",
+      "studentNo": 1,
+      "name": "許○禕",
+      "finalScore": 35.9,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "4 道",
+      "className": "五乙",
+      "studentNo": 1,
+      "name": "鄭○亦",
+      "finalScore": 31.27,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "5 道",
+      "className": "五戊",
+      "studentNo": 1,
+      "name": "呂○安",
+      "finalScore": 35.64,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "五年級男生組 200 公尺",
+      "lane": "6 道",
+      "className": "五丙",
+      "studentNo": 3,
+      "name": "蘇○旭",
+      "finalScore": 36.12,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "1 道",
+      "className": "四乙",
+      "studentNo": 2,
+      "name": "林○桐",
+      "finalScore": 20.82,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "2 道",
+      "className": "四丁",
+      "studentNo": 2,
+      "name": "林○睎",
+      "finalScore": 19.54,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "3 道",
+      "className": "四乙",
+      "studentNo": 1,
+      "name": "陳○僑",
+      "finalScore": 19.56,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "4 道",
+      "className": "四甲",
+      "studentNo": 1,
+      "name": "郭○菲",
+      "finalScore": 18.21,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "5 道",
+      "className": "四丁",
+      "studentNo": 1,
+      "name": "李○希",
+      "finalScore": 17.87,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "四年級女生組 100 公尺",
+      "lane": "6 道",
+      "className": "四戊",
+      "studentNo": 1,
+      "name": "李○嫿",
+      "finalScore": 18.19,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "1 道",
+      "className": "四乙",
+      "studentNo": 1,
+      "name": "孫○悅",
+      "finalScore": 11.82,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "2 道",
+      "className": "四丁",
+      "studentNo": 2,
+      "name": "張○雨",
+      "finalScore": 11.45,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "3 道",
+      "className": "四乙",
+      "studentNo": 2,
+      "name": "汪○妍",
+      "finalScore": 11.63,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "4 道",
+      "className": "四丙",
+      "studentNo": 3,
+      "name": "胡○凡",
+      "finalScore": 10.84,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "5 道",
+      "className": "四丁",
+      "studentNo": 3,
+      "name": "陳○妮",
+      "finalScore": 11.25,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "四年級女生組 60 公尺",
+      "lane": "6 道",
+      "className": "四甲",
+      "studentNo": 1,
+      "name": "黃○芯",
+      "finalScore": 10.6,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "1 道",
+      "className": "四乙",
+      "studentNo": 2,
+      "name": "陳○銘",
+      "finalScore": 18.14,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "2 道",
+      "className": "四甲",
+      "studentNo": 1,
+      "name": "韓○信",
+      "finalScore": 17.42,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "3 道",
+      "className": "四丁",
+      "studentNo": 1,
+      "name": "陳○諳",
+      "finalScore": 17.28,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "4 道",
+      "className": "四丙",
+      "studentNo": 1,
+      "name": "韓○諺",
+      "finalScore": 16.22,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "5 道",
+      "className": "四戊",
+      "studentNo": 2,
+      "name": "林○祐",
+      "finalScore": 17.2,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "四年級男生組 100 公尺",
+      "lane": "6 道",
+      "className": "四乙",
+      "studentNo": 3,
+      "name": "吳○廷",
+      "finalScore": 16.99,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "1 道",
+      "className": "四丙",
+      "studentNo": 1,
+      "name": "林○閎",
+      "finalScore": 10.81,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "2 道",
+      "className": "四丙",
+      "studentNo": 3,
+      "name": "賴○晟",
+      "finalScore": 10.13,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "3 道",
+      "className": "四乙",
+      "studentNo": 1,
+      "name": "陳○宇",
+      "finalScore": 10.47,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "4 道",
+      "className": "四丙",
+      "studentNo": 2,
+      "name": "林○僑",
+      "finalScore": 9.92,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "5 道",
+      "className": "四甲",
+      "studentNo": 1,
+      "name": "鄭○芥",
+      "finalScore": 10.64,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "四年級男生組 60 公尺",
+      "lane": "6 道",
+      "className": "四甲",
+      "studentNo": 2,
+      "name": "彭○皓",
+      "finalScore": 10.3,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "1 道",
+      "className": "三乙",
+      "studentNo": 1,
+      "name": "洪○瑜",
+      "finalScore": 20.25,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "2 道",
+      "className": "三戊",
+      "studentNo": 1,
+      "name": "陳○欣",
+      "finalScore": 20.3,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "3 道",
+      "className": "三戊",
+      "studentNo": 3,
+      "name": "胡○羽",
+      "finalScore": 20.02,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "4 道",
+      "className": "三戊",
+      "studentNo": 2,
+      "name": "鍾○芩",
+      "finalScore": 20.17,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "5 道",
+      "className": "三甲",
+      "studentNo": 1,
+      "name": "劉○孜",
+      "finalScore": 19.17,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "三年級女生組 100 公尺",
+      "lane": "6 道",
+      "className": "三乙",
+      "studentNo": 3,
+      "name": "林○霏",
+      "finalScore": 21.22,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "1 道",
+      "className": "三戊",
+      "studentNo": 2,
+      "name": "陳○昀",
+      "finalScore": 11.52,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "2 道",
+      "className": "三丁",
+      "studentNo": 2,
+      "name": "張○樂",
+      "finalScore": 11.69,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "3 道",
+      "className": "三甲",
+      "studentNo": 2,
+      "name": "蔡○慧",
+      "finalScore": 11.73,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "4 道",
+      "className": "三丙",
+      "studentNo": 1,
+      "name": "陳○芊",
+      "finalScore": 11.15,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "5 道",
+      "className": "三乙",
+      "studentNo": 3,
+      "name": "何○菲",
+      "finalScore": 11.63,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "三年級女生組 60 公尺",
+      "lane": "6 道",
+      "className": "三丙",
+      "studentNo": 3,
+      "name": "江○芸",
+      "finalScore": 11.06,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "1 道",
+      "className": "三丙",
+      "studentNo": 2,
+      "name": "林○晨",
+      "finalScore": 19.61,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "2 道",
+      "className": "三丁",
+      "studentNo": 2,
+      "name": "葉○鴻",
+      "finalScore": 18.83,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "3 道",
+      "className": "三戊",
+      "studentNo": 1,
+      "name": "陳○吉",
+      "finalScore": "未出賽",
+      "finalRank": "未出賽",
+      "award": "未出賽"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "4 道",
+      "className": "三丙",
+      "studentNo": 1,
+      "name": "陳○凱",
+      "finalScore": 19.19,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "5 道",
+      "className": "三戊",
+      "studentNo": 3,
+      "name": "潘○杰",
+      "finalScore": 17.99,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "三年級男生組 100 公尺",
+      "lane": "6 道",
+      "className": "三戊",
+      "studentNo": 2,
+      "name": "萬○呈",
+      "finalScore": 18.88,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "1 道",
+      "className": "三丁",
+      "studentNo": 1,
+      "name": "張○米",
+      "finalScore": 10.51,
+      "finalRank": "第 2 名",
+      "award": "🥈 銀牌 (第2名)"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "2 道",
+      "className": "三甲",
+      "studentNo": 1,
+      "name": "蔡○倫",
+      "finalScore": 10.84,
+      "finalRank": "第 5 名",
+      "award": "第 5 名"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "3 道",
+      "className": "三乙",
+      "studentNo": 3,
+      "name": "陳○奕",
+      "finalScore": 10.85,
+      "finalRank": "第 6 名",
+      "award": "第 6 名"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "4 道",
+      "className": "三甲",
+      "studentNo": 3,
+      "name": "胡○瑋",
+      "finalScore": 10.17,
+      "finalRank": "第 1 名",
+      "award": "🥇 金牌 (第1名)"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "5 道",
+      "className": "三乙",
+      "studentNo": 1,
+      "name": "徐○宸",
+      "finalScore": 10.67,
+      "finalRank": "第 3 名",
+      "award": "🥉 銅牌 (第3名)"
+    },
+    {
+      "event": "三年級男生組 60 公尺",
+      "lane": "6 道",
+      "className": "三乙",
+      "studentNo": 2,
+      "name": "蘇○喜",
+      "finalScore": 10.79,
+      "finalRank": "第 4 名",
+      "award": "第 4 名"
+    }
+  ]
 }

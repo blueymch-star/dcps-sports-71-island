@@ -185,7 +185,7 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
         <div class="sq-brand-actions" id="sq-brand-actions">
           <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
           <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表">📅 程序表(32)</button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 10/21–11/25 賽前已完賽個人賽與大隊接力戰報">🏃 賽前戰報</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報">🏃 決賽戰報</button>
           <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂">🎵 闖關音樂🔊</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label">選手設定</span></button>
         </div>
@@ -1669,27 +1669,50 @@ dialog::backdrop {
 }
 .sq-finalists-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 8px;
 }
 .sq-finalist-item {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.2s;
 }
+.sq-finalist-item.is-gold {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1.5px solid #f59e0b;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+}
+.sq-finalist-item.is-silver {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1.5px solid #94a3b8;
+  box-shadow: 0 2px 6px rgba(148, 163, 184, 0.15);
+}
+.sq-finalist-item.is-bronze {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1.5px solid #f97316;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.15);
+}
+.sq-finalist-item.is-dns {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  opacity: 0.8;
+}
 .sq-finalist-item.is-matched {
-  border-color: #f59e0b;
-  background: #fffbeb;
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b !important;
+  background: #fffbeb !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3) !important;
 }
 .sq-rank-medal {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .sq-score-badge {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -1699,6 +1722,41 @@ dialog::backdrop {
   background: #e0f2fe;
   padding: 2px 6px;
   border-radius: 6px;
+}
+.sq-award-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+.sq-award-badge.is-gold {
+  background: #fef08a;
+  color: #854d0e;
+  border: 1px solid #facc15;
+}
+.sq-award-badge.is-silver {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+.sq-award-badge.is-bronze {
+  background: #fed7aa;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
+.sq-award-badge.is-cert {
+  background: #e2e8f0;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+.sq-award-badge.is-dns {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
 }
 .sq-q-badge {
   font-size: 10.5px;
@@ -1833,7 +1891,7 @@ const customHtml = `
     </div>
     <div class="sq-tabs">
       <button type="button" class="sq-tab is-active" data-sq-tab="prog">📅 當日程序表（01–32 項）</button>
-      <button type="button" class="sq-tab" data-sq-tab="pre">🏃 賽前已完賽個人賽＆大隊接力規程</button>
+      <button type="button" class="sq-tab" data-sq-tab="pre">🏃 個人賽決賽成績＆戰報</button>
       <button type="button" class="sq-tab" data-sq-tab="models">🗺️ 六島 19 座 3D 地標模型總覽</button>
     </div>
     <div id="sq-pane-prog">
@@ -1875,11 +1933,11 @@ const customHtml = `
         </div>
         <div class="sq-stat-card">
           <span class="sq-stat-val">96</span>
-          <span class="sq-stat-lbl">晉級決賽英雄 (Q/q)</span>
+          <span class="sq-stat-lbl">決賽英雄榜</span>
         </div>
         <div class="sq-stat-card">
-          <span class="sq-stat-val">6 道</span>
-          <span class="sq-stat-lbl">紫色跑道預決賽</span>
+          <span class="sq-stat-val">48 面</span>
+          <span class="sq-stat-lbl">大會獎牌(金銀銅)</span>
         </div>
       </div>
 
@@ -3286,24 +3344,58 @@ function initSportsQuest(ctx) {
       const isExpanded = raceViewMode === 'all' || expandedRaceIds.has(r.id);
       const gradeColor = r.grade === 3 ? '#9333ea' : r.grade === 4 ? '#0284c7' : r.grade === 5 ? '#0d9488' : '#d97706';
 
-      // 6 位晉級決賽英雄名單
-      const finHtml = (r.finalists || []).map((f, fIdx) => {
+      // 6 位決賽英雄正式成績與得獎名冊
+      const finHtml = (r.finalists || []).map(f => {
         const isMatch = kw && ((f.name && f.name.toLowerCase().includes(kw)) || (f.className && f.className.toLowerCase().includes(kw)));
-        const rankMedal = fIdx === 0 ? '🥇' : fIdx === 1 ? '🥈' : fIdx === 2 ? '🥉' : '第 ' + (fIdx + 1) + ' 名';
-        const qBadge = f.status && f.status.includes('(Q)')
-          ? '<span class="sq-q-badge is-Q" title="分組第 1 名直接晉級決賽">晉級 (Q)</span>'
-          : '<span class="sq-q-badge is-q" title="擇優成績晉級決賽">擇優 (q)</span>';
-        const scoreStr = typeof f.score === 'number' ? f.score.toFixed(2) + 's' : (f.score || '-');
+        const rankNum = f.finalRank;
+        const isGold = rankNum === 1;
+        const isSilver = rankNum === 2;
+        const isBronze = rankNum === 3;
+        const isDns = f.finalScore === '未出賽' || f.finalRankLabel === '未出賽';
+
+        let medalIcon = '🏅';
+        let itemClass = 'sq-finalist-item';
+        let awardBadge = '';
+
+        if (isGold) {
+          medalIcon = '🥇';
+          itemClass += ' is-gold';
+          awardBadge = '<span class="sq-award-badge is-gold">🥇 金牌</span>';
+        } else if (isSilver) {
+          medalIcon = '🥈';
+          itemClass += ' is-silver';
+          awardBadge = '<span class="sq-award-badge is-silver">🥈 銀牌</span>';
+        } else if (isBronze) {
+          medalIcon = '🥉';
+          itemClass += ' is-bronze';
+          awardBadge = '<span class="sq-award-badge is-bronze">🥉 銅牌</span>';
+        } else if (isDns) {
+          medalIcon = '⚪';
+          itemClass += ' is-dns';
+          awardBadge = '<span class="sq-award-badge is-dns">未出賽</span>';
+        } else {
+          medalIcon = '<span style="font-size:12px;font-weight:900;color:#64748b;">' + (f.finalRankLabel || ('第 ' + rankNum + ' 名')) + '</span>';
+          awardBadge = '<span class="sq-award-badge is-cert">大會獎狀</span>';
+        }
+
+        if (isMatch) itemClass += ' is-matched';
+
+        const finalScoreStr = isDns ? '未出賽' : (typeof f.finalScore === 'number' ? f.finalScore.toFixed(2) + 's' : (f.finalScore || '-'));
+        const prelimScoreStr = typeof f.prelimScore === 'number' ? f.prelimScore.toFixed(2) + 's' : (f.prelimScore || '');
+        const prelimNote = prelimScoreStr ? '預賽 ' + prelimScoreStr + (f.prelimStatus ? ' · ' + f.prelimStatus.replace(/\s+/g, '') : '') : '';
+
         return (
-          '<div class="sq-finalist-item ' + (isMatch ? 'is-matched' : '') + '">' +
-            '<div style="display:flex;align-items:center;gap:6px;">' +
-              '<span class="sq-rank-medal">' + rankMedal + '</span>' +
-              '<strong>' + f.className + ' ' + f.name + '</strong>' +
-              '<span style="font-size:11px;color:#64748b;">(' + f.heat + ' ' + f.lane + ')</span>' +
+          '<div class="' + itemClass + '">' +
+            '<div style="display:flex;align-items:center;gap:8px;">' +
+              '<span class="sq-rank-medal">' + medalIcon + '</span>' +
+              '<div>' +
+                '<div><strong>' + f.className + ' ' + f.name + '</strong> <span style="font-size:11px;color:#64748b;">(決賽 ' + f.finalLane + ')</span></div>' +
+                (prelimNote ? '<div style="font-size:10.5px;color:#94a3b8;">' + prelimNote + '</div>' : '') +
+              '</div>' +
             '</div>' +
-            '<div style="display:flex;align-items:center;gap:6px;">' +
-              '<span class="sq-score-badge">' + scoreStr + '</span>' +
-              qBadge +
+            '<div style="display:flex;align-items:flex-end;flex-direction:column;gap:4px;">' +
+              '<span class="sq-score-badge" style="' + (isGold ? 'background:#fef08a;color:#854d0e;' : isSilver ? 'background:#f1f5f9;color:#334155;' : isBronze ? 'background:#fed7aa;color:#9a3412;' : '') + '">' + finalScoreStr + '</span>' +
+              awardBadge +
             '</div>' +
           '</div>'
         );
@@ -3325,6 +3417,7 @@ function initSportsQuest(ctx) {
                   '<th>預賽成績</th>' +
                   '<th>分組名次</th>' +
                   '<th>晉級狀態</th>' +
+                  '<th>決賽成績與榮譽</th>' +
                 '</tr>' +
               '</thead>' +
               '<tbody>' +
@@ -3334,6 +3427,23 @@ function initSportsQuest(ctx) {
                   const isq = a.qualified && a.qualified.includes('(q)');
                   const rowClass = isMatch ? 'is-matched-row' : isQ ? 'is-q-row' : isq ? 'is-smallq-row' : '';
                   const scoreStr = typeof a.score === 'number' ? a.score.toFixed(2) + 's' : (a.score || '-');
+
+                  let finalAwardHtml = '<span style="color:#94a3b8;">-</span>';
+                  if (a.finalRank) {
+                    const fScoreStr = typeof a.finalScore === 'number' ? a.finalScore.toFixed(2) + 's' : (a.finalScore || '');
+                    if (a.finalRank === '第 1 名' || a.finalRank === 1) {
+                      finalAwardHtml = '<span class="sq-award-badge is-gold">🥇 金牌 (' + fScoreStr + ')</span>';
+                    } else if (a.finalRank === '第 2 名' || a.finalRank === 2) {
+                      finalAwardHtml = '<span class="sq-award-badge is-silver">🥈 銀牌 (' + fScoreStr + ')</span>';
+                    } else if (a.finalRank === '第 3 名' || a.finalRank === 3) {
+                      finalAwardHtml = '<span class="sq-award-badge is-bronze">🥉 銅牌 (' + fScoreStr + ')</span>';
+                    } else if (a.finalRank === '未出賽' || a.finalScore === '未出賽') {
+                      finalAwardHtml = '<span class="sq-award-badge is-dns">決賽未出賽</span>';
+                    } else {
+                      finalAwardHtml = '<span class="sq-award-badge is-cert">' + a.finalRank + ' (' + fScoreStr + ')</span>';
+                    }
+                  }
+
                   return (
                     '<tr class="' + rowClass + '">' +
                       '<td>' + a.heat + '</td>' +
@@ -3344,6 +3454,7 @@ function initSportsQuest(ctx) {
                       '<td><span class="sq-score-badge">' + scoreStr + '</span></td>' +
                       '<td>' + (a.heatRank || '-') + '</td>' +
                       '<td>' + (isQ ? '<span class="sq-q-badge is-Q">晉級 (Q)</span>' : isq ? '<span class="sq-q-badge is-q">擇優 (q)</span>' : '-') + '</td>' +
+                      '<td>' + finalAwardHtml + '</td>' +
                     '</tr>'
                   );
                 }).join('') +
@@ -3362,12 +3473,12 @@ function initSportsQuest(ctx) {
               '<span>' + r.name + '</span>' +
             '</div>' +
             '<div class="sq-race-meta">' +
-              '<span>🗓️ 預賽 ' + r.prelimDate + ' ｜ 決賽 ' + r.finalDate + '</span>' +
+              '<span>🗓️ 預賽 ' + r.prelimDate + ' ｜ 決賽 ' + r.finalDate + ' (全數完賽)</span>' +
               '<button type="button" class="sq-toggle-table-btn" data-toggle-race="' + r.id + '">' + toggleBtnTxt + '</button>' +
             '</div>' +
           '</div>' +
           '<div class="sq-race-card-body">' +
-            '<div class="sq-finalists-subhead">🏅 決賽 6 強晉級名單（第 1 組至第 3 組第一名及擇優 3 名）：</div>' +
+            '<div class="sq-finalists-subhead">🏆 決賽正式成績英雄榜（前三名頒發獎牌及獎狀，四至六名頒發獎狀）：</div>' +
             '<div class="sq-finalists-list">' + finHtml + '</div>' +
             tableHtml +
           '</div>' +

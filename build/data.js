@@ -2203,10 +2203,10 @@ module.exports = {
     },
     {
       "id": "n05",
-      "date": "10/21–11/13",
+      "date": "10/21–11/13 (全數完賽)",
       "island": "s03",
-      "title": "【賽前完賽戰報】三至六年級 60m、100m、200m 個人預決賽圓滿完賽",
-      "summary": "中年級 60m/100m（11/10 決賽）、高年級 100m/200m（11/13 決賽）已於六道紫色跑道完賽，各學年男女前 3 名頒發獎牌及獎狀、4～6 名頒發獎狀！",
+      "title": "【個人賽決賽英雄榜】三至六年級 60m、100m、200m 個人賽決賽圓滿完賽，48 面獎牌英雄榮耀出爐！",
+      "summary": "三至六年級共 16 項個人賽決賽全數完賽！四丙林○僑以 9.92s 奪四男 60m 金牌、六甲楊○翰以 31.99s 奪六男 200m 金牌、六乙韓○能以 15.30s 奪六男 100m 金牌、五乙鄭○亦以 31.27s 奪五男 200m 金牌，恭喜全體 96 位決賽英雄！",
       "url": "#pre-events"
     },
     {
@@ -2265,70 +2265,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 10.17,
           "className": "三甲",
           "studentNo": 3,
           "name": "胡○瑋",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 10.27,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 10.27,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "三乙",
-          "studentNo": 1,
-          "name": "徐○宸",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 10.61,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
-          "className": "三乙",
-          "studentNo": 2,
-          "name": "蘇○喜",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 10.69,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
-          "className": "三乙",
-          "studentNo": 3,
-          "name": "陳○奕",
-          "heat": "第 1 組",
-          "lane": "3 道",
-          "score": 10.84,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 5,
-          "className": "三甲",
-          "studentNo": 1,
-          "name": "蔡○倫",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 10.98,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 6,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "1 道",
+          "finalScore": 10.51,
           "className": "三丁",
           "studentNo": 1,
           "name": "張○米",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 11.01,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 11.01,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 10.67,
+          "className": "三乙",
+          "studentNo": 1,
+          "name": "徐○宸",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 10.61,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "6 道",
+          "finalScore": 10.79,
+          "className": "三乙",
+          "studentNo": 2,
+          "name": "蘇○喜",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 10.69,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 10.84,
+          "className": "三甲",
+          "studentNo": 1,
+          "name": "蔡○倫",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 10.98,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "3 道",
+          "finalScore": 10.85,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "陳○奕",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "3 道",
+          "prelimScore": 10.84,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         }
       ],
       "athletes": [
@@ -2360,7 +2384,11 @@ module.exports = {
           "name": "陳○奕",
           "score": 10.84,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 6 名",
+          "finalScore": 10.85,
+          "finalAward": "第 6 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -2370,7 +2398,11 @@ module.exports = {
           "name": "張○米",
           "score": 11.01,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 10.51,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 1 組",
@@ -2420,7 +2452,11 @@ module.exports = {
           "name": "蘇○喜",
           "score": 10.69,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 10.79,
+          "finalAward": "第 4 名",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -2430,7 +2466,11 @@ module.exports = {
           "name": "胡○瑋",
           "score": 10.27,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 10.17,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -2470,7 +2510,11 @@ module.exports = {
           "name": "徐○宸",
           "score": 10.61,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 10.67,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -2480,7 +2524,11 @@ module.exports = {
           "name": "蔡○倫",
           "score": 10.98,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 10.84,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         }
       ]
     },
@@ -2498,70 +2546,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
-          "className": "三丙",
-          "studentNo": 1,
-          "name": "陳○芊",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 11.1,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 2,
-          "className": "三乙",
-          "studentNo": 3,
-          "name": "何○菲",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 11.3,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "6 道",
+          "finalScore": 11.06,
           "className": "三丙",
           "studentNo": 3,
           "name": "江○芸",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 11.46,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 11.46,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
-          "className": "三甲",
-          "studentNo": 2,
-          "name": "蔡○慧",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 11.53,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "4 道",
+          "finalScore": 11.15,
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳○芊",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 11.1,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
-          "className": "三丁",
-          "studentNo": 2,
-          "name": "張○樂",
-          "heat": "第 2 組",
-          "lane": "2 道",
-          "score": 11.59,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 6,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "1 道",
+          "finalScore": 11.52,
           "className": "三戊",
           "studentNo": 2,
           "name": "陳○昀",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 11.62,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 11.62,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "5 道",
+          "finalScore": 11.63,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "何○菲",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 11.3,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 11.69,
+          "className": "三丁",
+          "studentNo": 2,
+          "name": "張○樂",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "2 道",
+          "prelimScore": 11.59,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "3 道",
+          "finalScore": 11.73,
+          "className": "三甲",
+          "studentNo": 2,
+          "name": "蔡○慧",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 11.53,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -2613,7 +2685,11 @@ module.exports = {
           "name": "陳○昀",
           "score": 11.62,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 11.52,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 2 組",
@@ -2633,7 +2709,11 @@ module.exports = {
           "name": "張○樂",
           "score": 11.59,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 11.69,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -2643,7 +2723,11 @@ module.exports = {
           "name": "蔡○慧",
           "score": 11.53,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 11.73,
+          "finalAward": "第 6 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 2 組",
@@ -2653,7 +2737,11 @@ module.exports = {
           "name": "江○芸",
           "score": 11.46,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 11.06,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -2703,7 +2791,11 @@ module.exports = {
           "name": "何○菲",
           "score": 11.3,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 11.63,
+          "finalAward": "第 4 名",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -2713,7 +2805,11 @@ module.exports = {
           "name": "陳○芊",
           "score": 11.1,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 11.15,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "4 道"
         }
       ]
     },
@@ -2731,70 +2827,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
-          "className": "三丙",
-          "studentNo": 1,
-          "name": "陳○凱",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 18.74,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 2,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "5 道",
+          "finalScore": 17.99,
           "className": "三戊",
           "studentNo": 3,
           "name": "潘○杰",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 18.87,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 18.87,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 3,
-          "className": "三戊",
-          "studentNo": 2,
-          "name": "萬○呈",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 19.14,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
-          "className": "三戊",
-          "studentNo": 1,
-          "name": "陳○吉",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 19.36,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 5,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "2 道",
+          "finalScore": 18.83,
           "className": "三丁",
           "studentNo": 2,
           "name": "葉○鴻",
-          "heat": "第 1 組",
-          "lane": "2 道",
-          "score": 19.39,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "2 道",
+          "prelimScore": 19.39,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道",
+          "finalScore": 18.88,
+          "className": "三戊",
+          "studentNo": 2,
+          "name": "萬○呈",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 19.14,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "4 道",
+          "finalScore": 19.19,
+          "className": "三丙",
+          "studentNo": 1,
+          "name": "陳○凱",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 18.74,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "1 道",
+          "finalScore": 19.61,
           "className": "三丙",
           "studentNo": 2,
           "name": "林○晨",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 19.46,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 19.46,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 99,
+          "finalRankLabel": "未出賽",
+          "award": "未出賽",
+          "finalLane": "3 道",
+          "finalScore": "未出賽",
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳○吉",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 19.36,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         }
       ],
       "athletes": [
@@ -2816,7 +2936,11 @@ module.exports = {
           "name": "葉○鴻",
           "score": 19.39,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 18.83,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 1 組",
@@ -2836,7 +2960,11 @@ module.exports = {
           "name": "陳○吉",
           "score": 19.36,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "未出賽",
+          "finalScore": "未出賽",
+          "finalAward": "未出賽",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -2846,7 +2974,11 @@ module.exports = {
           "name": "林○晨",
           "score": 19.46,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 19.61,
+          "finalAward": "第 5 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 2 組",
@@ -2886,7 +3018,11 @@ module.exports = {
           "name": "潘○杰",
           "score": 18.87,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 17.99,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 2 組",
@@ -2936,7 +3072,11 @@ module.exports = {
           "name": "陳○凱",
           "score": 18.74,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 4 名",
+          "finalScore": 19.19,
+          "finalAward": "第 4 名",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -2946,7 +3086,11 @@ module.exports = {
           "name": "萬○呈",
           "score": 19.14,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 3 名",
+          "finalScore": 18.88,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道"
         }
       ]
     },
@@ -2964,70 +3108,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
-          "className": "三戊",
-          "studentNo": 2,
-          "name": "鍾○芩",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 18.92,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 2,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "5 道",
+          "finalScore": 19.17,
           "className": "三甲",
           "studentNo": 1,
           "name": "劉○孜",
-          "heat": "第 1 組",
-          "lane": "3 道",
-          "score": 19.34,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "3 道",
+          "prelimScore": 19.34,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 3,
-          "className": "三乙",
-          "studentNo": 3,
-          "name": "林○霏",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 19.65,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 4,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道",
+          "finalScore": 20.02,
           "className": "三戊",
           "studentNo": 3,
           "name": "胡○羽",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 19.68,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 19.68,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "4 道",
+          "finalScore": 20.17,
           "className": "三戊",
-          "studentNo": 1,
-          "name": "陳○欣",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 20.88,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "studentNo": 2,
+          "name": "鍾○芩",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 18.92,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 6,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "1 道",
+          "finalScore": 20.25,
           "className": "三乙",
           "studentNo": 1,
           "name": "洪○瑜",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 20.93,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 20.93,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 20.3,
+          "className": "三戊",
+          "studentNo": 1,
+          "name": "陳○欣",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 20.88,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "6 道",
+          "finalScore": 21.22,
+          "className": "三乙",
+          "studentNo": 3,
+          "name": "林○霏",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 19.65,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         }
       ],
       "athletes": [
@@ -3059,7 +3227,11 @@ module.exports = {
           "name": "劉○孜",
           "score": 19.34,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 1 名",
+          "finalScore": 19.17,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 1 組",
@@ -3079,7 +3251,11 @@ module.exports = {
           "name": "鍾○芩",
           "score": 18.92,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 20.17,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 2 組",
@@ -3119,7 +3295,11 @@ module.exports = {
           "name": "林○霏",
           "score": 19.65,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 6 名",
+          "finalScore": 21.22,
+          "finalAward": "第 6 名",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -3129,7 +3309,11 @@ module.exports = {
           "name": "胡○羽",
           "score": 19.68,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 20.02,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 3 組",
@@ -3159,7 +3343,11 @@ module.exports = {
           "name": "陳○欣",
           "score": 20.88,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 5 名",
+          "finalScore": 20.3,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -3169,7 +3357,11 @@ module.exports = {
           "name": "洪○瑜",
           "score": 20.93,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 20.25,
+          "finalAward": "第 4 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -3197,70 +3389,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 9.92,
           "className": "四丙",
           "studentNo": 2,
           "name": "林○僑",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 9.9,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 9.9,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "四甲",
-          "studentNo": 1,
-          "name": "鄭○芥",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 10.07,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
-          "className": "四甲",
-          "studentNo": 2,
-          "name": "彭○皓",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 10.08,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
-          "className": "四乙",
-          "studentNo": 1,
-          "name": "陳○宇",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 10.11,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 5,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "2 道",
+          "finalScore": 10.13,
           "className": "四丙",
           "studentNo": 3,
           "name": "賴○晟",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 10.15,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 10.15,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道",
+          "finalScore": 10.3,
+          "className": "四甲",
+          "studentNo": 2,
+          "name": "彭○皓",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 10.08,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 10.47,
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳○宇",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 10.11,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "5 道",
+          "finalScore": 10.64,
+          "className": "四甲",
+          "studentNo": 1,
+          "name": "鄭○芥",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 10.07,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 10.81,
           "className": "四丙",
           "studentNo": 1,
           "name": "林○閎",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 10.35,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 10.35,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -3302,7 +3518,11 @@ module.exports = {
           "name": "鄭○芥",
           "score": 10.07,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 5 名",
+          "finalScore": 10.64,
+          "finalAward": "第 5 名",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 1 組",
@@ -3312,7 +3532,11 @@ module.exports = {
           "name": "賴○晟",
           "score": 10.15,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 10.13,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -3352,7 +3576,11 @@ module.exports = {
           "name": "林○僑",
           "score": 9.9,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 9.92,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 2 組",
@@ -3362,7 +3590,11 @@ module.exports = {
           "name": "彭○皓",
           "score": 10.08,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 3 名",
+          "finalScore": 10.3,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 3 組",
@@ -3392,7 +3624,11 @@ module.exports = {
           "name": "林○閎",
           "score": 10.35,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 10.81,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -3402,7 +3638,11 @@ module.exports = {
           "name": "陳○宇",
           "score": 10.11,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 4 名",
+          "finalScore": 10.47,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 3 組",
@@ -3430,70 +3670,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
-          "className": "四丙",
-          "studentNo": 3,
-          "name": "胡○凡",
-          "heat": "第 1 組",
-          "lane": "2 道",
-          "score": 10.57,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 2,
-          "className": "四丁",
-          "studentNo": 3,
-          "name": "陳○妮",
-          "heat": "第 3 組",
-          "lane": "2 道",
-          "score": 10.9,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "6 道",
+          "finalScore": 10.6,
           "className": "四甲",
           "studentNo": 1,
           "name": "黃○芯",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 10.95,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 10.95,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
-          "className": "四乙",
-          "studentNo": 2,
-          "name": "汪○妍",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 11.41,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "4 道",
+          "finalScore": 10.84,
+          "className": "四丙",
+          "studentNo": 3,
+          "name": "胡○凡",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "2 道",
+          "prelimScore": 10.57,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 11.25,
+          "className": "四丁",
+          "studentNo": 3,
+          "name": "陳○妮",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "2 道",
+          "prelimScore": 10.9,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "2 道",
+          "finalScore": 11.45,
           "className": "四丁",
           "studentNo": 2,
           "name": "張○雨",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 11.42,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 11.42,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "3 道",
+          "finalScore": 11.63,
+          "className": "四乙",
+          "studentNo": 2,
+          "name": "汪○妍",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 11.41,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 11.82,
           "className": "四乙",
           "studentNo": 1,
           "name": "孫○悅",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 11.44,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 11.44,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -3515,7 +3779,11 @@ module.exports = {
           "name": "胡○凡",
           "score": 10.57,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 10.84,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 1 組",
@@ -3545,7 +3813,11 @@ module.exports = {
           "name": "孫○悅",
           "score": 11.44,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 11.82,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 2 組",
@@ -3585,7 +3857,11 @@ module.exports = {
           "name": "黃○芯",
           "score": 10.95,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 10.6,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -3595,7 +3871,11 @@ module.exports = {
           "name": "張○雨",
           "score": 11.42,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 11.45,
+          "finalAward": "第 4 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -3615,7 +3895,11 @@ module.exports = {
           "name": "陳○妮",
           "score": 10.9,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 11.25,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -3635,7 +3919,11 @@ module.exports = {
           "name": "汪○妍",
           "score": 11.41,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 11.63,
+          "finalAward": "第 5 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 3 組",
@@ -3663,70 +3951,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 16.22,
           "className": "四丙",
           "studentNo": 1,
           "name": "韓○諺",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 17.36,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 17.36,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "四戊",
-          "studentNo": 2,
-          "name": "林○祐",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 17.39,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 16.99,
           "className": "四乙",
           "studentNo": 3,
           "name": "吳○廷",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 17.66,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 17.66,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 4,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 17.2,
+          "className": "四戊",
+          "studentNo": 2,
+          "name": "林○祐",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 17.39,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 17.28,
           "className": "四丁",
           "studentNo": 1,
           "name": "陳○諳",
-          "heat": "第 1 組",
-          "lane": "3 道",
-          "score": 18.16,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "3 道",
+          "prelimScore": 18.16,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 17.42,
           "className": "四甲",
           "studentNo": 1,
           "name": "韓○信",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 18.48,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 18.48,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 6,
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 18.14,
           "className": "四乙",
           "studentNo": 2,
           "name": "陳○銘",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 18.6,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 18.6,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -3758,7 +4070,11 @@ module.exports = {
           "name": "陳○諳",
           "score": 18.16,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 17.28,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -3778,7 +4094,11 @@ module.exports = {
           "name": "韓○諺",
           "score": 17.36,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 16.22,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 2 組",
@@ -3818,7 +4138,11 @@ module.exports = {
           "name": "吳○廷",
           "score": 17.66,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 16.99,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -3828,7 +4152,11 @@ module.exports = {
           "name": "林○祐",
           "score": 17.39,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 17.2,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -3868,7 +4196,11 @@ module.exports = {
           "name": "韓○信",
           "score": 18.48,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 5 名",
+          "finalScore": 17.42,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -3878,7 +4210,11 @@ module.exports = {
           "name": "陳○銘",
           "score": 18.6,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 18.14,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         }
       ]
     },
@@ -3896,70 +4232,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
-          "className": "四甲",
-          "studentNo": 1,
-          "name": "郭○菲",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 18.98,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 2,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "5 道",
+          "finalScore": 17.87,
           "className": "四丁",
           "studentNo": 1,
           "name": "李○希",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 19.26,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 19.26,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 18.19,
           "className": "四戊",
           "studentNo": 1,
           "name": "李○嫿",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 19.36,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 19.36,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
-          "className": "四乙",
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "4 道",
+          "finalScore": 18.21,
+          "className": "四甲",
           "studentNo": 1,
-          "name": "陳○僑",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 19.85,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "name": "郭○菲",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 18.98,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "2 道",
+          "finalScore": 19.54,
           "className": "四丁",
           "studentNo": 2,
           "name": "林○睎",
-          "heat": "第 2 組",
-          "lane": "1 道",
-          "score": 19.9,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "1 道",
+          "prelimScore": 19.9,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "3 道",
+          "finalScore": 19.56,
+          "className": "四乙",
+          "studentNo": 1,
+          "name": "陳○僑",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 19.85,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 20.82,
           "className": "四乙",
           "studentNo": 2,
           "name": "林○桐",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 20.33,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 20.33,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -4001,7 +4361,11 @@ module.exports = {
           "name": "陳○僑",
           "score": 19.85,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 19.56,
+          "finalAward": "第 5 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -4011,7 +4375,11 @@ module.exports = {
           "name": "郭○菲",
           "score": 18.98,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 18.21,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 2 組",
@@ -4021,7 +4389,11 @@ module.exports = {
           "name": "林○睎",
           "score": 19.9,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 19.54,
+          "finalAward": "第 4 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -4041,7 +4413,11 @@ module.exports = {
           "name": "李○嫿",
           "score": 19.36,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 18.19,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -4061,7 +4437,11 @@ module.exports = {
           "name": "林○桐",
           "score": 20.33,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 20.82,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -4091,7 +4471,11 @@ module.exports = {
           "name": "李○希",
           "score": 19.26,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 17.87,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -4129,70 +4513,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 15.79,
           "className": "五乙",
           "studentNo": 2,
           "name": "江○霖",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 15.91,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 15.91,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "五丙",
-          "studentNo": 3,
-          "name": "王○碩",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 16.42,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 16.76,
           "className": "五乙",
           "studentNo": 1,
           "name": "李○榤",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 16.58,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.58,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 16.79,
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "王○碩",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.42,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 17.22,
           "className": "五戊",
           "studentNo": 1,
           "name": "陳○瑞",
-          "heat": "第 1 組",
-          "lane": "2 道",
-          "score": 16.86,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "2 道",
+          "prelimScore": 16.86,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
-          "className": "五乙",
-          "studentNo": 3,
-          "name": "陳○承",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 17.07,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 6,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "1 道",
+          "finalScore": 17.32,
           "className": "五甲",
           "studentNo": 1,
           "name": "陳○昆",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 17.26,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 17.26,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "2 道",
+          "finalScore": 17.52,
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "陳○承",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 17.07,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -4214,7 +4622,11 @@ module.exports = {
           "name": "陳○瑞",
           "score": 16.86,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 17.22,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -4234,7 +4646,11 @@ module.exports = {
           "name": "王○碩",
           "score": 16.42,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 16.79,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 1 組",
@@ -4244,7 +4660,11 @@ module.exports = {
           "name": "陳○承",
           "score": 17.07,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 17.52,
+          "finalAward": "第 6 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -4274,7 +4694,11 @@ module.exports = {
           "name": "陳○昆",
           "score": 17.26,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 17.32,
+          "finalAward": "第 5 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 2 組",
@@ -4284,7 +4708,11 @@ module.exports = {
           "name": "李○榤",
           "score": 16.58,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 16.76,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -4334,7 +4762,11 @@ module.exports = {
           "name": "江○霖",
           "score": 15.91,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 15.79,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -4362,70 +4794,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 16.44,
           "className": "五乙",
           "studentNo": 2,
           "name": "宋○玲",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 16.77,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.77,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "5 道",
+          "finalScore": 16.51,
           "className": "五乙",
           "studentNo": 1,
           "name": "蔡○臻",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 17.1,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 17.1,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 3,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道",
+          "finalScore": 17.61,
           "className": "五甲",
           "studentNo": 3,
           "name": "齊○堂",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 17.25,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 17.25,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 4,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 18.12,
           "className": "五乙",
           "studentNo": 3,
           "name": "張○瑄",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 17.92,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 17.92,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 18.42,
           "className": "五戊",
           "studentNo": 1,
           "name": "林○歆",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 18.56,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 18.56,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 18.87,
           "className": "五丙",
           "studentNo": 3,
           "name": "傅○昕",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 18.58,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 18.58,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -4467,7 +4923,11 @@ module.exports = {
           "name": "張○瑄",
           "score": 17.92,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 4 名",
+          "finalScore": 18.12,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -4477,7 +4937,11 @@ module.exports = {
           "name": "林○歆",
           "score": 18.56,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 18.42,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -4507,7 +4971,11 @@ module.exports = {
           "name": "齊○堂",
           "score": 17.25,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 3 名",
+          "finalScore": 17.61,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -4517,7 +4985,11 @@ module.exports = {
           "name": "宋○玲",
           "score": 16.77,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 16.44,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 2 組",
@@ -4527,7 +4999,11 @@ module.exports = {
           "name": "傅○昕",
           "score": 18.58,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 18.87,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -4567,7 +5043,11 @@ module.exports = {
           "name": "蔡○臻",
           "score": 17.1,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 16.51,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -4595,70 +5075,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 31.27,
           "className": "五乙",
           "studentNo": 1,
           "name": "鄭○亦",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 31.96,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 31.96,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "5 道",
+          "finalScore": 35.64,
           "className": "五戊",
           "studentNo": 1,
           "name": "呂○安",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 34.61,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 34.61,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 3,
-          "className": "五丙",
-          "studentNo": 3,
-          "name": "蘇○旭",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 36.04,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "3 道",
+          "finalScore": 35.9,
           "className": "五丙",
           "studentNo": 1,
           "name": "許○禕",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 36.65,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 36.65,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "6 道",
+          "finalScore": 36.12,
+          "className": "五丙",
+          "studentNo": 3,
+          "name": "蘇○旭",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 36.04,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 37.19,
           "className": "五戊",
           "studentNo": 3,
           "name": "林○宏",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 37.35,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 37.35,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 37.3,
           "className": "五丙",
           "studentNo": 2,
           "name": "彭○宇",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 38.02,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 38.02,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -4700,7 +5204,11 @@ module.exports = {
           "name": "許○禕",
           "score": 36.65,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 35.9,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -4750,7 +5258,11 @@ module.exports = {
           "name": "呂○安",
           "score": 34.61,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 35.64,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 2 組",
@@ -4760,7 +5272,11 @@ module.exports = {
           "name": "蘇○旭",
           "score": 36.04,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 36.12,
+          "finalAward": "第 4 名",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 3 組",
@@ -4790,7 +5306,11 @@ module.exports = {
           "name": "林○宏",
           "score": 37.35,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 37.19,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -4800,7 +5320,11 @@ module.exports = {
           "name": "鄭○亦",
           "score": 31.96,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 31.27,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -4810,7 +5334,11 @@ module.exports = {
           "name": "彭○宇",
           "score": 38.02,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 37.3,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         }
       ]
     },
@@ -4828,70 +5356,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 33.75,
           "className": "五甲",
           "studentNo": 1,
           "name": "黃○媃",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 33.86,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 33.86,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "五丁",
-          "studentNo": 1,
-          "name": "李○妍",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 37.57,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
-          "className": "五乙",
-          "studentNo": 3,
-          "name": "蔡○穎",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 39.53,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道",
+          "finalScore": 38.7,
           "className": "五甲",
           "studentNo": 3,
           "name": "徐○萱",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 39.66,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 39.66,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 5,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道",
+          "finalScore": 39.07,
           "className": "五乙",
           "studentNo": 2,
           "name": "張○僑",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 39.71,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 39.71,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "6 道",
+          "finalScore": 39.77,
+          "className": "五乙",
+          "studentNo": 3,
+          "name": "蔡○穎",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 39.53,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "1 道",
+          "finalScore": 39.99,
           "className": "五丙",
           "studentNo": 1,
           "name": "邱○捷",
-          "heat": "第 1 組",
-          "lane": "2 道",
-          "score": 40.57,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "2 道",
+          "prelimScore": 40.57,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "5 道",
+          "finalScore": 48.47,
+          "className": "五丁",
+          "studentNo": 1,
+          "name": "李○妍",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 37.57,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         }
       ],
       "athletes": [
@@ -4913,7 +5465,11 @@ module.exports = {
           "name": "邱○捷",
           "score": 40.57,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 39.99,
+          "finalAward": "第 5 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 1 組",
@@ -4933,7 +5489,11 @@ module.exports = {
           "name": "徐○萱",
           "score": 39.66,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 38.7,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -4983,7 +5543,11 @@ module.exports = {
           "name": "李○妍",
           "score": 37.57,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 6 名",
+          "finalScore": 48.47,
+          "finalAward": "第 6 名",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 2 組",
@@ -4993,7 +5557,11 @@ module.exports = {
           "name": "張○僑",
           "score": 39.71,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 3 名",
+          "finalScore": 39.07,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -5023,7 +5591,11 @@ module.exports = {
           "name": "蔡○穎",
           "score": 39.53,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 39.77,
+          "finalAward": "第 4 名",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 3 組",
@@ -5033,7 +5605,11 @@ module.exports = {
           "name": "黃○媃",
           "score": 33.86,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 33.75,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -5061,70 +5637,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 15.3,
           "className": "六乙",
           "studentNo": 1,
           "name": "韓○能",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 15.36,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 15.36,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "六甲",
-          "studentNo": 1,
-          "name": "杜○安",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 16.26,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
-          "className": "六乙",
-          "studentNo": 3,
-          "name": "吳○軒",
-          "heat": "第 1 組",
-          "lane": "1 道",
-          "score": 16.29,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 4,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道",
+          "finalScore": 15.99,
           "className": "六丁",
           "studentNo": 1,
           "name": "李○詣",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 16.34,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 16.34,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道",
+          "finalScore": 16,
           "className": "六丁",
           "studentNo": 2,
           "name": "陳○翔",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 16.45,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 16.45,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 6,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "1 道",
+          "finalScore": 16.05,
           "className": "六丙",
           "studentNo": 1,
           "name": "吳○佑",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 16.49,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 16.49,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "6 道",
+          "finalScore": 16.29,
+          "className": "六乙",
+          "studentNo": 3,
+          "name": "吳○軒",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "1 道",
+          "prelimScore": 16.29,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "5 道",
+          "finalScore": 16.55,
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "杜○安",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.26,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         }
       ],
       "athletes": [
@@ -5136,7 +5736,11 @@ module.exports = {
           "name": "吳○軒",
           "score": 16.29,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 16.29,
+          "finalAward": "第 5 名",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 1 組",
@@ -5166,7 +5770,11 @@ module.exports = {
           "name": "杜○安",
           "score": 16.26,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 6 名",
+          "finalScore": 16.55,
+          "finalAward": "第 6 名",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 1 組",
@@ -5206,7 +5814,11 @@ module.exports = {
           "name": "陳○翔",
           "score": 16.45,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 16,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -5226,7 +5838,11 @@ module.exports = {
           "name": "吳○佑",
           "score": 16.49,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 16.05,
+          "finalAward": "第 4 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -5256,7 +5872,11 @@ module.exports = {
           "name": "李○詣",
           "score": 16.34,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 15.99,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 3 組",
@@ -5266,7 +5886,11 @@ module.exports = {
           "name": "韓○能",
           "score": 15.36,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 15.3,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -5294,70 +5918,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 16.25,
           "className": "六乙",
           "studentNo": 2,
           "name": "洪○喻",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 16.64,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.64,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "六乙",
-          "studentNo": 1,
-          "name": "鍾○芯",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 16.66,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 16.26,
           "className": "六丁",
           "studentNo": 1,
           "name": "何○蓉",
-          "heat": "第 1 組",
-          "lane": "5 道",
-          "score": 16.81,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "5 道",
+          "prelimScore": 16.81,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 4,
-          "className": "六丁",
-          "studentNo": 3,
-          "name": "陳○晴",
-          "heat": "第 2 組",
-          "lane": "2 道",
-          "score": 16.92,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 5,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道",
+          "finalScore": 16.71,
           "className": "六丁",
           "studentNo": 2,
           "name": "康○嫣",
-          "heat": "第 3 組",
-          "lane": "3 道",
-          "score": 17.02,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "3 道",
+          "prelimScore": 17.02,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 6,
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "5 道",
+          "finalScore": 16.85,
+          "className": "六乙",
+          "studentNo": 1,
+          "name": "鍾○芯",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 16.66,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "3 道",
+          "finalScore": 17.05,
+          "className": "六丁",
+          "studentNo": 3,
+          "name": "陳○晴",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "2 道",
+          "prelimScore": 16.92,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 17.75,
           "className": "六丙",
           "studentNo": 2,
           "name": "楊○歆",
-          "heat": "第 2 組",
-          "lane": "3 道",
-          "score": 17.13,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "3 道",
+          "prelimScore": 17.13,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -5399,7 +6047,11 @@ module.exports = {
           "name": "洪○喻",
           "score": 16.64,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 16.25,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 1 組",
@@ -5409,7 +6061,11 @@ module.exports = {
           "name": "何○蓉",
           "score": 16.81,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 2 名",
+          "finalScore": 16.26,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -5429,7 +6085,11 @@ module.exports = {
           "name": "陳○晴",
           "score": 16.92,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 17.05,
+          "finalAward": "第 5 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 2 組",
@@ -5439,7 +6099,11 @@ module.exports = {
           "name": "楊○歆",
           "score": 17.13,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 17.75,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 2 組",
@@ -5449,7 +6113,11 @@ module.exports = {
           "name": "鍾○芯",
           "score": 16.66,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 4 名",
+          "finalScore": 16.85,
+          "finalAward": "第 4 名",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 2 組",
@@ -5489,7 +6157,11 @@ module.exports = {
           "name": "康○嫣",
           "score": 17.02,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 16.71,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -5527,70 +6199,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 31.99,
           "className": "六甲",
           "studentNo": 1,
           "name": "楊○翰",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 31.95,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 31.95,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "六丁",
-          "studentNo": 2,
-          "name": "張○勛",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 32.94,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 32.37,
           "className": "六丁",
           "studentNo": 1,
           "name": "柯○佑",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 33.33,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 33.33,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 32.47,
+          "className": "六丁",
+          "studentNo": 2,
+          "name": "張○勛",
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 32.94,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 32.99,
           "className": "六戊",
           "studentNo": 1,
           "name": "陳○綸",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 33.44,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 33.44,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
-          "className": "六戊",
-          "studentNo": 3,
-          "name": "林○左",
-          "heat": "第 3 組",
-          "lane": "2 道",
-          "score": 34.07,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
-        },
-        {
-          "rank": 6,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "1 道",
+          "finalScore": 34.34,
           "className": "六丁",
           "studentNo": 3,
           "name": "黃○宸",
-          "heat": "第 3 組",
-          "lane": "5 道",
-          "score": 34.26,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "5 道",
+          "prelimScore": 34.26,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
+        },
+        {
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "2 道",
+          "finalScore": 34.35,
+          "className": "六戊",
+          "studentNo": 3,
+          "name": "林○左",
+          "prelimHeat": "第 3 組",
+          "prelimLane": "2 道",
+          "prelimScore": 34.07,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -5632,7 +6328,11 @@ module.exports = {
           "name": "柯○佑",
           "score": 33.33,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 32.37,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 1 組",
@@ -5682,7 +6382,11 @@ module.exports = {
           "name": "陳○綸",
           "score": 33.44,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 32.99,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 2 組",
@@ -5692,7 +6396,11 @@ module.exports = {
           "name": "張○勛",
           "score": 32.94,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 32.47,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 3 組",
@@ -5712,7 +6420,11 @@ module.exports = {
           "name": "林○左",
           "score": 34.07,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 34.35,
+          "finalAward": "第 6 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 3 組",
@@ -5732,7 +6444,11 @@ module.exports = {
           "name": "楊○翰",
           "score": 31.95,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 31.99,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
@@ -5742,7 +6458,11 @@ module.exports = {
           "name": "黃○宸",
           "score": 34.26,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 34.34,
+          "finalAward": "第 5 名",
+          "finalLane": "1 道"
         }
       ]
     },
@@ -5760,70 +6480,94 @@ module.exports = {
       "finalistCount": 6,
       "finalists": [
         {
-          "rank": 1,
+          "finalRank": 1,
+          "finalRankLabel": "第 1 名",
+          "award": "🥇 金牌 (第1名)",
+          "finalLane": "4 道",
+          "finalScore": 33.53,
           "className": "六乙",
           "studentNo": 1,
           "name": "王○雯",
-          "heat": "第 3 組",
-          "lane": "4 道",
-          "score": 34.07,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 3 組",
+          "prelimLane": "4 道",
+          "prelimScore": 34.07,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 2,
-          "className": "六甲",
-          "studentNo": 1,
-          "name": "吳○菲",
-          "heat": "第 1 組",
-          "lane": "4 道",
-          "score": 35.42,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
-        },
-        {
-          "rank": 3,
+          "finalRank": 2,
+          "finalRankLabel": "第 2 名",
+          "award": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道",
+          "finalScore": 34.69,
           "className": "六丙",
           "studentNo": 1,
           "name": "顏○萱",
-          "heat": "第 2 組",
-          "lane": "4 道",
-          "score": 35.67,
-          "heatRank": "第 1 名",
-          "status": "晉級 (Q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "4 道",
+          "prelimScore": 35.67,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
         },
         {
-          "rank": 4,
+          "finalRank": 3,
+          "finalRankLabel": "第 3 名",
+          "award": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道",
+          "finalScore": 34.93,
+          "className": "六甲",
+          "studentNo": 1,
+          "name": "吳○菲",
+          "prelimHeat": "第 1 組",
+          "prelimLane": "4 道",
+          "prelimScore": 35.42,
+          "prelimHeatRank": "第 1 名",
+          "prelimStatus": "晉級 (Q)"
+        },
+        {
+          "finalRank": 4,
+          "finalRankLabel": "第 4 名",
+          "award": "第 4 名",
+          "finalLane": "3 道",
+          "finalScore": 36.39,
           "className": "六丙",
           "studentNo": 2,
           "name": "張○妤",
-          "heat": "第 1 組",
-          "lane": "3 道",
-          "score": 37.1,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 1 組",
+          "prelimLane": "3 道",
+          "prelimScore": 37.1,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 5,
+          "finalRank": 5,
+          "finalRankLabel": "第 5 名",
+          "award": "第 5 名",
+          "finalLane": "2 道",
+          "finalScore": 37.23,
           "className": "六甲",
           "studentNo": 2,
           "name": "陳○昀",
-          "heat": "第 2 組",
-          "lane": "2 道",
-          "score": 37.49,
-          "heatRank": "第 2 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "2 道",
+          "prelimScore": 37.49,
+          "prelimHeatRank": "第 2 名",
+          "prelimStatus": "擇優晉級 (q)"
         },
         {
-          "rank": 6,
+          "finalRank": 6,
+          "finalRankLabel": "第 6 名",
+          "award": "第 6 名",
+          "finalLane": "1 道",
+          "finalScore": 37.34,
           "className": "六乙",
           "studentNo": 2,
           "name": "孫○婕",
-          "heat": "第 2 組",
-          "lane": "5 道",
-          "score": 37.54,
-          "heatRank": "第 3 名",
-          "status": "擇優晉級 (q)"
+          "prelimHeat": "第 2 組",
+          "prelimLane": "5 道",
+          "prelimScore": 37.54,
+          "prelimHeatRank": "第 3 名",
+          "prelimStatus": "擇優晉級 (q)"
         }
       ],
       "athletes": [
@@ -5855,7 +6599,11 @@ module.exports = {
           "name": "張○妤",
           "score": 37.1,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 4 名",
+          "finalScore": 36.39,
+          "finalAward": "第 4 名",
+          "finalLane": "3 道"
         },
         {
           "heat": "第 1 組",
@@ -5865,7 +6613,11 @@ module.exports = {
           "name": "吳○菲",
           "score": 35.42,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 3 名",
+          "finalScore": 34.93,
+          "finalAward": "🥉 銅牌 (第3名)",
+          "finalLane": "5 道"
         },
         {
           "heat": "第 1 組",
@@ -5895,7 +6647,11 @@ module.exports = {
           "name": "陳○昀",
           "score": 37.49,
           "heatRank": "第 2 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 5 名",
+          "finalScore": 37.23,
+          "finalAward": "第 5 名",
+          "finalLane": "2 道"
         },
         {
           "heat": "第 2 組",
@@ -5915,7 +6671,11 @@ module.exports = {
           "name": "顏○萱",
           "score": 35.67,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 2 名",
+          "finalScore": 34.69,
+          "finalAward": "🥈 銀牌 (第2名)",
+          "finalLane": "6 道"
         },
         {
           "heat": "第 2 組",
@@ -5925,7 +6685,11 @@ module.exports = {
           "name": "孫○婕",
           "score": 37.54,
           "heatRank": "第 3 名",
-          "qualified": "擇優晉級 (q)"
+          "qualified": "擇優晉級 (q)",
+          "finalRank": "第 6 名",
+          "finalScore": 37.34,
+          "finalAward": "第 6 名",
+          "finalLane": "1 道"
         },
         {
           "heat": "第 3 組",
@@ -5965,7 +6729,11 @@ module.exports = {
           "name": "王○雯",
           "score": 34.07,
           "heatRank": "第 1 名",
-          "qualified": "晉級 (Q)"
+          "qualified": "晉級 (Q)",
+          "finalRank": "第 1 名",
+          "finalScore": 33.53,
+          "finalAward": "🥇 金牌 (第1名)",
+          "finalLane": "4 道"
         },
         {
           "heat": "第 3 組",
