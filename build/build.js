@@ -225,7 +225,7 @@ rep(
 );
 rep(
   '<button class="ui-qk ui-qk-grade" type="button" data-quick="grade" data-en="By grade ›">依年級看 ›</button>',
-  '<button class="ui-qk ui-qk-grade" type="button" data-quick="grade" data-en="By grade ›">依年級看賽程 ›</button>'
+  '<button class="ui-qk ui-qk-grade" type="button" data-quick="grade" data-en="By Grade">依年級看賽程</button>'
 );
 rep(
   '<button class="ui-qk ui-qk-journey" type="button" data-quick="journey" data-en="▶ 6-yr journey">▶ 六年旅程</button>',
@@ -555,6 +555,22 @@ const customStyles = `
 .ui-wintag { font-weight: 800; border: 1px solid rgba(2, 132, 199, 0.25); background: #ffffff; }
 .ui-isl-tags summary { font-size: 13.5px; font-weight: 800; color: #0284c7; }
 .ui-help-note { line-height: 1.6; font-size: 13px; color: #334155; }
+
+/* 手機端底部快速入口藥丸標籤：文字置中、單行不折出孤字、寬度均衡 */
+@media (max-width:800px),(max-height:500px) and (orientation:landscape){
+  #ui-quick { gap: 5px !important; }
+  .ui-qk {
+    padding: 5px 4px !important;
+    font-size: clamp(10.5px, 2.85vw, 12px) !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+  }
+  .ui-qk b { font-size: clamp(16px, 4.3vw, 18px) !important; margin-bottom: 1px; }
+  html[lang="en"] .ui-qk { white-space: normal !important; text-wrap: balance; }
+}
 
 /* Modern Web Guidance: Prevent scroll chaining on modal dialogs and their backdrops */
 dialog:modal {
