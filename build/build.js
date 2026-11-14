@@ -4815,7 +4815,7 @@ function initSportsQuest(ctx) {
 
     // 五力印章徽章列
     const quests = DATA.quests || [];
-    const startX = 190, gap = 205, cy = 590;
+    const startX = 190, gap = 205, cy = 582;
     quests.forEach((q, idx) => {
       const x = startX + idx * gap;
       const done = !!state.stamps[q.id];
@@ -4846,15 +4846,55 @@ function initSportsQuest(ctx) {
       c.restore();
     });
 
+    // 闖關地標建築物完成度進度條
+    const allItems = [];
+    (DATA.islands || []).forEach(isl => (isl.items || []).forEach(it => allItems.push(it.id)));
+    const totalItemsCount = allItems.length || 19;
+    const clearedCount = allItems.filter(id => !!state.clearedItems[id]).length;
+    const clearedPct = Math.round((clearedCount / totalItemsCount) * 100);
+
+    c.save();
+    c.fillStyle = '#0369a1';
+    c.font = isEn ? 'bold 20px "Segoe UI", sans-serif' : 'bold 21px "Microsoft JhengHei", sans-serif';
+    c.fillText(
+      isEn
+        ? ('🏛️ Landmark Quests Cleared: ' + clearedCount + ' / ' + totalItemsCount + ' (' + clearedPct + '%)')
+        : ('🏛️ 闖關地標建築完成度：' + clearedCount + ' / ' + totalItemsCount + ' 座（' + clearedPct + '%）'),
+      W / 2, 676
+    );
+
+    const barW = 460, barH = 12, barX = (W - barW) / 2, barY = 690, barR = 6;
+    c.beginPath();
+    if (c.roundRect) c.roundRect(barX, barY, barW, barH, barR); else c.rect(barX, barY, barW, barH);
+    c.fillStyle = '#e2e8f0';
+    c.fill();
+
+    if (clearedCount > 0) {
+      const fillW = Math.max(barH, Math.round((barW * clearedCount) / totalItemsCount));
+      const barGrad = c.createLinearGradient(barX, 0, barX + barW, 0);
+      if (clearedCount >= totalItemsCount) {
+        barGrad.addColorStop(0, '#f59e0b');
+        barGrad.addColorStop(1, '#10b981');
+      } else {
+        barGrad.addColorStop(0, '#0284c7');
+        barGrad.addColorStop(1, '#10b981');
+      }
+      c.beginPath();
+      if (c.roundRect) c.roundRect(barX, barY, fillW, barH, barR); else c.rect(barX, barY, fillW, barH);
+      c.fillStyle = barGrad;
+      c.fill();
+    }
+    c.restore();
+
     // 底部簽章與日期
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
     c.fillStyle = '#0f172a';
-    c.font = isEn ? 'bold 21px "Segoe UI", sans-serif' : 'bold 24px "Microsoft JhengHei", sans-serif';
+    c.font = isEn ? 'bold 19px "Segoe UI", sans-serif' : 'bold 22px "Microsoft JhengHei", sans-serif';
     c.fillText(
       isEn
-        ? ('Five-Power Progress: ' + stampedCount + ' / 5 Stamps   |   Principal: Hsu Ya-Hui   |   Dec 12, 2026')
-        : ('五力集章進度：' + stampedCount + ' / 5 章　｜　校長：許雅惠　｜　中華民國 115 年 12 月 12 日'),
-      W / 2, 735
+        ? ('Five-Power Stamps: ' + stampedCount + ' / 5   |   Landmarks: ' + clearedCount + ' / ' + totalItemsCount + '   |   Principal: Hsu Ya-Hui   |   Dec 12, 2026')
+        : ('五力集章進度：' + stampedCount + ' / 5 章　｜　建築關卡：' + clearedCount + ' / ' + totalItemsCount + ' 座　｜　校長：許雅惠　｜　中華民國 115 年 12 月 12 日'),
+      W / 2, 742
     );
   }
 
