@@ -2007,6 +2007,7 @@ dialog::backdrop {
 }
 .sq-table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: 14px;
   border: 1px solid #cbd5e1;
   background: #ffffff;
@@ -2035,6 +2036,7 @@ dialog::backdrop {
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 700;
+  white-space: nowrap;
 }
 .sq-p-美感力 { background: #cffafe; color: #0e7490; }
 .sq-p-群體力 { background: #d1fae5; color: #047857; }
@@ -2420,6 +2422,61 @@ dialog::backdrop {
   color: #0284c7;
   cursor: pointer;
   user-select: none;
+  line-height: 1.4;
+}
+.sq-rule-head {
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+.sq-rule-period {
+  font-weight: 700;
+  color: #0369a1;
+}
+.sq-rule-item {
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.sq-rule-tip {
+  margin-top: 5px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(254, 243, 199, 0.75);
+  color: #92400e;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1.45;
+}
+#sq-pre-table th,
+#sq-pre-table td {
+  white-space: nowrap;
+}
+#sq-pre-table th:last-child,
+#sq-pre-table td:last-child {
+  white-space: normal;
+  min-width: 220px;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .sq-rules-details {
+    padding: 9px 10px;
+  }
+  .sq-rules-summary {
+    font-size: 12px;
+  }
+  .sq-rules-details .sq-clue-box {
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+  .sq-rule-period {
+    font-size: 11.5px;
+  }
+  #sq-pre-table {
+    font-size: 12px;
+  }
+  #sq-pre-table th,
+  #sq-pre-table td {
+    padding: 7px 8px;
+  }
 }
 
 
@@ -2869,15 +2926,15 @@ dialog::backdrop {
       <!-- 競賽規程重點與賽程日程總表（折疊） -->
       <details class="sq-rules-details" style="margin-top:16px;">
         <summary class="sq-rules-summary">
-          <span>📌 運動會競賽規程重點與日程表總表（點此展開／收合）</span>
+          <span>📌 運動會競賽規程重點與日程總表<span class="sq-nw">（展開／收合）</span></span>
         </summary>
         <div class="sq-clue-box" style="margin: 10px 0 12px 0;">
-          <strong>📌 71 週年校慶運動會競賽規程重點（比賽時間：115 年 10 月 21 日至 12 月 12 日）：</strong><br>
-          • <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。<br>
-          • <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<strong>※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</strong>
+          <div class="sq-rule-head"><strong>📌 71 週年校慶運動會競賽規程重點</strong><span class="sq-mob-br sq-rule-period sq-nw">（比賽期間：115 年 10 月 21 日至 12 月 12 日）</span></div>
+          <div class="sq-rule-item">• <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。</div>
+          <div class="sq-rule-item">• <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<div class="sq-rule-tip">※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</div></div>
         </div>
         <div class="sq-table-wrap">
-          <table class="sq-table">
+          <table class="sq-table" id="sq-pre-table">
             <thead>
               <tr>
                 <th>日期</th>
