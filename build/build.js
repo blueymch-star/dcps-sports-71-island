@@ -265,6 +265,27 @@ rep("tr(g + '年級一覽', 'Grade ' + num + ' at a glance')", "tr(g + '年級�
 rep("<thead><tr><th scope=\"col\">${tr('課名', 'Course')}</th><th scope=\"col\">${tr('節數', 'Periods')}</th><th scope=\"col\">${tr('評量摘要', 'Assessment')}</th></tr></thead>", "<thead><tr><th scope=\"col\">${tr('賽場島嶼', 'Arena Isle')}</th><th scope=\"col\">${tr('登場時段', 'Schedule')}</th><th scope=\"col\">${tr('五力闖關任務', 'Quest Task')}</th></tr></thead>");
 rep("<span>${tr('年度活動', 'Yearly events')}</span>", "<span>${tr('典禮與接力賽區', 'Ceremony & Relay')}</span>");
 rep("tr('每週節數怎麼排', 'HOW THE WEEK IS SPLIT')", "tr('本年段參賽與表演時程重點', 'SCHEDULE HIGHLIGHTS')");
+rep(
+  `const story = gs ? \`<div class="ui-gstory"><b>\${uiEsc(L(gs, 'title') || '')}</b><p>\${uiEsc(LANG === 'en' ? gs.en || gs.zh : gs.zh)}</p></div>\` : '';`,
+  `const gsTitle = (gs && L(gs, 'title')) || '';
+    const gsBar = gsTitle.indexOf('｜');
+    const gsPill = gsBar > -1 ? gsTitle.slice(0, gsBar).trim() : '';
+    const gsSub = gsBar > -1 ? gsTitle.slice(gsBar + 1).trim() : gsTitle;
+    const story = gs ? \`<div class="ui-gstory"><div class="sq-gstory-head">\${gsPill ? \`<span class="sq-power-badge sq-p-道德力">\${uiEsc(gsPill)}</span>\` : ''}<b class="sq-gstory-sub">\${uiEsc(gsSub)}</b></div><p>\${uiEsc(LANG === 'en' ? gs.en || gs.zh : gs.zh)}</p></div>\` : '';`
+);
+rep(
+  `const rows = cs.map(i => { const d = i.data, a = L(d, 'assess'); return \`<tr><th scope="row">\${isl(d)}</th><td>\${uiEsc(uiPeriodsShort(d))}</td><td>\${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>\`; }).join('');`,
+  `const rows = cs.map(i => {
+      const d = i.data, a = L(d, 'assess');
+      const leadRaw = L(d, 'lead') || '';
+      const barIdx = leadRaw.indexOf('｜');
+      const pName = barIdx > -1 ? leadRaw.slice(0, barIdx).trim() : '';
+      const pCls = pName.includes('五力') ? 'sq-p-五力大圓滿' : pName.includes('美感') ? 'sq-p-美感力' : pName.includes('知識') ? 'sq-p-知識力' : pName.includes('道德') ? 'sq-p-道德力' : pName.includes('群體') ? 'sq-p-群體力' : 'sq-p-體能力';
+      const pTag = pName ? \`<span class="sq-power-badge sq-gt-pbadge \${pCls}">\${uiEsc(pName)}</span>\` : '';
+      const times = (uiPeriodsShort(d) || '').split('｜').map(s => s.trim()).filter(Boolean).map(t => \`<span class="sq-gt-time">⏰ \${uiEsc(t)}</span>\`).join('');
+      return \`<tr><th scope="row">\${isl(d)}\${pTag}</th><td>\${times || uiEsc(uiPeriodsShort(d))}</td><td>\${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>\`;
+    }).join('');`
+);
 
 // 島嶼卡片、細項地標卡、動線卡、人物卡 (islandCard, itemCard, flowCard, walkerCard, unitsBlock)
 rep("function uiKindName(k) { return k === 'event' ? tr('年度活動', 'YEARLY EVENT') : tr('特色課程', 'SIGNATURE COURSE'); }", "function uiKindName(k) { return k === 'event' ? tr('校慶盛典與接力島', 'CEREMONY & RELAY ISLE') : tr('五力競賽與展演島', 'COMPETITION & SHOW ISLE'); }");
@@ -1627,6 +1648,28 @@ dialog::backdrop {
   color: #334155;
   line-height: 1.5;
 }
+.sq-gstory-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.sq-gstory-sub {
+  display: inline !important;
+  font-size: 13.5px !important;
+  color: #0f172a;
+}
+.sq-gt-pbadge {
+  display: none;
+}
+.sq-gt-time {
+  display: block;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.5;
+  white-space: nowrap;
+}
 @media (max-width: 768px) {
   .sq-isl-meta-line {
     white-space: normal;
@@ -1635,6 +1678,92 @@ dialog::backdrop {
   body.ui-card-open #sq-music-widget,
   body.ui-journey-open #sq-music-widget {
     display: none !important;
+  }
+  .ui-gtable thead {
+    display: none;
+  }
+  .ui-gtable,
+  .ui-gtable tbody,
+  .ui-gtable tr,
+  .ui-gtable th,
+  .ui-gtable td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ui-gtable tr {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  }
+  .ui-gtable tbody th {
+    width: 100%;
+    padding: 0 0 6px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .ui-gtable tbody th .ui-gt-isl {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    min-height: 24px;
+    align-items: center;
+  }
+  .ui-gtable tbody th .ui-gt-isl .ui-dot {
+    margin-top: 0;
+  }
+  .sq-gt-pbadge {
+    display: inline-block;
+  }
+  .ui-gtable td:nth-child(2) {
+    width: 100%;
+    padding: 6px 0 4px 0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .sq-gt-time {
+    white-space: normal;
+  }
+  .ui-gtable td:nth-child(3) {
+    width: 100%;
+    padding: 4px 0 0 0;
+    border-bottom: none;
+    font-size: 12.5px;
+    color: #334155;
+    line-height: 1.5;
+  }
+  .ui-gt-ev {
+    gap: 6px 8px;
+    margin-top: 8px;
+  }
+  .ui-gt-ev > span:first-child {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 800;
+    color: #0369a1;
+  }
+  .ui-gt-ev .ui-gt-isl {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+    align-items: center;
+    min-height: 28px;
+  }
+  .ui-gt-ev .ui-gt-isl .ui-dot {
+    margin-top: 0;
   }
 }
 
