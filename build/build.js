@@ -323,8 +323,9 @@ rep("<dt>${tr('證據等級', 'Evidence')}</dt>", "<dt>${tr('動線依據等級'
 rep("case 'medal':", "case 'trophy':\n    case 'medal':", true);
 rep("case 'diploma':", "case 'baton':\n    case 'diploma':", true);
 rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')) : tr(n + ' 個單元', n + (n > 1 ? ' units' : ' unit'));", "const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));");
-rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)");
-rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "tr(u.periods + ' 場次/分鐘', u.periods + ' min')");
+rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)", true);
+rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))", true);
+rep("if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'full') : ''; }", "if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'name') : ''; }");
 rep("tr('帶隊教育家', 'Led by')", "tr('領隊運動傳奇', 'Led by Legend')");
 rep("role && role.ancient ? tr('教育家', 'EDUCATOR') : tr('大庄夥伴', 'DAZHUANG CREW')", "role && role.ancient ? tr('運動傳奇巨星', 'SPORTS LEGEND') : tr('大庄親師生選手', 'DAZHUANG ATHLETE')");
 rep(
@@ -1779,6 +1780,42 @@ dialog::backdrop {
     white-space: normal;
     line-height: 1.3;
     border-radius: 14px;
+  }
+  .ui-units li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 8px;
+    padding: 10px 12px;
+  }
+  .ui-unit-wk {
+    order: 1;
+    min-width: auto;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(219, 106, 65, 0.1);
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .ui-unit-p {
+    order: 2;
+    margin-left: auto;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.06);
+    color: #334155;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .ui-unit-name {
+    order: 3;
+    flex: 1 1 100%;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    text-wrap: balance;
   }
   .sq-isl-meta-line {
     white-space: normal;

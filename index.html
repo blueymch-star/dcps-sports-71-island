@@ -2238,6 +2238,42 @@ dialog::backdrop {
     line-height: 1.3;
     border-radius: 14px;
   }
+  .ui-units li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 8px;
+    padding: 10px 12px;
+  }
+  .ui-unit-wk {
+    order: 1;
+    min-width: auto;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(219, 106, 65, 0.1);
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .ui-unit-p {
+    order: 2;
+    margin-left: auto;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.06);
+    color: #334155;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .ui-unit-name {
+    order: 3;
+    flex: 1 1 100%;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
   .sq-isl-meta-line {
     white-space: normal;
   }
@@ -16032,7 +16068,7 @@ function initUI(ctx) {
   // sticky 小標頭：捲動後一直看得到是哪座島，內容也不會壓到 ✕
   function cardBar(type, id) {
     let d = null, t = '';
-    if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'full') : ''; }
+    if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'name') : ''; }
     else if (type === 'item') { const r = ctx.itemById.get(id); d = r?.island.data; t = r ? L(r.item, 'name') : ''; }
     else if (type === 'flow') { const f = ctx.flowById.get(id); d = f ? ctx.islandById.get(f.from)?.data : null; t = f ? uiIslName(f.from) + ' → ' + uiIslName(f.to) : ''; }
     else { const { role } = walkerData(id); t = role ? L(role, 'name') : tr('大庄夥伴', 'Dazhuang crew'); }
@@ -16187,7 +16223,7 @@ function initUI(ctx) {
     const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));
     const semT = sem => sem === '全' ? (L(d, 'term') || tr('課程單元', 'Units')) : uiSemName(sem);
     return groups.map(g => `<div class="ui-unit-sem">${uiEsc(ev && groups.length === 1 ? L(d, 'periods') : semT(g.sem))}<span>${cnt(g.list.length)}</span></div>
-      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks))}</span>` : ''}<span class="ui-unit-name">${uiEsc(L(u, 'name'))}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(tr(u.periods + ' 場次/分鐘', u.periods + ' min')) : ''}</span></li>`).join('')}</ol>`).join('');
+      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr(u.weeks, u.weeks))}</span>` : ''}<span class="ui-unit-name">${uiEsc(L(u, 'name'))}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))) : ''}</span></li>`).join('')}</ol>`).join('');
   }
   function islandCard(id, opt = {}) {
     const isl = ctx.islandById.get(id), d = isl.data, host = uiRole(d.host), now = new Set(uiSlotItems());
