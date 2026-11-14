@@ -489,7 +489,7 @@ rep(
       <p>\${glossify(uiEsc(L(it, 'desc')), new Set())}</p>
       \${tiles ? \`<div class="ui-sec"><span class="ui-eyebrow">\${tr('重點', 'HIGHLIGHTS')}</span><div class="ui-tiles" style="--n:\${facts.length}">\${tiles}</div></div>\` : ''}
       <div class="ui-sec"><span class="ui-eyebrow">\${tr('進行時間', 'WHEN')}</span><div class="ui-timeline">\${steps}</div></div>\`;`,
-  `const steps = [1, 2, 3].map(p => \`<div class="ui-step \${p === it.phase ? 'is-cur' : ''}"><i></i>\${uiEsc(uiPhaseName(p))}</div>\`).join('');
+  `const steps = [1, 2, 3].map(p => { const pn = String(uiPhaseName(p) || ''); const m = pn.match(/^(.+?)\s*\(([^)]+)\)$/); const labelHtml = m ? \`<span class="sq-step-name">\${uiEsc(m[1])}</span><span class="sq-step-time">\${uiEsc(m[2])}</span>\` : \`<span class="sq-step-name">\${uiEsc(pn)}</span>\`; return \`<div class="ui-step \${p === it.phase ? 'is-cur' : ''}"><i></i>\${labelHtml}</div>\`; }).join('');
     const now = uiSlotItems().includes(id);
     const whenParts = String(it.when || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
     const whenHtml = whenParts.length ? \`<div class="sq-when-row"><span class="sq-when-lbl">⏰ 登場時段</span>\${whenParts.map(p => \`<span class="sq-when-badge">\${uiEsc(p)}</span>\`).join('')}</div>\` : '';
@@ -1101,6 +1101,29 @@ dialog::backdrop {
   font-size: 11.5px;
   font-weight: 800;
   color: #0369a1;
+}
+.sq-step-name {
+  display: block;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.sq-step-time {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.ui-step.is-cur .sq-step-time {
+  background: #fff7ed;
+  color: #b45309;
+  border-color: rgba(219, 106, 65, 0.35);
 }
 /* 賽場重點卡片 (.ui-tile) 置中排版 */
 .ui-tile {
@@ -1982,17 +2005,32 @@ dialog::backdrop {
     flex-wrap: wrap;
     gap: 6px !important;
   }
+  .sq-when-row {
+    gap: 6px;
+    margin: 6px 0 12px;
+  }
+  .sq-when-lbl {
+    width: 100%;
+  }
   .sq-when-badge {
     display: inline-flex;
     align-items: center;
-    padding: 4px 9px;
-    border-radius: 999px;
+    padding: 4px 10px;
+    border-radius: 14px;
     background: #ffffff;
     border: 1px solid rgba(2, 132, 199, 0.2);
     font-size: 12px;
     font-weight: 700;
     color: #0f172a;
     line-height: 1.35;
+    white-space: normal;
+  }
+  .sq-step-name {
+    font-size: 11.5px;
+  }
+  .sq-step-time {
+    font-size: 10px;
+    padding: 1px 5px;
   }
   .ui-tiles {
     gap: 6px;
