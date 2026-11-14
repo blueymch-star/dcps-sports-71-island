@@ -384,6 +384,20 @@ rep(
   '<p class="ui-help-note" data-en="Sources — School Vision &amp; WIN Curriculum: Dazhuang ES Official Website (www.ttps.hc.edu.tw/nss/p/wish); Program &amp; Rules: 115th Academic Year &amp; 71st Anniversary Sports Day Regulations and Schedule; Race Results: Sports Day Individual Finals Database. All student names are de-identified with masking.">資料來源：學校願景三大基石與校訂課程三大主軸依據大庄國小官方網站（www.ttps.hc.edu.tw/nss/p/wish）；運動會賽程與各項規程依據大庄國小 115 學年度暨 71 週年校慶運動會競賽規程與程序表；個人賽決賽成績依據校慶賽況資料庫。所有小選手姓名皆落實去識別化遮罩。</p>'
 );
 
+// 手機版首頁介紹文字完整顯示（取消兩行截斷）
+rep(
+  `/* 手機品牌副標：最多兩行；開卡片／清單／旅程時收起，把畫面讓給地圖 */
+@media (max-width:800px),(max-height:500px) and (orientation:landscape){
+  .ui-brand-mob{display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  body.ui-card-open .ui-brand-mob,body.ui-side-open .ui-brand-mob,body.ui-journey-open .ui-brand-mob{display:none!important}
+}`,
+  `/* 手機品牌副標：完整顯示介紹文字；開卡片／清單／旅程時收起，把畫面讓給地圖 */
+@media (max-width:800px),(max-height:500px) and (orientation:landscape){
+  .ui-brand-mob{display:block!important;white-space:normal;overflow:visible;line-height:1.45;margin-top:4px}
+  body.ui-card-open .ui-brand-mob,body.ui-side-open .ui-brand-mob,body.ui-journey-open .ui-brand-mob{display:none!important}
+}`
+);
+
 // sq-brand-actions 已內建於 sportsBrandHeader
 
 // 將建築卡片中的「進行時間（上學期／下學期／全學年）」改為校慶運動會專屬「登場時段・運動會三階段」＋「建築物專屬五力闖關挑戰卡」

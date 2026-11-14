@@ -878,9 +878,9 @@ body.ui-big .ui-about-sec p,body.ui-big .ui-office ul,body.ui-big .ui-help-list 
   .ui-jr-actions .ui-btn{min-height:40px}
 }
 @media (prefers-reduced-motion:reduce){.is-flash{animation:none;background:var(--yellow)}}
-/* 手機品牌副標：最多兩行；開卡片／清單／旅程時收起，把畫面讓給地圖 */
+/* 手機品牌副標：完整顯示介紹文字；開卡片／清單／旅程時收起，把畫面讓給地圖 */
 @media (max-width:800px),(max-height:500px) and (orientation:landscape){
-  .ui-brand-mob{display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ui-brand-mob{display:block!important;white-space:normal;overflow:visible;line-height:1.45;margin-top:4px}
   body.ui-card-open .ui-brand-mob,body.ui-side-open .ui-brand-mob,body.ui-journey-open .ui-brand-mob{display:none!important}
 }
 /* 術語註解：行內顯示，不把句子切成兩半 */
