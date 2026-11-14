@@ -324,7 +324,7 @@ rep("case 'medal':", "case 'trophy':\n    case 'medal':", true);
 rep("case 'diploma':", "case 'baton':\n    case 'diploma':", true);
 rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')) : tr(n + ' 個單元', n + (n > 1 ? ' units' : ' unit'));", "const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));");
 rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)", true);
-rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))", true);
+rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((String(u.sem || '').includes('獎項')) ? tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')) : tr(u.periods + ' 分鐘', u.periods + ' min'))", true);
 rep(
   "<span class=\"ui-unit-name\">${uiEsc(L(u, 'name'))}</span>",
   "<span class=\"ui-unit-name\">${(() => { const nm = String(L(u, 'name') || ''); if (nm.includes('、') && !/[一二三四五六]、/.test(nm)) { return nm.split('、').map((seg, si, arr) => `<span class=\"sq-unit-seg\">${uiEsc(seg + (si < arr.length - 1 ? '、' : ''))}</span>`).join(''); } return uiEsc(nm); })()}</span>"

@@ -4661,25 +4661,25 @@ const DATA = {
           "sem": "10/21-10/30",
           "weeks": "賽前預賽",
           "name": "中年級 60m/100m、高年級 100m/200m 預賽（每班男女各 3 人分 3 組）",
-          "periods": 4
+          "periods": 30
         },
         {
           "sem": "11/10",
           "weeks": "中年級決賽",
           "name": "中年級 60 公尺、100 公尺決賽（08:10–08:40 完賽）",
-          "periods": 2
+          "periods": 30
         },
         {
           "sem": "11/13",
           "weeks": "高年級決賽",
           "name": "高年級 100 公尺、200 公尺決賽（08:10–08:40 完賽）",
-          "periods": 2
+          "periods": 30
         },
         {
           "sem": "11:00-11:10",
           "weeks": "項目 25-26",
           "name": "一年級、二年級 50 公尺跑走（活力體能衝刺）",
-          "periods": 2
+          "periods": 20
         }
       ],
       "assess": "完成島上任一建築的體能力極速關卡即可獲得【體能力印章】。",
@@ -4825,25 +4825,25 @@ const DATA = {
           "sem": "11/25",
           "weeks": "賽前決賽",
           "name": "六年級大隊接力決賽（08:10–08:20 率先完賽・每人跑一圈）",
-          "periods": 2
+          "periods": 10
         },
         {
           "sem": "10:50",
           "weeks": "項目 24",
           "name": "幼兒園親子大隊接力（溫馨傳承）",
-          "periods": 1
+          "periods": 10
         },
         {
           "sem": "11:20-11:40",
           "weeks": "項目 27-29",
           "name": "三、四、五年級大隊接力決賽（前三名頒發錦旗）",
-          "periods": 3
+          "periods": 40
         },
         {
           "sem": "12:00",
           "weeks": "項目 30",
           "name": "庄情薪傳接力賽（校友、教職員、家長、在校生跨世代傳承）",
-          "periods": 2
+          "periods": 20
         }
       ],
       "assess": "完成島上任一建築的群體力接力關卡即可獲得【群體力印章】。",
@@ -5007,25 +5007,25 @@ const DATA = {
           "sem": "09:30-09:50",
           "weeks": "項目 16-18",
           "name": "幼兒《串串接接》、三年級《「巾」球運送》、四年級《罐罐相連》",
-          "periods": 3
+          "periods": 30
         },
         {
           "sem": "10:00-10:10",
           "weeks": "項目 19-20",
-          "name": "五年級《大庄躍進》（陳建鑫）、六年級《呼啦圈小鐵人》（曹雅雯）",
-          "periods": 2
+          "name": "五年級《大庄躍進》、六年級《呼啦圈小鐵人》",
+          "periods": 20
         },
         {
           "sem": "10:20-10:30",
           "weeks": "項目 21-22",
-          "name": "二年級《粒粒皆辛苦》（林柔嫻）、一年級《跳跳虎》（江翠霞）",
-          "periods": 2
+          "name": "二年級《粒粒皆辛苦》、一年級《跳跳虎》",
+          "periods": 20
         },
         {
           "sem": "10:40",
           "weeks": "項目 23",
           "name": "親子趣味競賽《圈力衝刺》（親師生歡樂合作）",
-          "periods": 1
+          "periods": 10
         }
       ],
       "assess": "完成島上任一建築的知識力趣味關卡即可獲得【知識力印章】。",
@@ -5183,7 +5183,7 @@ const DATA = {
           "sem": "12:20",
           "weeks": "項目 31",
           "name": "閉幕典禮（許雅惠校長主持・全校師生共享榮耀）",
-          "periods": 2
+          "periods": 40
         }
       ],
       "assess": "集滿 5 枚五力印章即可解鎖 3D 勝利煙火與專屬【奔馳榮耀五力金牌證書】！",
@@ -16337,7 +16337,7 @@ function initUI(ctx) {
     const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));
     const semT = sem => sem === '全' ? (L(d, 'term') || tr('課程單元', 'Units')) : uiSemName(sem);
     return groups.map(g => `<div class="ui-unit-sem">${uiEsc(ev && groups.length === 1 ? L(d, 'periods') : semT(g.sem))}<span>${cnt(g.list.length)}</span></div>
-      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr(u.weeks, u.weeks))}</span>` : ''}<span class="ui-unit-name">${(() => { const nm = String(L(u, 'name') || ''); if (nm.includes('、') && !/[一二三四五六]、/.test(nm)) { return nm.split('、').map((seg, si, arr) => `<span class="sq-unit-seg">${uiEsc(seg + (si < arr.length - 1 ? '、' : ''))}</span>`).join(''); } return uiEsc(nm); })()}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))) : ''}</span></li>`).join('')}</ol>`).join('');
+      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr(u.weeks, u.weeks))}</span>` : ''}<span class="ui-unit-name">${(() => { const nm = String(L(u, 'name') || ''); if (nm.includes('、') && !/[一二三四五六]、/.test(nm)) { return nm.split('、').map((seg, si, arr) => `<span class="sq-unit-seg">${uiEsc(seg + (si < arr.length - 1 ? '、' : ''))}</span>`).join(''); } return uiEsc(nm); })()}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(((String(u.sem || '').includes('獎項')) ? tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')) : tr(u.periods + ' 分鐘', u.periods + ' min'))) : ''}</span></li>`).join('')}</ol>`).join('');
   }
   function islandCard(id, opt = {}) {
     const isl = ctx.islandById.get(id), d = isl.data, host = uiRole(d.host), now = new Set(uiSlotItems());
