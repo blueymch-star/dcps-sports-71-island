@@ -494,10 +494,14 @@ rep(
     const whenParts = String(it.when || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
     const whenHtml = whenParts.length ? \`<div class="sq-when-row"><span class="sq-when-lbl">⏰ 登場時段</span>\${whenParts.map(p => \`<span class="sq-when-badge">\${uiEsc(p)}</span>\`).join('')}</div>\` : '';
     return \`<button class="ui-back" type="button" data-sel="island:\${d.id}">\${uiSvg('back').replace('<svg', '<svg width="14" height="14" style="stroke:currentColor;fill:none;stroke-width:2.4"')}\${d.num} \${uiEsc(L(d, 'name'))}</button>
-      <div class="ui-eyebrow">\${tr('賽場地標', 'LANDMARK')} \${UI_CIRCLED[r.index] || r.index + 1} <span data-now-flag="\${id}">\${now ? '· ' + NOW_TXT() : ''}</span></div>
-      <h2>\${uiEsc(L(it, 'name'))}</h2>
-      <div class="ui-thumb" id="ui-thumb"><div class="ui-thumb-ph">\${glyph(d)}<span>\${uiEsc(it.model)}</span></div></div>
-      <p>\${glossify(uiEsc(L(it, 'desc')), new Set())}</p>
+      <div class="sq-item-hero">
+        <div class="sq-item-hero-txt">
+          <div class="ui-eyebrow">\${tr('賽場地標', 'LANDMARK')} \${UI_CIRCLED[r.index] || r.index + 1} <span data-now-flag="\${id}">\${now ? '· ' + NOW_TXT() : ''}</span></div>
+          <h2>\${uiEsc(L(it, 'name'))}</h2>
+        </div>
+        <div class="ui-thumb" id="ui-thumb"><div class="ui-thumb-ph">\${glyph(d)}<span>\${uiEsc(it.model)}</span></div></div>
+      </div>
+      <p class="sq-item-desc">\${glossify(uiEsc(L(it, 'desc')), new Set())}</p>
       <div id="sq-item-quest-mount" data-item-id="\${uiEsc(it.id)}"></div>
       \${tiles ? \`<div class="ui-sec"><span class="ui-eyebrow">\${tr('賽場重點', 'HIGHLIGHTS')}</span><div class="ui-tiles" style="--n:\${facts.length}">\${tiles}</div></div>\` : ''}
       <div class="ui-sec"><span class="ui-eyebrow">\${tr('登場時段・運動會三階段', 'EVENT SCHEDULE & STAGE')}</span>\${whenHtml}<div class="ui-timeline">\${steps}</div></div>\`;`
@@ -1998,6 +2002,68 @@ dialog::backdrop {
   .ui-hk-sprint { background: #ede9fe !important; color: #6d28d9 !important; }
   .ui-hk-relay { background: #d1fae5 !important; color: #047857 !important; }
   .ui-hk-moral { background: #e0f2fe !important; color: #0369a1 !important; }
+  .sq-item-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 4px 0 8px;
+  }
+  .sq-item-hero-txt {
+    flex: 1;
+    min-width: 0;
+  }
+  .sq-item-hero-txt h2 {
+    margin: 2px 0 0;
+    font-size: 19px;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+  .sq-item-hero .ui-thumb {
+    float: none !important;
+    width: 84px !important;
+    height: 84px !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+    border-radius: 14px;
+  }
+  .sq-item-desc {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.55;
+    text-wrap: balance;
+    clear: both;
+  }
+  .sq-bq-head-top {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .sq-bq-head-left {
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+  .sq-bq-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+  .sq-bq-head-top .sq-power-badge {
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+  .sq-bq-status {
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+  .sq-bq-head-sub {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .sq-bq-diff-badge, .sq-bq-audio-btn {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    white-space: nowrap;
+  }
   .sq-bq-q, .sq-bq-fb {
     line-height: 1.5;
     text-wrap: balance;
