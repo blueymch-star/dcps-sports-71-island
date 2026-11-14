@@ -4982,26 +4982,26 @@ const DATA = {
           "when": "12:00–12:20｜項目 30：庄情薪傳接力賽（壓軸最高潮）",
           "phase": 3,
           "challenge": {
-            "mode": "sequence",
-            "sequenceItems": [
-              "① 歷屆校友棒",
-              "② 教職員師長棒",
-              "③ 家長會與在校生棒"
-            ],
+            "mode": "reaction",
             "power": "群體力",
             "questId": "q_group",
-            "title": "【黃金接力棒關卡】跨世代庄情薪傳交接挑戰",
-            "taskDesc": "12:00 壓軸「庄情薪傳接力賽」即將開跑！請依序點擊完成跨世代黃金接力棒傳遞：",
-            "actionBtn": "🤝 傳遞黃金接力棒",
-            "actionDone": "🔥 傳接棒成功！校友、師長、家長與大庄學子齊心衝線！",
-            "question": "12:00 登場的第 30 項壓軸大戲「庄情薪傳接力賽」，是由哪些夥伴共同組隊參賽？",
+            "title": "【黃金接力棒關卡】看燈號助跑加速接棒挑戰",
+            "taskDesc": "12:00 壓軸「庄情薪傳接力賽」即將交棒！緊盯接力區燈號，綠燈亮起立即點擊助跑加速：",
+            "actionBtn": "🚦 準備看燈號助跑加速",
+            "reactReplayText": "🚦 再次實測看燈號助跑加速",
+            "reactWaitText": "🟡 黃燈預備…緊盯燈號…（變綠燈立刻點！）",
+            "reactGoText": "🟢 綠燈亮起！立刻點擊助跑加速！",
+            "reactEarlyText": "🔴 提早衝出接力區！點此重新看燈號",
+            "reactDonePrefix": "⚡ 助跑加速成功！反應時間：",
+            "actionDone": "🔥 助跑加速完美！與前一棒同速完成黃金接力棒交接！",
+            "question": "在大隊接力與庄情薪傳接力賽中，接棒者看見前一棒進入標線後，最重要的交棒技巧是什麼？",
             "options": [
-              "機器人自動駕駛比賽",
-              "只有外校校長參加",
-              "校友、教職員、家長與在校生同場接力傳承"
+              "站在原地轉身等接力棒",
+              "看準時機在接力區內助跑加速，與前一棒同速完成「遞棒」",
+              "把接力棒直接丟給下一位選手"
             ],
-            "answer": 2,
-            "explain": "太感人了！「庄情薪傳接力賽」匯聚了歷屆校友、教職員師長、家長會與在校生，把大庄 71 週年的群體力一棒接一棒傳承下去！"
+            "answer": 1,
+            "explain": "太專業了！接棒者在接力區內看準時機助跑加速，就能與前一棒保持同速、順暢把大庄 71 週年的群體力接力棒傳下去！"
           }
         },
         {
@@ -18460,7 +18460,7 @@ function initSportsQuest(ctx) {
       stage1Html =
         '<div class="sq-bq-stage1">' +
           '<button type="button" class="sq-act-btn" id="sq-bq-react-btn" style="width:100%;justify-content:center;padding:8px 12px;font-size:13px;">' +
-            (isCleared ? '⚡ 再次實測紫色跑道聽槍起跑反應' : ch.actionBtn) +
+            (isCleared ? (ch.reactReplayText || '⚡ 再次實測紫色跑道聽槍起跑反應') : ch.actionBtn) +
           '</button>' +
           '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
         '</div>';
@@ -18597,25 +18597,29 @@ function initSportsQuest(ctx) {
       reactBtn?.addEventListener('click', () => {
         if (!waitingGun && !gunTime) {
           waitingGun = true;
-          reactBtn.textContent = '⏳ 各就各位…預備…（等鳴槍變綠色立即點！）';
+          reactBtn.textContent = ch.reactWaitText || '⏳ 各就各位…預備…（等鳴槍變綠色立即點！）';
           reactBtn.style.background = '#fef3c7';
+          reactBtn.style.color = '#92400e';
           timerId = setTimeout(() => {
             waitingGun = false;
             gunTime = performance.now();
-            reactBtn.textContent = '🔫 砰！現在立刻點擊起跑！';
+            reactBtn.textContent = ch.reactGoText || '🔫 砰！現在立刻點擊起跑！';
             reactBtn.style.background = '#d1fae5';
+            reactBtn.style.color = '#065f46';
           }, 700 + Math.random() * 900);
         } else if (waitingGun) {
           clearTimeout(timerId);
           waitingGun = false;
-          reactBtn.textContent = '⚠️ 搶跑犯規！點此重新預備起跑';
+          reactBtn.textContent = ch.reactEarlyText || '⚠️ 搶跑犯規！點此重新預備起跑';
           reactBtn.style.background = '#fee2e2';
+          reactBtn.style.color = '#991b1b';
         } else if (gunTime) {
           const rt = ((performance.now() - gunTime) / 1000).toFixed(3);
           gunTime = 0;
           stage1Done = true;
-          reactBtn.textContent = '⚡ 起跑成功！反應時間：' + rt + ' 秒（點此可再測）';
+          reactBtn.textContent = (ch.reactDonePrefix || '⚡ 起跑成功！反應時間：') + rt + ' 秒（點此可再測）';
           reactBtn.style.background = '#ffffff';
+          reactBtn.style.color = '#0f172a';
           if (msgEl) {
             msgEl.hidden = false;
             msgEl.textContent = diff.reactEvaluator(rt) + ' 接著請回答下方問題：';

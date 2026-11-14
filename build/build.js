@@ -3717,7 +3717,7 @@ function initSportsQuest(ctx) {
       stage1Html =
         '<div class="sq-bq-stage1">' +
           '<button type="button" class="sq-act-btn" id="sq-bq-react-btn" style="width:100%;justify-content:center;padding:8px 12px;font-size:13px;">' +
-            (isCleared ? '⚡ 再次實測紫色跑道聽槍起跑反應' : ch.actionBtn) +
+            (isCleared ? (ch.reactReplayText || '⚡ 再次實測紫色跑道聽槍起跑反應') : ch.actionBtn) +
           '</button>' +
           '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
         '</div>';
@@ -3854,25 +3854,29 @@ function initSportsQuest(ctx) {
       reactBtn?.addEventListener('click', () => {
         if (!waitingGun && !gunTime) {
           waitingGun = true;
-          reactBtn.textContent = '⏳ 各就各位…預備…（等鳴槍變綠色立即點！）';
+          reactBtn.textContent = ch.reactWaitText || '⏳ 各就各位…預備…（等鳴槍變綠色立即點！）';
           reactBtn.style.background = '#fef3c7';
+          reactBtn.style.color = '#92400e';
           timerId = setTimeout(() => {
             waitingGun = false;
             gunTime = performance.now();
-            reactBtn.textContent = '🔫 砰！現在立刻點擊起跑！';
+            reactBtn.textContent = ch.reactGoText || '🔫 砰！現在立刻點擊起跑！';
             reactBtn.style.background = '#d1fae5';
+            reactBtn.style.color = '#065f46';
           }, 700 + Math.random() * 900);
         } else if (waitingGun) {
           clearTimeout(timerId);
           waitingGun = false;
-          reactBtn.textContent = '⚠️ 搶跑犯規！點此重新預備起跑';
+          reactBtn.textContent = ch.reactEarlyText || '⚠️ 搶跑犯規！點此重新預備起跑';
           reactBtn.style.background = '#fee2e2';
+          reactBtn.style.color = '#991b1b';
         } else if (gunTime) {
           const rt = ((performance.now() - gunTime) / 1000).toFixed(3);
           gunTime = 0;
           stage1Done = true;
-          reactBtn.textContent = '⚡ 起跑成功！反應時間：' + rt + ' 秒（點此可再測）';
+          reactBtn.textContent = (ch.reactDonePrefix || '⚡ 起跑成功！反應時間：') + rt + ' 秒（點此可再測）';
           reactBtn.style.background = '#ffffff';
+          reactBtn.style.color = '#0f172a';
           if (msgEl) {
             msgEl.hidden = false;
             msgEl.textContent = diff.reactEvaluator(rt) + ' 接著請回答下方問題：';
