@@ -1460,10 +1460,27 @@ dialog::backdrop {
 }
 .sq-bq-head {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.sq-bq-head-top {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 6px;
+}
+.sq-bq-head-left {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.sq-bq-head-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 .sq-bq-tag {
   display: inline-flex;
@@ -1475,23 +1492,59 @@ dialog::backdrop {
   font-weight: 800;
   background: #0284c7;
   color: #ffffff;
+  white-space: nowrap;
 }
 .sq-bq-status {
-  font-size: 11.5px;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
   font-weight: 800;
-  color: #047857;
+  color: #b45309;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sq-bq-status.is-done {
+  color: #065f46;
+  background: #d1fae5;
+  border-color: rgba(16, 185, 129, 0.4);
 }
 .sq-bq-title {
   margin: 0 0 6px;
   font-size: 15px;
   font-weight: 800;
   color: #0f172a;
+  line-height: 1.4;
+  text-wrap: balance;
 }
 .sq-bq-desc {
   margin: 0 0 10px;
   font-size: 12.5px;
   color: #334155;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.sq-bq-seq-prompt {
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 700;
   line-height: 1.45;
+}
+.sq-when-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 8px;
+}
+.sq-when-lbl {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0369a1;
 }
 .sq-bq-stage1 {
   padding: 10px;
@@ -2311,6 +2364,31 @@ dialog::backdrop {
   .ui-hk-sprint { background: #ede9fe !important; color: #6d28d9 !important; }
   .ui-hk-relay { background: #d1fae5 !important; color: #047857 !important; }
   .ui-hk-moral { background: #e0f2fe !important; color: #0369a1 !important; }
+  .sq-bq-q, .sq-bq-opt, .sq-bq-fb {
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .sq-bq-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .sq-bq-foot > div {
+    flex-wrap: wrap;
+    gap: 6px !important;
+  }
+  .sq-when-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+  }
   .sq-isl-meta-line {
     white-space: normal;
   }
@@ -16413,8 +16491,9 @@ function initUI(ctx) {
     }).join('');
     const steps = [1, 2, 3].map(p => `<div class="ui-step ${p === it.phase ? 'is-cur' : ''}"><i></i>${uiEsc(uiPhaseName(p))}</div>`).join('');
     const now = uiSlotItems().includes(id);
-    const whenHtml = it.when ? `<div class="sq-when-badge">⏰ <strong>登場時段：</strong>${uiEsc(it.when)}</div>` : '';
-    return `<button class="ui-back" type="button" data-sel="island:${d.id}">${uiSvg('back').replace('<svg', '<svg width="14" height="14" style="stroke:currentColor;fill:none;stroke-width:2.4"')}${d.num} ${uiEsc(L(d, 'full'))}</button>
+    const whenParts = String(it.when || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
+    const whenHtml = whenParts.length ? `<div class="sq-when-row"><span class="sq-when-lbl">⏰ 登場時段</span>${whenParts.map(p => `<span class="sq-when-badge">${uiEsc(p)}</span>`).join('')}</div>` : '';
+    return `<button class="ui-back" type="button" data-sel="island:${d.id}">${uiSvg('back').replace('<svg', '<svg width="14" height="14" style="stroke:currentColor;fill:none;stroke-width:2.4"')}${d.num} ${uiEsc(L(d, 'name'))}</button>
       <div class="ui-eyebrow">${tr('賽場地標', 'LANDMARK')} ${UI_CIRCLED[r.index] || r.index + 1} <span data-now-flag="${id}">${now ? '· ' + NOW_TXT() : ''}</span></div>
       <h2>${uiEsc(L(it, 'name'))}</h2>
       <div class="ui-thumb" id="ui-thumb"><div class="ui-thumb-ph">${glyph(d)}<span>${uiEsc(it.model)}</span></div></div>
@@ -18331,7 +18410,7 @@ function initSportsQuest(ctx) {
       }
       stage1Html =
         '<div class="sq-bq-stage1">' +
-          '<div style="font-size:12px;color:#475569;margin-bottom:6px;font-weight:700;">🧩 順序考驗（按鈕位置已隨機打亂，請依正確先後步驟點擊）：</div>' +
+          '<div class="sq-bq-seq-prompt">🧩 順序考驗（按鈕已隨機打亂）<span class="sq-mob-br"></span>請依正確先後步驟點擊：</div>' +
           '<div class="sq-bq-seq-row" id="sq-bq-seq-row">' +
             seqList.map(item =>
               '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + item.origIdx + '">' + item.label + '</button>'
@@ -18377,14 +18456,19 @@ function initSportsQuest(ctx) {
     mount.innerHTML =
       '<div class="sq-bldg-quest ' + (isCleared ? 'is-cleared' : '') + '" id="sq-bldg-quest-card">' +
         '<div class="sq-bq-head">' +
-          '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
-            '<span class="sq-bq-tag">🎯 建築關卡｜' + ch.power + '</span>' +
+          '<div class="sq-bq-head-top">' +
+            '<div class="sq-bq-head-left">' +
+              '<span class="sq-bq-tag">🎯 建築關卡</span>' +
+              '<span class="sq-power-badge sq-p-' + ch.power + '">' + ch.power + '</span>' +
+            '</div>' +
+            '<span class="sq-bq-status' + (isCleared ? ' is-done' : '') + '" id="sq-bq-status">' + (isCleared ? '✅ 本建築已過關' : '⏳ 待闖關挑戰') + '</span>' +
+          '</div>' +
+          '<div class="sq-bq-head-sub">' +
             '<span class="sq-bq-diff-badge ' + diff.tagClass + '">' + diff.star + ' ' + curRole + '（' + diff.name + '）</span>' +
             '<button type="button" class="sq-bq-audio-btn ' + (soundEngine.isMuted() ? 'is-muted' : '') + '" id="sq-bq-audio-toggle" title="切換闖關背景音樂">' +
               (soundEngine.isMuted() ? '🔇 音樂已靜音' : '🎵 闖關熱血音樂🔊') +
             '</button>' +
           '</div>' +
-          '<span class="sq-bq-status" id="sq-bq-status">' + (isCleared ? '✅ 本建築已過關' : '⏳ 待闖關挑戰') + '</span>' +
         '</div>' +
         '<h3 class="sq-bq-title">' + ch.title + '</h3>' +
         '<p class="sq-bq-desc">' + ch.taskDesc + '</p>' +
@@ -18527,7 +18611,7 @@ function initSportsQuest(ctx) {
           const cardEl = document.getElementById('sq-bldg-quest-card');
           if (cardEl) cardEl.classList.add('is-cleared');
           const stEl = document.getElementById('sq-bq-status');
-          if (stEl) stEl.textContent = '✅ 本建築已過關';
+          if (stEl) { stEl.textContent = '✅ 本建築已過關'; stEl.classList.add('is-done'); }
           if (msgEl) msgEl.hidden = false;
 
           const newStamped = (DATA.quests || []).filter(q => state.stamps[q.id]).length;
