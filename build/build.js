@@ -1274,13 +1274,13 @@ dialog::backdrop {
 }
 .sq-role-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 8px;
 }
 .sq-role-card {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   padding: 10px 12px;
   border-radius: 14px;
   border: 2px solid #e2e8f0;
@@ -1289,11 +1289,41 @@ dialog::backdrop {
   text-align: left;
   transition: all 0.15s ease;
 }
+.sq-role-card > span {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.45;
+}
 .sq-rc-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 8px;
+}
+.sq-rc-top strong {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #0f172a;
+}
+.sq-mob-sep {
+  display: inline;
+}
+@media (max-width: 768px) {
+  .sq-mob-sep {
+    display: none;
+  }
+  .sq-label-note {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .sq-role-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .sq-role-card {
+    padding: 10px 12px;
+  }
 }
 .sq-rc-diff {
   font-size: 10.5px;
@@ -1970,7 +2000,7 @@ const customHtml = `
     <div class="sq-dlg-head">
       <div>
         <span class="sq-dlg-kicker">新竹市香山區大庄國小 71 週年校慶運動會</span>
-        <h2 class="sq-dlg-title" id="sq-reg-title">🏃 運動員入場註冊・領取五力集章護照</h2>
+        <h2 class="sq-dlg-title" id="sq-reg-title"><span class="sq-nw">🏃 運動員入場註冊</span><span class="sq-mob-sep">・</span><span class="sq-mob-br sq-nw">領取五力集章護照</span></h2>
       </div>
       <button type="button" class="sq-dlg-close" data-sq-close="sq-reg-dialog" aria-label="關閉">✕</button>
     </div>
@@ -1978,7 +2008,7 @@ const customHtml = `
       歡迎登上<strong>《奔馳榮耀島・五力飛揚》</strong>！請輸入你的姓名並選擇代表身分。點選地圖上 <strong>6 座島嶼中的 19 座建築地標</strong>，每座建築都有專屬的<strong>互動闖關任務</strong>，集滿 5 枚五力印章就能引燃中央聖火台<strong>全景 3D 勝利煙火</strong>並獲得專屬金牌證書！
     </p>
     <div class="sq-form-group">
-      <label class="sq-form-label" for="sq-input-name">✍️ 運動員／挑戰者姓名（將印製於五力金牌證書上）：</label>
+      <label class="sq-form-label" for="sq-input-name"><span class="sq-nw">✍️ 運動員／挑戰者姓名</span><span class="sq-mob-br sq-label-note sq-nw">（將印製於五力金牌證書上）：</span></label>
       <input type="text" id="sq-input-name" class="sq-name-input" placeholder="例如：王小明、三年甲班陳同學、熱血林爸爸" maxlength="20" />
     </div>
     <div class="sq-form-group">
