@@ -282,8 +282,10 @@ rep(
       const pName = barIdx > -1 ? leadRaw.slice(0, barIdx).trim() : '';
       const pCls = pName.includes('五力') ? 'sq-p-五力大圓滿' : pName.includes('美感') ? 'sq-p-美感力' : pName.includes('知識') ? 'sq-p-知識力' : pName.includes('道德') ? 'sq-p-道德力' : pName.includes('群體') ? 'sq-p-群體力' : 'sq-p-體能力';
       const pTag = pName ? \`<span class="sq-power-badge sq-gt-pbadge \${pCls}">\${uiEsc(pName)}</span>\` : '';
-      const times = (uiPeriodsShort(d) || '').split('｜').map(s => s.trim()).filter(Boolean).map(t => \`<span class="sq-gt-time">⏰ \${uiEsc(t)}</span>\`).join('');
-      return \`<tr><th scope="row">\${isl(d)}\${pTag}</th><td>\${times || uiEsc(uiPeriodsShort(d))}</td><td>\${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>\`;
+      const gp = L(d, 'gradePeriods');
+      const schedStr = (gp && gp[num]) || uiPeriodsShort(d) || '';
+      const times = schedStr.split('｜').map(s => s.trim()).filter(Boolean).map(t => \`<span class="sq-gt-time">⏰ \${uiEsc(t)}</span>\`).join('');
+      return \`<tr><th scope="row">\${isl(d)}\${pTag}</th><td>\${times || uiEsc(schedStr)}</td><td>\${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>\`;
     }).join('');`
 );
 
