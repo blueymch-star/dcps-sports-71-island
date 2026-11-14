@@ -489,7 +489,7 @@ rep(
       <p>\${glossify(uiEsc(L(it, 'desc')), new Set())}</p>
       \${tiles ? \`<div class="ui-sec"><span class="ui-eyebrow">\${tr('重點', 'HIGHLIGHTS')}</span><div class="ui-tiles" style="--n:\${facts.length}">\${tiles}</div></div>\` : ''}
       <div class="ui-sec"><span class="ui-eyebrow">\${tr('進行時間', 'WHEN')}</span><div class="ui-timeline">\${steps}</div></div>\`;`,
-  `const steps = [1, 2, 3].map(p => { const pn = String(uiPhaseName(p) || ''); const m = pn.match(/^(.+?)\s*\(([^)]+)\)$/); const labelHtml = m ? \`<span class="sq-step-name">\${uiEsc(m[1])}</span><span class="sq-step-time">\${uiEsc(m[2])}</span>\` : \`<span class="sq-step-name">\${uiEsc(pn)}</span>\`; return \`<div class="ui-step \${p === it.phase ? 'is-cur' : ''}"><i></i>\${labelHtml}</div>\`; }).join('');
+  `const steps = [1, 2, 3].map(p => { const pn = String(uiPhaseName(p) || ''); const lp = pn.indexOf('('); const labelHtml = lp > 0 ? \`<span class="sq-step-name">\${uiEsc(pn.slice(0, lp).trim())}</span><span class="sq-step-time">\${uiEsc((pn.endsWith(')') ? pn.slice(lp + 1, -1) : pn.slice(lp + 1)).trim())}</span>\` : \`<span class="sq-step-name">\${uiEsc(pn)}</span>\`; return \`<div class="ui-step \${p === it.phase ? 'is-cur' : ''}"><i></i>\${labelHtml}</div>\`; }).join('');
     const now = uiSlotItems().includes(id);
     const whenParts = String(it.when || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
     const whenHtml = whenParts.length ? \`<div class="sq-when-row"><span class="sq-when-lbl">⏰ 登場時段</span>\${whenParts.map(p => \`<span class="sq-when-badge">\${uiEsc(p)}</span>\`).join('')}</div>\` : '';
@@ -1102,11 +1102,17 @@ dialog::backdrop {
   font-weight: 800;
   color: #0369a1;
 }
+.ui-step {
+  min-width: 0;
+}
 .sq-step-name {
   display: block;
+  max-width: 100%;
   font-size: 12px;
   line-height: 1.3;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .sq-step-time {
   display: inline-block;
