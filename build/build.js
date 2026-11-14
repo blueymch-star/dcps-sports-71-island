@@ -832,10 +832,32 @@ dialog::backdrop {
   }
 }
 @media (max-width: 900px) {
-  .sq-music-toggle-btn,
+  .sq-music-widget {
+    left: 10px;
+    right: 10px;
+    max-width: calc(100vw - 20px);
+    align-items: flex-end;
+  }
+  .sq-music-btn-group {
+    max-width: 100%;
+    justify-content: flex-end;
+  }
+  .sq-music-toggle-btn {
+    max-width: calc(100vw - 102px);
+    min-width: 0;
+    padding: 6px 11px;
+    font-size: 11.5px;
+  }
+  .sq-music-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .sq-music-menu-btn {
     padding: 6px 11px;
     font-size: 11.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 @media (min-width: 901px) {
@@ -926,7 +948,7 @@ dialog::backdrop {
   color: #15803d;
 }
 .sq-music-pop {
-  width: 260px;
+  width: min(304px, calc(100vw - 24px));
   background: rgba(255, 255, 255, 0.96);
   border: 1.5px solid rgba(168, 85, 247, 0.35);
   border-radius: 16px;
@@ -1000,20 +1022,32 @@ dialog::backdrop {
 .sq-mp-vol {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   font-size: 11.5px;
   color: #475569;
   font-weight: 700;
 }
+.sq-mp-vol > span:first-child {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 .sq-mp-vol-btn {
   flex: 1;
-  padding: 4px 6px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 5px 4px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
   background: #f8fafc;
   color: #475569;
   font-size: 11px;
   font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -3014,16 +3048,16 @@ const customHtml = `
     </div>
     <div class="sq-mp-vol">
       <span data-en="🔊 Volume:">🔊 音量：</span>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0" data-en="🔇 Mute">🔇 關閉/靜音</button>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0.18" data-en="Soft 20%">微風 20%</button>
-      <button type="button" class="sq-mp-vol-btn is-active" data-vol="0.38" data-en="Normal 50%">標準 50%</button>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0.75" data-en="Hyped 100%">熱血 100%</button>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0" data-en-html="<span>🔇 Mute</span><span>0%</span>"><span>🔇 靜音</span><span>0%</span></button>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0.18" data-en-html="<span>Soft</span><span>20%</span>"><span>微風</span><span>20%</span></button>
+      <button type="button" class="sq-mp-vol-btn is-active" data-vol="0.38" data-en-html="<span>Normal</span><span>50%</span>"><span>標準</span><span>50%</span></button>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0.75" data-en-html="<span>Hyped</span><span>100%</span>"><span>熱血</span><span>100%</span></button>
     </div>
   </div>
   <div class="sq-music-btn-group">
     <button type="button" class="sq-music-toggle-btn" id="sq-music-main-btn" title="一鍵開關闖關背景音樂" data-en-title="Toggle Sports Day BGM">
       <span class="sq-music-icon" id="sq-music-icon">🎵</span>
-      <span class="sq-music-name" id="sq-music-name" data-en="Sports March (Click to mute)">熱血進行曲 (點擊關閉)</span>
+      <span class="sq-music-name" id="sq-music-name" data-en="🏃 Sports March (Mute)">🏃 熱血進行曲 (靜音)</span>
       <span class="sq-eq" id="sq-music-eq"><i></i><i></i><i></i><i></i></span>
     </button>
     <button type="button" class="sq-music-menu-btn" id="sq-music-menu-btn" title="切換曲目與音量設定" data-en-title="Tracks &amp; volume settings" data-en="🎼 Music">
@@ -3522,9 +3556,12 @@ function initSportsQuest(ctx) {
         widgetBtn.classList.toggle('is-playing', isPlaying && !muted);
       }
       if (widgetName) {
+        const shortTracks = isEn
+          ? ['🏃 Sports March', '🌊 Coast Breeze', '👾 8-Bit Quest']
+          : ['🏃 熱血進行曲', '🌊 海風律動', '👾 8-Bit 闖關曲'];
         widgetName.textContent = muted
-          ? t('音樂已關閉 (點擊開啟)', 'Music muted (Tap to play)')
-          : (isPlaying ? TRACK_NAMES[curTrack] + t(' (點擊關閉)', ' (Tap to mute)') : t('點擊播放音樂', 'Tap to play music'));
+          ? t('音樂已靜音 (點此開啟)', 'Muted (Tap to play)')
+          : (isPlaying ? shortTracks[curTrack] + t(' (靜音)', ' (Mute)') : t('點擊播放音樂', 'Play Music'));
       }
       if (widgetIcon) {
         widgetIcon.textContent = muted ? '🔇' : '🎵';
