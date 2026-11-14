@@ -1191,16 +1191,48 @@ dialog::backdrop {
   gap: 6px;
 }
 .sq-bq-opt {
-  padding: 8px 11px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 11px;
   border-radius: 10px;
   border: 1.5px solid #cbd5e1;
   background: #ffffff;
   color: #1e293b;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
+  line-height: 1.5;
   text-align: left;
   cursor: pointer;
   transition: all 0.15s ease;
+}
+.sq-opt-key {
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #0369a1;
+  font-size: 11.5px;
+  font-weight: 900;
+}
+.sq-bq-opt.is-correct .sq-opt-key {
+  background: #10b981;
+  color: #ffffff;
+}
+.sq-bq-opt.is-wrong .sq-opt-key {
+  background: #ef4444;
+  color: #ffffff;
+}
+.sq-opt-txt {
+  flex: 1;
+  min-width: 0;
+}
+.sq-opt-seg {
+  display: inline-block;
 }
 .sq-bq-opt:hover {
   border-color: #0284c7;
@@ -1515,13 +1547,11 @@ dialog::backdrop {
 
 .sq-role-hint-box {
   margin: 8px 0;
-  padding: 8px 12px;
+  padding: 9px 12px;
   border-radius: 10px;
   font-size: 12.5px;
-  line-height: 1.5;
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
+  line-height: 1.55;
+  display: block;
 }
 .sq-role-hint-box.diff-easy {
   background: #ecfdf5;
@@ -1939,7 +1969,7 @@ dialog::backdrop {
   .ui-hk-sprint { background: #ede9fe !important; color: #6d28d9 !important; }
   .ui-hk-relay { background: #d1fae5 !important; color: #047857 !important; }
   .ui-hk-moral { background: #e0f2fe !important; color: #0369a1 !important; }
-  .sq-bq-q, .sq-bq-opt, .sq-bq-fb {
+  .sq-bq-q, .sq-bq-fb {
     line-height: 1.5;
     text-wrap: balance;
   }
@@ -3772,11 +3802,20 @@ function initSportsQuest(ctx) {
           '<p class="sq-bq-q">❓ ' + ch.question + '</p>' +
           quizHintHtml +
           '<div class="sq-bq-opts" id="sq-bq-opts">' +
-            shuffledOpts.map((optItem, displayIdx) =>
-              '<button type="button" class="sq-bq-opt ' + (isCleared && optItem.origIdx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + optItem.origIdx + '">' +
-                ['A. ', 'B. ', 'C. ', 'D. '][displayIdx] + optItem.text +
-              '</button>'
-            ).join('') +
+            shuffledOpts.map((optItem, displayIdx) => {
+              const rawOpt = String(optItem.text || '');
+              let optHtml = rawOpt;
+              if (rawOpt.length > 16 && /[，；、]/.test(rawOpt)) {
+                const segs = rawOpt.split(/(?<=[，；])/).filter(Boolean);
+                if (segs.length > 1) {
+                  optHtml = segs.map(s => '<span class="sq-opt-seg">' + s + '</span>').join('');
+                }
+              }
+              return '<button type="button" class="sq-bq-opt ' + (isCleared && optItem.origIdx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + optItem.origIdx + '">' +
+                '<span class="sq-opt-key">' + ['A', 'B', 'C', 'D'][displayIdx] + '</span>' +
+                '<span class="sq-opt-txt">' + optHtml + '</span>' +
+              '</button>';
+            }).join('') +
           '</div>' +
           '<div class="sq-bq-fb" id="sq-bq-fb" ' + (isCleared ? '' : 'hidden') + '>' +
             (isCleared ? '🎖️ <strong>已通過本建築關卡並蓋下【' + ch.power + '】印章！</strong><br>' + ch.explain : '') +
