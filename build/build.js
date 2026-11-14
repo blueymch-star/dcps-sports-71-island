@@ -249,7 +249,7 @@ rep(
 
 // 右側清單與搜尋面板 (#ui-side)
 rep('<div class="ui-eyebrow" data-en="DIRECTORY · TEXT VERSION">校園目錄・文字版</div>', '<div class="ui-eyebrow" data-en="ARENA DIRECTORY">運動會賽區目錄</div>');
-rep('placeholder="搜尋課程、單元、新聞、教育家…"', 'placeholder="搜尋賽程、趣味競賽、紫色跑道、運動明星…"');
+rep('placeholder="搜尋課程、單元、新聞、教育家…"', 'placeholder="搜尋賽程、趣味競賽、跑道、巨星"');
 rep('<button class="ui-tab" role="tab" id="ui-tab-themes" aria-selected="true" aria-controls="ui-side-list" type="button" data-en="Isles">課程與活動</button>', '<button class="ui-tab" role="tab" id="ui-tab-themes" aria-selected="true" aria-controls="ui-side-list" type="button" data-en="Arena Isles">六大賽區島嶼</button>');
 rep('<button class="ui-tab" role="tab" id="ui-tab-flows" aria-selected="false" tabindex="-1" aria-controls="ui-side-list" type="button" data-en="Isle stories">島與島的故事</button>', '<button class="ui-tab" role="tab" id="ui-tab-flows" aria-selected="false" tabindex="-1" aria-controls="ui-side-list" type="button" data-en="Relay routes">賽場動線與傳承</button>');
 rep('課程：大庄國小 公開課程資訊與校園新聞；新聞：新竹市教育新聞網・本站為教學展示，非學校官方網站。', '依據：新竹市香山區大庄國小 115 學年度暨 71 週年校慶運動會程序表與競賽規程・本站為 3D 互動導覽展示。', true);
@@ -396,6 +396,31 @@ rep(
   .ui-brand-mob{display:block!important;white-space:normal;overflow:visible;line-height:1.45;margin-top:4px}
   body.ui-card-open .ui-brand-mob,body.ui-side-open .ui-brand-mob,body.ui-journey-open .ui-brand-mob{display:none!important}
 }`
+);
+
+// 六大賽區島嶼清單：標題與副標語意斷句、不截斷、五力藥丸標籤置頂呈現
+rep(
+  `return \`<details class="ui-isl" data-island="\${d.id}" \${isOpen ? 'open' : ''}>
+          <summary>\${glyph(d)}<span class="ui-row-main"><span class="ui-row-name">\${d.num} \${hl(L(d, 'full'), terms)}</span><span class="ui-row-sub">\${sub.map(x => hl(x, terms)).join(' · ')}</span></span></summary>
+          \${q ? '' : \`<p class="ui-isl-sum">\${uiEsc(L(d, 'lead') || L(d, 'summary'))}</p>\`}`,
+  `const fullTitle = L(d, 'full') || '';
+        const dotIdx = fullTitle.indexOf('・');
+        const mainTitle = dotIdx > -1 ? fullTitle.slice(0, dotIdx) : fullTitle;
+        const subTitle = dotIdx > -1 ? fullTitle.slice(dotIdx + 1) : '';
+        const metaParts = [L(d, 'grade'), ...(uiPeriodsShort(d) || '').split('｜').map(s => s.trim()).filter(Boolean)].filter(Boolean);
+        const leadRaw = L(d, 'lead') || L(d, 'summary') || '';
+        const barIdx = leadRaw.indexOf('｜');
+        const leadPower = barIdx > -1 ? leadRaw.slice(0, barIdx).trim() : '';
+        const leadDesc = barIdx > -1 ? leadRaw.slice(barIdx + 1).trim() : leadRaw;
+        const pClass = leadPower.includes('五力') ? 'sq-p-五力大圓滿'
+          : leadPower.includes('美感') ? 'sq-p-美感力'
+          : leadPower.includes('知識') ? 'sq-p-知識力'
+          : leadPower.includes('道德') ? 'sq-p-道德力'
+          : leadPower.includes('群體') ? 'sq-p-群體力'
+          : 'sq-p-體能力';
+        return \`<details class="ui-isl" data-island="\${d.id}" \${isOpen ? 'open' : ''}>
+          <summary>\${glyph(d)}<span class="ui-row-main"><span class="ui-row-name sq-isl-namewrap"><span class="sq-isl-mainname">\${d.num} \${hl(mainTitle, terms)}</span>\${subTitle ? \`<span class="sq-isl-subname">\${hl(subTitle, terms)}</span>\` : ''}</span><span class="ui-row-sub sq-isl-submeta">\${metaParts.map((x, idx) => \`<span class="sq-isl-meta-line">\${idx === 0 ? '👥 ' : '⏰ '}\${hl(x, terms)}</span>\`).join('')}</span></span></summary>
+          \${q ? '' : \`<div class="ui-isl-sum sq-isl-sumbox">\${leadPower ? \`<span class="sq-power-badge \${pClass}">\${uiEsc(leadPower)}</span>\` : ''}<span class="sq-isl-desc">\${uiEsc(leadDesc)}</span></div>\`}`
 );
 
 // sq-brand-actions 已內建於 sportsBrandHeader
@@ -1551,6 +1576,67 @@ dialog::backdrop {
 .sq-p-道德力 { background: #e0f2fe; color: #0369a1; }
 .sq-p-知識力 { background: #ccfbf1; color: #0f766e; }
 .sq-p-體能力 { background: #ede9fe; color: #6d28d9; }
+.sq-p-五力大圓滿 { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e; border: 1px solid #f59e0b; }
+
+/* 六大賽區島嶼清單排版優化 */
+.sq-isl-namewrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: normal;
+}
+.sq-isl-mainname {
+  font-weight: 900;
+  font-size: 14.5px;
+  color: #0f172a;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.sq-isl-subname {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: #0369a1;
+  line-height: 1.35;
+}
+.ui-isl .ui-row-sub.sq-isl-submeta {
+  display: flex !important;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  -webkit-line-clamp: unset !important;
+  overflow: visible !important;
+}
+.sq-isl-meta-line {
+  display: block;
+  font-size: 11.5px;
+  color: #475569;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sq-isl-sumbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 6px 0 8px;
+}
+.sq-isl-desc {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .sq-isl-meta-line {
+    white-space: normal;
+  }
+  body.ui-side-open #sq-music-widget,
+  body.ui-card-open #sq-music-widget,
+  body.ui-journey-open #sq-music-widget {
+    display: none !important;
+  }
+}
 
 /* 金牌證書畫布 */
 .sq-cert-preview {
