@@ -2160,7 +2160,84 @@ dialog::backdrop {
   line-height: 1.5;
   white-space: nowrap;
 }
+/* 島嶼詳情卡 (#ui-card) 標題、五力藥丸與賽程時段排版優化 */
+.sq-card-title {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #0f172a;
+  white-space: nowrap;
+}
+.sq-card-sub {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0369a1;
+  line-height: 1.4;
+  margin-top: 3px;
+  text-wrap: balance;
+}
+.sq-card-powerrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 8px 0 4px;
+}
+.sq-p-cross {
+  font-size: 11px;
+  font-weight: 900;
+  color: #64748b;
+}
+#ui-card .ui-lead {
+  margin-top: 2px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+.sq-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+.sq-card-metalbl {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: 0.4px;
+  margin-right: 2px;
+}
+.ui-meta-chip.sq-card-timechip {
+  white-space: normal;
+  line-height: 1.35;
+  padding: 5px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 132, 199, 0.16);
+}
 @media (max-width: 768px) {
+  #ui-card .ui-head {
+    align-items: flex-start;
+  }
+  #ui-card .ui-head h2 {
+    margin: 0;
+  }
+  .sq-card-title {
+    font-size: 18px;
+  }
+  .sq-card-sub {
+    font-size: 13px;
+  }
+  .ui-isl-tags .ui-meta {
+    gap: 6px;
+  }
+  .ui-vis, .ui-wintag {
+    white-space: normal;
+    line-height: 1.3;
+    border-radius: 14px;
+  }
   .sq-isl-meta-line {
     white-space: normal;
   }
@@ -16140,21 +16217,36 @@ function initUI(ctx) {
     // 第一行：lead（年級・節數・期間｜學到什麼）；沒有就由 grade／periods 組
     const lead = L(d, 'lead') || [L(d, 'grade'), uiPeriodsShort(d)].filter(Boolean).join(tr('・', ' · '));
     const term = L(d, 'term');
-    const meta = [term && tr('活動期間：', 'When: ') + term, L(d, 'periods') && tr('賽程時段：', 'Schedule: ') + L(d, 'periods')].filter(Boolean).map(x => `<span class="ui-meta-chip">${uiEsc(x)}</span>`).join('');
+    const periodSegs = String(L(d, 'periods') || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
+    const metaParts = [];
+    if (term) metaParts.push(`<span class="ui-meta-chip sq-card-timechip">📅 ${uiEsc(tr('活動期間：', 'When: ') + term)}</span>`);
+    if (periodSegs.length) {
+      metaParts.push(`<span class="sq-card-metalbl">${uiEsc(tr('賽程時段', 'Schedule'))}</span>`);
+      periodSegs.forEach(p => metaParts.push(`<span class="ui-meta-chip sq-card-timechip">⏰ ${uiEsc(p)}</span>`));
+    }
+    const meta = metaParts.join('');
     const used = new Set();
     const assess = L(d, 'assess'), skills = L(d, 'skills');
     const assessHtml = assess ? `<div class="ui-sec ui-assess"><span class="ui-eyebrow">${tr('五力集章闖關方式', 'QUEST PASSPORT CHALLENGE')}</span>${Array.isArray(assess) ? `<ul>${assess.map(x => `<li>${glossify(uiEsc(x), used)}</li>`).join('')}</ul>` : `<p>${glossify(uiEsc(assess), used)}</p>`}</div>` : '';
     const skillsHtml = skills && (Array.isArray(skills) ? skills.length : String(skills).trim()) ? `<div class="ui-sec ui-skills"><span class="ui-eyebrow">${tr('鍛鍊五力素養', 'FIVE POWERS BUILT')}</span><ul class="ui-skill-list">${(Array.isArray(skills) ? skills : String(skills).split(/[、,，]/)).filter(Boolean).map(x => `<li>${uiEsc(x)}</li>`).join('')}</ul></div>` : '';
-    const leadHtml = glossify(uiEsc(lead), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);
+    const fullRaw = L(d, 'full') || '';
+    const fullSep = fullRaw.includes('・') ? '・' : ' · ';
+    const fullParts = fullRaw.split(fullSep);
+    const titleHtml = fullParts.length > 1 ? `<span class="sq-card-title">${uiEsc(fullParts[0])}</span><span class="sq-card-sub">${uiEsc(fullParts.slice(1).join(fullSep))}</span>` : `<span class="sq-card-title">${uiEsc(fullRaw)}</span>`;
+    const leadParts = String(lead || '').split('｜');
+    const powerHtml = leadParts.length > 1 ? `<div class="sq-card-powerrow">${leadParts[0].split('✕').map(p => p.trim()).filter(Boolean).map(p => `<span class="sq-power-badge sq-p-${uiEsc(p)}">${uiEsc(p)}</span>`).join('<span class="sq-p-cross">✕</span>')}</div>` : '';
+    const leadDesc = leadParts.length > 1 ? leadParts.slice(1).join('｜').trim() : lead;
+    const leadHtml = glossify(uiEsc(leadDesc), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);
     const wn = DATA.winNotes && DATA.winNotes[d.win];
     const tagsFold = (d.vision || d.win) ? `<details class="ui-fold ui-isl-tags"><summary><span class="ui-eyebrow">${tr('這座島的學校標籤', 'SCHOOL TAGS FOR THIS ISLE')}</span></summary>
         <div class="ui-meta">${uiVisTag(d.vision)}${uiWinTag(d.win)}</div>
         <p class="ui-help-note">${uiEsc(tr('【學校願景】大庄三大核心基石：感恩、學習、健康（課程願景：友善關懷、學習探索、健康樂活），培育「道德力、知識力、美感力、體能力、群體力」五力均備之新世紀優質公民！【校訂課程三大主軸】W 庄進自強～超越自己、I 庄園窯啊餚～樂活成長、N 康庄鐵道行～藝術小旅行。', '“School Vision” follows Dazhuang ES official foundation: Gratitude, Learning, Health (Care, Inquiry, Vitality), building students with all Five Powers. Curriculum WIN: W Self-improvement, I Kiln & Growth, N Railway & Art.'))}${wn ? '<br>' + uiEsc(L(wn, 'name') + tr('：', ': ') + (LANG === 'en' ? wn.en || wn.zh : wn.zh)) : ''}</p></details>` : '';
     return `<div class="ui-eyebrow">${uiKindName(d.kind)} · ${d.num}</div>
-      <div class="ui-head">${glyph(d)}<div><h2>${uiEsc(L(d, 'full'))}</h2></div></div>
+      <div class="ui-head">${glyph(d)}<div><h2>${titleHtml}</h2></div></div>
+      ${powerHtml}
       <p class="ui-lead">${leadHtml}</p>
       <p class="ui-summary">${sumHtml}</p>
-      ${meta ? `<div class="ui-meta">${meta}</div>` : ''}
+      ${meta ? `<div class="ui-meta sq-card-meta">${meta}</div>` : ''}
       ${assessHtml}${skillsHtml}
       <div class="ui-host">${tr('駐島運動傳奇', 'Sports Legend Host')} <b>${uiEsc(host ? L(host, 'name') : '')}</b> ${storyTag()}</div>
       <button class="ui-btn ui-share" type="button" data-share="${d.id}"><span class="ui-ic">${uiSvg('share')}</span><span>${tr('分享這座島', 'Share this isle')}</span></button>

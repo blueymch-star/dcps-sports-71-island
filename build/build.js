@@ -299,6 +299,22 @@ rep("tr('新聞', 'News')", "tr('賽況快訊', 'Highlights')", true);
 rep("tr('榮譽', 'Honors')", "tr('完賽英雄榜', 'Honor Roll')", true);
 rep("tr('開課期間：', 'When: ')", "tr('活動期間：', 'When: ')");
 rep("tr('節數：', 'Periods: ')", "tr('賽程時段：', 'Schedule: ')");
+rep(
+  "const meta = [term && tr('活動期間：', 'When: ') + term, L(d, 'periods') && tr('賽程時段：', 'Schedule: ') + L(d, 'periods')].filter(Boolean).map(x => `<span class=\"ui-meta-chip\">${uiEsc(x)}</span>`).join('');",
+  "const periodSegs = String(L(d, 'periods') || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);\n    const metaParts = [];\n    if (term) metaParts.push(`<span class=\"ui-meta-chip sq-card-timechip\">📅 ${uiEsc(tr('活動期間：', 'When: ') + term)}</span>`);\n    if (periodSegs.length) {\n      metaParts.push(`<span class=\"sq-card-metalbl\">${uiEsc(tr('賽程時段', 'Schedule'))}</span>`);\n      periodSegs.forEach(p => metaParts.push(`<span class=\"ui-meta-chip sq-card-timechip\">⏰ ${uiEsc(p)}</span>`));\n    }\n    const meta = metaParts.join('');"
+);
+rep(
+  "const leadHtml = glossify(uiEsc(lead), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);",
+  "const fullRaw = L(d, 'full') || '';\n    const fullSep = fullRaw.includes('・') ? '・' : ' · ';\n    const fullParts = fullRaw.split(fullSep);\n    const titleHtml = fullParts.length > 1 ? `<span class=\"sq-card-title\">${uiEsc(fullParts[0])}</span><span class=\"sq-card-sub\">${uiEsc(fullParts.slice(1).join(fullSep))}</span>` : `<span class=\"sq-card-title\">${uiEsc(fullRaw)}</span>`;\n    const leadParts = String(lead || '').split('｜');\n    const powerHtml = leadParts.length > 1 ? `<div class=\"sq-card-powerrow\">${leadParts[0].split('✕').map(p => p.trim()).filter(Boolean).map(p => `<span class=\"sq-power-badge sq-p-${uiEsc(p)}\">${uiEsc(p)}</span>`).join('<span class=\"sq-p-cross\">✕</span>')}</div>` : '';\n    const leadDesc = leadParts.length > 1 ? leadParts.slice(1).join('｜').trim() : lead;\n    const leadHtml = glossify(uiEsc(leadDesc), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);"
+);
+rep(
+  "<div class=\"ui-head\">${glyph(d)}<div><h2>${uiEsc(L(d, 'full'))}</h2></div></div>\n      <p class=\"ui-lead\">${leadHtml}</p>",
+  "<div class=\"ui-head\">${glyph(d)}<div><h2>${titleHtml}</h2></div></div>\n      ${powerHtml}\n      <p class=\"ui-lead\">${leadHtml}</p>"
+);
+rep(
+  "${meta ? `<div class=\"ui-meta\">${meta}</div>` : ''}",
+  "${meta ? `<div class=\"ui-meta sq-card-meta\">${meta}</div>` : ''}"
+);
 rep("d.kind === 'event' ? tr('怎麼參與', 'HOW STUDENTS TAKE PART') : tr('怎麼評量', 'HOW IT IS ASSESSED')", "tr('五力集章闖關方式', 'QUEST PASSPORT CHALLENGE')");
 rep("tr('學到什麼能力', 'SKILLS STUDENTS BUILD')", "tr('鍛鍊五力素養', 'FIVE POWERS BUILT')");
 rep("tr('島主教育家', 'Isle host')", "tr('駐島運動傳奇', 'Sports Legend Host')");
@@ -1686,7 +1702,84 @@ dialog::backdrop {
   line-height: 1.5;
   white-space: nowrap;
 }
+/* 島嶼詳情卡 (#ui-card) 標題、五力藥丸與賽程時段排版優化 */
+.sq-card-title {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #0f172a;
+  white-space: nowrap;
+}
+.sq-card-sub {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0369a1;
+  line-height: 1.4;
+  margin-top: 3px;
+  text-wrap: balance;
+}
+.sq-card-powerrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 8px 0 4px;
+}
+.sq-p-cross {
+  font-size: 11px;
+  font-weight: 900;
+  color: #64748b;
+}
+#ui-card .ui-lead {
+  margin-top: 2px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+.sq-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+.sq-card-metalbl {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: 0.4px;
+  margin-right: 2px;
+}
+.ui-meta-chip.sq-card-timechip {
+  white-space: normal;
+  line-height: 1.35;
+  padding: 5px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 132, 199, 0.16);
+}
 @media (max-width: 768px) {
+  #ui-card .ui-head {
+    align-items: flex-start;
+  }
+  #ui-card .ui-head h2 {
+    margin: 0;
+  }
+  .sq-card-title {
+    font-size: 18px;
+  }
+  .sq-card-sub {
+    font-size: 13px;
+  }
+  .ui-isl-tags .ui-meta {
+    gap: 6px;
+  }
+  .ui-vis, .ui-wintag {
+    white-space: normal;
+    line-height: 1.3;
+    border-radius: 14px;
+  }
   .sq-isl-meta-line {
     white-space: normal;
   }
