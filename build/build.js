@@ -744,8 +744,8 @@ dialog::backdrop {
 
 .sq-music-widget {
   position: fixed;
-  right: 18px;
-  bottom: max(env(safe-area-inset-bottom, 0px) + 72px, 72px);
+  right: 12px;
+  bottom: calc(var(--tab-h, 58px) + 68px);
   z-index: 25;
   display: flex;
   flex-direction: column;
@@ -754,8 +754,22 @@ dialog::backdrop {
   font-family: inherit;
   pointer-events: auto;
 }
+@media (max-height: 500px) and (orientation: landscape) {
+  .sq-music-widget {
+    bottom: 14px;
+    right: 14px;
+  }
+}
+@media (max-width: 900px) {
+  .sq-music-toggle-btn,
+  .sq-music-menu-btn {
+    padding: 6px 11px;
+    font-size: 11.5px;
+  }
+}
 @media (min-width: 901px) {
   .sq-music-widget {
+    right: 18px;
     bottom: 22px;
   }
 }
