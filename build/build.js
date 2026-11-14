@@ -1692,23 +1692,31 @@ dialog::backdrop {
   padding: 2px 8px;
   border-radius: 6px;
 }
+.sq-nw {
+  white-space: nowrap;
+}
+.sq-mob-br {
+  display: inline;
+}
 .sq-race-meta {
   font-size: 11.5px;
   color: #64748b;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
 }
 .sq-toggle-table-btn {
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-size: 11.5px;
   font-weight: 700;
   color: #0284c7;
   cursor: pointer;
+  white-space: nowrap;
 }
 .sq-toggle-table-btn:hover {
   background: #f0f9ff;
@@ -1722,6 +1730,39 @@ dialog::backdrop {
   font-weight: 800;
   color: #475569;
   margin-bottom: 8px;
+  line-height: 1.45;
+}
+@media (max-width: 768px) {
+  .sq-mob-br {
+    display: block;
+  }
+  .sq-race-card-head {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .sq-race-meta {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .sq-race-dates {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1.45;
+  }
+  .sq-sub-note {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 2px;
+  }
+  .sq-finalist-item {
+    padding: 8px 10px;
+    gap: 8px;
+  }
 }
 .sq-finalists-list {
   display: grid;
@@ -1941,7 +1982,7 @@ const customHtml = `
     <div class="sq-dlg-head">
       <div>
         <span class="sq-dlg-kicker">Da-Chuang's 71st: Soaring with the Five Powers</span>
-        <h2 class="sq-dlg-title" id="sq-sched-title">📅 「七一大庄、五力飛揚」校慶運動會程序表＆競賽規程</h2>
+        <h2 class="sq-dlg-title" id="sq-sched-title"><span class="sq-nw">📅「七一大庄、五力飛揚」</span><span class="sq-mob-br">校慶運動會程序表＆競賽規程</span></h2>
       </div>
       <button type="button" class="sq-dlg-close" data-sq-close="sq-schedule-dialog" aria-label="關閉">✕</button>
     </div>
@@ -2021,7 +2062,7 @@ const customHtml = `
           </div>
         </div>
         <div class="sq-race-search-box">
-          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋選手姓名、班級（例如：四丙、林○僑、六乙）..." autocomplete="off">
+          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋姓名、班級（如：四丙、林○僑）" autocomplete="off">
           <button type="button" class="sq-search-clear" id="sq-race-search-clear" hidden>✕</button>
         </div>
       </div>
@@ -3527,12 +3568,12 @@ function initSportsQuest(ctx) {
               '<span>' + r.name + '</span>' +
             '</div>' +
             '<div class="sq-race-meta">' +
-              '<span>🗓️ 預賽 ' + r.prelimDate + ' ｜ 決賽 ' + r.finalDate + ' (全數完賽)</span>' +
+              '<span class="sq-race-dates"><span class="sq-nw">🗓️ 預賽 ' + r.prelimDate + '</span><span> ｜ </span><span class="sq-nw">決賽 ' + r.finalDate + ' (全數完賽)</span></span>' +
               '<button type="button" class="sq-toggle-table-btn" data-toggle-race="' + r.id + '">' + toggleBtnTxt + '</button>' +
             '</div>' +
           '</div>' +
           '<div class="sq-race-card-body">' +
-            '<div class="sq-finalists-subhead">🏆 決賽正式成績英雄榜（前三名頒發獎牌及獎狀，四至六名頒發獎狀）：</div>' +
+            '<div class="sq-finalists-subhead"><span class="sq-nw">🏆 決賽正式成績英雄榜</span><span class="sq-sub-note">（前三名頒發獎牌及獎狀，四至六名頒發獎狀）</span></div>' +
             '<div class="sq-finalists-list">' + finHtml + '</div>' +
             tableHtml +
           '</div>' +
