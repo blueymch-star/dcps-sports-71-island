@@ -3791,11 +3791,36 @@ function initSportsQuest(ctx) {
   document.getElementById('sq-btn-reset-data')?.addEventListener('click', resetQuestData);
   document.getElementById('sq-btn-reset-cert')?.addEventListener('click', resetQuestData);
 
+  function roleToTravelerId(r) {
+    if (r === '熱血應援家長') return 'parent';
+    if (r === '親善校友貴賓') return 'alumni';
+    return 'student';
+  }
+
+  function syncProtagonist() {
+    if (typeof ctx.spawnTraveler !== 'function') return;
+    const tRole = roleToTravelerId(state.role);
+    const nick = (isEn && (!state.name || state.name === '大庄小健將'))
+      ? 'Da-Chuang Runner'
+      : (state.name || roleDisplayName(state.role));
+    try {
+      ctx.spawnTraveler({ role: tRole, nick });
+      let tries = 0;
+      const attachPrefix = () => {
+        const el = document.querySelector('.lbl.bubble.is-me');
+        if (!el) { if (++tries < 40) setTimeout(attachPrefix, 100); return; }
+        el.dataset.prefix = (state.icon || '🏃') + ' ' + roleDisplayName(state.role);
+      };
+      attachPrefix();
+    } catch (e) {}
+  }
+
   document.getElementById('sq-reg-submit')?.addEventListener('click', () => {
     state.name = (nameInput.value || '').trim() || t('大庄小健將', 'Da-Chuang Runner');
     state.registered = true;
     saveState();
     renderHud();
+    syncProtagonist();
     if (regDlg.open) regDlg.close();
     // 依據新身分立即刷新當前建築關卡難度
     if (ctx.selection && ctx.selection.type === 'item') {
@@ -4314,8 +4339,18 @@ function initSportsQuest(ctx) {
 
   function onSelectionChange(sel) {
     if (!sel) return;
-    if (sel.type === 'item') mountBuildingChallenge(sel.id);
-    else if (sel.type === 'island') decorateIslandCard(sel.id);
+    if (sel.type === 'item') {
+      mountBuildingChallenge(sel.id);
+      const ref = ctx.itemById.get(sel.id);
+      if (ref && ref.island && ref.island.data && ctx.travelerGoTo) {
+        try { ctx.travelerGoTo(ref.island.data.id); } catch (e) {}
+      }
+    } else if (sel.type === 'island') {
+      decorateIslandCard(sel.id);
+      if (ctx.travelerGoTo) {
+        try { ctx.travelerGoTo(sel.id); } catch (e) {}
+      }
+    }
   }
 
   ctx.on('selection', onSelectionChange);
@@ -5021,6 +5056,8 @@ function initSportsQuest(ctx) {
   }
 
   renderHud();
+  if (!ctx.traveler) syncProtagonist();
+  if (ctx.on) ctx.on('ready', () => { if (!ctx.traveler) syncProtagonist(); });
 
   // 首次進入島嶼時自動彈出「運動員註冊卡」
   if (!state.registered) {
