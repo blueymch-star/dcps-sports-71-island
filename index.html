@@ -2274,6 +2274,9 @@ dialog::backdrop {
     line-height: 1.5;
     text-wrap: balance;
   }
+  .sq-unit-seg {
+    display: inline-block;
+  }
   .ui-honor-item {
     padding: 10px 12px;
     gap: 5px;
@@ -6055,7 +6058,7 @@ const DATA = {
     },
     {
       "id": "n08",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "island": "s04",
       "title": "【壓軸薪傳大戲】12:00「庄情薪傳接力賽」登場！歷屆校友、教職員、家長會與在校生同場奔馳，薪傳大庄 71 年精神！",
       "summary": "大會第 30 項壓軸「庄情薪傳接力賽」，由歷屆校友棒、教職員師長棒、家長會與在校生棒共同組隊，象徵大庄群體力薪火相傳、生生不息！",
@@ -6063,7 +6066,7 @@ const DATA = {
     },
     {
       "id": "n09",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "island": "s04",
       "title": "【大隊接力決賽】11:20 三至五年級大隊接力決賽震撼登場！每班 16 人男女各半，外道超車規則全場熱血沸騰！",
       "summary": "各班女前 8 棒、男後 8 棒同心協力，中年級第 3 棒搶道、五年級第 2 棒搶道，展現極致班級向心力與傳接棒默契！",
@@ -6071,7 +6074,7 @@ const DATA = {
     },
     {
       "id": "n10",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "island": "s05",
       "title": "【趣味競賽歡樂連開】09:30 幼兒至六年級八大趣味闖關熱力展開，《罐罐相連》《大庄躍進》親子同樂！",
       "summary": "幼兒《串串接接》、一年級《跳跳虎》、二年級《粒粒皆辛苦》、三年級《「巾」球運送》、四年級《罐罐相連》、五年級《大庄躍進》、六年級《呼啦圈小鐵人》與親子《圈力衝刺》引爆全場歡笑！",
@@ -6079,7 +6082,7 @@ const DATA = {
     },
     {
       "id": "n11",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "island": "s02",
       "title": "【學年主題舞蹈盛典】08:55 一至六年級主題舞蹈與幼兒親子律動《「蕉」你一起動一動》舞動香山草茵舞台！",
       "summary": "六年級紅金扇舞、五年級長棍武藝、低中年級彩帶與活潑律動，全校孩子在風起律動露天大舞台展現自信美感力！",
@@ -16334,7 +16337,7 @@ function initUI(ctx) {
     const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));
     const semT = sem => sem === '全' ? (L(d, 'term') || tr('課程單元', 'Units')) : uiSemName(sem);
     return groups.map(g => `<div class="ui-unit-sem">${uiEsc(ev && groups.length === 1 ? L(d, 'periods') : semT(g.sem))}<span>${cnt(g.list.length)}</span></div>
-      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr(u.weeks, u.weeks))}</span>` : ''}<span class="ui-unit-name">${uiEsc(L(u, 'name'))}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))) : ''}</span></li>`).join('')}</ol>`).join('');
+      <ol class="ui-units">${g.list.map(([u, idx]) => `<li class="${u.weeks ? '' : 'no-wk'} ${idx === hitIdx ? 'is-hit' : ''}" data-unit-idx="${idx}">${u.weeks ? `<span class="ui-unit-wk">${uiEsc(tr(u.weeks, u.weeks))}</span>` : ''}<span class="ui-unit-name">${(() => { const nm = String(L(u, 'name') || ''); if (nm.includes('、') && !/[一二三四五六]、/.test(nm)) { return nm.split('、').map((seg, si, arr) => `<span class="sq-unit-seg">${uiEsc(seg + (si < arr.length - 1 ? '、' : ''))}</span>`).join(''); } return uiEsc(nm); })()}</span><span class="ui-unit-p">${u.periods != null && u.periods !== '' ? uiEsc(((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))) : ''}</span></li>`).join('')}</ol>`).join('');
   }
   function islandCard(id, opt = {}) {
     const isl = ctx.islandById.get(id), d = isl.data, host = uiRole(d.host), now = new Set(uiSlotItems());
