@@ -2442,6 +2442,74 @@ dialog::backdrop {
   font-size: 13px;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
+}
+.sq-qcta-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sq-qcta-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sq-qcta-titlewrap {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sq-qcta-title {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: #0369a1;
+  white-space: nowrap;
+}
+.sq-qcta-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.88);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  white-space: nowrap;
+}
+.sq-qcta-status.is-done {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+.sq-qcta-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.45;
+}
+.sq-qcta-line {
+  display: block;
+}
+@media (max-width: 768px) {
+  .sq-card-quest-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .sq-card-quest-cta button {
+    width: 100%;
+    padding: 9px 14px;
+    font-size: 13.5px;
+  }
 }
 
 
@@ -5919,7 +5987,7 @@ const DATA = {
     {
       "id": "h_moral_service",
       "year": "115",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "kind": "moral",
       "topic": "moral",
       "island": "s01",
@@ -6019,7 +6087,7 @@ const DATA = {
     },
     {
       "id": "n12",
-      "date": "2026-11-13",
+      "date": "2026-12-12",
       "island": "s01",
       "title": "【運動員進場與開幕典禮】08:15 全校師生穿過七一迎賓彩虹拱門，許雅惠校長主持開幕並表揚家長會與志工典範！",
       "summary": "全校師生精神抖擻通過司令台接受歡呼，開幕典禮頒發家長會當選證書、熱心助學感謝狀與資深志工表揚，體現大庄感恩惜福之道德力！",
@@ -18520,10 +18588,21 @@ function initSportsQuest(ctx) {
     if (banner) banner.remove();
     banner = document.createElement('div');
     banner.className = 'sq-card-quest-cta';
+    const powerLabel = q ? q.power : '五力大圓滿';
+    const titlePrefix = q ? (q.icon + ' 本島五力印章') : '🏆 五力榮耀星光總部';
     banner.innerHTML =
-      '<div>' +
-        '<strong style="font-size:13.5px;color:#0369a1;">' + (q ? q.icon + ' 本島五力印章：【' + q.power + '】' : '🏆 五力榮耀星光總部') + (stampDone ? '（✅ 已蓋章）' : '（⏳ 待蓋章）') + '</strong>' +
-        '<div style="font-size:12px;color:#475569;">本島共有 <strong>' + totalBldgs + ' 座建築關卡</strong>（已完成 ' + doneBldgs + '/' + totalBldgs + '），點選下方任一建築即可進入專屬闖關！</div>' +
+      '<div class="sq-qcta-body">' +
+        '<div class="sq-qcta-head">' +
+          '<div class="sq-qcta-titlewrap">' +
+            '<strong class="sq-qcta-title">' + titlePrefix + '</strong>' +
+            '<span class="sq-power-badge sq-p-' + powerLabel + '">' + powerLabel + '</span>' +
+          '</div>' +
+          '<span class="sq-qcta-status' + (stampDone ? ' is-done' : '') + '">' + (stampDone ? '✅ 已蓋章' : '⏳ 待蓋章') + '</span>' +
+        '</div>' +
+        '<div class="sq-qcta-desc">' +
+          '<span class="sq-qcta-line">本島共有 <strong>' + totalBldgs + ' 座建築關卡</strong>（已完成 ' + doneBldgs + '/' + totalBldgs + '）</span>' +
+          '<span class="sq-qcta-line">點選下方任一建築即可進入專屬闖關！</span>' +
+        '</div>' +
       '</div>' +
       '<button type="button">' + (doneBldgs < totalBldgs ? '🎯 前往建築闖關' : '🏅 查看建築關卡') + '</button>';
     banner.querySelector('button').addEventListener('click', () => {
