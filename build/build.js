@@ -16,12 +16,15 @@ if (dStart < 0 || dEnd < 0) throw new Error('找不到 DATA 區段');
 
 const orig = new Function(lines.slice(dStart, dEnd).join('\n') + '\nreturn DATA;')();
 const sqData = require('./data.js');
+const { applyEnglishData } = require('./i18n_en.js');
+applyEnglishData(sqData);
 
 const roles = {
   ...JSON.parse(JSON.stringify(orig.roles)),
   ...(sqData.customRoles || {})
 };
 roles.student.look = '大庄運動服';
+roles.student.lookEn = 'Da-Chuang PE uniform';
 
 const DATA = {
   ...sqData,
@@ -162,11 +165,11 @@ const origBrandHeader = `<header id="ui-brand" class="ui-glass">
 
 const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
       <!-- 精巧膠囊（收合狀態顯示） -->
-      <button type="button" class="sq-capsule-pill" id="sq-capsule-pill" aria-label="展開校慶運動會導覽卡片">
+      <button type="button" class="sq-capsule-pill" id="sq-capsule-pill" aria-label="展開校慶運動會導覽卡片" data-en-label="Expand Sports Day guide card">
         <span class="sq-pill-icon">🏃</span>
-        <span class="sq-pill-title">奔馳榮耀島</span>
+        <span class="sq-pill-title" data-en="Glory Run Isle">奔馳榮耀島</span>
         <span class="sq-pill-dot">·</span>
-        <span class="sq-pill-badge" id="sq-pill-prog">🏅 0/5章 · 0/19關</span>
+        <span class="sq-pill-badge" id="sq-pill-prog" data-en="🏅 0/5 · 0/19">🏅 0/5章 · 0/19關</span>
         <span class="sq-pill-arrow">▾</span>
       </button>
 
@@ -174,20 +177,20 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
       <div class="sq-brand-body" id="sq-brand-body">
         <div class="sq-brand-header-actions">
           <div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="DA-CHUANG 71ST · 6 ARENA ISLES · 32 EVENTS">71 週年校慶 · 6 座五力賽場島 · 32 項程序</div>
-          <button type="button" class="sq-fold-btn" id="sq-fold-btn" title="收起卡片，釋放 3D 賽場視野" aria-label="收起卡片">
-            <span class="sq-fold-txt">收合</span> <span class="sq-fold-icon">▲</span>
+          <button type="button" class="sq-fold-btn" id="sq-fold-btn" title="收起卡片，釋放 3D 賽場視野" data-en-title="Collapse card for full 3D view" aria-label="收起卡片" data-en-label="Collapse card">
+            <span class="sq-fold-txt" data-en="Fold">收合</span> <span class="sq-fold-icon">▲</span>
           </button>
         </div>
-        <h1 class="ui-brand-title" id="ui-brand-title" data-en="Sports Quest Island">奔馳榮耀島・校慶運動大冒險</h1>
+        <h1 class="ui-brand-title" id="ui-brand-title" data-en="Glory Run · Five Powers">奔馳榮耀島・校慶運動大冒險</h1>
         <div class="ui-brand-sub" id="ui-brand-sub" data-en="Da-Chuang's 71st: Soaring with the Five Powers">七一大庄、五力飛揚｜71 週年校慶運動會</div>
         <div class="ui-brand-sub ui-brand-mob" id="ui-brand-mob"></div>
         <button class="ui-trav-badge" id="ui-trav-badge" type="button" hidden></button>
         <div class="sq-brand-actions" id="sq-brand-actions">
-          <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表">📅 程序表(32)</button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報">🏃 決賽戰報</button>
-          <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂">🎵 闖關音樂🔊</button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label">選手設定</span></button>
+          <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書" data-en-title="View Five-Power Passport & claim Gold Certificate">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表" data-en-title="View full 32-event Sports Day timetable (08:00–13:00)">📅 程序表(32)</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報" data-en-title="View 16 sprint finals, honor roll & complete results">🏃 決賽戰報</button>
+          <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂" data-en-title="Toggle background music">🎵 闖關音樂🔊</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分" data-en-title="Set athlete name & division"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label" data-en="Athlete">選手設定</span></button>
         </div>
       </div>
     </header>`;
@@ -249,26 +252,34 @@ rep(
 
 // 右側清單與搜尋面板 (#ui-side)
 rep('<div class="ui-eyebrow" data-en="DIRECTORY · TEXT VERSION">校園目錄・文字版</div>', '<div class="ui-eyebrow" data-en="ARENA DIRECTORY">運動會賽區目錄</div>');
-rep('placeholder="搜尋課程、單元、新聞、教育家…"', 'placeholder="搜尋賽程、趣味競賽、跑道、巨星"');
+rep('placeholder="搜尋課程、單元、新聞、教育家…" data-en-ph="Search courses, units, news, educators…"', 'placeholder="搜尋賽程、趣味競賽、跑道、巨星" data-en-ph="Search events, fun races, purple track, legends…"');
 rep('<button class="ui-tab" role="tab" id="ui-tab-themes" aria-selected="true" aria-controls="ui-side-list" type="button" data-en="Isles">課程與活動</button>', '<button class="ui-tab" role="tab" id="ui-tab-themes" aria-selected="true" aria-controls="ui-side-list" type="button" data-en="Arena Isles">六大賽區島嶼</button>');
 rep('<button class="ui-tab" role="tab" id="ui-tab-flows" aria-selected="false" tabindex="-1" aria-controls="ui-side-list" type="button" data-en="Isle stories">島與島的故事</button>', '<button class="ui-tab" role="tab" id="ui-tab-flows" aria-selected="false" tabindex="-1" aria-controls="ui-side-list" type="button" data-en="Relay routes">賽場動線與傳承</button>');
-rep('課程：大庄國小 公開課程資訊與校園新聞；新聞：新竹市教育新聞網・本站為教學展示，非學校官方網站。', '依據：新竹市香山區大庄國小 115 學年度暨 71 週年校慶運動會程序表與競賽規程・本站為 3D 互動導覽展示。', true);
+rep(
+  'data-en="Courses: Dazhuang ES public curriculum info · News: Hsinchu City Education News · A teaching showcase, not the school\'s official website.">課程：大庄國小 公開課程資訊與校園新聞；新聞：新竹市教育新聞網・本站為教學展示，非學校官方網站。',
+  'data-en="Source: Hsinchu City Da-Chuang ES 115th Academic Year &amp; 71st Anniversary Sports Day Program &amp; Regulations · Interactive 3D Guide.">依據：新竹市香山區大庄國小 115 學年度暨 71 週年校慶運動會程序表與競賽規程・本站為 3D 互動導覽展示。'
+);
 rep("tr('特色課程', 'SIGNATURE COURSES')", "tr('五力競賽與展演島', 'COMPETITION & SHOW ISLES')", true);
 rep("tr('年度活動', 'YEARLY EVENTS')", "tr('校慶典禮與接力島', 'CEREMONY & RELAY ISLES')", true);
+rep("tr('全校新聞與榮譽', 'SCHOOL-WIDE NEWS & HONORS')", "tr('賽程快訊與英雄榜', 'SPORTS DAY NEWS & HONORS')");
+rep("tr('關於大庄', 'ABOUT DAZHUANG')", "tr('大會簡介', 'ABOUT SPORTS DAY')");
+rep("a.k === 'intro' ? tr('關於大庄・學校簡介', 'About · The school') : tr('關於大庄・各處室', 'About · Offices')", "a.k === 'intro' ? tr('大會簡介・大會總覽', 'About · Overview') : tr('大會簡介・主持與裁判團隊', 'About · Staff')");
+rep("more in Campus news", "more in Highlights");
 rep("tr('這個條件下沒有課程。', 'No courses match.')", "tr('這個條件下沒有符合的賽區。', 'No arena isles match.')");
 rep("tr('這個年級沒有專屬的年度活動。', 'No yearly events for this grade.')", "tr('這個年級沒有專屬的典禮島。', 'No ceremony isles for this grade.')");
 rep("tr('低年級,高年級,陶藝,射箭,樂樂棒球,得獎', 'Grade 7,AI,club,reading,sports')", "tr('紫色跑道,大隊接力,趣味競賽,扇耀舞台,紀政,李小龍', 'Purple track,Relay,Fun games,Dance,Chi Cheng,Bruce Lee')");
-rep("tr('島與島的故事是讓地圖生動的故事設定；實線＝課程計畫寫明，其他是延伸連結。', 'Isle stories are a story layer; solid lines are written in the curriculum plan, others are further links.')", "tr('6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任各島島主，帶領大庄親師生在賽場間傳遞聖火與賽事裝備！', 'Six sports legends lead Dazhuang athletes and families across the six Sports Day arenas.')");
+rep("tr('島與島的故事是讓地圖生動的故事設定；實線＝課程計畫寫明，其他是延伸連結。', 'Isle stories are a story layer; solid lines are written in the curriculum plan, others are further links.')", "tr('6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任各島島主，帶領大庄親師生在賽場間傳遞聖火與賽事裝備！', 'Six sports legends lead Da-Chuang athletes and families across the six Sports Day arenas.')");
 
 // 依年級看卡片 (gradeCard)
-rep("tr(g + '年級一覽', 'Grade ' + num + ' at a glance')", "tr(g + '年級賽程與闖關一覽', 'Grade ' + num + ' Sports Day schedule')");
+rep("tr(g + '年級一覽', 'Grade ' + num + ' at a glance')", "tr(g + '年級賽程與闖關一覽', ({ '7': 'Lower Grades (G1–2)', '8': 'Middle Grades (G3–4)', '9': 'Upper Grades (G5–6)' }[num] || 'Grade ' + num) + ' Schedule')");
+rep("tr(gZh(k) + '年級', 'G' + k)", "tr(gZh(k) + '年級', ({ '7': 'G1–2', '8': 'G3–4', '9': 'G5–6' }[k] || 'G' + k))");
 rep("<thead><tr><th scope=\"col\">${tr('課名', 'Course')}</th><th scope=\"col\">${tr('節數', 'Periods')}</th><th scope=\"col\">${tr('評量摘要', 'Assessment')}</th></tr></thead>", "<thead><tr><th scope=\"col\">${tr('賽場島嶼', 'Arena Isle')}</th><th scope=\"col\">${tr('登場時段', 'Schedule')}</th><th scope=\"col\">${tr('五力闖關任務', 'Quest Task')}</th></tr></thead>");
 rep("<span>${tr('年度活動', 'Yearly events')}</span>", "<span>${tr('典禮與接力賽區', 'Ceremony & Relay')}</span>");
 rep("tr('每週節數怎麼排', 'HOW THE WEEK IS SPLIT')", "tr('本年段參賽與表演時程重點', 'SCHEDULE HIGHLIGHTS')");
 rep(
   `const story = gs ? \`<div class="ui-gstory"><b>\${uiEsc(L(gs, 'title') || '')}</b><p>\${uiEsc(LANG === 'en' ? gs.en || gs.zh : gs.zh)}</p></div>\` : '';`,
   `const gsTitle = (gs && L(gs, 'title')) || '';
-    const gsBar = gsTitle.indexOf('｜');
+    const gsBar = gsTitle.includes('｜') ? gsTitle.indexOf('｜') : gsTitle.indexOf('|');
     const gsPill = gsBar > -1 ? gsTitle.slice(0, gsBar).trim() : '';
     const gsSub = gsBar > -1 ? gsTitle.slice(gsBar + 1).trim() : gsTitle;
     const story = gs ? \`<div class="ui-gstory"><div class="sq-gstory-head">\${gsPill ? \`<span class="sq-power-badge sq-p-道德力">\${uiEsc(gsPill)}</span>\` : ''}<b class="sq-gstory-sub">\${uiEsc(gsSub)}</b></div><p>\${uiEsc(LANG === 'en' ? gs.en || gs.zh : gs.zh)}</p></div>\` : '';`
@@ -278,13 +289,13 @@ rep(
   `const rows = cs.map(i => {
       const d = i.data, a = L(d, 'assess');
       const leadRaw = L(d, 'lead') || '';
-      const barIdx = leadRaw.indexOf('｜');
+      const barIdx = leadRaw.includes('｜') ? leadRaw.indexOf('｜') : leadRaw.indexOf('|');
       const pName = barIdx > -1 ? leadRaw.slice(0, barIdx).trim() : '';
-      const pCls = pName.includes('五力') ? 'sq-p-五力大圓滿' : pName.includes('美感') ? 'sq-p-美感力' : pName.includes('知識') ? 'sq-p-知識力' : pName.includes('道德') ? 'sq-p-道德力' : pName.includes('群體') ? 'sq-p-群體力' : 'sq-p-體能力';
+      const pCls = /五力|All Five|All-Around/i.test(pName) ? 'sq-p-五力大圓滿' : /美感|Aesthetic/i.test(pName) ? 'sq-p-美感力' : /知識|Knowledge/i.test(pName) ? 'sq-p-知識力' : /道德|Moral/i.test(pName) ? 'sq-p-道德力' : /群體|Team/i.test(pName) ? 'sq-p-群體力' : 'sq-p-體能力';
       const pTag = pName ? \`<span class="sq-power-badge sq-gt-pbadge \${pCls}">\${uiEsc(pName)}</span>\` : '';
       const gp = L(d, 'gradePeriods');
       const schedStr = (gp && gp[num]) || uiPeriodsShort(d) || '';
-      const times = schedStr.split('｜').map(s => s.trim()).filter(Boolean).map(t => \`<span class="sq-gt-time">⏰ \${uiEsc(t)}</span>\`).join('');
+      const times = schedStr.split(/[｜|]/).map(s => s.trim()).filter(Boolean).map(t => \`<span class="sq-gt-time">⏰ \${uiEsc(t)}</span>\`).join('');
       return \`<tr><th scope="row">\${isl(d)}\${pTag}</th><td>\${times || uiEsc(schedStr)}</td><td>\${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>\`;
     }).join('');`
 );
@@ -305,7 +316,7 @@ rep(
 );
 rep(
   "const leadHtml = glossify(uiEsc(lead), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);",
-  "const fullRaw = L(d, 'full') || '';\n    const fullSep = fullRaw.includes('・') ? '・' : ' · ';\n    const fullParts = fullRaw.split(fullSep);\n    const titleHtml = fullParts.length > 1 ? `<span class=\"sq-card-title\">${uiEsc(fullParts[0])}</span><span class=\"sq-card-sub\">${uiEsc(fullParts.slice(1).join(fullSep))}</span>` : `<span class=\"sq-card-title\">${uiEsc(fullRaw)}</span>`;\n    const leadParts = String(lead || '').split('｜');\n    const powerHtml = leadParts.length > 1 ? `<div class=\"sq-card-powerrow\">${leadParts[0].split('✕').map(p => p.trim()).filter(Boolean).map(p => `<span class=\"sq-power-badge sq-p-${uiEsc(p)}\">${uiEsc(p)}</span>`).join('<span class=\"sq-p-cross\">✕</span>')}</div>` : '';\n    const leadDesc = leadParts.length > 1 ? leadParts.slice(1).join('｜').trim() : lead;\n    const leadHtml = glossify(uiEsc(leadDesc), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);"
+  "const fullRaw = L(d, 'full') || '';\n    const fullSep = fullRaw.includes('・') ? '・' : ' · ';\n    const fullParts = fullRaw.split(fullSep);\n    const titleHtml = fullParts.length > 1 ? `<span class=\"sq-card-title\">${uiEsc(fullParts[0])}</span><span class=\"sq-card-sub\">${uiEsc(fullParts.slice(1).join(fullSep))}</span>` : `<span class=\"sq-card-title\">${uiEsc(fullRaw)}</span>`;\n    const leadParts = String(lead || '').split(/[｜|]/);\n    const pClsOf = p => /五力|All Five|All-Around/i.test(p) ? 'sq-p-五力大圓滿' : /美感|Aesthetic/i.test(p) ? 'sq-p-美感力' : /知識|Knowledge/i.test(p) ? 'sq-p-知識力' : /道德|Moral/i.test(p) ? 'sq-p-道德力' : /群體|Team/i.test(p) ? 'sq-p-群體力' : 'sq-p-體能力';\n    const powerHtml = leadParts.length > 1 ? `<div class=\"sq-card-powerrow\">${leadParts[0].split(/[✕×]/).map(p => p.trim()).filter(Boolean).map(p => `<span class=\"sq-power-badge ${pClsOf(p)}\">${uiEsc(p)}</span>`).join('<span class=\"sq-p-cross\">✕</span>')}</div>` : '';\n    const leadDesc = leadParts.length > 1 ? leadParts.slice(1).join(' | ').trim() : lead;\n    const leadHtml = glossify(uiEsc(leadDesc), used), sumHtml = glossify(uiEsc(L(d, 'summary')), used);"
 );
 rep(
   "<div class=\"ui-head\">${glyph(d)}<div><h2>${uiEsc(L(d, 'full'))}</h2></div></div>\n      <p class=\"ui-lead\">${leadHtml}</p>",
@@ -322,9 +333,12 @@ rep("tr('課程計畫寫明', 'Written in the curriculum plan')", "tr('大會程
 rep("<dt>${tr('證據等級', 'Evidence')}</dt>", "<dt>${tr('動線依據等級', 'Evidence Level')}</dt>");
 rep("case 'medal':", "case 'trophy':\n    case 'medal':", true);
 rep("case 'diploma':", "case 'baton':\n    case 'diploma':", true);
+rep("units.forEach((u, idx) => { let g = groups.find(x => x.sem === u.sem); if (!g) groups.push(g = { sem: u.sem, list: [] }); g.list.push([u, idx]); });", "units.forEach((u, idx) => { let g = groups.find(x => x.sem === u.sem); if (!g) groups.push(g = { sem: u.sem, semEn: u.semEn, list: [] }); g.list.push([u, idx]); });");
+rep("uiEsc(ev && groups.length === 1 ? L(d, 'periods') : semT(g.sem))", "uiEsc(ev && groups.length === 1 ? L(d, 'periods') : (LANG === 'en' && g.semEn ? g.semEn : semT(g.sem)))");
 rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')) : tr(n + ' 個單元', n + (n > 1 ? ' units' : ' unit'));", "const cnt = n => tr(n + ' 個賽程項目', n + (n > 1 ? ' events' : ' event'));");
-rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)", true);
-rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((String(u.sem || '').includes('獎項')) ? tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')) : tr(u.periods + ' 分鐘', u.periods + ' min'))", true);
+rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeksEn || u.weeks)", true);
+rep("tr('第 ' + u.weeks + ' 週', 'wk ' + u.weeks)", "tr(u.weeks, u.weeksEn || u.weeks)", true);
+rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((/獎項|Awards|Individual|Team/i.test(String(L(u, 'sem') || u.sem || ''))) ? tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')) : tr(u.periods + ' 分鐘', u.periods + ' min'))", true);
 rep(
   "<span class=\"ui-unit-name\">${uiEsc(L(u, 'name'))}</span>",
   "<span class=\"ui-unit-name\">${(() => { const nm = String(L(u, 'name') || ''); if (nm.includes('、') && !/[一二三四五六]、/.test(nm)) { return nm.split('、').map((seg, si, arr) => `<span class=\"sq-unit-seg\">${uiEsc(seg + (si < arr.length - 1 ? '、' : ''))}</span>`).join(''); } return uiEsc(nm); })()}</span>"
@@ -336,7 +350,7 @@ rep(
 );
 rep(
   "return `<li class=\"ui-honor-item ${hit ? 'is-hit' : ''}\" data-honor-card=\"${uiEsc(h.id)}\" ${hidden ? 'hidden' : ''}><span class=\"ui-news-date\">${uiEsc(h.date)}<span class=\"ui-hk ui-hk-${uiEsc(h.kind)}\">${uiEsc(hkShort(h.kind))}</span></span><span class=\"ui-honor-ttl\">${uiEsc(L(h, 'title'))}${src}</span></li>`;",
-  "const rawTtl = String(L(h, 'title') || '');\n    let ttlHtml = uiEsc(rawTtl);\n    if (rawTtl.includes('：')) {\n      const [evPart, ...restParts] = rawTtl.split('：');\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(evPart)}</span><span class=\"sq-honor-winner\">${uiEsc(restParts.join('：').trim())}</span>`;\n    } else if (rawTtl.includes('（') && rawTtl.length > 20) {\n      const idx = rawTtl.indexOf('（');\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(rawTtl.slice(0, idx))}</span><span class=\"sq-honor-sub\">${uiEsc(rawTtl.slice(idx))}</span>`;\n    }\n    return `<li class=\"ui-honor-item ${hit ? 'is-hit' : ''}\" data-honor-card=\"${uiEsc(h.id)}\" ${hidden ? 'hidden' : ''}><span class=\"ui-news-date\">${uiEsc(h.date)}<span class=\"ui-hk ui-hk-${uiEsc(h.kind)}\">${uiEsc(hkShort(h.kind))}</span></span><span class=\"ui-honor-ttl\">${ttlHtml}${src}</span></li>`;"
+  "const rawTtl = String(L(h, 'title') || '');\n    let ttlHtml = uiEsc(rawTtl);\n    const colonSep = rawTtl.includes('：') ? '：' : rawTtl.includes(': ') ? ': ' : '';\n    if (colonSep) {\n      const [evPart, ...restParts] = rawTtl.split(colonSep);\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(evPart)}</span><span class=\"sq-honor-winner\">${uiEsc(restParts.join(colonSep).trim())}</span>`;\n    } else if ((rawTtl.includes('（') || rawTtl.includes(' (')) && rawTtl.length > 20) {\n      const idx = rawTtl.includes('（') ? rawTtl.indexOf('（') : rawTtl.indexOf(' (');\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(rawTtl.slice(0, idx))}</span><span class=\"sq-honor-sub\">${uiEsc(rawTtl.slice(idx).trim())}</span>`;\n    }\n    return `<li class=\"ui-honor-item ${hit ? 'is-hit' : ''}\" data-honor-card=\"${uiEsc(h.id)}\" ${hidden ? 'hidden' : ''}><span class=\"ui-news-date\">${uiEsc(h.date)}<span class=\"ui-hk ui-hk-${uiEsc(h.kind)}\">${uiEsc(hkShort(h.kind))}</span></span><span class=\"ui-honor-ttl\">${ttlHtml}${src}</span></li>`;"
 );
 rep("tr('帶隊教育家', 'Led by')", "tr('領隊運動傳奇', 'Led by Legend')");
 rep("role && role.ancient ? tr('教育家', 'EDUCATOR') : tr('大庄夥伴', 'DAZHUANG CREW')", "role && role.ancient ? tr('運動傳奇巨星', 'SPORTS LEGEND') : tr('大庄親師生選手', 'DAZHUANG ATHLETE')");
@@ -350,12 +364,18 @@ rep('<span data-en="Campus news">校園動態</span>', '<span data-en="Sports Da
 rep('<button class="ui-log-tab" role="tab" id="ui-logtab-news" aria-selected="true" aria-controls="ui-log-news" type="button" data-en="News">校園新聞</button>', '<button class="ui-log-tab" role="tab" id="ui-logtab-news" aria-selected="true" aria-controls="ui-log-news" type="button" data-en="Highlights">賽程快訊</button>');
 rep('<button class="ui-log-tab" role="tab" id="ui-logtab-honors" aria-selected="false" tabindex="-1" aria-controls="ui-log-honors" type="button" data-en="Honors">榮譽榜</button>', '<button class="ui-log-tab" role="tab" id="ui-logtab-honors" aria-selected="false" tabindex="-1" aria-controls="ui-log-honors" type="button" data-en="Honors">完賽英雄榜</button>');
 rep('<span data-en="Walkers">小人動態</span>', '<span data-en="Athletes">選手動態</span>');
-rep('placeholder="搜尋新聞、榮譽…"', 'placeholder="搜尋賽程快訊、個人賽英雄榜…"');
+rep('placeholder="搜尋新聞、榮譽…" data-en-ph="Search news and honors…"', 'placeholder="搜尋賽程快訊、個人賽英雄榜…" data-en-ph="Search highlights, sprint heroes…"');
 rep("tr('等待第一筆往來…教育家正在出發。', 'Waiting for the first trip… the educators are setting off.')", "tr('等待第一批選手出發…運動傳奇巨星正在熱身帶隊！', 'Waiting for the first relay… sports legends are warming up!')");
 rep('<span class="ui-btn-txt" data-en="About">關於大庄</span>', '<span class="ui-btn-txt" data-en="About">大會簡介</span>');
 rep('<span class="ui-btn-txt" data-en="My traveler">我的旅人</span>', '<span class="ui-btn-txt" data-en="Athlete Card">選手身分</span>');
 rep('<span class="ui-btn-txt" data-en="6-yr journey">六年旅程</span>', '<span class="ui-btn-txt" data-en="Full Tour">運動會全覽</span>');
-rep('<div class="ui-clock-slot" id="ui-clock-slot">上課</div>', '<div class="ui-clock-slot" id="ui-clock-slot">運動會進行中</div>');
+rep('<div class="ui-clock-slot" id="ui-clock-slot">上課</div>', '<div class="ui-clock-slot" id="ui-clock-slot" data-en="Sports Day Live">運動會進行中</div>');
+rep('<h2 id="ui-about-title" data-en="Dazhuang Elementary School, Hsinchu">新竹市香山區大庄國民小學</h2>', '<h2 id="ui-about-title" data-en="Da-Chuang Elementary School · 71st Sports Day">新竹市香山區大庄國民小學</h2>');
+rep(
+  "if (A.source) { src.href = A.source; src.innerHTML = uiEsc(tr('資料來源：大庄國小官網', 'Source: Dazhuang ES website (Chinese)')) + ' ↗<span class=\"ui-sr\">' + uiEsc(tr('（另開新視窗）', ' (opens in a new tab)')) + '</span>'; }",
+  "if (A.source) { src.href = 'https://www.ttps.hc.edu.tw/'; src.innerHTML = uiEsc(L(A, 'source')) + ' ↗<span class=\"ui-sr\">' + uiEsc(tr('（另開新視窗）', ' (opens in a new tab)')) + '</span>'; }"
+);
+rep("tr('例如：愛讀書的旅人', 'e.g. 愛讀書的旅人')", "tr('例如：紫色跑道小健將', 'e.g. Track Runner')");
 
 // 大庄國小官方學校願景與校訂課程三大主軸（https://www.ttps.hc.edu.tw/nss/p/wish）
 rep(
@@ -374,12 +394,12 @@ rep(
 // 說明面板 (#ui-help) 與關於面板 (#ui-about)
 rep('<h2 id="ui-help-title" data-en="Fourteen isles, one school year">十四座島，一整個大庄學年</h2>', '<h2 id="ui-help-title" data-en="Six Arena Isles, One Glorious Sports Day">六座五力賽場島，一場熱血的 71 週年校慶運動會</h2>');
 rep(
-  '每座六角島是大庄國小的一門特色課程或一個年度活動。古今中外的教育家擔任島主，帶著學生、老師、家長、志工與童軍走過小橋，把一門課需要的東西送到下一站。',
-  '每座六角島代表大庄國小 71 週年校慶「七一大庄、五力飛揚」的一大主題賽區（包含六道立體紫色橡膠跑道、風起律動舞台、趣味競賽嘉年華、大隊接力競技場與金銀銅頒獎台）。6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任駐島島主，帶著大庄小選手、裁判老師、應援家長、校慶志工與聖火護衛隊在賽場間奔馳！'
+  'data-en="Each hexagonal isle is one of Dazhuang ES\'s 9 flexible courses or 5 yearly events. Great educators from past and present act as isle hosts, walking the bridges with students, teachers, parents, volunteers and scouts to carry what one course needs to the next.">每座六角島是大庄國小的一門特色課程或一個年度活動。古今中外的教育家擔任島主，帶著學生、老師、家長、志工與童軍走過小橋，把一門課需要的東西送到下一站。',
+  'data-en="Each hexagonal isle represents one arena zone of Da-Chuang ES’s 71st Anniversary Sports Day (purple 6-lane track, open-air stage, 8 fun races, relay arena &amp; award podium). Six global sports legends host our athletes, teachers, parents &amp; volunteers across the isles!">每座六角島代表大庄國小 71 週年校慶「七一大庄、五力飛揚」的一大主題賽區（包含六道立體紫色橡膠跑道、風起律動舞台、趣味競賽嘉年華、大隊接力競技場與金銀銅頒獎台）。6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任駐島島主，帶著大庄小選手、裁判老師、應援家長、校慶志工與聖火護衛隊在賽場間奔馳！'
 );
 rep(
-  '「故事設定」：島主教育家、走來走去的小人和島與島之間的協作線，是讓地圖生動的故事元素；課程內容本身依學校課程計畫。',
-  '「故事設定」：6 位運動傳奇巨星島主與賽場間奔馳的小選手動線為趣味故事元素；32 項節目時間、個人賽與大隊接力規則皆依據大庄國小 71 週年校慶運動會正式程序表與競賽規程。'
+  'data-en="Story elements: the educator hosts, the little walkers and the link lines between isles are a story layer to make the map lively. Course facts come from the school\'s curriculum plan.">「故事設定」：島主教育家、走來走去的小人和島與島之間的協作線，是讓地圖生動的故事元素；課程內容本身依學校課程計畫。',
+  'data-en="Story layer: the sports legend hosts and bridge runners bring the map to life; all 32 program times, sprint results, and relay rules follow official 71st Anniversary Sports Day regulations.">「故事設定」：6 位運動傳奇巨星島主與賽場間奔馳的小選手動線為趣味故事元素；32 項節目時間、個人賽與大隊接力規則皆依據大庄國小 71 週年校慶運動會正式程序表與競賽規程。'
 );
 rep('<div class="ui-eyebrow" data-en="ABOUT DAZHUANG">關於大庄</div>', '<div class="ui-eyebrow" data-en="ABOUT SPORTS DAY">大會簡介</div>');
 rep('<button class="ui-tab" role="tab" id="ui-abtab-intro" aria-selected="true" aria-controls="ui-about-intro" type="button" data-en="The school">學校簡介</button>', '<button class="ui-tab" role="tab" id="ui-abtab-intro" aria-selected="true" aria-controls="ui-about-intro" type="button" data-en="Overview">大會總覽</button>');
@@ -456,19 +476,20 @@ rep(
           <summary>\${glyph(d)}<span class="ui-row-main"><span class="ui-row-name">\${d.num} \${hl(L(d, 'full'), terms)}</span><span class="ui-row-sub">\${sub.map(x => hl(x, terms)).join(' · ')}</span></span></summary>
           \${q ? '' : \`<p class="ui-isl-sum">\${uiEsc(L(d, 'lead') || L(d, 'summary'))}</p>\`}`,
   `const fullTitle = L(d, 'full') || '';
-        const dotIdx = fullTitle.indexOf('・');
+        const dotSep = fullTitle.includes('・') ? '・' : ' · ';
+        const dotIdx = fullTitle.indexOf(dotSep);
         const mainTitle = dotIdx > -1 ? fullTitle.slice(0, dotIdx) : fullTitle;
-        const subTitle = dotIdx > -1 ? fullTitle.slice(dotIdx + 1) : '';
-        const metaParts = [L(d, 'grade'), ...(uiPeriodsShort(d) || '').split('｜').map(s => s.trim()).filter(Boolean)].filter(Boolean);
+        const subTitle = dotIdx > -1 ? fullTitle.slice(dotIdx + dotSep.length) : '';
+        const metaParts = [L(d, 'grade'), ...(uiPeriodsShort(d) || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean)].filter(Boolean);
         const leadRaw = L(d, 'lead') || L(d, 'summary') || '';
-        const barIdx = leadRaw.indexOf('｜');
+        const barIdx = leadRaw.includes('｜') ? leadRaw.indexOf('｜') : leadRaw.indexOf('|');
         const leadPower = barIdx > -1 ? leadRaw.slice(0, barIdx).trim() : '';
         const leadDesc = barIdx > -1 ? leadRaw.slice(barIdx + 1).trim() : leadRaw;
-        const pClass = leadPower.includes('五力') ? 'sq-p-五力大圓滿'
-          : leadPower.includes('美感') ? 'sq-p-美感力'
-          : leadPower.includes('知識') ? 'sq-p-知識力'
-          : leadPower.includes('道德') ? 'sq-p-道德力'
-          : leadPower.includes('群體') ? 'sq-p-群體力'
+        const pClass = /五力|All Five|All-Around/i.test(leadPower) ? 'sq-p-五力大圓滿'
+          : /美感|Aesthetic/i.test(leadPower) ? 'sq-p-美感力'
+          : /知識|Knowledge/i.test(leadPower) ? 'sq-p-知識力'
+          : /道德|Moral/i.test(leadPower) ? 'sq-p-道德力'
+          : /群體|Team/i.test(leadPower) ? 'sq-p-群體力'
           : 'sq-p-體能力';
         return \`<details class="ui-isl" data-island="\${d.id}" \${isOpen ? 'open' : ''}>
           <summary>\${glyph(d)}<span class="ui-row-main"><span class="ui-row-name sq-isl-namewrap"><span class="sq-isl-mainname">\${d.num} \${hl(mainTitle, terms)}</span>\${subTitle ? \`<span class="sq-isl-subname">\${hl(subTitle, terms)}</span>\` : ''}</span><span class="ui-row-sub sq-isl-submeta">\${metaParts.map((x, idx) => \`<span class="sq-isl-meta-line">\${idx === 0 ? '👥 ' : '⏰ '}\${hl(x, terms)}</span>\`).join('')}</span></span></summary>
@@ -491,8 +512,8 @@ rep(
       <div class="ui-sec"><span class="ui-eyebrow">\${tr('進行時間', 'WHEN')}</span><div class="ui-timeline">\${steps}</div></div>\`;`,
   `const steps = [1, 2, 3].map(p => { const pn = String(uiPhaseName(p) || ''); const lp = pn.indexOf('('); const labelHtml = lp > 0 ? \`<span class="sq-step-name">\${uiEsc(pn.slice(0, lp).trim())}</span><span class="sq-step-time">\${uiEsc((pn.endsWith(')') ? pn.slice(lp + 1, -1) : pn.slice(lp + 1)).trim())}</span>\` : \`<span class="sq-step-name">\${uiEsc(pn)}</span>\`; return \`<div class="ui-step \${p === it.phase ? 'is-cur' : ''}"><i></i>\${labelHtml}</div>\`; }).join('');
     const now = uiSlotItems().includes(id);
-    const whenParts = String(it.when || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
-    const whenHtml = whenParts.length ? \`<div class="sq-when-row"><span class="sq-when-lbl">⏰ 登場時段</span>\${whenParts.map(p => \`<span class="sq-when-badge">\${uiEsc(p)}</span>\`).join('')}</div>\` : '';
+    const whenParts = String(L(it, 'when') || '').split(/[｜|]/).map(s => s.trim()).filter(Boolean);
+    const whenHtml = whenParts.length ? \`<div class="sq-when-row"><span class="sq-when-lbl">\${tr('⏰ 登場時段', '⏰ Event Time')}</span>\${whenParts.map(p => \`<span class="sq-when-badge">\${uiEsc(p)}</span>\`).join('')}</div>\` : '';
     return \`<button class="ui-back" type="button" data-sel="island:\${d.id}">\${uiSvg('back').replace('<svg', '<svg width="14" height="14" style="stroke:currentColor;fill:none;stroke-width:2.4"')}\${d.num} \${uiEsc(L(d, 'name'))}</button>
       <div class="sq-item-hero">
         <div class="sq-item-hero-txt">
@@ -2734,46 +2755,46 @@ const customHtml = `
   <div class="sq-dlg-inner">
     <div class="sq-dlg-head">
       <div>
-        <span class="sq-dlg-kicker">新竹市香山區大庄國小 71 週年校慶運動會</span>
-        <h2 class="sq-dlg-title" id="sq-reg-title"><span class="sq-nw">🏃 運動員入場註冊</span><span class="sq-mob-sep">・</span><span class="sq-mob-br sq-nw">領取五力集章護照</span></h2>
+        <span class="sq-dlg-kicker" data-en="Da-Chuang Elementary School 71st Anniversary Sports Day">新竹市香山區大庄國小 71 週年校慶運動會</span>
+        <h2 class="sq-dlg-title" id="sq-reg-title"><span class="sq-nw" data-en="🏃 Athlete Check-In">🏃 運動員入場註冊</span><span class="sq-mob-sep" data-en=" · ">・</span><span class="sq-mob-br sq-nw" data-en="Claim Five-Power Passport">領取五力集章護照</span></h2>
       </div>
-      <button type="button" class="sq-dlg-close" data-sq-close="sq-reg-dialog" aria-label="關閉">✕</button>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-reg-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
-    <p style="margin:0 0 14px;font-size:14px;color:#334155;line-height:1.5;">
+    <p style="margin:0 0 14px;font-size:14px;color:#334155;line-height:1.5;" data-en-html="Welcome to <strong>Glory Run · Five Powers</strong>! Enter your name and choose your athlete division. Click any of the <strong>19 landmarks across 6 arena isles</strong> to complete interactive quests, collect all 5 Power Stamps, ignite the cauldron <strong>3D Victory Fireworks</strong>, and claim your Gold Certificate!">
       歡迎登上<strong>《奔馳榮耀島・五力飛揚》</strong>！請輸入你的姓名並選擇代表身分。點選地圖上 <strong>6 座島嶼中的 19 座建築地標</strong>，每座建築都有專屬的<strong>互動闖關任務</strong>，集滿 5 枚五力印章就能引燃中央聖火台<strong>全景 3D 勝利煙火</strong>並獲得專屬金牌證書！
     </p>
     <div class="sq-form-group">
-      <label class="sq-form-label" for="sq-input-name"><span class="sq-nw">✍️ 運動員／挑戰者姓名</span><span class="sq-mob-br sq-label-note sq-nw">（將印製於五力金牌證書上）：</span></label>
-      <input type="text" id="sq-input-name" class="sq-name-input" placeholder="例如：王小明、三年甲班陳同學、熱血林爸爸" maxlength="20" />
+      <label class="sq-form-label" for="sq-input-name"><span class="sq-nw" data-en="✍️ Athlete / Challenger Name">✍️ 運動員／挑戰者姓名</span><span class="sq-mob-br sq-label-note sq-nw" data-en=" (printed on your Gold Certificate):">（將印製於五力金牌證書上）：</span></label>
+      <input type="text" id="sq-input-name" class="sq-name-input" placeholder="例如：王小明、三年甲班陳同學、熱血林爸爸" data-en-ph="e.g. Alex Chen, Class 3A Runner, Proud Parent" maxlength="20" />
     </div>
     <div class="sq-form-group">
-      <label class="sq-form-label">🎽 選擇你的參賽代表身分：</label>
+      <label class="sq-form-label" data-en="🎽 Choose Your Athlete Division:">🎽 選擇你的參賽代表身分：</label>
       <div class="sq-role-grid" id="sq-role-grid">
         <button type="button" class="sq-role-card is-active" data-role="低年級小選手" data-icon="🐯">
-          <div class="sq-rc-top"><strong>🐯 低年級小選手</strong> <span class="sq-rc-diff diff-easy">⭐ 入門友善</span></div>
-          <span>難度入門：充能門檻減半、附專屬小選手答題錦囊，輕鬆集章！</span>
+          <div class="sq-rc-top"><strong data-en="🐯 Lower Grades (G1–2)">🐯 低年級小選手</strong> <span class="sq-rc-diff diff-easy" data-en="⭐ Starter Friendly">⭐ 入門友善</span></div>
+          <span data-en="Starter Mode: half-tap charge goals &amp; helpful quiz hints for an easy stamp run!">難度入門：充能門檻減半、附專屬小選手答題錦囊，輕鬆集章！</span>
         </button>
         <button type="button" class="sq-role-card" data-role="中年級飛毛腿" data-icon="⚡">
-          <div class="sq-rc-top"><strong>⚡ 中年級飛毛腿</strong> <span class="sq-rc-diff diff-medium">⭐⭐ 標準進階</span></div>
-          <span>標準難度：標準賽程挑戰、紫色跑道起跑反應與運動常識考驗</span>
+          <div class="sq-rc-top"><strong data-en="⚡ Middle Grades (G3–4)">⚡ 中年級飛毛腿</strong> <span class="sq-rc-diff diff-medium" data-en="⭐⭐ Standard">⭐⭐ 標準進階</span></div>
+          <span data-en="Standard Mode: balanced sports trivia &amp; reaction tests on the 6-lane purple track.">標準難度：標準賽程挑戰、紫色跑道起跑反應與運動常識考驗</span>
         </button>
         <button type="button" class="sq-role-card" data-role="高年級破風手" data-icon="🔥">
-          <div class="sq-rc-top"><strong>🔥 高年級破風手</strong> <span class="sq-rc-diff diff-hard">⭐⭐⭐ 競速破風</span></div>
-          <span>高難度挑戰：手速爆發連擊充能、嚴格起跑評等、專業賽事無提示！</span>
+          <div class="sq-rc-top"><strong data-en="🔥 Upper Grades (G5–6)">🔥 高年級破風手</strong> <span class="sq-rc-diff diff-hard" data-en="⭐⭐⭐ Pro Dash">⭐⭐⭐ 競速破風</span></div>
+          <span data-en="Pro Challenge: rapid burst clicks, stricter reaction timer &amp; zero quiz hints!">高難度挑戰：手速爆發連擊充能、嚴格起跑評等、專業賽事無提示！</span>
         </button>
         <button type="button" class="sq-role-card" data-role="熱血應援家長" data-icon="📸">
-          <div class="sq-rc-top"><strong>📸 熱血應援家長</strong> <span class="sq-rc-diff diff-parent">⭐⭐ 親子應援</span></div>
-          <span>親子難度：活力應援鼓掌連擊、親子觀賽亮點小貼士與攝影視角</span>
+          <div class="sq-rc-top"><strong data-en="📸 Cheering Parent">📸 熱血應援家長</strong> <span class="sq-rc-diff diff-parent" data-en="⭐⭐ Family Cheer">⭐⭐ 親子應援</span></div>
+          <span data-en="Parent Mode: lively cheering combos &amp; sideline family-event spotlight tips.">親子難度：活力應援鼓掌連擊、親子觀賽亮點小貼士與攝影視角</span>
         </button>
         <button type="button" class="sq-role-card" data-role="親善校友貴賓" data-icon="🏅">
-          <div class="sq-rc-top"><strong>🏅 親善校友貴賓</strong> <span class="sq-rc-diff diff-alumni">⭐⭐⭐ 校友薪傳</span></div>
-          <span>傳承難度：薪傳蓄力連擊、校史榮耀考驗、重溫大庄 71 年風華！</span>
+          <div class="sq-rc-top"><strong data-en="🏅 Alumni &amp; Guest">🏅 親善校友貴賓</strong> <span class="sq-rc-diff diff-alumni" data-en="⭐⭐⭐ Heritage">⭐⭐⭐ 校友薪傳</span></div>
+          <span data-en="Heritage Mode: torch-passing combos, school heritage quizzes &amp; 71st memories!">傳承難度：薪傳蓄力連擊、校史榮耀考驗、重溫大庄 71 年風華！</span>
         </button>
       </div>
     </div>
     <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
-      <button type="button" class="sq-primary-btn" id="sq-reg-submit" style="flex:1;">🚀 儲存身分設定，出發闖關！</button>
-      <button type="button" class="sq-danger-btn" id="sq-btn-reset-data" title="清除所有五力印章與建築過關紀錄，重新開始">🔄 重設闖關紀錄（重新開始）</button>
+      <button type="button" class="sq-primary-btn" id="sq-reg-submit" style="flex:1;" data-en="🚀 Save Profile &amp; Start Quest!">🚀 儲存身分設定，出發闖關！</button>
+      <button type="button" class="sq-danger-btn" id="sq-btn-reset-data" title="清除所有五力印章與建築過關紀錄，重新開始" data-en-title="Clear all Five-Power stamps &amp; start over" data-en="🔄 Reset Quest Progress">🔄 重設闖關紀錄（重新開始）</button>
     </div>
   </div>
 </dialog>
@@ -2783,17 +2804,17 @@ const customHtml = `
   <div class="sq-dlg-inner">
     <div class="sq-dlg-head">
       <div>
-        <span class="sq-dlg-kicker" id="sq-quiz-kicker">五力集章任務</span>
-        <h2 class="sq-dlg-title" id="sq-quiz-title">五力試煉</h2>
+        <span class="sq-dlg-kicker" id="sq-quiz-kicker" data-en="Five-Power Stamp Mission">五力集章任務</span>
+        <h2 class="sq-dlg-title" id="sq-quiz-title" data-en="Five-Power Trial">五力試煉</h2>
       </div>
-      <button type="button" class="sq-dlg-close" data-sq-close="sq-quiz-dialog" aria-label="關閉">✕</button>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-quiz-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
     <div class="sq-clue-box" id="sq-quiz-clue"></div>
     <p class="sq-quiz-q" id="sq-quiz-question"></p>
     <div class="sq-opt-list" id="sq-quiz-options"></div>
     <div class="sq-quiz-feedback" id="sq-quiz-feedback" hidden></div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <button type="button" class="sq-primary-btn" id="sq-quiz-next" style="flex:1;">前往下一座尚未蓋章的島嶼 👉</button>
+      <button type="button" class="sq-primary-btn" id="sq-quiz-next" style="flex:1;" data-en="Go to Next Unstamped Isle 👉">前往下一座尚未蓋章的島嶼 👉</button>
     </div>
   </div>
 </dialog>
@@ -2804,34 +2825,34 @@ const customHtml = `
     <div class="sq-dlg-head">
       <div>
         <span class="sq-dlg-kicker">Da-Chuang's 71st: Soaring with the Five Powers</span>
-        <h2 class="sq-dlg-title" id="sq-sched-title"><span class="sq-nw">📅「七一大庄、五力飛揚」</span><span class="sq-mob-br">校慶運動會程序表＆競賽規程</span></h2>
+        <h2 class="sq-dlg-title" id="sq-sched-title"><span class="sq-nw" data-en="📅 Da-Chuang 71st">📅「七一大庄、五力飛揚」</span><span class="sq-mob-br" data-en=" Sports Day Program &amp; Meet Rules">校慶運動會程序表＆競賽規程</span></h2>
       </div>
-      <button type="button" class="sq-dlg-close" data-sq-close="sq-schedule-dialog" aria-label="關閉">✕</button>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-schedule-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
     <div class="sq-tabs">
-      <button type="button" class="sq-tab is-active" data-sq-tab="prog">📅 當日程序表（01–32 項）</button>
-      <button type="button" class="sq-tab" data-sq-tab="pre">🏃 個人賽決賽成績＆戰報</button>
-      <button type="button" class="sq-tab" data-sq-tab="models">🗺️ 六島 19 座 3D 地標模型總覽</button>
+      <button type="button" class="sq-tab is-active" data-sq-tab="prog" data-en="📅 Full Program (01–32)">📅 當日程序表（01–32 項）</button>
+      <button type="button" class="sq-tab" data-sq-tab="pre" data-en="🏃 Sprint Finals &amp; Reports">🏃 個人賽決賽成績＆戰報</button>
+      <button type="button" class="sq-tab" data-sq-tab="models" data-en="🗺️ 19 3D Landmarks Guide">🗺️ 六島 19 座 3D 地標模型總覽</button>
     </div>
     <div id="sq-pane-prog">
       <div class="sq-filter-row" id="sq-prog-filters">
-        <button type="button" class="sq-chip is-active" data-pfilter="ALL">全部 (32)</button>
-        <button type="button" class="sq-chip" data-pfilter="美感力">🎨 美感力</button>
-        <button type="button" class="sq-chip" data-pfilter="群體力">🤝 群體力</button>
-        <button type="button" class="sq-chip" data-pfilter="道德力">💖 道德力</button>
-        <button type="button" class="sq-chip" data-pfilter="知識力">🧠 知識力</button>
-        <button type="button" class="sq-chip" data-pfilter="體能力">⚡ 體能力</button>
+        <button type="button" class="sq-chip is-active" data-pfilter="ALL" data-en="All (32)">全部 (32)</button>
+        <button type="button" class="sq-chip" data-pfilter="美感力" data-en="🎨 Aesthetic">🎨 美感力</button>
+        <button type="button" class="sq-chip" data-pfilter="群體力" data-en="🤝 Team">🤝 群體力</button>
+        <button type="button" class="sq-chip" data-pfilter="道德力" data-en="💖 Moral">💖 道德力</button>
+        <button type="button" class="sq-chip" data-pfilter="知識力" data-en="🧠 Knowledge">🧠 知識力</button>
+        <button type="button" class="sq-chip" data-pfilter="體能力" data-en="⚡ Physical">⚡ 體能力</button>
       </div>
       <div class="sq-table-wrap">
         <table class="sq-table">
           <thead>
             <tr>
-              <th>項目</th>
-              <th>時間</th>
-              <th>節目名稱</th>
-              <th>大庄五力</th>
-              <th>表演者／參賽者</th>
-              <th>3D 定位</th>
+              <th data-en="No.">項目</th>
+              <th data-en="Time">時間</th>
+              <th data-en="Event">節目名稱</th>
+              <th data-en="Five Power">大庄五力</th>
+              <th data-en="Participants">表演者／參賽者</th>
+              <th data-en="3D Arena">3D 定位</th>
             </tr>
           </thead>
           <tbody id="sq-prog-tbody"></tbody>
@@ -2843,48 +2864,48 @@ const customHtml = `
       <div class="sq-race-stats-bar">
         <div class="sq-stat-card">
           <span class="sq-stat-val">16</span>
-          <span class="sq-stat-lbl">個人賽單項</span>
+          <span class="sq-stat-lbl" data-en="Sprint Events">個人賽單項</span>
         </div>
         <div class="sq-stat-card">
           <span class="sq-stat-val">240</span>
-          <span class="sq-stat-lbl">參賽短跑健將</span>
+          <span class="sq-stat-lbl" data-en="Sprinters">參賽短跑健將</span>
         </div>
         <div class="sq-stat-card">
           <span class="sq-stat-val">96</span>
-          <span class="sq-stat-lbl">決賽英雄榜</span>
+          <span class="sq-stat-lbl" data-en="Finalists">決賽英雄榜</span>
         </div>
         <div class="sq-stat-card">
-          <span class="sq-stat-val">48 面</span>
-          <span class="sq-stat-lbl">大會獎牌(金銀銅)</span>
+          <span class="sq-stat-val" data-en="48">48 面</span>
+          <span class="sq-stat-lbl" data-en="Medals Awarded">大會獎牌(金銀銅)</span>
         </div>
       </div>
 
       <!-- 搜尋與篩選工具列 -->
       <div class="sq-race-toolbar">
         <div class="sq-race-filters-row">
-          <span class="sq-filter-label">年級：</span>
+          <span class="sq-filter-label" data-en="Grade:">年級：</span>
           <div class="sq-chip-group" id="sq-race-grade-chips">
-            <button type="button" class="sq-chip is-active" data-rgrade="ALL">全部 (16)</button>
-            <button type="button" class="sq-chip" data-rgrade="3">三年級 (4)</button>
-            <button type="button" class="sq-chip" data-rgrade="4">四年級 (4)</button>
-            <button type="button" class="sq-chip" data-rgrade="5">五年級 (4)</button>
-            <button type="button" class="sq-chip" data-rgrade="6">六年級 (4)</button>
+            <button type="button" class="sq-chip is-active" data-rgrade="ALL" data-en="All (16)">全部 (16)</button>
+            <button type="button" class="sq-chip" data-rgrade="3" data-en="Grade 3 (4)">三年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="4" data-en="Grade 4 (4)">四年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="5" data-en="Grade 5 (4)">五年級 (4)</button>
+            <button type="button" class="sq-chip" data-rgrade="6" data-en="Grade 6 (4)">六年級 (4)</button>
           </div>
         </div>
         <div class="sq-race-filters-row">
-          <span class="sq-filter-label">性別：</span>
+          <span class="sq-filter-label" data-en="Division:">性別：</span>
           <div class="sq-chip-group" id="sq-race-gender-chips">
-            <button type="button" class="sq-chip is-active" data-rgender="ALL">全部性別</button>
-            <button type="button" class="sq-chip" data-rgender="男">👦 男生組 (8)</button>
-            <button type="button" class="sq-chip" data-rgender="女">👧 女生組 (8)</button>
+            <button type="button" class="sq-chip is-active" data-rgender="ALL" data-en="All">全部性別</button>
+            <button type="button" class="sq-chip" data-rgender="男" data-en="👦 Boys (8)">👦 男生組 (8)</button>
+            <button type="button" class="sq-chip" data-rgender="女" data-en="👧 Girls (8)">👧 女生組 (8)</button>
           </div>
           <div class="sq-view-toggle">
-            <button type="button" class="sq-chip is-active" id="sq-btn-view-finalists">🏅 決賽 6 強榜</button>
-            <button type="button" class="sq-chip" id="sq-btn-view-all">📋 完整 3 組道次</button>
+            <button type="button" class="sq-chip is-active" id="sq-btn-view-finalists" data-en="🏅 Top 6 Finals">🏅 決賽 6 強榜</button>
+            <button type="button" class="sq-chip" id="sq-btn-view-all" data-en="📋 All 3 Heats">📋 完整 3 組道次</button>
           </div>
         </div>
         <div class="sq-race-search-box">
-          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋姓名、班級（如：四丙、林○僑）" autocomplete="off">
+          <input type="search" id="sq-race-search-input" class="sq-search-input" placeholder="🔍 搜尋姓名、班級（如：四丙、林○僑）" data-en-ph="🔍 Search athlete or class (e.g. 4C, Lin)" autocomplete="off">
           <button type="button" class="sq-search-clear" id="sq-race-search-clear" hidden>✕</button>
         </div>
       </div>
@@ -2895,23 +2916,23 @@ const customHtml = `
       <!-- 競賽規程重點與賽程日程總表（折疊） -->
       <details class="sq-rules-details" style="margin-top:16px;">
         <summary class="sq-rules-summary">
-          <span>📌 運動會競賽規程重點與日程總表<span class="sq-nw">（展開／收合）</span></span>
+          <span data-en-html="📌 Sports Day Regulations &amp; Full Pre-Day Schedule <span class=&quot;sq-nw&quot;>(Expand / Collapse)</span>">📌 運動會競賽規程重點與日程總表<span class="sq-nw">（展開／收合）</span></span>
         </summary>
         <div class="sq-clue-box" style="margin: 10px 0 12px 0;">
-          <div class="sq-rule-head"><strong>📌 71 週年校慶運動會競賽規程重點</strong><span class="sq-mob-br sq-rule-period sq-nw">（比賽期間：115 年 10 月 21 日至 12 月 12 日）</span></div>
-          <div class="sq-rule-item">• <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。</div>
-          <div class="sq-rule-item">• <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<div class="sq-rule-tip">※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</div></div>
+          <div class="sq-rule-head"><strong data-en="📌 71st Sports Day Meet Rules Highlights">📌 71 週年校慶運動會競賽規程重點</strong><span class="sq-mob-br sq-rule-period sq-nw" data-en=" (Oct 21 – Dec 12, 2026)">（比賽期間：115 年 10 月 21 日至 12 月 12 日）</span></div>
+          <div class="sq-rule-item" data-en-html="• <strong>Individual Sprints</strong>: For G3–6 Boys &amp; Girls, Top 3 receive medals &amp; certificates, and 4th–6th receive certificates. Middle grades race 60m/100m; Upper grades race 100m/200m (3 heats per division; 3 heat winners + next 3 fastest times advance to the 6-lane final).">• <strong>個人項目</strong>：三～六年級男、女生各取前三名頒發獎牌及獎狀，四～六名頒發獎狀。中年級跑 60m、100m；高年級跑 100m、200m（預賽每班男女各派 3 人分 3 組，每組取 1 名＋擇優 3 名晉級 6 人決賽）。</div>
+          <div class="sq-rule-item" data-en-html="• <strong>Class Grand Relay</strong>: Top 3 classes in G3–6 earn honor pennants. Each team has 8 girls (Legs 1–8) and 8 boys (Legs 9–16). Middle grades run a half-lap (break at Leg 3); Upper grades run a full lap (break at Leg 2).<div class=&quot;sq-rule-tip&quot;>※ When passing a runner ahead, always accelerate and overtake on their right (outer lane)!</div>">• <strong>團體大隊接力</strong>：三～六年級前三名班級頒發錦旗。每班女生 8 人（前 8 棒）、男生 8 人（後 8 棒）。中年級每人跑半圈（第 3 棒搶第 1 道）；高年級每人跑一圈（第 2 棒搶第 1 道）。<div class="sq-rule-tip">※ 超越前方選手時，應加速從前方選手的右側（外側跑道）超越！</div></div>
         </div>
         <div class="sq-table-wrap">
           <table class="sq-table" id="sq-pre-table">
             <thead>
               <tr>
-                <th>日期</th>
-                <th>階段</th>
-                <th>比賽項目</th>
-                <th>點名時間</th>
-                <th>比賽時間</th>
-                <th>狀態與規程說明</th>
+                <th data-en="Date">日期</th>
+                <th data-en="Stage">階段</th>
+                <th data-en="Event">比賽項目</th>
+                <th data-en="Check-In">點名時間</th>
+                <th data-en="Race Time">比賽時間</th>
+                <th data-en="Status &amp; Rules">狀態與規程說明</th>
               </tr>
             </thead>
             <tbody id="sq-pre-tbody"></tbody>
@@ -2924,19 +2945,19 @@ const customHtml = `
         <table class="sq-table">
           <thead>
             <tr>
-              <th>島嶼</th>
-              <th>代表五力</th>
-              <th>3D 模型代號</th>
-              <th>地標名稱</th>
-              <th>地標特色說明</th>
-              <th>飛往地標</th>
+              <th data-en="Isle">島嶼</th>
+              <th data-en="Power">代表五力</th>
+              <th data-en="Model ID">3D 模型代號</th>
+              <th data-en="Landmark">地標名稱</th>
+              <th data-en="Highlights">地標特色說明</th>
+              <th data-en="Fly To">飛往地標</th>
             </tr>
           </thead>
           <tbody id="sq-models-tbody"></tbody>
         </table>
       </div>
     </div>
-    <div style="margin-top:16px;text-align:right;"><button type="button" class="sq-primary-btn" data-sq-close="sq-schedule-dialog" style="padding:8px 18px;font-size:13px;">✕ 關閉此視窗</button></div>
+    <div style="margin-top:16px;text-align:right;"><button type="button" class="sq-primary-btn" data-sq-close="sq-schedule-dialog" style="padding:8px 18px;font-size:13px;" data-en="✕ Close Window">✕ 關閉此視窗</button></div>
   </div>
 </dialog>
 
@@ -2945,17 +2966,17 @@ const customHtml = `
   <div class="sq-dlg-inner">
     <div class="sq-dlg-head">
       <div>
-        <span class="sq-dlg-kicker">🎉 五力集章榮耀達成・全景 3D 聖火煙火慶典</span>
-        <h2 class="sq-dlg-title" id="sq-cert-title">🏆 奔馳榮耀・五力金牌證書</h2>
+        <span class="sq-dlg-kicker" data-en="🎉 Five-Power Stamp Quest · 3D Cauldron Victory Fireworks">🎉 五力集章榮耀達成・全景 3D 聖火煙火慶典</span>
+        <h2 class="sq-dlg-title" id="sq-cert-title" data-en="🏆 Glory Run · Five-Power Gold Certificate">🏆 奔馳榮耀・五力金牌證書</h2>
       </div>
-      <button type="button" class="sq-dlg-close" data-sq-close="sq-cert-dialog" aria-label="關閉">✕</button>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-cert-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
     <p id="sq-cert-hint" style="margin:0 0 12px;font-size:13.5px;color:#334155;"></p>
     <canvas id="sq-cert-canvas" width="1200" height="820" class="sq-cert-preview"></canvas>
     <div class="sq-cert-actions">
-      <button type="button" class="sq-primary-btn" id="sq-btn-dl-cert">💾 下載高畫質金牌證書 (PNG)</button>
-      <button type="button" class="sq-act-btn is-gold" id="sq-btn-fireworks" style="justify-content:center;font-size:14.5px;padding:11px 16px;">🎆 飛往聖火台・再次施放 3D 勝利煙火！</button>
-      <button type="button" class="sq-danger-btn" id="sq-btn-reset-cert" style="justify-content:center;">🔄 重設闖關紀錄（重新開始）</button>
+      <button type="button" class="sq-primary-btn" id="sq-btn-dl-cert" data-en="💾 Download HD Gold Certificate (PNG)">💾 下載高畫質金牌證書 (PNG)</button>
+      <button type="button" class="sq-act-btn is-gold" id="sq-btn-fireworks" style="justify-content:center;font-size:14.5px;padding:11px 16px;" data-en="🎆 Fly to Cauldron · Launch 3D Fireworks!">🎆 飛往聖火台・再次施放 3D 勝利煙火！</button>
+      <button type="button" class="sq-danger-btn" id="sq-btn-reset-cert" style="justify-content:center;" data-en="🔄 Reset Quest Progress">🔄 重設闖關紀錄（重新開始）</button>
     </div>
   </div>
 </dialog>
@@ -2964,32 +2985,32 @@ const customHtml = `
 <div class="sq-music-widget" id="sq-music-widget">
   <div class="sq-music-pop" id="sq-music-pop" hidden>
     <div class="sq-mp-head">
-      <span>🎼 闖關背景音樂設定</span>
-      <button type="button" class="sq-mp-close" id="sq-mp-close" aria-label="關閉音樂選單">✕</button>
+      <span data-en="🎼 Quest BGM Settings">🎼 闖關背景音樂設定</span>
+      <button type="button" class="sq-mp-close" id="sq-mp-close" aria-label="關閉音樂選單" data-en-label="Close music menu">✕</button>
     </div>
     <div style="margin-bottom:10px;">
-      <button type="button" class="sq-mp-power-btn" id="sq-mp-power-btn">⏹️ 關閉音樂 (靜音)</button>
+      <button type="button" class="sq-mp-power-btn" id="sq-mp-power-btn" data-en="⏹️ Mute Music">⏹️ 關閉音樂 (靜音)</button>
     </div>
     <div class="sq-mp-tracks">
-      <button type="button" class="sq-mp-track is-active" data-track="0">🏃 熱血運動會進行曲 <span>▶</span></button>
-      <button type="button" class="sq-mp-track" data-track="1">🌊 香山海風舒緩律動 <span>▶</span></button>
-      <button type="button" class="sq-mp-track" data-track="2">👾 8-Bit 像素闖關曲 <span>▶</span></button>
+      <button type="button" class="sq-mp-track is-active" data-track="0"><span data-en="🏃 High-Energy Sports March">🏃 熱血運動會進行曲</span> <span>▶</span></button>
+      <button type="button" class="sq-mp-track" data-track="1"><span data-en="🌊 Sea-Breeze Chill Groove">🌊 香山海風舒緩律動</span> <span>▶</span></button>
+      <button type="button" class="sq-mp-track" data-track="2"><span data-en="👾 8-Bit Arcade Quest">👾 8-Bit 像素闖關曲</span> <span>▶</span></button>
     </div>
     <div class="sq-mp-vol">
-      <span>🔊 音量：</span>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0">🔇 關閉/靜音</button>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0.18">微風 20%</button>
-      <button type="button" class="sq-mp-vol-btn is-active" data-vol="0.38">標準 50%</button>
-      <button type="button" class="sq-mp-vol-btn" data-vol="0.75">熱血 100%</button>
+      <span data-en="🔊 Volume:">🔊 音量：</span>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0" data-en="🔇 Mute">🔇 關閉/靜音</button>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0.18" data-en="Soft 20%">微風 20%</button>
+      <button type="button" class="sq-mp-vol-btn is-active" data-vol="0.38" data-en="Normal 50%">標準 50%</button>
+      <button type="button" class="sq-mp-vol-btn" data-vol="0.75" data-en="Hyped 100%">熱血 100%</button>
     </div>
   </div>
   <div class="sq-music-btn-group">
-    <button type="button" class="sq-music-toggle-btn" id="sq-music-main-btn" title="一鍵開關闖關背景音樂">
+    <button type="button" class="sq-music-toggle-btn" id="sq-music-main-btn" title="一鍵開關闖關背景音樂" data-en-title="Toggle Sports Day BGM">
       <span class="sq-music-icon" id="sq-music-icon">🎵</span>
-      <span class="sq-music-name" id="sq-music-name">熱血進行曲 (點擊關閉)</span>
+      <span class="sq-music-name" id="sq-music-name" data-en="Sports March (Click to mute)">熱血進行曲 (點擊關閉)</span>
       <span class="sq-eq" id="sq-music-eq"><i></i><i></i><i></i><i></i></span>
     </button>
-    <button type="button" class="sq-music-menu-btn" id="sq-music-menu-btn" title="切換曲目與音量設定">
+    <button type="button" class="sq-music-menu-btn" id="sq-music-menu-btn" title="切換曲目與音量設定" data-en-title="Tracks &amp; volume settings" data-en="🎼 Music">
       🎼 選曲
     </button>
   </div>
@@ -3005,6 +3026,31 @@ const customLogic = `
 function initSportsQuest(ctx) {
   window.__ctx = ctx;
   const STORAGE_KEY = 'sq-passport-v1';
+  const isEn = (typeof LANG !== 'undefined' && LANG === 'en') || /[?&]lang=en\b/.test(location.search);
+  const t = (zh, en) => (isEn && en != null && en !== '') ? en : zh;
+  const loc = (obj, key) => (isEn && obj && obj[key + 'En']) ? obj[key + 'En'] : (obj ? (obj[key] || '') : '');
+  const sqPowerCls = (p) => {
+    if (p === '道德力' || p === 'Moral Power') return 'sq-p-道德力';
+    if (p === '群體力' || p === 'Teamwork Power') return 'sq-p-群體力';
+    if (p === '美感力' || p === 'Aesthetic Power') return 'sq-p-美感力';
+    if (p === '知識力' || p === 'Knowledge Power') return 'sq-p-知識力';
+    if (p === '體能力' || p === 'Physical Power') return 'sq-p-體能力';
+    return 'sq-p-五力大圓滿';
+  };
+  const ROLE_EN_MAP = {
+    '低年級小選手': 'Lower-Grade Sprinter',
+    '中年級飛毛腿': 'Middle-Grade Flyer',
+    '高年級破風手': 'Upper-Grade Pacesetter',
+    '熱血應援家長': 'Cheering Parent',
+    '親善校友貴賓': 'Alumni & VIP Guest'
+  };
+  const roleDisplayName = (r) => isEn ? (ROLE_EN_MAP[r] || r) : r;
+  if (isEn) {
+    if (typeof uiApplyLang === 'function') uiApplyLang(document);
+    document.querySelectorAll('[data-en-html]').forEach((el) => {
+      if (el.dataset.enHtml) el.innerHTML = el.dataset.enHtml;
+    });
+  }
 
   // ====== 闖關 Web Audio 引擎（多曲風背景音樂 BGM ＆ 闖關音效 SFX） ======
   const soundEngine = (() => {
@@ -3018,7 +3064,9 @@ function initSportsQuest(ctx) {
     let curTrack = 0;
     const bgmBuffers = [null, null, null];
 
-    const TRACK_NAMES = ['🏃 熱血運動會進行曲', '🌊 香山海風舒緩律動', '👾 8-Bit 像素闖關曲'];
+    const TRACK_NAMES = isEn
+      ? ['🏃 Sports Day March', '🌊 Coast Breeze Groove', '👾 8-Bit Quest Chiptune']
+      : ['🏃 熱血運動會進行曲', '🌊 香山海風舒緩律動', '👾 8-Bit 像素闖關曲'];
 
     try {
       muted = localStorage.getItem('sq-bgm-muted') === '1';
@@ -3420,32 +3468,32 @@ function initSportsQuest(ctx) {
       if (topBtn) {
         if (muted) {
           topBtn.className = 'sq-brand-pill is-audio is-muted';
-          topBtn.innerHTML = '🔇 音樂：已關閉 (點擊開啟)';
-          topBtn.title = '點擊開啟闖關背景音樂 (可切換 3 首熱血曲風)';
+          topBtn.innerHTML = t('🔇 音樂：已關閉 (點擊開啟)', '🔇 Music: Muted (Tap to play)');
+          topBtn.title = t('點擊開啟闖關背景音樂 (可切換 3 首熱血曲風)', 'Click to enable quest music (3 tracks)');
         } else if (isPlaying) {
           topBtn.className = 'sq-brand-pill is-audio is-playing';
           topBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + ' ' + eqHtml;
-          topBtn.title = '正在播放：' + TRACK_NAMES[curTrack] + ' (點擊關閉音樂)';
+          topBtn.title = t('正在播放：' + TRACK_NAMES[curTrack] + ' (點擊關閉音樂)', 'Playing: ' + TRACK_NAMES[curTrack] + ' (Click to mute)');
         } else {
           topBtn.className = 'sq-brand-pill is-audio';
-          topBtn.innerHTML = '🎵 播放闖關音樂';
-          topBtn.title = '點擊播放闖關背景音樂';
+          topBtn.innerHTML = t('🎵 播放闖關音樂', '🎵 Play Quest Music');
+          topBtn.title = t('點擊播放闖關背景音樂', 'Click to play quest music');
         }
       }
       const bqBtn = document.getElementById('sq-bq-audio-toggle');
       if (bqBtn) {
         if (muted) {
           bqBtn.className = 'sq-bq-audio-btn is-muted';
-          bqBtn.innerHTML = '🔇 音樂已關閉 (點擊開啟)';
-          bqBtn.title = '點擊開啟闖關背景音樂';
+          bqBtn.innerHTML = t('🔇 音樂已關閉 (點擊開啟)', '🔇 Music Muted (Tap to play)');
+          bqBtn.title = t('點擊開啟闖關背景音樂', 'Click to enable quest music');
         } else if (isPlaying) {
           bqBtn.className = 'sq-bq-audio-btn is-playing';
-          bqBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + ' (點擊關閉)';
-          bqBtn.title = '正在播放，點擊關閉音樂';
+          bqBtn.innerHTML = '🎵 ' + TRACK_NAMES[curTrack] + t(' (點擊關閉)', ' (Tap to mute)');
+          bqBtn.title = t('正在播放，點擊關閉音樂', 'Playing, click to mute music');
         } else {
           bqBtn.className = 'sq-bq-audio-btn';
-          bqBtn.innerHTML = '🎵 播放闖關音樂';
-          bqBtn.title = '點擊播放闖關音樂';
+          bqBtn.innerHTML = t('🎵 播放闖關音樂', '🎵 Play Quest Music');
+          bqBtn.title = t('點擊播放闖關音樂', 'Click to play quest music');
         }
       }
       const widgetBtn = document.getElementById('sq-music-main-btn');
@@ -3458,7 +3506,9 @@ function initSportsQuest(ctx) {
         widgetBtn.classList.toggle('is-playing', isPlaying && !muted);
       }
       if (widgetName) {
-        widgetName.textContent = muted ? '音樂已關閉 (點擊開啟)' : (isPlaying ? TRACK_NAMES[curTrack] + ' (點擊關閉)' : '點擊播放音樂');
+        widgetName.textContent = muted
+          ? t('音樂已關閉 (點擊開啟)', 'Music muted (Tap to play)')
+          : (isPlaying ? TRACK_NAMES[curTrack] + t(' (點擊關閉)', ' (Tap to mute)') : t('點擊播放音樂', 'Tap to play music'));
       }
       if (widgetIcon) {
         widgetIcon.textContent = muted ? '🔇' : '🎵';
@@ -3469,10 +3519,10 @@ function initSportsQuest(ctx) {
       if (powerBtn) {
         if (muted) {
           powerBtn.className = 'sq-mp-power-btn is-muted';
-          powerBtn.innerHTML = '▶️ 開啟闖關音樂播放';
+          powerBtn.innerHTML = t('▶️ 開啟闖關音樂播放', '▶️ Turn On Quest Music');
         } else {
           powerBtn.className = 'sq-mp-power-btn';
-          powerBtn.innerHTML = '⏹️ 關閉音樂 (靜音)';
+          powerBtn.innerHTML = t('⏹️ 關閉音樂 (靜音)', '⏹️ Mute Music');
         }
       }
       document.querySelectorAll('.sq-mp-track').forEach(btn => {
@@ -3576,10 +3626,20 @@ function initSportsQuest(ctx) {
     const lbEl = document.getElementById('sq-athlete-label');
     const prEl = document.getElementById('sq-progress-txt');
     const pillProgEl = document.getElementById('sq-pill-prog');
+    const certBtnEl = document.getElementById('sq-btn-cert');
+    const hudName = (isEn && (!state.name || state.name === '大庄小健將'))
+      ? (state.name === '大庄小健將' ? 'Da-Chuang Runner' : roleDisplayName(state.role))
+      : (state.name || roleDisplayName(state.role));
+    const progStr = isEn
+      ? (stampedCount + '/5 Stamps · ' + clearedCount + '/19 Quests')
+      : (stampedCount + '/5章 · ' + clearedCount + '/19關');
     if (icEl) icEl.textContent = state.icon || '🐯';
-    if (lbEl) lbEl.textContent = state.name || state.role;
-    if (prEl) prEl.textContent = stampedCount + '/5章 · ' + clearedCount + '/19關';
-    if (pillProgEl) pillProgEl.textContent = '🏅 ' + stampedCount + '/5章 · ' + clearedCount + '/19關';
+    if (lbEl) lbEl.textContent = hudName;
+    if (prEl) prEl.textContent = progStr;
+    if (pillProgEl) pillProgEl.textContent = '🏅 ' + progStr;
+    if (certBtnEl && certBtnEl.firstChild && certBtnEl.firstChild.nodeType === 3) {
+      certBtnEl.firstChild.textContent = t('🏅 五力護照 ', '🏅 Passport ');
+    }
   }
 
   // 1. 運動員註冊卡邏輯
@@ -3681,7 +3741,10 @@ function initSportsQuest(ctx) {
 
   // 重新設定／清除闖關資料（全部重新集章）
   function resetQuestData() {
-    const ok = window.confirm('確定要重新開始闖關嗎？\\n\\n這將會清除您目前獲得的 5 枚五力印章與所有建築物的過關紀錄，讓您可以重新挑戰集章！\\n（運動員姓名與身分設定會保留）');
+    const ok = window.confirm(t(
+      '確定要重新開始闖關嗎？\\n\\n這將會清除您目前獲得的 5 枚五力印章與所有建築物的過關紀錄，讓您可以重新挑戰集章！\\n（運動員姓名與身分設定會保留）',
+      'Reset all quest progress?\\n\\nThis clears all 5 earned Five-Power Stamps and all 19 landmark clears so you can replay from scratch.\\n(Your athlete name and role will be kept.)'
+    ));
     if (!ok) return;
 
     state.stamps = {};
@@ -3703,14 +3766,17 @@ function initSportsQuest(ctx) {
     if (regDlg && regDlg.open) regDlg.close();
     if (certDlg && certDlg.open) certDlg.close();
 
-    showToast('🔄 闖關資料已重設！印章與關卡已歸零，可重新開始挑戰！');
+    showToast(t(
+      '🔄 闖關資料已重設！印章與關卡已歸零，可重新開始挑戰！',
+      '🔄 Quest progress reset! All stamps and landmarks cleared — ready for a fresh run!'
+    ));
   }
 
   document.getElementById('sq-btn-reset-data')?.addEventListener('click', resetQuestData);
   document.getElementById('sq-btn-reset-cert')?.addEventListener('click', resetQuestData);
 
   document.getElementById('sq-reg-submit')?.addEventListener('click', () => {
-    state.name = (nameInput.value || '').trim() || '大庄小健將';
+    state.name = (nameInput.value || '').trim() || t('大庄小健將', 'Da-Chuang Runner');
     state.registered = true;
     saveState();
     renderHud();
@@ -3732,61 +3798,75 @@ function initSportsQuest(ctx) {
       return {
         level: 1,
         star: '⭐',
-        name: '入門友善',
+        name: t('入門友善', 'Starter Friendly'),
         tagClass: 'diff-easy',
         tapFactor: 0.6,
         minTap: 2,
-        actionLabel: '只要連點',
-        reactEvaluator: (rt) => '🌟 超棒起跑！小選手反應：' + rt + ' 秒！姿勢 100 分，體能潛力無限！'
+        actionLabel: t('只要連點', 'Tap just'),
+        reactEvaluator: (rt) => isEn
+          ? ('🌟 Awesome start! Reaction: ' + rt + ' s — 100% form & huge potential!')
+          : ('🌟 超棒起跑！小選手反應：' + rt + ' 秒！姿勢 100 分，體能潛力無限！')
       };
     } else if (role === '高年級破風手') {
       return {
         level: 3,
         star: '⭐⭐⭐',
-        name: '競速破風',
+        name: t('競速破風', 'Sprint Pacesetter'),
         tagClass: 'diff-hard',
         tapFactor: 1.5,
         minTap: 6,
-        actionLabel: '🔥 爆發連擊',
+        actionLabel: t('🔥 爆發連擊', '🔥 Burst'),
         reactEvaluator: (rt) => {
-          if (rt <= 0.28) return '🔥【神級破風反應】破大會紀錄！反應 ' + rt + ' 秒！頂級爆發力！';
-          if (rt <= 0.38) return '⚡【甲組選手水準】起跑敏捷反應：' + rt + ' 秒！破風表現亮眼！';
-          return '🏃【標準起跑】反應：' + rt + ' 秒！高年級破風手目標是突破 0.3 秒以內！';
+          if (rt <= 0.28) return isEn
+            ? ('🔥 [Pro Pacesetter] Meet-record reaction: ' + rt + ' s! Explosive burst!')
+            : ('🔥【神級破風反應】破大會紀錄！反應 ' + rt + ' 秒！頂級爆發力！');
+          if (rt <= 0.38) return isEn
+            ? ('⚡ [Division A Level] Sharp block exit: ' + rt + ' s! Impressive speed!')
+            : ('⚡【甲組選手水準】起跑敏捷反應：' + rt + ' 秒！破風表現亮眼！');
+          return isEn
+            ? ('🏃 [Standard Start] Reaction: ' + rt + ' s! Pacesetters aim under 0.3 s!')
+            : ('🏃【標準起跑】反應：' + rt + ' 秒！高年級破風手目標是突破 0.3 秒以內！');
         }
       };
     } else if (role === '熱血應援家長') {
       return {
         level: 2,
         star: '⭐⭐',
-        name: '親子應援',
+        name: t('親子應援', 'Family Cheer'),
         tagClass: 'diff-parent',
         tapFactor: 1.0,
         minTap: 3,
-        actionLabel: '👏 應援掌聲',
-        reactEvaluator: (rt) => '📸 快門神捕捉！在第 ' + rt + ' 秒精準拍下孩子起跑的英姿！'
+        actionLabel: t('👏 應援掌聲', '👏 Cheers'),
+        reactEvaluator: (rt) => isEn
+          ? ('📸 Clutch shutter snap! Captured the sprint launch at ' + rt + ' s!')
+          : ('📸 快門神捕捉！在第 ' + rt + ' 秒精準拍下孩子起跑的英姿！')
       };
     } else if (role === '親善校友貴賓') {
       return {
         level: 3,
         star: '⭐⭐⭐',
-        name: '校友薪傳',
+        name: t('校友薪傳', 'Alumni Torch'),
         tagClass: 'diff-alumni',
         tapFactor: 1.3,
         minTap: 5,
-        actionLabel: '🏅 薪傳蓄力',
-        reactEvaluator: (rt) => '🏅 薪傳領跑！在第 ' + rt + ' 秒接棒衝刺，傳承大庄七一風華！'
+        actionLabel: t('🏅 薪傳蓄力', '🏅 Torch'),
+        reactEvaluator: (rt) => isEn
+          ? ('🏅 Torch Pacesetter! Handoff sprint at ' + rt + ' s — carrying forward 71 years of pride!')
+          : ('🏅 薪傳領跑！在第 ' + rt + ' 秒接棒衝刺，傳承大庄七一風華！')
       };
     } else {
       // 預設 中年級飛毛腿
       return {
         level: 2,
         star: '⭐⭐',
-        name: '標準進階',
+        name: t('標準進階', 'Standard Pro'),
         tagClass: 'diff-medium',
         tapFactor: 1.0,
         minTap: 3,
-        actionLabel: '連擊充能',
-        reactEvaluator: (rt) => '⚡ 敏捷起跑！反應時間：' + rt + ' 秒！保持領先速度！'
+        actionLabel: t('連擊充能', 'Charge'),
+        reactEvaluator: (rt) => isEn
+          ? ('⚡ Agile launch! Reaction time: ' + rt + ' s — hold the lead!')
+          : ('⚡ 敏捷起跑！反應時間：' + rt + ' 秒！保持領先速度！')
       };
     }
   }
@@ -3807,6 +3887,22 @@ function initSportsQuest(ctx) {
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
     const clearedCount = Object.keys(state.clearedItems || {}).filter(k => state.clearedItems[k]).length;
 
+    const chActionBtn = loc(ch, 'actionBtn');
+    const chActionDone = loc(ch, 'actionDone');
+    const chPower = loc(ch, 'power');
+    const chTitle = loc(ch, 'title');
+    const chTaskDesc = loc(ch, 'taskDesc');
+    const chQuestion = loc(ch, 'question');
+    const chExplain = loc(ch, 'explain');
+    const chOpts = (isEn && ch.optionsEn) ? ch.optionsEn : (ch.options || []);
+    const chSeq = (isEn && ch.sequenceItemsEn) ? ch.sequenceItemsEn : (ch.sequenceItems || []);
+    const chReplay = loc(ch, 'reactReplayText');
+    const chWait = loc(ch, 'reactWaitText');
+    const chGo = loc(ch, 'reactGoText');
+    const chEarly = loc(ch, 'reactEarlyText');
+    const chDonePre = loc(ch, 'reactDonePrefix');
+    const itName = loc(it, 'name');
+
     // 依據運動員身分獲取難易度設定
     const curRole = state.role || '低年級小選手';
     const diff = getRoleDifficulty(curRole);
@@ -3816,7 +3912,7 @@ function initSportsQuest(ctx) {
     // 依角色難度係數縮放連擊目標次數
     const target = Math.max(diff.minTap, Math.round(baseTarget * diff.tapFactor));
     let tapCount = isCleared ? target : 0;
-    let seqIdx = isCleared ? ((ch.sequenceItems || []).length) : 0;
+    let seqIdx = isCleared ? chSeq.length : 0;
 
     let stage1Html = '';
     if (ch.mode === 'tap_charge') {
@@ -3824,13 +3920,13 @@ function initSportsQuest(ctx) {
       stage1Html =
         '<div class="sq-bq-stage1">' +
           '<button type="button" class="sq-act-btn" id="sq-bq-act-btn" style="width:100%;justify-content:center;padding:8px 12px;font-size:13px;">' +
-            ch.actionBtn + ' (' + diff.actionLabel + ' <span id="sq-bq-tap-num">' + tapCount + '/' + target + '</span>)' +
+            chActionBtn + ' (' + diff.actionLabel + ' <span id="sq-bq-tap-num">' + tapCount + '/' + target + '</span>)' +
           '</button>' +
           '<div class="sq-bq-meter"><div class="sq-bq-meter-fill" id="sq-bq-meter-fill" style="width:' + pct + '%;"></div></div>' +
-          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
+          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + chActionDone + '</div>' +
         '</div>';
     } else if (ch.mode === 'sequence') {
-      const items = ch.sequenceItems || [];
+      const items = chSeq;
       // 隨機打亂排序按鈕的顯示位置（強迫玩家必須思考順序，不再只是由左至右盲點）
       const seqList = items.map((label, origIdx) => ({ label, origIdx }));
       if (seqList.length > 1) {
@@ -3845,41 +3941,56 @@ function initSportsQuest(ctx) {
       }
       stage1Html =
         '<div class="sq-bq-stage1">' +
-          '<div class="sq-bq-seq-prompt">🧩 順序考驗（按鈕已隨機打亂）<span class="sq-mob-br"></span>請依正確先後步驟點擊：</div>' +
+          '<div class="sq-bq-seq-prompt">' + t('🧩 順序考驗（按鈕已隨機打亂）<span class="sq-mob-br"></span>請依正確先後步驟點擊：', '🧩 Order Challenge (Shuffled)<span class="sq-mob-br"></span>Tap the steps in the right order:') + '</div>' +
           '<div class="sq-bq-seq-row" id="sq-bq-seq-row">' +
             seqList.map(item =>
               '<button type="button" class="sq-bq-seq-btn ' + (isCleared ? 'is-done' : '') + '" data-seq-idx="' + item.origIdx + '">' + item.label + '</button>'
             ).join('') +
           '</div>' +
-          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
+          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + chActionDone + '</div>' +
         '</div>';
     } else if (ch.mode === 'reaction') {
       stage1Html =
         '<div class="sq-bq-stage1">' +
           '<button type="button" class="sq-act-btn" id="sq-bq-react-btn" style="width:100%;justify-content:center;padding:8px 12px;font-size:13px;">' +
-            (isCleared ? (ch.reactReplayText || '⚡ 再次實測紫色跑道聽槍起跑反應') : ch.actionBtn) +
+            (isCleared ? (chReplay || t('⚡ 再次實測紫色跑道聽槍起跑反應', '⚡ Retest Starter-Gun Reaction on Purple Track')) : chActionBtn) +
           '</button>' +
-          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + ch.actionDone + '</div>' +
+          '<div class="sq-bq-done-msg" id="sq-bq-stage1-msg" ' + (stage1Done ? '' : 'hidden') + '>' + chActionDone + '</div>' +
         '</div>';
     }
 
     // 依據角色難度生成問答錦囊提示
-    const correctOpt = (ch.options && ch.options[ch.answer]) ? ch.options[ch.answer] : '';
+    const correctOpt = (chOpts && chOpts[ch.answer]) ? chOpts[ch.answer] : '';
     let quizHintHtml = '';
     if (curRole === '低年級小選手') {
-      quizHintHtml = '<div class="sq-role-hint-box diff-easy">💡 <strong>低年級小選手錦囊：</strong>答案是「' + correctOpt + '」喔！找找看在哪個選項！</div>';
+      quizHintHtml = t(
+        '<div class="sq-role-hint-box diff-easy">💡 <strong>低年級小選手錦囊：</strong>答案是「' + correctOpt + '」喔！找找看在哪個選項！</div>',
+        '<div class="sq-role-hint-box diff-easy">💡 <strong>Lower-Grade Tip:</strong> Look for “' + correctOpt + '” among the options below!</div>'
+      );
     } else if (curRole === '高年級破風手') {
-      quizHintHtml = '<div class="sq-role-hint-box diff-hard">🔥 <strong>高年級破風手挑戰：</strong>無提示！請運用你對大庄校慶賽程與運動精神的專業理解作答！</div>';
+      quizHintHtml = t(
+        '<div class="sq-role-hint-box diff-hard">🔥 <strong>高年級破風手挑戰：</strong>無提示！請運用你對大庄校慶賽程與運動精神的專業理解作答！</div>',
+        '<div class="sq-role-hint-box diff-hard">🔥 <strong>Pacesetter Challenge:</strong> No hints! Use your knowledge of Da-Chuang Sports Day and sportsmanship.</div>'
+      );
     } else if (curRole === '熱血應援家長') {
-      quizHintHtml = '<div class="sq-role-hint-box diff-parent">📸 <strong>家長觀賽小貼士：</strong>此項目是大會親師生同樂的重要亮點，記得在看台為孩子們熱情喝采拍照！</div>';
+      quizHintHtml = t(
+        '<div class="sq-role-hint-box diff-parent">📸 <strong>家長觀賽小貼士：</strong>此項目是大會親師生同樂的重要亮點，記得在看台為孩子們熱情喝采拍照！</div>',
+        '<div class="sq-role-hint-box diff-parent">📸 <strong>Parent Spectator Tip:</strong> A highlight uniting families, teachers & students — cheer loud and capture the moment!</div>'
+      );
     } else if (curRole === '親善校友貴賓') {
-      quizHintHtml = '<div class="sq-role-hint-box diff-alumni">🏅 <strong>校友薪傳記憶：</strong>71 年傳承風華，此項活動承載著大庄歷代師生的共同記憶與運動家精神！</div>';
+      quizHintHtml = t(
+        '<div class="sq-role-hint-box diff-alumni">🏅 <strong>校友薪傳記憶：</strong>71 年傳承風華，此項活動承載著大庄歷代師生的共同記憶與運動家精神！</div>',
+        '<div class="sq-role-hint-box diff-alumni">🏅 <strong>Alumni Heritage Note:</strong> Celebrating 71 years — carrying forward the shared spirit of generations at Da-Chuang!</div>'
+      );
     } else {
-      quizHintHtml = '<div class="sq-role-hint-box diff-medium">⚡ <strong>中年級飛毛腿提示：</strong>仔細閱讀題目與三個選項，選出真正符合大庄運動家精神的答案！</div>';
+      quizHintHtml = t(
+        '<div class="sq-role-hint-box diff-medium">⚡ <strong>中年級飛毛腿提示：</strong>仔細閱讀題目與三個選項，選出真正符合大庄運動家精神的答案！</div>',
+        '<div class="sq-role-hint-box diff-medium">⚡ <strong>Flyer Hint:</strong> Read the question and choices carefully to pick the true sportsmanship answer!</div>'
+      );
     }
 
     // 每次開啟關卡動態隨機打亂問答題選項（保證正確答案隨機落在 A, B, C，不固定為第一項）
-    const rawOpts = (ch.options || []).map((text, origIdx) => ({ text, origIdx }));
+    const rawOpts = chOpts.map((text, origIdx) => ({ text, origIdx }));
     const shuffledOpts = [...rawOpts];
     if (shuffledOpts.length > 1) {
       for (let i = shuffledOpts.length - 1; i > 0; i--) {
@@ -3888,28 +3999,32 @@ function initSportsQuest(ctx) {
       }
     }
 
+    const footProgHtml = isEn
+      ? ('🏅 Stamps: <strong>' + stampedCount + '/5</strong> ｜ Quests: <strong>' + clearedCount + '/19</strong>')
+      : ('🏅 五力印章：<strong>' + stampedCount + '/5</strong> ｜ 建築關卡：<strong>' + clearedCount + '/19</strong>');
+
     mount.innerHTML =
       '<div class="sq-bldg-quest ' + (isCleared ? 'is-cleared' : '') + '" id="sq-bldg-quest-card">' +
         '<div class="sq-bq-head">' +
           '<div class="sq-bq-head-top">' +
             '<div class="sq-bq-head-left">' +
-              '<span class="sq-bq-tag">🎯 建築關卡</span>' +
-              '<span class="sq-power-badge sq-p-' + ch.power + '">' + ch.power + '</span>' +
+              '<span class="sq-bq-tag">' + t('🎯 建築關卡', '🎯 Quest Stop') + '</span>' +
+              '<span class="sq-power-badge ' + sqPowerCls(chPower) + '">' + chPower + '</span>' +
             '</div>' +
-            '<span class="sq-bq-status' + (isCleared ? ' is-done' : '') + '" id="sq-bq-status">' + (isCleared ? '✅ 本建築已過關' : '⏳ 待闖關挑戰') + '</span>' +
+            '<span class="sq-bq-status' + (isCleared ? ' is-done' : '') + '" id="sq-bq-status">' + (isCleared ? t('✅ 本建築已過關', '✅ Cleared') : t('⏳ 待闖關挑戰', '⏳ Unlocked')) + '</span>' +
           '</div>' +
           '<div class="sq-bq-head-sub">' +
-            '<span class="sq-bq-diff-badge ' + diff.tagClass + '">' + diff.star + ' ' + curRole + '（' + diff.name + '）</span>' +
-            '<button type="button" class="sq-bq-audio-btn ' + (soundEngine.isMuted() ? 'is-muted' : '') + '" id="sq-bq-audio-toggle" title="切換闖關背景音樂">' +
-              (soundEngine.isMuted() ? '🔇 音樂已靜音' : '🎵 闖關熱血音樂🔊') +
+            '<span class="sq-bq-diff-badge ' + diff.tagClass + '">' + diff.star + ' ' + roleDisplayName(curRole) + t('（', ' (') + diff.name + t('）', ')') + '</span>' +
+            '<button type="button" class="sq-bq-audio-btn ' + (soundEngine.isMuted() ? 'is-muted' : '') + '" id="sq-bq-audio-toggle" title="' + t('切換闖關背景音樂', 'Toggle quest music') + '">' +
+              (soundEngine.isMuted() ? t('🔇 音樂已靜音', '🔇 Music Muted') : t('🎵 闖關熱血音樂🔊', '🎵 Quest Music 🔊')) +
             '</button>' +
           '</div>' +
         '</div>' +
-        '<h3 class="sq-bq-title">' + ch.title + '</h3>' +
-        '<p class="sq-bq-desc">' + ch.taskDesc + '</p>' +
+        '<h3 class="sq-bq-title">' + chTitle + '</h3>' +
+        '<p class="sq-bq-desc">' + chTaskDesc + '</p>' +
         stage1Html +
         '<div id="sq-bq-quiz-wrap">' +
-          '<p class="sq-bq-q">❓ ' + ch.question + '</p>' +
+          '<p class="sq-bq-q">❓ ' + chQuestion + '</p>' +
           quizHintHtml +
           '<div class="sq-bq-opts" id="sq-bq-opts">' +
             shuffledOpts.map((optItem, displayIdx) => {
@@ -3920,6 +4035,11 @@ function initSportsQuest(ctx) {
                 if (segs.length > 1) {
                   optHtml = segs.map(s => '<span class="sq-opt-seg">' + s + '</span>').join('');
                 }
+              } else if (isEn && rawOpt.length > 38 && /[;,]/.test(rawOpt)) {
+                const segs = rawOpt.split(/(?<=[;,])/).filter(Boolean);
+                if (segs.length > 1) {
+                  optHtml = segs.map(s => '<span class="sq-opt-seg">' + s.trim() + ' </span>').join('');
+                }
               }
               return '<button type="button" class="sq-bq-opt ' + (isCleared && optItem.origIdx === ch.answer ? 'is-correct' : '') + '" data-opt-idx="' + optItem.origIdx + '">' +
                 '<span class="sq-opt-key">' + ['A', 'B', 'C', 'D'][displayIdx] + '</span>' +
@@ -3928,15 +4048,15 @@ function initSportsQuest(ctx) {
             }).join('') +
           '</div>' +
           '<div class="sq-bq-fb" id="sq-bq-fb" ' + (isCleared ? '' : 'hidden') + '>' +
-            (isCleared ? '🎖️ <strong>已通過本建築關卡並蓋下【' + ch.power + '】印章！</strong><br>' + ch.explain : '') +
+            (isCleared ? t('🎖️ <strong>已通過本建築關卡並蓋下【' + chPower + '】印章！</strong><br>' + chExplain, '🎖️ <strong>Cleared! Stamped 【' + chPower + '】!</strong><br>' + chExplain) : '') +
           '</div>' +
         '</div>' +
         '<div class="sq-bq-foot">' +
-          '<span id="sq-bq-prog-foot">🏅 五力印章：<strong>' + stampedCount + '/5</strong> ｜ 建築關卡：<strong>' + clearedCount + '/19</strong></span>' +
+          '<span id="sq-bq-prog-foot">' + footProgHtml + '</span>' +
           '<div style="display:flex;gap:5px;">' +
-            '<button type="button" class="sq-brand-pill" id="sq-bq-next-btn">👉 下一個建築關卡</button>' +
-            '<button type="button" class="sq-brand-pill is-gold" id="sq-bq-cert-btn">🏆 護照與證書</button>' +
-            (it.id === 's03i3' ? '<button type="button" class="sq-brand-pill" id="sq-bq-races-btn" style="background:#7c3aed;color:#fff;border-color:#6d28d9;">🏃 查看 16 項個人賽成績</button>' : '') +
+            '<button type="button" class="sq-brand-pill" id="sq-bq-next-btn">' + t('👉 下一個建築關卡', '👉 Next Quest') + '</button>' +
+            '<button type="button" class="sq-brand-pill is-gold" id="sq-bq-cert-btn">' + t('🏆 護照與證書', '🏆 Passport & Cert') + '</button>' +
+            (it.id === 's03i3' ? '<button type="button" class="sq-brand-pill" id="sq-bq-races-btn" style="background:#7c3aed;color:#fff;border-color:#6d28d9;">' + t('🏃 查看 16 項個人賽成績', '🏃 View 16 Sprint Results') + '</button>' : '') +
           '</div>' +
         '</div>' +
       '</div>';
@@ -3969,9 +4089,9 @@ function initSportsQuest(ctx) {
             if (msgEl) {
               msgEl.hidden = false;
               if (seqIdx < seqBtns.length) {
-                msgEl.innerHTML = '✨ 步驟 ' + seqIdx + ' 正確！請繼續找出下一步！';
+                msgEl.innerHTML = t('✨ 步驟 ' + seqIdx + ' 正確！請繼續找出下一步！', '✨ Step ' + seqIdx + ' correct! Find the next step!');
               } else {
-                msgEl.innerHTML = ch.actionDone;
+                msgEl.innerHTML = chActionDone;
               }
             }
             if (seqIdx >= seqBtns.length) {
@@ -3989,9 +4109,9 @@ function initSportsQuest(ctx) {
                 // 高年級嚴格重置
                 seqIdx = 0;
                 seqBtns.forEach(b => b.classList.remove('is-done'));
-                msgEl.textContent = '⚠️ 順序錯誤！破風手難度：所有步驟重置，請重新由第一步開始點擊！';
+                msgEl.textContent = t('⚠️ 順序錯誤！破風手難度：所有步驟重置，請重新由第一步開始點擊！', '⚠️ Wrong order! Pacesetter mode resets all steps — restart from Step 1!');
               } else {
-                msgEl.textContent = '💡 順序不對喔！目前請先找出「第 ' + (seqIdx + 1) + ' 步」點擊！';
+                msgEl.textContent = t('💡 順序不對喔！目前請先找出「第 ' + (seqIdx + 1) + ' 步」點擊！', '💡 Wrong order! Please tap Step ' + (seqIdx + 1) + ' next!');
               }
             }
           }
@@ -4003,32 +4123,32 @@ function initSportsQuest(ctx) {
       reactBtn?.addEventListener('click', () => {
         if (!waitingGun && !gunTime) {
           waitingGun = true;
-          reactBtn.textContent = ch.reactWaitText || '⏳ 各就各位…預備…（等鳴槍變綠色立即點！）';
+          reactBtn.textContent = chWait || t('⏳ 各就各位…預備…（等鳴槍變綠色立即點！）', '⏳ On your marks... Set... (Tap on GREEN!)');
           reactBtn.style.background = '#fef3c7';
           reactBtn.style.color = '#92400e';
           timerId = setTimeout(() => {
             waitingGun = false;
             gunTime = performance.now();
-            reactBtn.textContent = ch.reactGoText || '🔫 砰！現在立刻點擊起跑！';
+            reactBtn.textContent = chGo || t('🔫 砰！現在立刻點擊起跑！', '🔫 BANG! Tap NOW to sprint!');
             reactBtn.style.background = '#d1fae5';
             reactBtn.style.color = '#065f46';
           }, 700 + Math.random() * 900);
         } else if (waitingGun) {
           clearTimeout(timerId);
           waitingGun = false;
-          reactBtn.textContent = ch.reactEarlyText || '⚠️ 搶跑犯規！點此重新預備起跑';
+          reactBtn.textContent = chEarly || t('⚠️ 搶跑犯規！點此重新預備起跑', '⚠️ False start! Tap to reset');
           reactBtn.style.background = '#fee2e2';
           reactBtn.style.color = '#991b1b';
         } else if (gunTime) {
           const rt = ((performance.now() - gunTime) / 1000).toFixed(3);
           gunTime = 0;
           stage1Done = true;
-          reactBtn.textContent = (ch.reactDonePrefix || '⚡ 起跑成功！反應時間：') + rt + ' 秒（點此可再測）';
+          reactBtn.textContent = (chDonePre || t('⚡ 起跑成功！反應時間：', '⚡ Clean start! Reaction: ')) + rt + t(' 秒（點此可再測）', ' s (Tap to retry)');
           reactBtn.style.background = '#ffffff';
           reactBtn.style.color = '#0f172a';
           if (msgEl) {
             msgEl.hidden = false;
-            msgEl.textContent = diff.reactEvaluator(rt) + ' 接著請回答下方問題：';
+            msgEl.textContent = diff.reactEvaluator(rt) + t(' 接著請回答下方問題：', ' Now answer the question below:');
           }
         }
       });
@@ -4059,17 +4179,22 @@ function initSportsQuest(ctx) {
           const cardEl = document.getElementById('sq-bldg-quest-card');
           if (cardEl) cardEl.classList.add('is-cleared');
           const stEl = document.getElementById('sq-bq-status');
-          if (stEl) { stEl.textContent = '✅ 本建築已過關'; stEl.classList.add('is-done'); }
+          if (stEl) { stEl.textContent = t('✅ 本建築已過關', '✅ Cleared'); stEl.classList.add('is-done'); }
           if (msgEl) msgEl.hidden = false;
 
           const newStamped = (DATA.quests || []).filter(q => state.stamps[q.id]).length;
           const newCleared = Object.keys(state.clearedItems || {}).filter(k => state.clearedItems[k]).length;
           const footEl = document.getElementById('sq-bq-prog-foot');
-          if (footEl) footEl.innerHTML = '🏅 五力印章：<strong>' + newStamped + '/5</strong> ｜ 建築關卡：<strong>' + newCleared + '/19</strong>';
+          if (footEl) footEl.innerHTML = isEn
+            ? ('🏅 Stamps: <strong>' + newStamped + '/5</strong> ｜ Quests: <strong>' + newCleared + '/19</strong>')
+            : ('🏅 五力印章：<strong>' + newStamped + '/5</strong> ｜ 建築關卡：<strong>' + newCleared + '/19</strong>');
 
           if (fbEl) {
             fbEl.hidden = false;
-            fbEl.innerHTML = '🎉 <strong>恭喜過關！成功通過「' + it.name + '」關卡並蓋下【' + ch.power + '】印章！</strong><br>' + ch.explain;
+            fbEl.innerHTML = t(
+              '🎉 <strong>恭喜過關！成功通過「' + itName + '」關卡並蓋下【' + chPower + '】印章！</strong><br>' + chExplain,
+              '🎉 <strong>Quest Cleared! Completed "' + itName + '" & stamped 【' + chPower + '】!</strong><br>' + chExplain
+            );
           }
 
           if (newStamped >= (DATA.quests || []).length && !state.celebrated) {
@@ -4081,7 +4206,10 @@ function initSportsQuest(ctx) {
           btn.classList.add('is-wrong');
           if (fbEl) {
             fbEl.hidden = false;
-            fbEl.innerHTML = '💡 差一點點！請看上方建築介紹與重點提示，再試另一個選項！';
+            fbEl.innerHTML = t(
+              '💡 差一點點！請看上方建築介紹與重點提示，再試另一個選項！',
+              '💡 Almost! Check the landmark intro and key highlights above, then try another option!'
+            );
           }
         }
       });
@@ -4123,23 +4251,25 @@ function initSportsQuest(ctx) {
     if (banner) banner.remove();
     banner = document.createElement('div');
     banner.className = 'sq-card-quest-cta';
-    const powerLabel = q ? q.power : '五力大圓滿';
-    const titlePrefix = q ? (q.icon + ' 本島五力印章') : '🏆 五力榮耀星光總部';
+    const powerLabel = q ? loc(q, 'power') : t('五力大圓滿', 'All Five Powers');
+    const titlePrefix = q ? (q.icon + t(' 本島五力印章', ' Island Five-Power Stamp')) : t('🏆 五力榮耀星光總部', '🏆 Five-Power Glory HQ');
+    const ctaDescHtml = isEn
+      ? ('<span class="sq-qcta-line">This island has <strong>' + totalBldgs + ' quest landmarks</strong> (' + doneBldgs + '/' + totalBldgs + ' cleared)</span>' +
+         '<span class="sq-qcta-line">Tap any landmark below to launch its quest!</span>')
+      : ('<span class="sq-qcta-line">本島共有 <strong>' + totalBldgs + ' 座建築關卡</strong>（已完成 ' + doneBldgs + '/' + totalBldgs + '）</span>' +
+         '<span class="sq-qcta-line">點選下方任一建築即可進入專屬闖關！</span>');
     banner.innerHTML =
       '<div class="sq-qcta-body">' +
         '<div class="sq-qcta-head">' +
           '<div class="sq-qcta-titlewrap">' +
             '<strong class="sq-qcta-title">' + titlePrefix + '</strong>' +
-            '<span class="sq-power-badge sq-p-' + powerLabel + '">' + powerLabel + '</span>' +
+            '<span class="sq-power-badge ' + sqPowerCls(powerLabel) + '">' + powerLabel + '</span>' +
           '</div>' +
-          '<span class="sq-qcta-status' + (stampDone ? ' is-done' : '') + '">' + (stampDone ? '✅ 已蓋章' : '⏳ 待蓋章') + '</span>' +
+          '<span class="sq-qcta-status' + (stampDone ? ' is-done' : '') + '">' + (stampDone ? t('✅ 已蓋章', '✅ Stamped') : t('⏳ 待蓋章', '⏳ Pending')) + '</span>' +
         '</div>' +
-        '<div class="sq-qcta-desc">' +
-          '<span class="sq-qcta-line">本島共有 <strong>' + totalBldgs + ' 座建築關卡</strong>（已完成 ' + doneBldgs + '/' + totalBldgs + '）</span>' +
-          '<span class="sq-qcta-line">點選下方任一建築即可進入專屬闖關！</span>' +
-        '</div>' +
+        '<div class="sq-qcta-desc">' + ctaDescHtml + '</div>' +
       '</div>' +
-      '<button type="button">' + (doneBldgs < totalBldgs ? '🎯 前往建築闖關' : '🏅 查看建築關卡') + '</button>';
+      '<button type="button">' + (doneBldgs < totalBldgs ? t('🎯 前往建築闖關', '🎯 Enter Quest') : t('🏅 查看建築關卡', '🏅 View Quests')) + '</button>';
     banner.querySelector('button').addEventListener('click', () => {
       const targetItem = (isl.items || []).find(it => !state.clearedItems[it.id]) || isl.items[0];
       if (targetItem && ctx.select) ctx.select('item', targetItem.id);
@@ -4158,7 +4288,7 @@ function initSportsQuest(ctx) {
       if (tag) {
         tag.removeAttribute('data-now-item');
         tag.classList.add('sq-row-qtag');
-        tag.textContent = cleared ? '✅ 已過關' : '🎯 點此闖關';
+        tag.textContent = cleared ? t('✅ 已過關', '✅ Cleared') : t('🎯 點此闖關', '🎯 Play Quest');
         tag.style.background = cleared ? '#d1fae5' : '#e0f2fe';
         tag.style.color = cleared ? '#065f46' : '#0369a1';
         tag.style.fontWeight = '800';
@@ -4184,10 +4314,10 @@ function initSportsQuest(ctx) {
       return '<tr>' +
         '<td><strong>' + r.no + '</strong></td>' +
         '<td><strong>' + r.time + '</strong></td>' +
-        '<td>' + r.title + '</td>' +
-        '<td><span class="sq-power-badge sq-p-' + r.power + '">' + r.power + '</span></td>' +
-        '<td>' + r.performer + '</td>' +
-        '<td><button type="button" class="sq-chip" data-fly-isl="' + r.island + '">📍 ' + (isl ? isl.name : r.island) + '</button></td>' +
+        '<td>' + loc(r, 'title') + '</td>' +
+        '<td><span class="sq-power-badge ' + sqPowerCls(r.power) + '">' + loc(r, 'power') + '</span></td>' +
+        '<td>' + loc(r, 'performer') + '</td>' +
+        '<td><button type="button" class="sq-chip" data-fly-isl="' + r.island + '">📍 ' + (isl ? loc(isl, 'name') : r.island) + '</button></td>' +
       '</tr>';
     }).join('');
 
@@ -4204,12 +4334,12 @@ function initSportsQuest(ctx) {
     if (preTbody) {
       preTbody.innerHTML = (DATA.preEvents || []).map(p =>
         '<tr>' +
-          '<td><strong>' + p.date + '</strong></td>' +
-          '<td><span class="sq-power-badge sq-p-體能力">' + p.stage + '</span></td>' +
-          '<td><strong>' + p.item + '</strong></td>' +
-          '<td>' + p.callTime + '</td>' +
-          '<td>' + p.raceTime + '</td>' +
-          '<td>' + p.rule + '</td>' +
+          '<td><strong>' + loc(p, 'date') + '</strong></td>' +
+          '<td><span class="sq-power-badge sq-p-體能力">' + loc(p, 'stage') + '</span></td>' +
+          '<td><strong>' + loc(p, 'item') + '</strong></td>' +
+          '<td>' + loc(p, 'callTime') + '</td>' +
+          '<td>' + loc(p, 'raceTime') + '</td>' +
+          '<td>' + loc(p, 'rule') + '</td>' +
         '</tr>'
       ).join('');
     }
@@ -4221,17 +4351,17 @@ function initSportsQuest(ctx) {
     const modelRows = [];
     (DATA.islands || []).forEach(isl => {
       const q = (DATA.quests || []).find(x => x.islandId === isl.id);
-      const pName = q ? q.power : '五力大圓滿';
+      const pName = q ? loc(q, 'power') : t('五力大圓滿', 'All Five Powers');
       isl.items.forEach(it => {
         const cleared = !!state.clearedItems[it.id];
         modelRows.push(
           '<tr>' +
-            '<td><strong>' + isl.num + ' ' + isl.name + '</strong></td>' +
-            '<td><span class="sq-power-badge sq-p-' + pName + '">' + pName + '</span></td>' +
-            '<td><strong>' + it.name + '</strong><div style="font-size:11.5px;color:#0369a1;margin-top:2px;">⏰ ' + (it.when || '') + '</div></td>' +
-            '<td>' + (it.challenge ? '<strong>' + it.challenge.title + '</strong><div style="font-size:11.5px;color:#475569;">' + it.challenge.taskDesc + '</div>' : it.desc) + '</td>' +
-            '<td>' + (cleared ? '<span style="color:#059669;font-weight:800;">✅ 已過關</span>' : '<span style="color:#d97706;font-weight:700;">⏳ 待闖關</span>') + '</td>' +
-            '<td><button type="button" class="sq-chip is-active" data-fly-item="' + it.id + '">🎯 前往建築闖關</button></td>' +
+            '<td><strong>' + isl.num + ' ' + loc(isl, 'name') + '</strong></td>' +
+            '<td><span class="sq-power-badge ' + sqPowerCls(pName) + '">' + pName + '</span></td>' +
+            '<td><strong>' + loc(it, 'name') + '</strong><div style="font-size:11.5px;color:#0369a1;margin-top:2px;">⏰ ' + loc(it, 'when') + '</div></td>' +
+            '<td>' + (it.challenge ? '<strong>' + loc(it.challenge, 'title') + '</strong><div style="font-size:11.5px;color:#475569;">' + loc(it.challenge, 'taskDesc') + '</div>' : loc(it, 'desc')) + '</td>' +
+            '<td>' + (cleared ? '<span style="color:#059669;font-weight:800;">' + t('✅ 已過關', '✅ Cleared') + '</span>' : '<span style="color:#d97706;font-weight:700;">' + t('⏳ 待闖關', '⏳ Pending') + '</span>') + '</td>' +
+            '<td><button type="button" class="sq-chip is-active" data-fly-item="' + it.id + '">' + t('🎯 前往建築闖關', '🎯 Enter Quest') + '</button></td>' +
           '</tr>'
         );
       });
@@ -4270,10 +4400,12 @@ function initSportsQuest(ctx) {
       if (raceFilterGrade !== 'ALL' && String(r.grade) !== raceFilterGrade) return false;
       if (raceFilterGender !== 'ALL' && r.gender !== raceFilterGender) return false;
       if (kw) {
-        const inTitle = r.name.toLowerCase().includes(kw);
+        const inTitle = (r.name && r.name.toLowerCase().includes(kw)) || (r.nameEn && r.nameEn.toLowerCase().includes(kw));
         const inAthletes = (r.athletes || []).some(a =>
           (a.name && a.name.toLowerCase().includes(kw)) ||
+          (a.nameEn && a.nameEn.toLowerCase().includes(kw)) ||
           (a.className && a.className.toLowerCase().includes(kw)) ||
+          (a.classNameEn && a.classNameEn.toLowerCase().includes(kw)) ||
           String(a.studentNo || '').includes(kw)
         );
         if (!inTitle && !inAthletes) return false;
@@ -4282,7 +4414,10 @@ function initSportsQuest(ctx) {
     });
 
     if (filtered.length === 0) {
-      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林○僑、六乙）。</div>';
+      mount.innerHTML = '<div class="sq-clue-box" style="text-align:center;padding:24px;color:#64748b;">' +
+        t('🔍 沒有符合「' + (kw || '篩選條件') + '」的比賽項目或選手，請嘗試其他關鍵字（如：四丙、林○僑、六乙）。',
+          '🔍 No events or athletes match “' + (kw || 'your filter') + '”. Try another keyword (e.g., 4C, Lin ○-Chiao, 6B).') +
+        '</div>';
       return;
     }
 
@@ -4292,7 +4427,12 @@ function initSportsQuest(ctx) {
 
       // 6 位決賽英雄正式成績與得獎名冊
       const finHtml = (r.finalists || []).map(f => {
-        const isMatch = kw && ((f.name && f.name.toLowerCase().includes(kw)) || (f.className && f.className.toLowerCase().includes(kw)));
+        const isMatch = kw && (
+          (f.name && f.name.toLowerCase().includes(kw)) ||
+          (f.nameEn && f.nameEn.toLowerCase().includes(kw)) ||
+          (f.className && f.className.toLowerCase().includes(kw)) ||
+          (f.classNameEn && f.classNameEn.toLowerCase().includes(kw))
+        );
         const rankNum = f.finalRank;
         const isGold = rankNum === 1;
         const isSilver = rankNum === 2;
@@ -4306,36 +4446,37 @@ function initSportsQuest(ctx) {
         if (isGold) {
           medalIcon = '🥇';
           itemClass += ' is-gold';
-          awardBadge = '<span class="sq-award-badge is-gold">🥇 金牌</span>';
+          awardBadge = '<span class="sq-award-badge is-gold">' + t('🥇 金牌', '🥇 Gold') + '</span>';
         } else if (isSilver) {
           medalIcon = '🥈';
           itemClass += ' is-silver';
-          awardBadge = '<span class="sq-award-badge is-silver">🥈 銀牌</span>';
+          awardBadge = '<span class="sq-award-badge is-silver">' + t('🥈 銀牌', '🥈 Silver') + '</span>';
         } else if (isBronze) {
           medalIcon = '🥉';
           itemClass += ' is-bronze';
-          awardBadge = '<span class="sq-award-badge is-bronze">🥉 銅牌</span>';
+          awardBadge = '<span class="sq-award-badge is-bronze">' + t('🥉 銅牌', '🥉 Bronze') + '</span>';
         } else if (isDns) {
           medalIcon = '⚪';
           itemClass += ' is-dns';
-          awardBadge = '<span class="sq-award-badge is-dns">未出賽</span>';
+          awardBadge = '<span class="sq-award-badge is-dns">' + t('未出賽', 'DNS') + '</span>';
         } else {
-          medalIcon = '<span style="font-size:12px;font-weight:900;color:#64748b;">' + (f.finalRankLabel || ('第 ' + rankNum + ' 名')) + '</span>';
-          awardBadge = '<span class="sq-award-badge is-cert">大會獎狀</span>';
+          medalIcon = '<span style="font-size:12px;font-weight:900;color:#64748b;">' + (loc(f, 'finalRankLabel') || (isEn ? ('#' + rankNum) : ('第 ' + rankNum + ' 名'))) + '</span>';
+          awardBadge = '<span class="sq-award-badge is-cert">' + t('大會獎狀', 'Certificate') + '</span>';
         }
 
         if (isMatch) itemClass += ' is-matched';
 
-        const finalScoreStr = isDns ? '未出賽' : (typeof f.finalScore === 'number' ? f.finalScore.toFixed(2) + 's' : (f.finalScore || '-'));
-        const prelimScoreStr = typeof f.prelimScore === 'number' ? f.prelimScore.toFixed(2) + 's' : (f.prelimScore || '');
-        const prelimNote = prelimScoreStr ? '預賽 ' + prelimScoreStr + (f.prelimStatus ? ' · ' + f.prelimStatus.replace(/\s+/g, '') : '') : '';
+        const finalScoreStr = isDns ? t('未出賽', 'DNS') : (typeof f.finalScore === 'number' ? f.finalScore.toFixed(2) + 's' : (loc(f, 'finalScore') || '-'));
+        const prelimScoreStr = typeof f.prelimScore === 'number' ? f.prelimScore.toFixed(2) + 's' : (loc(f, 'prelimScore') || '');
+        const pStatStr = isEn ? (f.prelimStatusEn || '') : (f.prelimStatus ? f.prelimStatus.trim() : '');
+        const prelimNote = prelimScoreStr ? (t('預賽 ', 'Prelim ') + prelimScoreStr + (pStatStr ? ' · ' + pStatStr : '')) : '';
 
         return (
           '<div class="' + itemClass + '">' +
             '<div style="display:flex;align-items:center;gap:8px;">' +
               '<span class="sq-rank-medal">' + medalIcon + '</span>' +
               '<div>' +
-                '<div><strong>' + f.className + ' ' + f.name + '</strong> <span style="font-size:11px;color:#64748b;">(決賽 ' + f.finalLane + ')</span></div>' +
+                '<div><strong>' + loc(f, 'className') + ' ' + loc(f, 'name') + '</strong> <span style="font-size:11px;color:#64748b;">(' + t('決賽 ', 'Final ') + loc(f, 'finalLane') + ')</span></div>' +
                 (prelimNote ? '<div style="font-size:10.5px;color:#94a3b8;">' + prelimNote + '</div>' : '') +
               '</div>' +
             '</div>' +
@@ -4355,51 +4496,57 @@ function initSportsQuest(ctx) {
             '<table class="sq-table sq-table-compact">' +
               '<thead>' +
                 '<tr>' +
-                  '<th>組別</th>' +
-                  '<th>道次</th>' +
-                  '<th>班級</th>' +
-                  '<th>序號</th>' +
-                  '<th>姓名</th>' +
-                  '<th>預賽成績</th>' +
-                  '<th>分組名次</th>' +
-                  '<th>晉級狀態</th>' +
-                  '<th>決賽成績與榮譽</th>' +
+                  '<th>' + t('組別', 'Heat') + '</th>' +
+                  '<th>' + t('道次', 'Lane') + '</th>' +
+                  '<th>' + t('班級', 'Class') + '</th>' +
+                  '<th>' + t('序號', 'Bib') + '</th>' +
+                  '<th>' + t('姓名', 'Athlete') + '</th>' +
+                  '<th>' + t('預賽成績', 'Prelim Time') + '</th>' +
+                  '<th>' + t('分組名次', 'Heat Pos') + '</th>' +
+                  '<th>' + t('晉級狀態', 'Advancement') + '</th>' +
+                  '<th>' + t('決賽成績與榮譽', 'Final & Award') + '</th>' +
                 '</tr>' +
               '</thead>' +
               '<tbody>' +
                 (r.athletes || []).map(a => {
-                  const isMatch = kw && ((a.name && a.name.toLowerCase().includes(kw)) || (a.className && a.className.toLowerCase().includes(kw)));
+                  const isMatch = kw && (
+                    (a.name && a.name.toLowerCase().includes(kw)) ||
+                    (a.nameEn && a.nameEn.toLowerCase().includes(kw)) ||
+                    (a.className && a.className.toLowerCase().includes(kw)) ||
+                    (a.classNameEn && a.classNameEn.toLowerCase().includes(kw))
+                  );
                   const isQ = a.qualified && a.qualified.includes('(Q)');
                   const isq = a.qualified && a.qualified.includes('(q)');
                   const rowClass = isMatch ? 'is-matched-row' : isQ ? 'is-q-row' : isq ? 'is-smallq-row' : '';
-                  const scoreStr = typeof a.score === 'number' ? a.score.toFixed(2) + 's' : (a.score || '-');
+                  const scoreStr = typeof a.score === 'number' ? a.score.toFixed(2) + 's' : (loc(a, 'score') || '-');
 
                   let finalAwardHtml = '<span style="color:#94a3b8;">-</span>';
                   if (a.finalRank) {
-                    const fScoreStr = typeof a.finalScore === 'number' ? a.finalScore.toFixed(2) + 's' : (a.finalScore || '');
+                    const isFinalDns = a.finalRank === '未出賽' || a.finalScore === '未出賽';
+                    const fScoreStr = isFinalDns ? t('未出賽', 'DNS') : (typeof a.finalScore === 'number' ? a.finalScore.toFixed(2) + 's' : (loc(a, 'finalScore') || ''));
                     if (a.finalRank === '第 1 名' || a.finalRank === 1) {
-                      finalAwardHtml = '<span class="sq-award-badge is-gold">🥇 金牌 (' + fScoreStr + ')</span>';
+                      finalAwardHtml = '<span class="sq-award-badge is-gold">' + t('🥇 金牌 (' + fScoreStr + ')', '🥇 Gold (' + fScoreStr + ')') + '</span>';
                     } else if (a.finalRank === '第 2 名' || a.finalRank === 2) {
-                      finalAwardHtml = '<span class="sq-award-badge is-silver">🥈 銀牌 (' + fScoreStr + ')</span>';
+                      finalAwardHtml = '<span class="sq-award-badge is-silver">' + t('🥈 銀牌 (' + fScoreStr + ')', '🥈 Silver (' + fScoreStr + ')') + '</span>';
                     } else if (a.finalRank === '第 3 名' || a.finalRank === 3) {
-                      finalAwardHtml = '<span class="sq-award-badge is-bronze">🥉 銅牌 (' + fScoreStr + ')</span>';
-                    } else if (a.finalRank === '未出賽' || a.finalScore === '未出賽') {
-                      finalAwardHtml = '<span class="sq-award-badge is-dns">決賽未出賽</span>';
+                      finalAwardHtml = '<span class="sq-award-badge is-bronze">' + t('🥉 銅牌 (' + fScoreStr + ')', '🥉 Bronze (' + fScoreStr + ')') + '</span>';
+                    } else if (isFinalDns) {
+                      finalAwardHtml = '<span class="sq-award-badge is-dns">' + t('決賽未出賽', 'DNS (Final)') + '</span>';
                     } else {
-                      finalAwardHtml = '<span class="sq-award-badge is-cert">' + a.finalRank + ' (' + fScoreStr + ')</span>';
+                      finalAwardHtml = '<span class="sq-award-badge is-cert">' + loc(a, 'finalRank') + ' (' + fScoreStr + ')</span>';
                     }
                   }
 
                   return (
                     '<tr class="' + rowClass + '">' +
-                      '<td>' + a.heat + '</td>' +
-                      '<td>' + a.lane + '</td>' +
-                      '<td><strong>' + a.className + '</strong></td>' +
+                      '<td>' + loc(a, 'heat') + '</td>' +
+                      '<td>' + loc(a, 'lane') + '</td>' +
+                      '<td><strong>' + loc(a, 'className') + '</strong></td>' +
                       '<td>' + a.studentNo + '</td>' +
-                      '<td><strong>' + a.name + '</strong></td>' +
+                      '<td><strong>' + loc(a, 'name') + '</strong></td>' +
                       '<td><span class="sq-score-badge">' + scoreStr + '</span></td>' +
-                      '<td>' + (a.heatRank || '-') + '</td>' +
-                      '<td>' + (isQ ? '<span class="sq-q-badge is-Q">晉級 (Q)</span>' : isq ? '<span class="sq-q-badge is-q">擇優 (q)</span>' : '-') + '</td>' +
+                      '<td>' + (loc(a, 'heatRank') || '-') + '</td>' +
+                      '<td>' + (isQ ? '<span class="sq-q-badge is-Q">' + t('晉級 (Q)', 'Qualified (Q)') + '</span>' : isq ? '<span class="sq-q-badge is-q">' + t('擇優 (q)', 'Next Fastest (q)') + '</span>' : '-') + '</td>' +
                       '<td>' + finalAwardHtml + '</td>' +
                     '</tr>'
                   );
@@ -4409,22 +4556,24 @@ function initSportsQuest(ctx) {
           '</div>';
       }
 
-      const toggleBtnTxt = isExpanded ? '收合 3 組 15 道次 ▲' : '展開 3 組 15 道次完整名冊 ▼';
+      const toggleBtnTxt = isExpanded
+        ? t('收合 3 組 15 道次 ▲', 'Collapse 3 Heats ▲')
+        : t('展開 3 組 15 道次完整名冊 ▼', 'Show All 3 Heats (15 Athletes) ▼');
 
       return (
         '<div class="sq-race-card" data-race-id="' + r.id + '">' +
           '<div class="sq-race-card-head">' +
             '<div class="sq-race-title">' +
-              '<span class="sq-grade-pill" style="background:' + gradeColor + ';">' + r.gradeLabel + '</span>' +
-              '<span>' + r.name + '</span>' +
+              '<span class="sq-grade-pill" style="background:' + gradeColor + ';">' + loc(r, 'gradeLabel') + '</span>' +
+              '<span>' + loc(r, 'name') + '</span>' +
             '</div>' +
             '<div class="sq-race-meta">' +
-              '<span class="sq-race-dates"><span class="sq-nw">🗓️ 預賽 ' + r.prelimDate + '</span><span> ｜ </span><span class="sq-nw">決賽 ' + r.finalDate + ' (全數完賽)</span></span>' +
+              '<span class="sq-race-dates"><span class="sq-nw">' + t('🗓️ 預賽 ', '🗓️ Prelim ') + loc(r, 'prelimDate') + '</span><span> ｜ </span><span class="sq-nw">' + t('決賽 ', 'Final ') + loc(r, 'finalDate') + ' ' + t('(全數完賽)', '(Completed)') + '</span></span>' +
               '<button type="button" class="sq-toggle-table-btn" data-toggle-race="' + r.id + '">' + toggleBtnTxt + '</button>' +
             '</div>' +
           '</div>' +
           '<div class="sq-race-card-body">' +
-            '<div class="sq-finalists-subhead"><span class="sq-nw">🏆 決賽正式成績英雄榜</span><span class="sq-sub-note">（前三名頒發獎牌及獎狀，四至六名頒發獎狀）</span></div>' +
+            '<div class="sq-finalists-subhead"><span class="sq-nw">' + t('🏆 決賽正式成績英雄榜', '🏆 Official Sprint Finals Honor Roll') + '</span><span class="sq-sub-note">' + t('（前三名頒發獎牌及獎狀，四至六名頒發獎狀）', ' (Top 3: Medal & Certificate · 4th–6th: Certificate)') + '</span></div>' +
             '<div class="sq-finalists-list">' + finHtml + '</div>' +
             tableHtml +
           '</div>' +
@@ -4606,27 +4755,34 @@ function initSportsQuest(ctx) {
 
     // 頂部標題橫幅
     c.fillStyle = '#0369a1';
-    c.font = 'bold 28px "Microsoft JhengHei", sans-serif';
+    c.font = isEn ? 'bold 26px "Segoe UI", sans-serif' : 'bold 28px "Microsoft JhengHei", sans-serif';
     c.textAlign = 'center';
-    c.fillText('新竹市香山區大庄國民小學 71 週年校慶運動會', W / 2, 115);
+    c.fillText(t('新竹市香山區大庄國民小學 71 週年校慶運動會', 'Da-Chuang Elementary School · 71st Anniversary Sports Day'), W / 2, 115);
 
     c.fillStyle = '#0f172a';
-    c.font = 'bold 52px "Microsoft JhengHei", sans-serif';
-    c.fillText('🏆 奔馳榮耀・五力飛揚金牌證書 🏆', W / 2, 185);
+    c.font = isEn ? 'bold 42px "Segoe UI", sans-serif' : 'bold 52px "Microsoft JhengHei", sans-serif';
+    c.fillText(t('🏆 奔馳榮耀・五力飛揚金牌證書 🏆', '🏆 Five-Power Gold Achievement Certificate 🏆'), W / 2, 185);
 
     c.fillStyle = '#0d9488';
     c.font = 'bold 22px "Segoe UI", sans-serif';
-    c.fillText("Da-Chuang's 71st Anniversary: Soaring with the Five Powers", W / 2, 225);
+    c.fillText(t("Da-Chuang's 71st Anniversary: Soaring with the Five Powers", 'Hsinchu City Xiangshan District · December 12, 2026'), W / 2, 225);
 
     // 參賽者姓名與身分
-    const playerName = state.name || '大庄運動小健將';
+    const playerName = (isEn && (!state.name || state.name === '大庄小健將'))
+      ? 'Da-Chuang Runner'
+      : (state.name || t('大庄運動小健將', 'Da-Chuang Runner'));
     c.fillStyle = '#1e293b';
-    c.font = '28px "Microsoft JhengHei", sans-serif';
+    c.font = isEn ? '26px "Segoe UI", sans-serif' : '28px "Microsoft JhengHei", sans-serif';
     const curDiff = getRoleDifficulty(state.role);
-    c.fillText('茲證明　' + state.icon + ' 【' + state.role + '】（挑戰難度：' + curDiff.star + ' ' + curDiff.name + '）', W / 2, 295);
+    c.fillText(
+      isEn
+        ? ('Awarded to  ' + state.icon + ' [' + roleDisplayName(state.role) + ']  (Mode: ' + curDiff.star + ' ' + curDiff.name + ')')
+        : ('茲證明　' + state.icon + ' 【' + state.role + '】（挑戰難度：' + curDiff.star + ' ' + curDiff.name + '）'),
+      W / 2, 295
+    );
 
     c.fillStyle = '#0284c7';
-    c.font = 'bold 60px "Microsoft JhengHei", sans-serif';
+    c.font = isEn ? 'bold 54px "Segoe UI", sans-serif' : 'bold 60px "Microsoft JhengHei", sans-serif';
     c.fillText(playerName, W / 2, 372);
 
     c.strokeStyle = '#f59e0b';
@@ -4637,9 +4793,9 @@ function initSportsQuest(ctx) {
     c.stroke();
 
     c.fillStyle = '#334155';
-    c.font = '25px "Microsoft JhengHei", sans-serif';
-    c.fillText('於大庄國小「七一大庄、五力飛揚」3D 動態運動會島嶼探險中，', W / 2, 445);
-    c.fillText('完成六道紫色跑道、美感律動、趣味智慧與庄情薪傳巡禮，表現優異！', W / 2, 485);
+    c.font = isEn ? '22px "Segoe UI", sans-serif' : '25px "Microsoft JhengHei", sans-serif';
+    c.fillText(t('於大庄國小「七一大庄、五力飛揚」3D 動態運動會島嶼探險中，', 'for outstanding completion of Da-Chuang 71st Anniversary 3D Sports Quest Island,'), W / 2, 445);
+    c.fillText(t('完成六道紫色跑道、美感律動、趣味智慧與庄情薪傳巡禮，表現優異！', 'exploring the Purple Track, Aesthetic Rhythms, Field Games & Heritage Torch!'), W / 2, 485);
 
     // 五力印章徽章列
     const quests = DATA.quests || [];
@@ -4647,6 +4803,7 @@ function initSportsQuest(ctx) {
     quests.forEach((q, idx) => {
       const x = startX + idx * gap;
       const done = !!state.stamps[q.id];
+      const pTxt = loc(q, 'power');
       c.save();
       c.beginPath();
       c.arc(x, cy, 62, 0, Math.PI * 2);
@@ -4657,18 +4814,32 @@ function initSportsQuest(ctx) {
       c.stroke();
 
       c.fillStyle = done ? '#b45309' : '#64748b';
-      c.font = 'bold 26px "Microsoft JhengHei", sans-serif';
-      c.fillText(q.power, x, cy - 5);
-      c.font = 'bold 18px "Microsoft JhengHei", sans-serif';
-      c.fillText(done ? '★ 已認證 ★' : '待闖關', x, cy + 28);
+      if (isEn && pTxt.includes(' ')) {
+        const parts = pTxt.split(' ');
+        c.font = 'bold 18px "Segoe UI", sans-serif';
+        c.fillText(parts[0], x, cy - 16);
+        c.fillText(parts.slice(1).join(' '), x, cy + 6);
+        c.font = 'bold 15px "Segoe UI", sans-serif';
+        c.fillText(done ? '★ Stamped ★' : 'Pending', x, cy + 34);
+      } else {
+        c.font = isEn ? 'bold 19px "Segoe UI", sans-serif' : 'bold 26px "Microsoft JhengHei", sans-serif';
+        c.fillText(pTxt, x, cy - 5);
+        c.font = isEn ? 'bold 15px "Segoe UI", sans-serif' : 'bold 18px "Microsoft JhengHei", sans-serif';
+        c.fillText(done ? t('★ 已認證 ★', '★ Stamped ★') : t('待闖關', 'Pending'), x, cy + 28);
+      }
       c.restore();
     });
 
     // 底部簽章與日期
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
     c.fillStyle = '#0f172a';
-    c.font = 'bold 24px "Microsoft JhengHei", sans-serif';
-    c.fillText('五力集章進度：' + stampedCount + ' / 5 章　｜　校長：許雅惠　｜　中華民國 115 年 12 月 12 日', W / 2, 735);
+    c.font = isEn ? 'bold 21px "Segoe UI", sans-serif' : 'bold 24px "Microsoft JhengHei", sans-serif';
+    c.fillText(
+      isEn
+        ? ('Five-Power Progress: ' + stampedCount + ' / 5 Stamps   |   Principal: Hsu Ya-Hui   |   Dec 12, 2026')
+        : ('五力集章進度：' + stampedCount + ' / 5 章　｜　校長：許雅惠　｜　中華民國 115 年 12 月 12 日'),
+      W / 2, 735
+    );
   }
 
   function triggerGrandFinale() {
@@ -4686,25 +4857,30 @@ function initSportsQuest(ctx) {
       if (ctx.frameIsland) ctx.frameIsland('s01');
       spawn3DFireworks();
       if (hintEl) {
-        hintEl.innerHTML = '🎉 <strong>太棒了！你已集滿全部 5 枚大庄五力印章！</strong>中央「七一耀動聖火台」已為你點燃全景 3D 勝利煙火，你可以直接截圖或點擊下方按鈕下載證書保存！';
+        hintEl.innerHTML = t(
+          '🎉 <strong>太棒了！你已集滿全部 5 枚大庄五力印章！</strong>中央「七一耀動聖火台」已為你點燃全景 3D 勝利煙火，你可以直接截圖或點擊下方按鈕下載證書保存！',
+          '🎉 <strong>Amazing! You collected all 5 Five-Power Stamps!</strong> 3D Victory Fireworks are blazing over the central Torch Plaza — take a screenshot or download your certificate below!'
+        );
       }
       if (fwBtn) {
         fwBtn.disabled = false;
         fwBtn.style.opacity = '1';
         fwBtn.style.cursor = 'pointer';
-        fwBtn.innerHTML = '🎆 飛往聖火台・再次施放 3D 勝利煙火！';
+        fwBtn.innerHTML = t('🎆 飛往聖火台・再次施放 3D 勝利煙火！', '🎆 Fly to Torch Plaza · Launch 3D Fireworks!');
       }
     } else {
       // 未集滿 5 個章不釋放煙火
       const remaining = 5 - stampedCount;
       if (hintEl) {
-        hintEl.innerHTML = '💡 目前已收集 <strong>' + stampedCount + ' / 5</strong> 枚印章（還差 <strong>' + remaining + '</strong> 枚）。<strong>必須集滿全部 5 枚五力印章</strong>，才會在中央「七一聖火台」引燃全景 3D 勝利煙火！（目前可隨時預覽或下載進度證書）';
+        hintEl.innerHTML = isEn
+          ? ('💡 Progress: <strong>' + stampedCount + ' / 5</strong> stamps collected (<strong>' + remaining + '</strong> left). <strong>Collect all 5 Five-Power Stamps</strong> to unlock panoramic 3D Victory Fireworks at the Torch Plaza! (Preview/download is always available.)')
+          : ('💡 目前已收集 <strong>' + stampedCount + ' / 5</strong> 枚印章（還差 <strong>' + remaining + '</strong> 枚）。<strong>必須集滿全部 5 枚五力印章</strong>，才會在中央「七一聖火台」引燃全景 3D 勝利煙火！（目前可隨時預覽或下載進度證書）');
       }
       if (fwBtn) {
         fwBtn.disabled = true;
         fwBtn.style.opacity = '0.55';
         fwBtn.style.cursor = 'not-allowed';
-        fwBtn.innerHTML = '🔒 集滿 5 枚印章解鎖 3D 勝利煙火（目前 ' + stampedCount + ' / 5）';
+        fwBtn.innerHTML = t('🔒 集滿 5 枚印章解鎖 3D 勝利煙火（目前 ' + stampedCount + ' / 5）', '🔒 Collect all 5 Stamps to unlock 3D Fireworks (' + stampedCount + ' / 5)');
       }
     }
     if (!certDlg.open) certDlg.showModal();
@@ -4718,7 +4894,10 @@ function initSportsQuest(ctx) {
     const quests = DATA.quests || [];
     const stampedCount = quests.filter(q => state.stamps[q.id]).length;
     if (stampedCount < 5) {
-      alert('🔒 五力集章尚未完成！目前已收集 ' + stampedCount + ' / 5 枚印章。\\n必須集滿全部 5 枚五力印章，才能在聖火台引燃 3D 勝利煙火喔！加油！');
+      alert(t(
+        '🔒 五力集章尚未完成！目前已收集 ' + stampedCount + ' / 5 枚印章。\\n必須集滿全部 5 枚五力印章，才能在聖火台引燃 3D 勝利煙火喔！加油！',
+        '🔒 Five-Power Stamps incomplete! Collected ' + stampedCount + ' / 5.\\nCollect all 5 stamps to ignite the Torch Plaza 3D Victory Fireworks!'
+      ));
       return;
     }
     if (certDlg.open) certDlg.close();
@@ -4730,7 +4909,9 @@ function initSportsQuest(ctx) {
     drawCertificate();
     const canvas = document.getElementById('sq-cert-canvas');
     const a = document.createElement('a');
-    a.download = '大庄國小71週年校慶_五力金牌證書_' + (state.name || '運動健將') + '.png';
+    a.download = isEn
+      ? ('DaChuang_71st_FivePower_Certificate_' + ((!state.name || state.name === '大庄小健將') ? 'Runner' : state.name) + '.png')
+      : ('大庄國小71週年校慶_五力金牌證書_' + (state.name || '運動健將') + '.png');
     a.href = canvas.toDataURL('image/png');
     a.click();
   });
