@@ -2274,6 +2274,40 @@ dialog::backdrop {
     line-height: 1.5;
     text-wrap: balance;
   }
+  .ui-honor-item {
+    padding: 10px 12px;
+    gap: 5px;
+  }
+  .ui-honor-ttl {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .sq-honor-event {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    line-height: 1.4;
+  }
+  .sq-honor-winner {
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.45;
+  }
+  .sq-honor-sub {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #475569;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .ui-hk-sprint { background: #ede9fe !important; color: #6d28d9 !important; }
+  .ui-hk-relay { background: #d1fae5 !important; color: #047857 !important; }
+  .ui-hk-moral { background: #e0f2fe !important; color: #0369a1 !important; }
   .sq-isl-meta-line {
     white-space: normal;
   }
@@ -15644,7 +15678,7 @@ function initUI(ctx) {
   const honorsByIsl = new Map();
   HONORS.forEach(h => { if (!honorsByIsl.has(h.island)) honorsByIsl.set(h.island, []); honorsByIsl.get(h.island).push(h); });
   const hkName = k => { const o = DATA.honorKinds && DATA.honorKinds[k]; return o ? L(o, 'name') : k; };
-  const hkShort = k => tr({ school: '學校', teacher: '教師', student: '學生' }[k] || k, hkName(k));
+  const hkShort = k => tr({ school: '學校', teacher: '教師', student: '學生', sprint: '個人賽', relay: '大隊接力', moral: '感恩榮譽' }[k] || k, { sprint: 'Sprint', relay: 'Relay', moral: 'Moral' }[k] || hkName(k));
 
   // ---------- 靜態初始化 ----------
   document.querySelectorAll('#ui [data-icon]').forEach(e => { e.innerHTML = uiSvg(e.dataset.icon); });
@@ -16214,7 +16248,16 @@ function initUI(ctx) {
   }
   function honorItem(h, hit, hidden) {
     const src = h.url ? `<a class="ui-news-link" style="margin-left:8px;" href="${uiEsc(h.url)}" target="_blank" rel="noopener">${tr('查看名單', 'View list')} ↗</a>` : '';
-    return `<li class="ui-honor-item ${hit ? 'is-hit' : ''}" data-honor-card="${uiEsc(h.id)}" ${hidden ? 'hidden' : ''}><span class="ui-news-date">${uiEsc(h.date)}<span class="ui-hk ui-hk-${uiEsc(h.kind)}">${uiEsc(hkShort(h.kind))}</span></span><span class="ui-honor-ttl">${uiEsc(L(h, 'title'))}${src}</span></li>`;
+    const rawTtl = String(L(h, 'title') || '');
+    let ttlHtml = uiEsc(rawTtl);
+    if (rawTtl.includes('：')) {
+      const [evPart, ...restParts] = rawTtl.split('：');
+      ttlHtml = `<span class="sq-honor-event">${uiEsc(evPart)}</span><span class="sq-honor-winner">${uiEsc(restParts.join('：').trim())}</span>`;
+    } else if (rawTtl.includes('（') && rawTtl.length > 20) {
+      const idx = rawTtl.indexOf('（');
+      ttlHtml = `<span class="sq-honor-event">${uiEsc(rawTtl.slice(0, idx))}</span><span class="sq-honor-sub">${uiEsc(rawTtl.slice(idx))}</span>`;
+    }
+    return `<li class="ui-honor-item ${hit ? 'is-hit' : ''}" data-honor-card="${uiEsc(h.id)}" ${hidden ? 'hidden' : ''}><span class="ui-news-date">${uiEsc(h.date)}<span class="ui-hk ui-hk-${uiEsc(h.kind)}">${uiEsc(hkShort(h.kind))}</span></span><span class="ui-honor-ttl">${ttlHtml}${src}</span></li>`;
   }
   function unitsBlock(d, hitIdx) {
     const units = d.units || [];

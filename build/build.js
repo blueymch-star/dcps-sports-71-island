@@ -326,6 +326,14 @@ rep("const cnt = n => ev ? tr(n + ' 個流程', n + (n > 1 ? ' steps' : ' step')
 rep("tr('第 ' + u.weeks + ' 週', 'Wk ' + u.weeks)", "tr(u.weeks, u.weeks)", true);
 rep("tr(u.periods + ' 節', u.periods + (+u.periods === 1 ? ' period' : ' periods'))", "((d.id === 's01' || d.id === 's02') ? tr(u.periods + ' 分鐘', u.periods + ' min') : tr(u.periods + ' 項', u.periods + (+u.periods === 1 ? ' item' : ' items')))", true);
 rep("if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'full') : ''; }", "if (type === 'island') { d = ctx.islandById.get(id)?.data; t = d ? d.num + ' ' + L(d, 'name') : ''; }");
+rep(
+  "const hkShort = k => tr({ school: '學校', teacher: '教師', student: '學生' }[k] || k, hkName(k));",
+  "const hkShort = k => tr({ school: '學校', teacher: '教師', student: '學生', sprint: '個人賽', relay: '大隊接力', moral: '感恩榮譽' }[k] || k, { sprint: 'Sprint', relay: 'Relay', moral: 'Moral' }[k] || hkName(k));"
+);
+rep(
+  "return `<li class=\"ui-honor-item ${hit ? 'is-hit' : ''}\" data-honor-card=\"${uiEsc(h.id)}\" ${hidden ? 'hidden' : ''}><span class=\"ui-news-date\">${uiEsc(h.date)}<span class=\"ui-hk ui-hk-${uiEsc(h.kind)}\">${uiEsc(hkShort(h.kind))}</span></span><span class=\"ui-honor-ttl\">${uiEsc(L(h, 'title'))}${src}</span></li>`;",
+  "const rawTtl = String(L(h, 'title') || '');\n    let ttlHtml = uiEsc(rawTtl);\n    if (rawTtl.includes('：')) {\n      const [evPart, ...restParts] = rawTtl.split('：');\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(evPart)}</span><span class=\"sq-honor-winner\">${uiEsc(restParts.join('：').trim())}</span>`;\n    } else if (rawTtl.includes('（') && rawTtl.length > 20) {\n      const idx = rawTtl.indexOf('（');\n      ttlHtml = `<span class=\"sq-honor-event\">${uiEsc(rawTtl.slice(0, idx))}</span><span class=\"sq-honor-sub\">${uiEsc(rawTtl.slice(idx))}</span>`;\n    }\n    return `<li class=\"ui-honor-item ${hit ? 'is-hit' : ''}\" data-honor-card=\"${uiEsc(h.id)}\" ${hidden ? 'hidden' : ''}><span class=\"ui-news-date\">${uiEsc(h.date)}<span class=\"ui-hk ui-hk-${uiEsc(h.kind)}\">${uiEsc(hkShort(h.kind))}</span></span><span class=\"ui-honor-ttl\">${ttlHtml}${src}</span></li>`;"
+);
 rep("tr('帶隊教育家', 'Led by')", "tr('領隊運動傳奇', 'Led by Legend')");
 rep("role && role.ancient ? tr('教育家', 'EDUCATOR') : tr('大庄夥伴', 'DAZHUANG CREW')", "role && role.ancient ? tr('運動傳奇巨星', 'SPORTS LEGEND') : tr('大庄親師生選手', 'DAZHUANG ATHLETE')");
 rep(
@@ -1817,6 +1825,40 @@ dialog::backdrop {
     line-height: 1.5;
     text-wrap: balance;
   }
+  .ui-honor-item {
+    padding: 10px 12px;
+    gap: 5px;
+  }
+  .ui-honor-ttl {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .sq-honor-event {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    line-height: 1.4;
+  }
+  .sq-honor-winner {
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.45;
+  }
+  .sq-honor-sub {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #475569;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .ui-hk-sprint { background: #ede9fe !important; color: #6d28d9 !important; }
+  .ui-hk-relay { background: #d1fae5 !important; color: #047857 !important; }
+  .ui-hk-moral { background: #e0f2fe !important; color: #0369a1 !important; }
   .sq-isl-meta-line {
     white-space: normal;
   }
