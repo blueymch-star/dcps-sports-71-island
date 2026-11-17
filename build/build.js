@@ -2649,6 +2649,9 @@ dialog::backdrop {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 24px;
 }
 .sq-score-badge {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -4940,14 +4943,14 @@ function initSportsQuest(ctx) {
 
         return (
           '<div class="' + itemClass + '">' +
-            '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<div style="display:flex;align-items:center;gap:8px;min-width:0;">' +
               '<span class="sq-rank-medal">' + medalIcon + '</span>' +
-              '<div>' +
-                '<div><strong>' + loc(f, 'className') + ' ' + loc(f, 'name') + '</strong> <span style="font-size:11px;color:#64748b;">(' + t('決賽 ', 'Final ') + loc(f, 'finalLane') + ')</span></div>' +
+              '<div style="min-width:0;">' +
+                '<div><strong class="sq-nw">' + loc(f, 'className') + ' ' + loc(f, 'name') + '</strong> <span class="sq-nw" style="font-size:11px;color:#64748b;">(' + t('決賽 ', 'Final ') + loc(f, 'finalLane') + ')</span></div>' +
                 (prelimNote ? '<div style="font-size:10.5px;color:#94a3b8;">' + prelimNote + '</div>' : '') +
               '</div>' +
             '</div>' +
-            '<div style="display:flex;align-items:flex-end;flex-direction:column;gap:4px;">' +
+            '<div style="display:flex;align-items:flex-end;flex-direction:column;gap:4px;flex-shrink:0;">' +
               '<span class="sq-score-badge" style="' + (isGold ? 'background:#fef08a;color:#854d0e;' : isSilver ? 'background:#f1f5f9;color:#334155;' : isBronze ? 'background:#fed7aa;color:#9a3412;' : '') + '">' + finalScoreStr + '</span>' +
               awardBadge +
             '</div>' +
