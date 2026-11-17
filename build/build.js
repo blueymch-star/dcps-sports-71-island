@@ -191,6 +191,7 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
           <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報" data-en-title="View 16 sprint finals, honor roll & complete results">🏃 決賽戰報</button>
           <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂" data-en-title="Toggle background music">🎵 闖關音樂🔊</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分" data-en-title="Set athlete name & division"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label" data-en="Athlete">選手設定</span></button>
+          <button type="button" class="sq-brand-pill is-gear sq-zh-only" id="sq-btn-gear" title="切換 3D 扮演角色與穿戴收集到的運動會裝備">🎒 裝備櫃 <span id="sq-gear-count-pill">0/24</span></button>
         </div>
       </div>
     </header>`;
@@ -2793,6 +2794,308 @@ dialog::backdrop {
   }
 }
 
+/* ================= 獨立角色扮演 ＆ 24件裝備櫃系統（僅中文頁面） ================= */
+html[lang="en"] .sq-zh-only { display: none !important; }
+.sq-brand-pill.is-gear {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border-color: #10b981;
+  color: #065f46;
+}
+.sq-brand-pill.is-gear:hover {
+  background: #a7f3d0;
+  border-color: #059669;
+}
+.sq-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.sq-hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px 11px;
+  border-radius: 13px;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+.sq-hero-card strong {
+  font-size: 13px;
+  font-weight: 900;
+  color: #0f172a;
+}
+.sq-hero-card span {
+  font-size: 11.5px;
+  color: #475569;
+  line-height: 1.4;
+}
+.sq-hero-card.is-active {
+  border-color: #059669;
+  background: #ecfdf5;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+}
+@media (max-width: 640px) {
+  .sq-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 裝備櫃 Dialog */
+.sq-gear-dialog {
+  max-width: 560px;
+}
+.sq-gear-sub {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+.sq-gear-stage-card {
+  background: linear-gradient(180deg, #e0f2fe 0%, #f0fdf4 100%);
+  border: 1.5px solid #bae6fd;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.sq-gear-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#sq-gear-stage-canvas {
+  width: 210px;
+  height: 210px;
+  max-width: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+}
+#sq-gear-stage-canvas:active { cursor: grabbing; }
+.sq-gear-rotate-hint {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748b;
+  background: rgba(255,255,255,0.75);
+  padding: 2px 7px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.sq-gear-wearing-ttl {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 6px 0 10px;
+}
+.sq-gear-slots-table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.sq-gear-slot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.68);
+}
+.sq-gear-slot-row span:first-child {
+  color: #475569;
+  font-weight: 700;
+}
+.sq-gear-slot-row strong {
+  color: #0f172a;
+  font-weight: 900;
+}
+.sq-gear-legend {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.5;
+  text-align: center;
+  padding-top: 6px;
+  border-top: 1px dashed #cbd5e1;
+}
+.sq-rarity-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.sq-rarity-pill.is-common { background: #dcfce7; color: #166534; }
+.sq-rarity-pill.is-rare { background: #dbeafe; color: #1e40af; }
+.sq-rarity-pill.is-legend { background: #fef3c7; color: #92400e; }
+
+.sq-gear-role-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.sq-gear-rtab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 9px 6px;
+  border-radius: 13px;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+.sq-gear-rtab small {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 700;
+}
+.sq-gear-rtab.is-active {
+  border-color: #059669;
+  background: #ecfdf5;
+  color: #065f46;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+.sq-gear-switch-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 12.5px;
+  color: #334155;
+}
+.sq-gear-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sq-gear-item-card {
+  position: relative;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: #ffffff;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.sq-gear-item-card.is-equipped {
+  border-color: #10b981;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.14);
+}
+.sq-gear-item-card.is-locked {
+  background: #f8fafc;
+  opacity: 0.9;
+}
+.sq-gear-badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 22px;
+  margin-bottom: 4px;
+}
+.sq-gear-new {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.sq-gear-eqpill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #065f46;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.sq-gear-thumb-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92px;
+  margin-bottom: 6px;
+}
+.sq-gear-thumb {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+}
+.sq-gear-locked-ic {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #64748b;
+}
+.sq-gear-item-name {
+  font-size: 15.5px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 4px 0 3px;
+}
+.sq-gear-item-desc {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+.sq-gear-item-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid #059669;
+  background: #059669;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.sq-gear-item-btn.is-unequip {
+  background: #ffffff;
+  border-color: #94a3b8;
+  color: #334155;
+}
+.sq-loot-dialog {
+  max-width: 400px;
+  text-align: center;
+}
+.sq-loot-pity-note {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
 
 `;
 
@@ -2839,6 +3142,23 @@ const customHtml = `
         <button type="button" class="sq-role-card" data-role="親善校友貴賓" data-icon="🏅">
           <div class="sq-rc-top"><strong data-en="🏅 Alumni &amp; Guest">🏅 親善校友貴賓</strong> <span class="sq-rc-diff diff-alumni" data-en="⭐⭐⭐ Heritage">⭐⭐⭐ 校友薪傳</span></div>
           <span data-en="Heritage Mode: torch-passing combos, school heritage quizzes &amp; 71st memories!">傳承難度：薪傳蓄力連擊、校史榮耀考驗、重溫大庄 71 年風華！</span>
+        </button>
+      </div>
+    </div>
+    <div class="sq-form-group sq-zh-only" id="sq-hero-reg-group">
+      <label class="sq-form-label">🎭 選擇要扮演的 3D 獨立角色（每個角色各有 8 件專屬裝備）：</label>
+      <div class="sq-hero-grid" id="sq-hero-grid">
+        <button type="button" class="sq-hero-card is-active" data-hero="sprinter">
+          <strong>⚡ 紫道短跑手</strong>
+          <span>紫色田徑服，專攻 60/100/200m 衝刺，專屬碼錶與黃金接力棒！</span>
+        </button>
+        <button type="button" class="sq-hero-card" data-hero="torch">
+          <strong>🔥 聖火小旗手</strong>
+          <span>藍金典禮服，手持校旗與聖火炬，帶領全場迎向榮耀！</span>
+        </button>
+        <button type="button" class="sq-hero-card" data-hero="cheer">
+          <strong>📣 海風啦啦隊長</strong>
+          <span>翡翠應援服，彩球大聲公、螺旋槳毛帽與太陽花夥伴！</span>
         </button>
       </div>
     </div>
@@ -3065,6 +3385,58 @@ const customHtml = `
     </button>
   </div>
 </div>
+
+<!-- 5. 裝備櫃 Dialog（僅中文頁面） -->
+<dialog id="sq-gear-dialog" class="sq-dialog sq-gear-dialog sq-zh-only" closedby="any" aria-labelledby="sq-gear-title">
+  <div class="sq-dlg-inner">
+    <div class="sq-dlg-head">
+      <div>
+        <span class="sq-dlg-kicker">GEAR COLLECTION</span>
+        <h2 class="sq-dlg-title" id="sq-gear-title">🎒 裝備櫃</h2>
+      </div>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-gear-dialog" aria-label="關閉">✕</button>
+    </div>
+    <p class="sq-gear-sub" id="sq-gear-sub">已收集 <strong>0 / 24</strong> 件。過關建築關卡或打開地圖上的閃光神秘寶箱都可能獲得裝備，含保底機制（連 2 件普通後必出稀有以上）！</p>
+    <div class="sq-gear-stage-card">
+      <div class="sq-gear-canvas-wrap">
+        <canvas id="sq-gear-stage-canvas" width="260" height="260"></canvas>
+        <span class="sq-gear-rotate-hint">↔ 可拖曳旋轉 360°</span>
+      </div>
+      <div class="sq-gear-wearing-ttl" id="sq-gear-wearing-ttl">紫道短跑手・目前穿戴</div>
+      <div class="sq-gear-slots-table" id="sq-gear-slots-table"></div>
+      <div class="sq-gear-legend">
+        每個角色有 8 件專屬裝備（頭飾、手持、背飾、夥伴 各 2 件），稀有度分成
+        <span class="sq-rarity-pill is-common">普通</span>
+        <span class="sq-rarity-pill is-rare">稀有</span>
+        <span class="sq-rarity-pill is-legend">傳說</span>
+      </div>
+    </div>
+    <div class="sq-gear-role-tabs" id="sq-gear-role-tabs"></div>
+    <div class="sq-gear-switch-bar" id="sq-gear-switch-bar" hidden>
+      <span id="sq-gear-switch-txt"></span>
+      <button type="button" class="sq-gear-item-btn" id="sq-gear-use-role-btn">切換扮演此角色</button>
+    </div>
+    <div class="sq-gear-list" id="sq-gear-list"></div>
+  </div>
+</dialog>
+
+<!-- 6. 獲得裝備驚喜彈窗（僅中文頁面） -->
+<dialog id="sq-loot-dialog" class="sq-dialog sq-loot-dialog sq-zh-only" closedby="any" aria-labelledby="sq-loot-title">
+  <div class="sq-dlg-inner">
+    <div class="sq-dlg-head">
+      <div style="text-align:left;">
+        <span class="sq-dlg-kicker" id="sq-loot-kicker">MYSTERY DROP</span>
+        <h2 class="sq-dlg-title" id="sq-loot-title">🎁 獲得新裝備！</h2>
+      </div>
+      <button type="button" class="sq-dlg-close" data-sq-close="sq-loot-dialog" aria-label="關閉">✕</button>
+    </div>
+    <div id="sq-loot-body"></div>
+    <div style="display:flex;gap:8px;margin-top:12px;">
+      <button type="button" class="sq-primary-btn" id="sq-loot-equip-btn" style="flex:1;">✨ 立即穿戴</button>
+      <button type="button" class="sq-brand-pill is-gear" id="sq-loot-open-wardrobe" style="padding:10px 14px;font-size:13px;">🎒 打開裝備櫃</button>
+    </div>
+  </div>
+</dialog>
 
 `;
 
@@ -3789,6 +4161,7 @@ function initSportsQuest(ctx) {
     roleCards.forEach(c => {
       c.classList.toggle('is-active', c.dataset.role === state.role);
     });
+    if (!isEn && window.__sqSyncHeroCards) window.__sqSyncHeroCards();
     if (!regDlg.open) regDlg.showModal();
   });
 
@@ -3805,6 +4178,7 @@ function initSportsQuest(ctx) {
     state.celebrated = false;
     saveState();
     renderHud();
+    if (!isEn && window.__sqResetChests) window.__sqResetChests();
 
     // 重新渲染當前開啟中的建築闖關卡
     if (ctx.selection && ctx.selection.type === 'item') {
@@ -4245,6 +4619,7 @@ function initSportsQuest(ctx) {
         const idx = Number(btn.dataset.optIdx);
         if (idx === ch.answer) {
           btn.classList.add('is-correct');
+          const wasCleared = !!state.clearedItems[it.id];
           state.clearedItems[it.id] = true;
           if (ch.questId === 'ALL') {
             (DATA.quests || []).forEach(q => { state.stamps[q.id] = true; });
@@ -4275,7 +4650,11 @@ function initSportsQuest(ctx) {
             );
           }
 
-          if (newStamped >= (DATA.quests || []).length && !state.celebrated) {
+          const willTriggerFinale = newStamped >= (DATA.quests || []).length && !state.celebrated;
+          if (!wasCleared && !isEn && window.__sqOnBuildingCleared) {
+            setTimeout(() => window.__sqOnBuildingCleared(it.id, willTriggerFinale), willTriggerFinale ? 400 : 350);
+          }
+          if (willTriggerFinale) {
             state.celebrated = true;
             saveState();
             setTimeout(() => triggerGrandFinale(), 1200);
@@ -5095,6 +5474,787 @@ function initSportsQuest(ctx) {
   renderHud();
   if (!ctx.traveler) syncProtagonist();
   if (ctx.on) ctx.on('ready', () => { if (!ctx.traveler) syncProtagonist(); });
+
+  // ================= 獨立 3D 角色扮演・24 件裝備櫃・神秘寶箱・保底系統（僅中文頁面） =================
+  if (!isEn) {
+    const GEAR_STORAGE_KEY = 'sq-gear-v1';
+    const HERO_ROLES = [
+      { id: 'sprinter', name: '紫道短跑手', icon: '⚡', jersey: 0x7c3aed, accent: 0x38bdf8, pants: 0x312e81, hair: 0x292524 },
+      { id: 'torch',    name: '聖火小旗手', icon: '🔥', jersey: 0x0284c7, accent: 0xf59e0b, pants: 0x1e3a8a, hair: 0x451a03 },
+      { id: 'cheer',    name: '海風啦啦隊長', icon: '📣', jersey: 0x10b981, accent: 0xfbbf24, pants: 0x065f46, hair: 0x9a3412 }
+    ];
+    const SLOT_LABELS = { head: '頭飾', hand: '手持', back: '背飾', pet: '夥伴' };
+    const SLOT_ICONS  = { head: '👒', hand: '🔧', back: '🎒', pet: '🐾' };
+    const RARITY_LABEL = { common: '普通', rare: '稀有', legend: '傳說' };
+
+    const GEAR_ITEMS = [
+      // 1. 紫道短跑手 (8件)
+      { id: 'sp_h1', role: 'sprinter', slot: 'head', rarity: 'common', name: '校慶遮陽運動帽', desc: '藍白遮陽帽緣，迎著香山海風起跑最帥氣！' },
+      { id: 'sp_h2', role: 'sprinter', slot: 'head', rarity: 'rare',   name: '七一必勝運動頭帶', desc: '紫色緞帶寫著衝刺信念，戴上就像破風手！' },
+      { id: 'sp_a1', role: 'sprinter', slot: 'hand', rarity: 'common', name: '電子終點計時碼錶', desc: '精準記錄起跑反應與每毫秒的衝線瞬間。' },
+      { id: 'sp_a2', role: 'sprinter', slot: 'hand', rarity: 'legend', name: '黃金薪傳接力棒', desc: '閃耀金色光芒的接力棒，象徵大庄 71 週年棒棒相傳！' },
+      { id: 'sp_b1', role: 'sprinter', slot: 'back', rarity: 'common', name: '號碼布運動背袋', desc: '印著 71 號的大庄跑者束口背袋，輕巧又好跑。' },
+      { id: 'sp_b2', role: 'sprinter', slot: 'back', rarity: 'rare',   name: '疾風雙翼披風', desc: '紫藍漸層小飛翼，跑起來彷彿自帶順風加速！' },
+      { id: 'sp_p1', role: 'sprinter', slot: 'pet',  rarity: 'rare',   name: '紫道小老虎', desc: '活力滿滿的橘條紋小虎夥伴，陪你在紫色跑道熱血奔馳！' },
+      { id: 'sp_p2', role: 'sprinter', slot: 'pet',  rarity: 'legend', name: '金牌榮耀小精靈', desc: '戴著皇冠的金色小獎盃精靈，閃閃發光為你喝采！' },
+
+      // 2. 聖火小旗手 (8件)
+      { id: 'tr_h1', role: 'torch', slot: 'head', rarity: 'common', name: '藍海船長貝雷帽', desc: '象徵大庄校旗的海洋藍貝雷帽，莊重又有精神。' },
+      { id: 'tr_h2', role: 'torch', slot: 'head', rarity: 'legend', name: '榮耀黃金桂冠', desc: '五力滿貫的金色月桂花環，戴上就是全場焦點！' },
+      { id: 'tr_a1', role: 'torch', slot: 'hand', rarity: 'common', name: '校慶迎風小校旗', desc: '印著大庄五力徽章的手搖旗，在海風中飄揚！' },
+      { id: 'tr_a2', role: 'torch', slot: 'hand', rarity: 'legend', name: '七一耀動小聖火炬', desc: '頂端跳動著溫暖橘金色火苗的迷你聖火炬！' },
+      { id: 'tr_b1', role: 'torch', slot: 'back', rarity: 'common', name: '紅金禮儀領巾披風', desc: '典禮進場必備的帥氣小披肩，精神抖擻！' },
+      { id: 'tr_b2', role: 'torch', slot: 'back', rarity: 'rare',   name: '五力彩虹光環背飾', desc: '由道德、群體、美感、知識、體能五色組成的迷你光圈。' },
+      { id: 'tr_p1', role: 'torch', slot: 'pet',  rarity: 'common', name: '香山小海鷗', desc: '乘著香山海風飛翔的白羽小海鷗，最喜歡繞著聖火台轉。' },
+      { id: 'tr_p2', role: 'torch', slot: 'pet',  rarity: 'rare',   name: '耀動小聖火精靈', desc: '圓滾滾的橘紅色小火苗精靈，永遠精力充沛！' },
+
+      // 3. 海風啦啦隊長 (8件)
+      { id: 'ch_h1', role: 'cheer', slot: 'head', rarity: 'common', name: '螺旋槳校慶毛帽', desc: '帽頂的三色螺旋槳會一直轉，好像隨時要起飛！' },
+      { id: 'ch_h2', role: 'cheer', slot: 'head', rarity: 'rare',   name: '星星應援髮箍', desc: '兩顆金色小星星隨著跳躍一起彈跳，元氣滿分！' },
+      { id: 'ch_a1', role: 'cheer', slot: 'hand', rarity: 'common', name: '藍綠應援彩球', desc: '蓬鬆亮眼的雙色啦啦隊彩球，為每一棒大聲加油！' },
+      { id: 'ch_a2', role: 'cheer', slot: 'hand', rarity: 'rare',   name: '大庄應援大聲公', desc: '「加油！加油！」讓看台歡呼聲傳遍整座運動場！' },
+      { id: 'ch_b1', role: 'cheer', slot: 'back', rarity: 'common', name: '音符律動小背包', desc: '跟著大會舞節奏輕快彈跳的薄荷綠小背包。' },
+      { id: 'ch_b2', role: 'cheer', slot: 'back', rarity: 'legend', name: '彩虹愛心天使翼', desc: '散發粉嫩星光的應援翅膀，走到哪裡都充滿歡呼！' },
+      { id: 'ch_p1', role: 'cheer', slot: 'pet',  rarity: 'common', name: '律動音符小精靈', desc: '漂浮在身旁的紫藍色八分音符精靈，跟著音樂點頭。' },
+      { id: 'ch_p2', role: 'cheer', slot: 'pet',  rarity: 'legend', name: '太陽花開心果', desc: '綻放金黃花瓣的微笑太陽花夥伴，帶來 100% 好心情！' }
+    ];
+    const GEAR_BY_ID = Object.fromEntries(GEAR_ITEMS.map(g => [g.id, g]));
+    const HERO_BY_ID = Object.fromEntries(HERO_ROLES.map(h => [h.id, h]));
+
+    let gearState = {
+      heroRole: 'sprinter',
+      unlocked: [],
+      newlyUnlocked: [],
+      equipped: {
+        sprinter: { head: null, hand: null, back: null, pet: null },
+        torch:    { head: null, hand: null, back: null, pet: null },
+        cheer:    { head: null, hand: null, back: null, pet: null }
+      },
+      openedChests: [],
+      pitySinceRare: 0
+    };
+    try {
+      const savedG = JSON.parse(localStorage.getItem(GEAR_STORAGE_KEY) || 'null');
+      if (savedG && typeof savedG === 'object') {
+        gearState = {
+          ...gearState,
+          ...savedG,
+          equipped: {
+            sprinter: { head: null, hand: null, back: null, pet: null, ...(savedG.equipped?.sprinter || {}) },
+            torch:    { head: null, hand: null, back: null, pet: null, ...(savedG.equipped?.torch || {}) },
+            cheer:    { head: null, hand: null, back: null, pet: null, ...(savedG.equipped?.cheer || {}) }
+          },
+          unlocked: Array.isArray(savedG.unlocked) ? savedG.unlocked : [],
+          newlyUnlocked: Array.isArray(savedG.newlyUnlocked) ? savedG.newlyUnlocked : [],
+          openedChests: Array.isArray(savedG.openedChests) ? savedG.openedChests : []
+        };
+      }
+    } catch (e) {}
+
+    function saveGearState() {
+      try { localStorage.setItem(GEAR_STORAGE_KEY, JSON.stringify(gearState)); } catch (e) {}
+      const pill = document.getElementById('sq-gear-count-pill');
+      if (pill) pill.textContent = gearState.unlocked.length + '/24';
+    }
+
+    // 註冊對話框中的「獨立 3D 角色」選擇卡連動
+    const heroRegCards = document.querySelectorAll('#sq-hero-grid .sq-hero-card');
+    function syncHeroCardsUI() {
+      heroRegCards.forEach(c => c.classList.toggle('is-active', c.dataset.hero === gearState.heroRole));
+    }
+    window.__sqSyncHeroCards = syncHeroCardsUI;
+    heroRegCards.forEach(card => {
+      card.addEventListener('click', () => {
+        gearState.heroRole = card.dataset.hero || 'sprinter';
+        syncHeroCardsUI();
+      });
+    });
+    syncHeroCardsUI();
+
+    document.getElementById('sq-reg-submit')?.addEventListener('click', () => {
+      saveGearState();
+      applyGearToMapProtagonist();
+      if (gearDlg && gearDlg.open) renderWardrobe();
+    });
+
+    // ====== Three.js 程式化 24 件 3D 裝備建模器 ======
+    const stdM = (hex, extra = {}) => new THREE.MeshStandardMaterial({ color: hex, roughness: 0.55, metalness: 0.08, ...extra });
+    function addPart(parent, geo, mat, pos = [0, 0, 0], rot = [0, 0, 0], scl = [1, 1, 1]) {
+      const m = new THREE.Mesh(geo, mat);
+      m.position.set(pos[0], pos[1], pos[2]);
+      m.rotation.set(rot[0], rot[1], rot[2]);
+      m.scale.set(scl[0], scl[1], scl[2]);
+      parent.add(m);
+      return m;
+    }
+
+    function buildGearMesh(itemId) {
+      const g = new THREE.Group();
+      const B = (w, h, d) => new THREE.BoxGeometry(w, h, d);
+      const S = (r) => new THREE.SphereGeometry(r, 14, 12);
+      const C = (rt, rb, h) => new THREE.CylinderGeometry(rt, rb, h, 14);
+      const K = (r, h) => new THREE.ConeGeometry(r, h, 14);
+      const T = (r, tr) => new THREE.TorusGeometry(r, tr, 8, 22);
+
+      switch (itemId) {
+        case 'sp_h1': { // 校慶遮陽運動帽
+          addPart(g, new THREE.SphereGeometry(0.074, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.55), stdM(0x0284c7), [0, -0.01, 0]);
+          addPart(g, B(0.11, 0.012, 0.075), stdM(0xffffff), [0, -0.004, 0.068], [0.16, 0, 0]);
+          addPart(g, S(0.015), stdM(0xf59e0b), [0, 0.065, 0]);
+          break;
+        }
+        case 'sp_h2': { // 七一必勝運動頭帶
+          addPart(g, C(0.077, 0.077, 0.026), stdM(0x7c3aed), [0, -0.028, 0]);
+          addPart(g, B(0.024, 0.045, 0.008), stdM(0xa855f7), [-0.02, -0.04, -0.075], [0.25, 0, 0.2]);
+          addPart(g, B(0.024, 0.045, 0.008), stdM(0x38bdf8), [0.02, -0.04, -0.075], [0.25, 0, -0.2]);
+          break;
+        }
+        case 'sp_a1': { // 電子終點計時碼錶
+          addPart(g, C(0.036, 0.036, 0.014), stdM(0x0f172a, { metalness: 0.4 }), [0, 0, 0], [Math.PI / 2, 0, 0]);
+          addPart(g, C(0.028, 0.028, 0.016), stdM(0x38bdf8, { emissive: 0x0284c7, emissiveIntensity: 0.4 }), [0, 0, 0], [Math.PI / 2, 0, 0]);
+          addPart(g, C(0.008, 0.008, 0.014), stdM(0xf59e0b), [0, 0.04, 0]);
+          break;
+        }
+        case 'sp_a2': { // 黃金薪傳接力棒
+          addPart(g, C(0.014, 0.014, 0.14), stdM(0xf59e0b, { metalness: 0.65, roughness: 0.25, emissive: 0xd97706, emissiveIntensity: 0.25 }), [0, 0.03, 0], [0.35, 0, -0.15]);
+          addPart(g, T(0.017, 0.004), stdM(0xffffff), [0, 0.03, 0], [Math.PI / 2 + 0.35, 0, -0.15]);
+          break;
+        }
+        case 'sp_b1': { // 號碼布運動背袋
+          addPart(g, B(0.11, 0.13, 0.045), stdM(0x0284c7), [0, 0, 0]);
+          addPart(g, B(0.075, 0.065, 0.008), stdM(0xffffff), [0, 0.01, -0.024]);
+          addPart(g, B(0.045, 0.014, 0.01), stdM(0x7c3aed), [0, 0.01, -0.027]);
+          break;
+        }
+        case 'sp_b2': { // 疾風雙翼披風
+          addPart(g, B(0.12, 0.038, 0.014), stdM(0x7c3aed), [-0.075, 0.02, -0.01], [0, 0.35, 0.28]);
+          addPart(g, B(0.12, 0.038, 0.014), stdM(0x7c3aed), [0.075, 0.02, -0.01], [0, -0.35, -0.28]);
+          addPart(g, B(0.09, 0.026, 0.012), stdM(0x38bdf8), [-0.06, -0.02, -0.01], [0, 0.3, 0.15]);
+          addPart(g, B(0.09, 0.026, 0.012), stdM(0x38bdf8), [0.06, -0.02, -0.01], [0, -0.3, -0.15]);
+          break;
+        }
+        case 'sp_p1': { // 紫道小老虎
+          g.userData.bob = true;
+          addPart(g, S(0.038), stdM(0xf97316), [0, 0, 0]);
+          addPart(g, S(0.014), stdM(0xf97316), [-0.026, 0.032, 0]);
+          addPart(g, S(0.014), stdM(0xf97316), [0.026, 0.032, 0]);
+          addPart(g, S(0.007), stdM(0x1e293b), [-0.013, 0.008, 0.034]);
+          addPart(g, S(0.007), stdM(0x1e293b), [0.013, 0.008, 0.034]);
+          addPart(g, S(0.012), stdM(0xffffff), [0, -0.008, 0.033]);
+          break;
+        }
+        case 'sp_p2': { // 金牌榮耀小精靈
+          g.userData.bob = true;
+          addPart(g, C(0.035, 0.018, 0.05), stdM(0xf59e0b, { metalness: 0.6, roughness: 0.25 }), [0, 0.01, 0]);
+          addPart(g, C(0.012, 0.024, 0.022), stdM(0xb45309), [0, -0.028, 0]);
+          addPart(g, T(0.028, 0.005), stdM(0xfde047), [0, 0.045, 0], [Math.PI / 2, 0, 0]);
+          break;
+        }
+        case 'tr_h1': { // 藍海船長貝雷帽
+          addPart(g, C(0.082, 0.072, 0.034), stdM(0x0369a1), [0.008, 0.005, 0], [0, 0, -0.14]);
+          addPart(g, B(0.022, 0.012, 0.022), stdM(0xf59e0b), [0, 0.026, 0]);
+          break;
+        }
+        case 'tr_h2': { // 榮耀黃金桂冠
+          addPart(g, T(0.074, 0.011), stdM(0xf59e0b, { metalness: 0.65, roughness: 0.25, emissive: 0xd97706, emissiveIntensity: 0.2 }), [0, -0.015, 0], [Math.PI / 2 - 0.15, 0, 0]);
+          addPart(g, S(0.015), stdM(0xfde047), [0, 0.002, 0.075]);
+          break;
+        }
+        case 'tr_a1': { // 校慶迎風小校旗
+          addPart(g, C(0.006, 0.006, 0.16), stdM(0xe2e8f0), [0, 0.04, 0]);
+          addPart(g, B(0.085, 0.055, 0.008), stdM(0x0284c7), [0.042, 0.09, 0]);
+          addPart(g, B(0.03, 0.02, 0.01), stdM(0xf59e0b), [0.042, 0.09, 0]);
+          break;
+        }
+        case 'tr_a2': { // 七一耀動小聖火炬
+          addPart(g, C(0.018, 0.008, 0.11), stdM(0xd97706, { metalness: 0.5 }), [0, 0.02, 0]);
+          const fl = addPart(g, K(0.026, 0.055), stdM(0xf97316, { emissive: 0xf59e0b, emissiveIntensity: 0.75 }), [0, 0.095, 0]);
+          fl.userData.flame = true;
+          addPart(g, S(0.016), stdM(0xfde047, { emissive: 0xfde047, emissiveIntensity: 0.8 }), [0, 0.08, 0]);
+          break;
+        }
+        case 'tr_b1': { // 紅金禮儀領巾披風
+          addPart(g, B(0.115, 0.125, 0.014), stdM(0xe11d48), [0, -0.015, -0.01], [0.16, 0, 0]);
+          addPart(g, B(0.118, 0.018, 0.016), stdM(0xf59e0b), [0, -0.068, -0.018], [0.16, 0, 0]);
+          break;
+        }
+        case 'tr_b2': { // 五力彩虹光環背飾
+          addPart(g, T(0.085, 0.008), stdM(0x0284c7, { emissive: 0x38bdf8, emissiveIntensity: 0.3 }), [0, 0.02, -0.01]);
+          addPart(g, T(0.065, 0.007), stdM(0x10b981, { emissive: 0x34d399, emissiveIntensity: 0.3 }), [0, 0.02, -0.01]);
+          addPart(g, T(0.045, 0.006), stdM(0xf59e0b, { emissive: 0xfbbf24, emissiveIntensity: 0.3 }), [0, 0.02, -0.01]);
+          break;
+        }
+        case 'tr_p1': { // 香山小海鷗
+          g.userData.bob = true;
+          addPart(g, S(0.032), stdM(0xffffff), [0, 0, 0], [0, 0, 0], [1, 0.9, 1.25]);
+          addPart(g, K(0.01, 0.022), stdM(0xf59e0b), [0, 0, 0.045], [Math.PI / 2, 0, 0]);
+          addPart(g, B(0.055, 0.008, 0.024), stdM(0xe2e8f0), [-0.042, 0.01, 0], [0, 0, 0.25]);
+          addPart(g, B(0.055, 0.008, 0.024), stdM(0xe2e8f0), [0.042, 0.01, 0], [0, 0, -0.25]);
+          break;
+        }
+        case 'tr_p2': { // 耀動小聖火精靈
+          g.userData.bob = true;
+          const b = addPart(g, S(0.036), stdM(0xf97316, { emissive: 0xea580c, emissiveIntensity: 0.55 }), [0, 0, 0]);
+          b.userData.flame = true;
+          addPart(g, K(0.026, 0.045), stdM(0xfde047, { emissive: 0xfbbf24, emissiveIntensity: 0.6 }), [0, 0.038, 0]);
+          addPart(g, S(0.006), stdM(0x0f172a), [-0.012, 0.004, 0.033]);
+          addPart(g, S(0.006), stdM(0x0f172a), [0.012, 0.004, 0.033]);
+          break;
+        }
+        case 'ch_h1': { // 螺旋槳校慶毛帽
+          addPart(g, new THREE.SphereGeometry(0.075, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.56), stdM(0x0284c7), [0, -0.012, 0]);
+          addPart(g, T(0.068, 0.011), stdM(0xfbbf24), [0, -0.008, 0], [Math.PI / 2, 0, 0]);
+          addPart(g, C(0.006, 0.006, 0.024), stdM(0xef4444), [0, 0.068, 0]);
+          const prop = new THREE.Group();
+          prop.position.set(0, 0.08, 0);
+          prop.userData.spinProp = true;
+          addPart(prop, B(0.11, 0.006, 0.018), stdM(0x10b981), [0, 0, 0]);
+          addPart(prop, B(0.018, 0.006, 0.11), stdM(0xf43f5e), [0, 0, 0]);
+          g.add(prop);
+          break;
+        }
+        case 'ch_h2': { // 星星應援髮箍
+          addPart(g, T(0.074, 0.008), stdM(0xec4899), [0, -0.015, 0], [0, 0, 0]);
+          addPart(g, C(0.004, 0.004, 0.045), stdM(0xf472b6), [-0.04, 0.065, 0], [0, 0, 0.25]);
+          addPart(g, C(0.004, 0.004, 0.045), stdM(0xf472b6), [0.04, 0.065, 0], [0, 0, -0.25]);
+          addPart(g, S(0.019), stdM(0xfde047, { emissive: 0xf59e0b, emissiveIntensity: 0.4 }), [-0.046, 0.09, 0]);
+          addPart(g, S(0.019), stdM(0xfde047, { emissive: 0xf59e0b, emissiveIntensity: 0.4 }), [0.046, 0.09, 0]);
+          break;
+        }
+        case 'ch_a1': { // 藍綠應援彩球
+          addPart(g, S(0.042), stdM(0x10b981), [0, 0.015, 0]);
+          addPart(g, S(0.025), stdM(0x38bdf8), [0.02, 0.028, 0.02]);
+          addPart(g, S(0.025), stdM(0xfbbf24), [-0.02, 0.025, 0.018]);
+          break;
+        }
+        case 'ch_a2': { // 大庄應援大聲公
+          addPart(g, K(0.038, 0.085), stdM(0xef4444), [0, 0.02, 0.025], [-Math.PI / 2, 0, 0]);
+          addPart(g, C(0.01, 0.01, 0.038), stdM(0xffffff), [0, -0.01, -0.01]);
+          break;
+        }
+        case 'ch_b1': { // 音符律動小背包
+          addPart(g, B(0.11, 0.115, 0.055), stdM(0x34d399), [0, 0, 0]);
+          addPart(g, S(0.018), stdM(0x7c3aed), [-0.015, 0.01, -0.03]);
+          addPart(g, B(0.012, 0.045, 0.01), stdM(0x7c3aed), [-0.003, 0.028, -0.03]);
+          break;
+        }
+        case 'ch_b2': { // 彩虹愛心天使翼
+          addPart(g, B(0.13, 0.055, 0.014), stdM(0xf472b6, { emissive: 0xec4899, emissiveIntensity: 0.25 }), [-0.082, 0.025, -0.01], [0, 0.3, 0.32]);
+          addPart(g, B(0.13, 0.055, 0.014), stdM(0xf472b6, { emissive: 0xec4899, emissiveIntensity: 0.25 }), [0.082, 0.025, -0.01], [0, -0.3, -0.32]);
+          addPart(g, S(0.022), stdM(0xfde047), [0, 0.02, -0.015]);
+          break;
+        }
+        case 'ch_p1': { // 律動音符小精靈
+          g.userData.bob = true;
+          addPart(g, S(0.028), stdM(0x8b5cf6, { emissive: 0x7c3aed, emissiveIntensity: 0.35 }), [-0.01, -0.015, 0]);
+          addPart(g, C(0.006, 0.006, 0.075), stdM(0x8b5cf6), [0.014, 0.02, 0]);
+          addPart(g, B(0.03, 0.016, 0.008), stdM(0x38bdf8), [0.028, 0.052, 0], [0, 0, -0.25]);
+          break;
+        }
+        case 'ch_p2': { // 太陽花開心果
+          g.userData.bob = true;
+          addPart(g, S(0.03), stdM(0x78350f), [0, 0.01, 0.008]);
+          for (let i = 0; i < 8; i++) {
+            const a = (i / 8) * Math.PI * 2;
+            addPart(g, S(0.016), stdM(0xfacc15), [Math.cos(a) * 0.036, 0.01 + Math.sin(a) * 0.036, 0]);
+          }
+          addPart(g, C(0.006, 0.008, 0.045), stdM(0x16a34a), [0, -0.035, 0]);
+          break;
+        }
+      }
+      return g;
+    }
+
+    function animateGearSubtree(root, tSec) {
+      if (!root) return;
+      root.traverse(obj => {
+        if (obj.userData?.spinProp) obj.rotation.y = tSec * 10;
+        if (obj.userData?.bob) obj.position.y = Math.sin(tSec * 3.2) * 0.018;
+        if (obj.userData?.flame) {
+          const s = 0.92 + Math.sin(tSec * 14) * 0.1;
+          obj.scale.set(s, 0.95 + Math.cos(tSec * 11) * 0.14, s);
+        }
+      });
+    }
+
+    // 同步裝備到地圖上的 3D 主角小人 ('traveler')
+    let mapRigGroup = null;
+    function applyGearToMapProtagonist() {
+      if (!ctx.scene) return;
+      const tg = ctx.scene.getObjectByName('traveler');
+      if (!tg) return;
+      const old = tg.getObjectByName('sq-gear-rig');
+      if (old) tg.remove(old);
+
+      const rig = new THREE.Group();
+      rig.name = 'sq-gear-rig';
+      const eq = gearState.equipped[gearState.heroRole] || {};
+      if (eq.head) {
+        const hm = buildGearMesh(eq.head);
+        hm.position.set(0, 0.352, 0);
+        rig.add(hm);
+      }
+      if (eq.hand) {
+        const am = buildGearMesh(eq.hand);
+        am.position.set(0.082, 0.135, 0.048);
+        rig.add(am);
+      }
+      if (eq.back) {
+        const bm = buildGearMesh(eq.back);
+        bm.position.set(0, 0.178, -0.062);
+        rig.add(bm);
+      }
+      if (eq.pet) {
+        const petWrap = new THREE.Group();
+        petWrap.position.set(0.165, 0.27, 0.02);
+        petWrap.add(buildGearMesh(eq.pet));
+        rig.add(petWrap);
+      }
+      tg.add(rig);
+      mapRigGroup = rig;
+      if (ctx.markDirty) ctx.markDirty();
+    }
+
+    // 供裝備櫃「即時 3D 展示台」使用的可愛立體角色組裝
+    function buildHeroPreviewGroup(roleId, eqMap) {
+      const hr = HERO_BY_ID[roleId] || HERO_ROLES[0];
+      const root = new THREE.Group();
+      const skinM = stdM(0xf6c9a6);
+      const hairM = stdM(hr.hair);
+      const jerseyM = stdM(hr.jersey);
+      const accentM = stdM(hr.accent);
+      const pantsM = stdM(hr.pants);
+      const inkM = stdM(0x1e293b);
+      const blushM = stdM(0xf4978e);
+
+      // 腳與腿
+      addPart(root, new THREE.CylinderGeometry(0.022, 0.022, 0.095, 12), pantsM, [-0.028, 0.05, 0]);
+      addPart(root, new THREE.CylinderGeometry(0.022, 0.022, 0.095, 12), pantsM, [0.028, 0.05, 0]);
+      addPart(root, new THREE.BoxGeometry(0.036, 0.022, 0.05), accentM, [-0.028, 0.012, 0.008]);
+      addPart(root, new THREE.BoxGeometry(0.036, 0.022, 0.05), accentM, [0.028, 0.012, 0.008]);
+      // 身體與球衣條紋
+      addPart(root, new THREE.CylinderGeometry(0.048, 0.06, 0.13, 14), jerseyM, [0, 0.155, 0]);
+      addPart(root, new THREE.CylinderGeometry(0.054, 0.058, 0.024, 14), accentM, [0, 0.145, 0]);
+      // 手臂
+      addPart(root, new THREE.CylinderGeometry(0.017, 0.017, 0.09, 10), jerseyM, [-0.066, 0.17, 0], [0, 0, -0.15]);
+      addPart(root, new THREE.CylinderGeometry(0.017, 0.017, 0.09, 10), jerseyM, [0.066, 0.17, 0], [0, 0, 0.15]);
+      addPart(root, new THREE.SphereGeometry(0.021, 10, 10), skinM, [-0.075, 0.125, 0]);
+      addPart(root, new THREE.SphereGeometry(0.021, 10, 10), skinM, [0.075, 0.125, 0]);
+      // 頭、臉、頭髮
+      addPart(root, new THREE.SphereGeometry(0.072, 18, 16), skinM, [0, 0.285, 0]);
+      addPart(root, new THREE.SphereGeometry(0.076, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.56), hairM, [0, 0.292, -0.005], [-0.35, 0, 0]);
+      addPart(root, new THREE.SphereGeometry(0.011, 8, 8), inkM, [-0.026, 0.287, 0.066], [0, 0, 0], [1, 1.2, 0.6]);
+      addPart(root, new THREE.SphereGeometry(0.011, 8, 8), inkM, [0.026, 0.287, 0.066], [0, 0, 0], [1, 1.2, 0.6]);
+      addPart(root, new THREE.SphereGeometry(0.012, 8, 8), blushM, [-0.044, 0.268, 0.054], [0, 0, 0], [1, 0.7, 0.5]);
+      addPart(root, new THREE.SphereGeometry(0.012, 8, 8), blushM, [0.044, 0.268, 0.054], [0, 0, 0], [1, 0.7, 0.5]);
+
+      if (eqMap?.head) {
+        const hm = buildGearMesh(eqMap.head); hm.position.set(0, 0.352, 0); root.add(hm);
+      }
+      if (eqMap?.hand) {
+        const am = buildGearMesh(eqMap.hand); am.position.set(0.088, 0.135, 0.045); root.add(am);
+      }
+      if (eqMap?.back) {
+        const bm = buildGearMesh(eqMap.back); bm.position.set(0, 0.175, -0.062); root.add(bm);
+      }
+      if (eqMap?.pet) {
+        const pw = new THREE.Group(); pw.position.set(0.165, 0.27, 0.02); pw.add(buildGearMesh(eqMap.pet)); root.add(pw);
+      }
+      return root;
+    }
+
+    // 離屏單一 WebGLRenderer 產出 24 件裝備縮圖快取（不佔用額外 WebGL Context）
+    const thumbCache = {};
+    let thumbRenderer = null;
+    function getGearThumb(itemId) {
+      if (thumbCache[itemId]) return thumbCache[itemId];
+      try {
+        if (!thumbRenderer) {
+          thumbRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+          thumbRenderer.setSize(140, 140);
+          thumbRenderer.setPixelRatio(1);
+        }
+        const sc = new THREE.Scene();
+        sc.add(new THREE.AmbientLight(0xffffff, 1.4));
+        const dl = new THREE.DirectionalLight(0xffffff, 1.2);
+        dl.position.set(2, 3, 4);
+        sc.add(dl);
+        const cam = new THREE.PerspectiveCamera(35, 1, 0.05, 10);
+        cam.position.set(0.14, 0.1, 0.28);
+        cam.lookAt(0, 0.01, 0);
+        const mesh = buildGearMesh(itemId);
+        sc.add(mesh);
+        thumbRenderer.render(sc, cam);
+        thumbCache[itemId] = thumbRenderer.domElement.toDataURL('image/png');
+        return thumbCache[itemId];
+      } catch (e) {
+        return '';
+      }
+    }
+
+    // 裝備櫃 3D 展示台 Renderer
+    const gearDlg = document.getElementById('sq-gear-dialog');
+    const stageCanvas = document.getElementById('sq-gear-stage-canvas');
+    let stageRenderer = null, stageScene = null, stageCam = null, stageHero = null, stageYaw = 0.25, stageRaf = 0;
+    let viewingRole = gearState.heroRole;
+
+    function rebuildStageHero() {
+      if (!stageScene) return;
+      if (stageHero) stageScene.remove(stageHero);
+      stageHero = buildHeroPreviewGroup(viewingRole, gearState.equipped[viewingRole] || {});
+      stageHero.position.y = -0.19;
+      stageHero.rotation.y = stageYaw;
+      stageScene.add(stageHero);
+    }
+
+    function startStageLoop() {
+      if (!stageCanvas) return;
+      if (!stageRenderer) {
+        stageRenderer = new THREE.WebGLRenderer({ canvas: stageCanvas, alpha: true, antialias: true });
+        stageRenderer.setSize(260, 260, false);
+        stageRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        stageScene = new THREE.Scene();
+        stageScene.add(new THREE.AmbientLight(0xffffff, 1.35));
+        const dl1 = new THREE.DirectionalLight(0xffffff, 1.15); dl1.position.set(2, 4, 3); stageScene.add(dl1);
+        const dl2 = new THREE.DirectionalLight(0xbae6fd, 0.5); dl2.position.set(-2, 1, -2); stageScene.add(dl2);
+        stageCam = new THREE.PerspectiveCamera(34, 1, 0.1, 10);
+        stageCam.position.set(0, 0.12, 0.92);
+        stageCam.lookAt(0, 0.01, 0);
+
+        let dragging = false, lastX = 0;
+        stageCanvas.addEventListener('pointerdown', (e) => { dragging = true; lastX = e.clientX; });
+        window.addEventListener('pointerup', () => { dragging = false; });
+        window.addEventListener('pointermove', (e) => {
+          if (!dragging || !gearDlg?.open) return;
+          stageYaw += (e.clientX - lastX) * 0.016;
+          lastX = e.clientX;
+        });
+      }
+      rebuildStageHero();
+      cancelAnimationFrame(stageRaf);
+      const tick = (now) => {
+        if (!gearDlg?.open) return;
+        const tSec = now * 0.001;
+        stageYaw += 0.005;
+        if (stageHero) {
+          stageHero.rotation.y = stageYaw;
+          animateGearSubtree(stageHero, tSec);
+        }
+        stageRenderer.render(stageScene, stageCam);
+        stageRaf = requestAnimationFrame(tick);
+      };
+      stageRaf = requestAnimationFrame(tick);
+    }
+
+    function renderWardrobe() {
+      const subEl = document.getElementById('sq-gear-sub');
+      if (subEl) {
+        const leftPity = Math.max(1, 3 - (gearState.pitySinceRare || 0));
+        subEl.innerHTML = '已收集 <strong>' + gearState.unlocked.length + ' / 24</strong> 件。答對題目、過關建築或開啟地圖閃光寶箱都可能得到（距離下次保底必出稀有以上：還有 <strong>' + leftPity + '</strong> 次）。';
+      }
+      const hr = HERO_BY_ID[viewingRole] || HERO_ROLES[0];
+      const eq = gearState.equipped[viewingRole] || {};
+      const ttlEl = document.getElementById('sq-gear-wearing-ttl');
+      if (ttlEl) ttlEl.textContent = hr.name + '・' + (viewingRole === gearState.heroRole ? '目前穿戴' : '預覽穿戴');
+
+      const slotsTable = document.getElementById('sq-gear-slots-table');
+      if (slotsTable) {
+        slotsTable.innerHTML = ['head', 'hand', 'back', 'pet'].map(sk => {
+          const item = eq[sk] ? GEAR_BY_ID[eq[sk]] : null;
+          return '<div class="sq-gear-slot-row"><span>' + SLOT_ICONS[sk] + ' ' + SLOT_LABELS[sk] + '</span><strong>' + (item ? item.name : '—') + '</strong></div>';
+        }).join('');
+      }
+
+      const tabsEl = document.getElementById('sq-gear-role-tabs');
+      if (tabsEl) {
+        tabsEl.innerHTML = HERO_ROLES.map(r => {
+          const cnt = GEAR_ITEMS.filter(g => g.role === r.id && gearState.unlocked.includes(g.id)).length;
+          const isCur = r.id === gearState.heroRole;
+          const isView = r.id === viewingRole;
+          return '<button type="button" class="sq-gear-rtab ' + (isView ? 'is-active' : '') + '" data-vrole="' + r.id + '">' +
+            '<span>' + (isCur ? '★ ' : '') + r.name + '</span>' +
+            '<small>' + cnt + '/8' + (isCur ? '・目前角色' : '') + '</small>' +
+          '</button>';
+        }).join('');
+        tabsEl.querySelectorAll('[data-vrole]').forEach(b => {
+          b.addEventListener('click', () => {
+            viewingRole = b.dataset.vrole;
+            renderWardrobe();
+          });
+        });
+      }
+
+      const switchBar = document.getElementById('sq-gear-switch-bar');
+      const switchTxt = document.getElementById('sq-gear-switch-txt');
+      if (switchBar && switchTxt) {
+        if (viewingRole !== gearState.heroRole) {
+          switchBar.hidden = false;
+          switchTxt.textContent = '目前地圖主角是「' + HERO_BY_ID[gearState.heroRole].name + '」，要切換扮演「' + hr.name + '」嗎？';
+        } else {
+          switchBar.hidden = true;
+        }
+      }
+
+      const listEl = document.getElementById('sq-gear-list');
+      if (listEl) {
+        const items = GEAR_ITEMS.filter(g => g.role === viewingRole);
+        listEl.innerHTML = items.map(item => {
+          const owned = gearState.unlocked.includes(item.id);
+          const isEq = eq[item.slot] === item.id;
+          const isNew = gearState.newlyUnlocked.includes(item.id);
+          const rCls = item.rarity === 'legend' ? 'is-legend' : item.rarity === 'rare' ? 'is-rare' : 'is-common';
+          if (!owned) {
+            return '<div class="sq-gear-item-card is-locked">' +
+              '<div class="sq-gear-thumb-box"><div class="sq-gear-locked-ic">?</div></div>' +
+              '<span class="sq-rarity-pill ' + rCls + '">' + RARITY_LABEL[item.rarity] + '・' + SLOT_LABELS[item.slot] + '</span>' +
+              '<div class="sq-gear-item-name">？？？</div>' +
+              '<p class="sq-gear-item-desc">還沒有找到。說不定下一題答對，或打開地圖上的神秘寶箱就出現了！</p>' +
+              '<div style="font-size:12px;color:#64748b;font-weight:700;">尚未取得</div>' +
+            '</div>';
+          }
+          const thumbUrl = getGearThumb(item.id);
+          return '<div class="sq-gear-item-card ' + (isEq ? 'is-equipped' : '') + '">' +
+            '<div class="sq-gear-badges">' +
+              (isNew ? '<span class="sq-gear-new">NEW</span>' : '<span></span>') +
+              (isEq ? '<span class="sq-gear-eqpill">穿戴中</span>' : '') +
+            '</div>' +
+            '<div class="sq-gear-thumb-box">' + (thumbUrl ? '<img class="sq-gear-thumb" src="' + thumbUrl + '" alt="' + item.name + '">' : '') + '</div>' +
+            '<span class="sq-rarity-pill ' + rCls + '">' + RARITY_LABEL[item.rarity] + '・' + SLOT_LABELS[item.slot] + '</span>' +
+            '<div class="sq-gear-item-name">' + item.name + '</div>' +
+            '<p class="sq-gear-item-desc">' + item.desc + '</p>' +
+            '<button type="button" class="sq-gear-item-btn ' + (isEq ? 'is-unequip' : '') + '" data-eq-id="' + item.id + '">' + (isEq ? '卸下' : '穿戴') + '</button>' +
+          '</div>';
+        }).join('');
+
+        listEl.querySelectorAll('[data-eq-id]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.eqId;
+            const item = GEAR_BY_ID[id];
+            if (!item) return;
+            const roleEq = gearState.equipped[item.role];
+            roleEq[item.slot] = (roleEq[item.slot] === id) ? null : id;
+            gearState.newlyUnlocked = gearState.newlyUnlocked.filter(x => x !== id);
+            if (gearState.heroRole !== item.role && roleEq[item.slot] === id) {
+              gearState.heroRole = item.role;
+            }
+            saveGearState();
+            applyGearToMapProtagonist();
+            renderWardrobe();
+          });
+        });
+      }
+      startStageLoop();
+    }
+
+    document.getElementById('sq-gear-use-role-btn')?.addEventListener('click', () => {
+      gearState.heroRole = viewingRole;
+      saveGearState();
+      syncHeroCardsUI();
+      applyGearToMapProtagonist();
+      renderWardrobe();
+      showToast('🎭 已切換扮演「' + HERO_BY_ID[viewingRole].name + '」！');
+    });
+
+    document.getElementById('sq-btn-gear')?.addEventListener('click', () => {
+      viewingRole = gearState.heroRole;
+      renderWardrobe();
+      if (gearDlg && !gearDlg.open) gearDlg.showModal();
+    });
+
+    // ====== 掉落與雙重保底引擎 ======
+    const lootDlg = document.getElementById('sq-loot-dialog');
+    let lastLootId = null;
+
+    function tryAwardGear(source, suppressModal = false) {
+      const pool = GEAR_ITEMS.filter(g => !gearState.unlocked.includes(g.id));
+      if (pool.length === 0) return null;
+
+      const stampedCount = (DATA.quests || []).filter(q => state.stamps[q.id]).length;
+      const clearedTotal = Object.keys(state.clearedItems || {}).filter(k => state.clearedItems[k]).length;
+      const hasLegend = gearState.unlocked.some(id => GEAR_BY_ID[id]?.rarity === 'legend');
+
+      let candidates = pool;
+      let pityReason = '';
+      if ((stampedCount >= 5 || clearedTotal >= 15) && !hasLegend && pool.some(g => g.rarity === 'legend')) {
+        candidates = pool.filter(g => g.rarity === 'legend');
+        pityReason = '🏆 集章里程碑・必出傳說裝備保底！';
+      } else if ((gearState.pitySinceRare || 0) >= 2 && pool.some(g => g.rarity !== 'common')) {
+        candidates = pool.filter(g => g.rarity !== 'common');
+        pityReason = '✨ 連抽保底機制・必出稀有以上！';
+      }
+
+      // 加權抽取（稍微偏向目前扮演角色）
+      const weighted = candidates.map(g => {
+        let w = g.rarity === 'legend' ? 14 : g.rarity === 'rare' ? 30 : 56;
+        if (g.role === gearState.heroRole) w *= 1.5;
+        return { g, w };
+      });
+      const totalW = weighted.reduce((s, x) => s + x.w, 0);
+      let roll = Math.random() * totalW;
+      let picked = weighted[0].g;
+      for (const x of weighted) {
+        roll -= x.w;
+        if (roll <= 0) { picked = x.g; break; }
+      }
+
+      gearState.unlocked.push(picked.id);
+      if (!gearState.newlyUnlocked.includes(picked.id)) gearState.newlyUnlocked.push(picked.id);
+      gearState.pitySinceRare = picked.rarity === 'common' ? (gearState.pitySinceRare || 0) + 1 : 0;
+      saveGearState();
+
+      if (suppressModal) {
+        showToast('🎁 同時獲得裝備【' + picked.name + '】，可至裝備櫃穿戴！');
+        return picked;
+      }
+
+      lastLootId = picked.id;
+      const thumbUrl = getGearThumb(picked.id);
+      const rCls = picked.rarity === 'legend' ? 'is-legend' : picked.rarity === 'rare' ? 'is-rare' : 'is-common';
+      const kickerEl = document.getElementById('sq-loot-kicker');
+      const titleEl = document.getElementById('sq-loot-title');
+      const bodyEl = document.getElementById('sq-loot-body');
+      if (kickerEl) kickerEl.textContent = source === 'chest' ? 'MYSTERY CHEST' : 'QUEST REWARD';
+      if (titleEl) titleEl.textContent = source === 'chest' ? '💎 開啟神秘寶箱！' : '🎁 闖關驚喜掉落！';
+      if (bodyEl) {
+        bodyEl.innerHTML =
+          (pityReason ? '<div class="sq-loot-pity-note">' + pityReason + '</div>' : '') +
+          '<div class="sq-gear-thumb-box" style="height:110px;">' + (thumbUrl ? '<img class="sq-gear-thumb" style="width:105px;height:105px;" src="' + thumbUrl + '" alt="' + picked.name + '">' : '') + '</div>' +
+          '<div><span class="sq-rarity-pill ' + rCls + '">' + RARITY_LABEL[picked.rarity] + '・' + SLOT_LABELS[picked.slot] + '</span></div>' +
+          '<div style="font-size:18px;font-weight:900;color:#0f172a;margin:6px 0 4px;">' + picked.name + '</div>' +
+          '<div style="font-size:12px;color:#0369a1;font-weight:800;margin-bottom:6px;">專屬角色：' + HERO_BY_ID[picked.role].name + '</div>' +
+          '<p style="font-size:13px;color:#475569;line-height:1.5;margin:0;">' + picked.desc + '</p>';
+      }
+      soundEngine.playSfx('step', 4);
+      if (lootDlg && !lootDlg.open) lootDlg.showModal();
+      return picked;
+    }
+
+    document.getElementById('sq-loot-equip-btn')?.addEventListener('click', () => {
+      if (lastLootId && GEAR_BY_ID[lastLootId]) {
+        const it = GEAR_BY_ID[lastLootId];
+        gearState.heroRole = it.role;
+        gearState.equipped[it.role][it.slot] = it.id;
+        gearState.newlyUnlocked = gearState.newlyUnlocked.filter(x => x !== it.id);
+        saveGearState();
+        syncHeroCardsUI();
+        applyGearToMapProtagonist();
+        showToast('✨ 已為「' + HERO_BY_ID[it.role].name + '」穿戴【' + it.name + '】！');
+      }
+      if (lootDlg?.open) lootDlg.close();
+    });
+
+    document.getElementById('sq-loot-open-wardrobe')?.addEventListener('click', () => {
+      if (lootDlg?.open) lootDlg.close();
+      viewingRole = lastLootId && GEAR_BY_ID[lastLootId] ? GEAR_BY_ID[lastLootId].role : gearState.heroRole;
+      renderWardrobe();
+      if (gearDlg && !gearDlg.open) gearDlg.showModal();
+    });
+
+    window.__sqOnBuildingCleared = (_itemId, suppressModal) => {
+      tryAwardGear('quest', suppressModal);
+    };
+    window.__sqResetChests = () => {
+      gearState.openedChests = [];
+      saveGearState();
+      refreshChestVisibility();
+    };
+
+    // ====== 地圖 3D 神秘寶箱（6 座島嶼各 1 座） ======
+    const chestEntries = [];
+    const CHEST_OFFSETS = [
+      [0.88, 0.56], [-0.88, 0.58], [0.92, -0.42],
+      [-0.90, -0.45], [0.45, 0.96], [-0.48, 0.94]
+    ];
+
+    function refreshChestVisibility() {
+      const allCollected = gearState.unlocked.length >= GEAR_ITEMS.length;
+      if (!allCollected && gearState.openedChests.length >= chestEntries.length && chestEntries.length > 0) {
+        gearState.openedChests = [];
+        saveGearState();
+      }
+      chestEntries.forEach(c => {
+        c.group.visible = !allCollected && !gearState.openedChests.includes(c.islId);
+      });
+      if (ctx.markDirty) ctx.markDirty();
+    }
+
+    function initMysteryChests() {
+      if (!ctx.scene || !ctx.islands || chestEntries.length > 0) return;
+      const baseY = typeof TOP !== 'undefined' ? TOP : (ctx.traveler?.pos?.y ?? 0.22);
+      ctx.islands.forEach((isl, idx) => {
+        const [ox, oz] = CHEST_OFFSETS[idx % CHEST_OFFSETS.length];
+        const cg = new THREE.Group();
+        cg.position.set(isl.center.x + ox, baseY + 0.01, isl.center.z + oz);
+        cg.rotation.y = Math.atan2(-ox, -oz);
+
+        // 寶箱木盒＋金邊＋鎖扣
+        addPart(cg, new THREE.BoxGeometry(0.24, 0.14, 0.17), stdM(0x92400e), [0, 0.07, 0]);
+        addPart(cg, new THREE.BoxGeometry(0.255, 0.055, 0.185), stdM(0xb45309), [0, 0.155, 0]);
+        addPart(cg, new THREE.BoxGeometry(0.262, 0.02, 0.19), stdM(0xf59e0b, { metalness: 0.65, roughness: 0.25 }), [0, 0.13, 0]);
+        addPart(cg, new THREE.BoxGeometry(0.036, 0.045, 0.02), stdM(0xfde047, { emissive: 0xf59e0b, emissiveIntensity: 0.4 }), [0, 0.125, 0.095]);
+
+        // 漂浮發光星芒（提示可點擊）
+        const gem = addPart(cg, new THREE.OctahedronGeometry(0.075, 0), stdM(0x38bdf8, { emissive: 0x0284c7, emissiveIntensity: 0.8 }), [0, 0.34, 0]);
+        gem.userData.chestGem = true;
+
+        ctx.scene.add(cg);
+        chestEntries.push({ islId: isl.id, group: cg, gem });
+      });
+
+      const ray = new THREE.Raycaster();
+      const ndc = new THREE.Vector2();
+      const hitV = new THREE.Vector3();
+      let downX = 0, downY = 0;
+      const chestCanvas = document.querySelector('#app canvas') || document.getElementById('c') || mainCanvas;
+      chestCanvas?.addEventListener('pointerdown', (e) => { downX = e.clientX; downY = e.clientY; }, { passive: true });
+      chestCanvas?.addEventListener('pointerup', (e) => {
+        if (Math.hypot(e.clientX - downX, e.clientY - downY) > 10 || !ctx.camera) return;
+        const rect = chestCanvas.getBoundingClientRect();
+        ndc.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        ndc.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        ray.setFromCamera(ndc, ctx.camera);
+        for (const c of chestEntries) {
+          if (!c.group.visible) continue;
+          hitV.copy(c.group.position);
+          hitV.y += 0.18;
+          if (ray.ray.distanceSqToPoint(hitV) < 0.28 * 0.28) {
+            if (!gearState.openedChests.includes(c.islId)) {
+              gearState.openedChests.push(c.islId);
+              saveGearState();
+              refreshChestVisibility();
+              tryAwardGear('chest');
+            }
+            return;
+          }
+        }
+      });
+
+      refreshChestVisibility();
+    }
+
+    if (ctx.onFrame) {
+      ctx.onFrame.push(() => {
+        const tSec = performance.now() * 0.001;
+        if (mapRigGroup) animateGearSubtree(mapRigGroup, tSec);
+        chestEntries.forEach((c, i) => {
+          if (c.group.visible && c.gem) {
+            c.gem.rotation.y = tSec * 2.2 + i;
+            c.gem.position.y = 0.34 + Math.sin(tSec * 3.0 + i) * 0.04;
+          }
+        });
+      });
+    }
+
+    saveGearState();
+    applyGearToMapProtagonist();
+    initMysteryChests();
+    if (ctx.on) {
+      ctx.on('ready', () => {
+        applyGearToMapProtagonist();
+        initMysteryChests();
+      });
+    }
+  }
 
   // 首次進入島嶼時自動彈出「運動員註冊卡」
   if (!state.registered) {
