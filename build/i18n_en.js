@@ -172,9 +172,9 @@ function applyEnglishData(sqData) {
     },
     q_knowledge: {
       powerEn: 'Knowledge Power',
-      landmarkNameEn: 'Hula-Hoop & Barrel Obstacle Zone',
+      landmarkNameEn: 'Every Grain Counts / G3–4 Pair Track',
       titleEn: '[Knowledge Power Trial] Fun-Race Strategy Master',
-      clueEn: 'Head west to 05 Fun Games Isle and check the Hula-Hoop & Barrel Obstacle Zone or Tigger & Family Photo Corner!',
+      clueEn: 'Head west to 05 Fun Sprout Park or northeast to 07 Smart Fun Arena and tap any fun-race landmark!',
       questionEn: 'During the 09:30–10:40 Knowledge Power fun races, what are the events for Grade 3 and Grade 6?',
       optionsEn: [
         'G3: Towel-Ball Relay; G6: Hula-Hoop Ironman',
@@ -1007,8 +1007,9 @@ function applyEnglishData(sqData) {
 
   const FLOW_NOTES_EN = {
     f01: 'After the 08:35 Opening & Honors, Coubertin guides everyone to 02 Arts Stage for the 08:55 Six-Grade Dance Extravaganza.',
-    f02: 'Warmed up from 09:25 Banana Boogie, Bruce Lee leads the prop crew west to 05 Fun Games Isle for 09:30 Fun Races!',
-    f03: 'Following 10:40 Family Ring-Power Sprint, Michael Jordan escorts G1–2 sprinters onto the purple track for 11:00 50m races!',
+    f02: 'Warmed up from 09:25 Banana Boogie, Bruce Lee leads the prop crew west to 05 Fun Sprout Park for Preschool, Lower-Grade & Family Fun Races!',
+    f07: 'From 09:40 to 10:15, Michael Jordan connects 05 Fun Sprout Park to 07 Smart Fun Arena for the four G3–G6 Fun-Race challenges!',
+    f03: 'Following the fun races, Michael Jordan escorts runners onto 03 Sprint Track for the 11:00 purple-track sprints!',
     f04: 'With sprints complete, Chi Cheng leads G3–5 relay teams to 04 Relay Arena for the 11:20 Class Relay Finals!',
     f05: 'After the 12:00 Heritage Relay finish, Jesse Owens escorts relay pennants and medals to 06 Starlight Podium for 12:20 Closing!',
     f06: 'With all 5 stamps stamped, Yang Chuan-Kwang leads challengers back to 01 Grand Plaza to fire 3D fireworks & claim the Gold Certificate!'
@@ -1082,9 +1083,10 @@ function applyEnglishData(sqData) {
   const TOUR_EN = [
     'Stop 1 [01 Grand Plaza]: 08:15 Athletes March-In followed by Principal Hsu Ya-Hui’s Opening Ceremony and volunteer honors (Moral Power).',
     'Stop 2 [02 Arts Stage]: Watch Miki Street Dance, Taekwondo, Parasol Dance, all six grade dances, and Preschool Banana Boogie (Aesthetic Power).',
-    'Stop 3 [05 Fun Games Isle]: 09:30–10:40 Eight energetic fun races from String-a-Chain and Towel-Ball to Hula-Hoop Ironman (Knowledge Power).',
-    'Stop 4 [03 Sprint Track]: Step onto the 6-lane purple track (50m/60m/100m/200m) for G3–6 sprint champions and 11:00 G1–2 50m runs (Physical Power).',
-    'Stop 5 [04 Relay Arena]: 11:20 G3–5 Class Relay Finals and the 12:00 Heritage Relay uniting alumni, staff, parents & students (Team Power).',
+    'Stop 3 [05 Fun Sprout Park]: Preschool String-a-Chain, G2 Every Grain Counts (22/class, 10m ball & frisbee), G1 Bouncing Tiggers & 10:40 Family Ring Sprint (Knowledge Power).',
+    'Stop 4 [07 Smart Fun Arena]: 09:40–10:15 Grades 3–6 Fun Races—Towel-Ball Relay, Three-Can Link, Da-Chuang Leap Forward & Hula-Hoop Ironman with full rules & +5s penalties (Knowledge Power).',
+    'Stop 5 [03 Sprint Track]: Step onto the 6-lane purple track (50m/60m/100m/200m) for G3–6 sprint champions and 11:00 G1–2 50m runs (Physical Power).',
+    'Stop 6 [04 Relay Arena]: 11:20 G3–5 Class Relay Finals and the 12:00 Heritage Relay uniting alumni, staff, parents & students (Team Power).',
     'Final Stop [06 Starlight Podium]: Gather all 5 stamps, launch 3D Victory Fireworks at the Cauldron, and claim your Gold Certificate!'
   ];
   if (Array.isArray(sqData.tour)) {
@@ -1197,8 +1199,12 @@ function applyEnglishData(sqData) {
       summaryEn: 'With 8 girls running Legs 1–8 and 8 boys running Legs 9–16, middle grades break at Leg 3 and Grade 5 breaks at Leg 2 in an electrifying battle for pennants!'
     },
     n10: {
-      titleEn: '[Fun Races Extravaganza] Eight Knowledge-Power Lawn Games kick off at 09:30 for Preschool through Families!',
-      summaryEn: 'String-a-Chain, Bouncing Tiggers, Every Grain Counts, Towel-Ball, Linked Can-Chain, Da-Chuang Leap, Hula-Hoop Ironman & Ring-Power Sprint bring laughter for all!'
+      titleEn: '[Lower Grades & Family Fun Races] Preschool String-a-Chain, G2 Every Grain Counts, G1 Tiggers & Family Ring Sprint!',
+      summaryEn: 'Fun Sprout Park unites preschoolers, Grades 1–2, and parents—including G2’s 22-runner 10m ball-and-frisbee relay testing hand-eye agility!'
+    },
+    n13: {
+      titleEn: '[G3–G6 Fun-Race Rulebook Live] Full rules, equipment & field diagrams for Smart Fun Arena!',
+      summaryEn: 'Smart Fun Arena covers G3 Towel-Ball Relay, G4 Three-Can Link, G5 Da-Chuang Leap (5m mats) & G6 Hula-Hoop Ironman (10m A↔B). Tap "🎪 Fun Races" to view +5s penalties & SVG layouts!'
     },
     n11: {
       titleEn: '[Six-Grade Dance Showcase] From Radiant Fans to Banana Boogie, all grades light up the stage from 08:55!',
