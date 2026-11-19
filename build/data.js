@@ -1323,6 +1323,16 @@ module.exports = {
         "9"
       ],
       "periods": "11/25 六年級完賽｜當日 10:50 幼兒、11:20–11:40 三至五年級、12:00 庄情薪傳",
+      "gradePeriods": {
+        "7": "10:50 幼兒親子大隊接力｜12:00 庄情薪傳接力賽",
+        "8": "11:20 三年級大隊接力決賽（半圈）｜11:30 四年級大隊接力決賽（半圈）｜12:00 庄情薪傳接力賽",
+        "9": "11/25 六年級大隊接力決賽（已完賽）｜11:40 五年級大隊接力決賽（全圈）｜12:00 庄情薪傳接力賽"
+      },
+      "gradePeriodsEn": {
+        "7": "10:50 Preschool Family Relay｜12:00 Heritage Relay",
+        "8": "11:20 G3 Class Relay (Half-Lap)｜11:30 G4 Class Relay (Half-Lap)｜12:00 Heritage Relay",
+        "9": "11/25 G6 Class Relay (Completed)｜11:40 G5 Class Relay (Full-Lap)｜12:00 Heritage Relay"
+      },
       "vision": "gratitude",
       "win": "I",
       "q": -1,

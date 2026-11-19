@@ -277,7 +277,11 @@ rep("tr('島與島的故事是讓地圖生動的故事設定；實線＝課程�
 rep("tr(g + '年級一覽', 'Grade ' + num + ' at a glance')", "tr(g + '年級賽程與闖關一覽', ({ '7': 'Lower Grades (G1–2)', '8': 'Middle Grades (G3–4)', '9': 'Upper Grades (G5–6)' }[num] || 'Grade ' + num) + ' Schedule')");
 rep("tr(gZh(k) + '年級', 'G' + k)", "tr(gZh(k) + '年級', ({ '7': 'G1–2', '8': 'G3–4', '9': 'G5–6' }[k] || 'G' + k))");
 rep("<thead><tr><th scope=\"col\">${tr('課名', 'Course')}</th><th scope=\"col\">${tr('節數', 'Periods')}</th><th scope=\"col\">${tr('評量摘要', 'Assessment')}</th></tr></thead>", "<thead><tr><th scope=\"col\">${tr('賽場島嶼', 'Arena Isle')}</th><th scope=\"col\">${tr('登場時段', 'Schedule')}</th><th scope=\"col\">${tr('五力闖關任務', 'Quest Task')}</th></tr></thead>");
-rep("<span>${tr('年度活動', 'Yearly events')}</span>", "<span>${tr('典禮與接力賽區', 'Ceremony & Relay')}</span>");
+rep(
+  "const cs = ctx.islands.filter(i => i.data.kind !== 'event' && inG(i)), es = ctx.islands.filter(i => i.data.kind === 'event' && inG(i));",
+  "const cs = ctx.islands.filter(i => (i.data.kind !== 'event' || i.data.id === 's04') && inG(i)), es = ctx.islands.filter(i => i.data.kind === 'event' && i.data.id !== 's04' && inG(i));"
+);
+rep("<span>${tr('年度活動', 'Yearly events')}</span>", "<span>${tr('校慶盛典賽區', 'Ceremony Isles')}</span>");
 rep("tr('每週節數怎麼排', 'HOW THE WEEK IS SPLIT')", "tr('本年段參賽與表演時程重點', 'SCHEDULE HIGHLIGHTS')");
 rep(
   `const story = gs ? \`<div class="ui-gstory"><b>\${uiEsc(L(gs, 'title') || '')}</b><p>\${uiEsc(LANG === 'en' ? gs.en || gs.zh : gs.zh)}</p></div>\` : '';`,

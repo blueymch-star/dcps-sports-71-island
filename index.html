@@ -6431,6 +6431,16 @@ const DATA = {
         "9"
       ],
       "periods": "11/25 六年級完賽｜當日 10:50 幼兒、11:20–11:40 三至五年級、12:00 庄情薪傳",
+      "gradePeriods": {
+        "7": "10:50 幼兒親子大隊接力｜12:00 庄情薪傳接力賽",
+        "8": "11:20 三年級大隊接力決賽（半圈）｜11:30 四年級大隊接力決賽（半圈）｜12:00 庄情薪傳接力賽",
+        "9": "11/25 六年級大隊接力決賽（已完賽）｜11:40 五年級大隊接力決賽（全圈）｜12:00 庄情薪傳接力賽"
+      },
+      "gradePeriodsEn": {
+        "7": "10:50 Preschool Family Relay｜12:00 Heritage Relay",
+        "8": "11:20 G3 Class Relay (Half-Lap)｜11:30 G4 Class Relay (Half-Lap)｜12:00 Heritage Relay",
+        "9": "11/25 G6 Class Relay (Completed)｜11:40 G5 Class Relay (Full-Lap)｜12:00 Heritage Relay"
+      },
       "vision": "gratitude",
       "win": "I",
       "q": -1,
@@ -21506,7 +21516,7 @@ function initUI(ctx) {
     const gs = DATA.gradeStory && DATA.gradeStory[num];
     const gg = DATA.gradeGuide && (DATA.gradeGuide[num] || DATA.gradeGuide[g]);
     const inG = i => uiGradeNums(i.data).includes(num);
-    const cs = ctx.islands.filter(i => i.data.kind !== 'event' && inG(i)), es = ctx.islands.filter(i => i.data.kind === 'event' && inG(i));
+    const cs = ctx.islands.filter(i => (i.data.kind !== 'event' || i.data.id === 's04') && inG(i)), es = ctx.islands.filter(i => i.data.kind === 'event' && i.data.id !== 's04' && inG(i));
     const gc = ctx.gradeColors;
     const legend = gc ? `<div class="ui-glegend" aria-label="${uiEsc(tr('地圖年級色', 'Grade colors on the map'))}">${['7', '8', '9', 'all'].filter(k => gc[k]).map(k => `<span class="${k === num ? 'is-cur' : ''}"><i style="background:${uiEsc(gc[k])}"></i>${k === 'all' ? tr('全校', 'All') : tr(gZh(k) + '年級', ({ '7': 'G1–2', '8': 'G3–4', '9': 'G5–6' }[k] || 'G' + k))}</span>`).join('')}</div>` : '';
     const gsTitle = (gs && L(gs, 'title')) || '';
@@ -21528,7 +21538,7 @@ function initUI(ctx) {
       return `<tr><th scope="row">${isl(d)}${pTag}</th><td>${times || uiEsc(schedStr)}</td><td>${a ? uiEsc(uiFirstSentence(a, 40)) : '<span class="ui-muted">—</span>'}</td></tr>`;
     }).join('');
     const table = cs.length ? `<table class="ui-gtable"><caption class="ui-sr">${uiEsc(ttl)}</caption><thead><tr><th scope="col">${tr('賽場島嶼', 'Arena Isle')}</th><th scope="col">${tr('登場時段', 'Schedule')}</th><th scope="col">${tr('五力闖關任務', 'Quest Task')}</th></tr></thead><tbody>${rows}</tbody></table>` : '';
-    const ev = es.length ? `<div class="ui-gt-ev"><span>${tr('典禮與接力賽區', 'Ceremony & Relay')}</span>${es.map(i => isl(i.data)).join('')}</div>` : '';
+    const ev = es.length ? `<div class="ui-gt-ev"><span>${tr('校慶盛典賽區', 'Ceremony Isles')}</span>${es.map(i => isl(i.data)).join('')}</div>` : '';
     const note = gg ? `<details class="ui-fold ui-gnote"><summary><span class="ui-eyebrow">${tr('本年段參賽與表演時程重點', 'SCHEDULE HIGHLIGHTS')}</span></summary><p>${uiEsc(LANG === 'en' ? gg.en || gg.zh : gg.zh)}</p></details>` : '';
     return `<section class="ui-gcard" aria-label="${uiEsc(ttl)}"><h3>${uiEsc(ttl)}</h3>${story}${table}${ev}${legend}${note}</section>`;
   }
