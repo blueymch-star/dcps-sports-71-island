@@ -72,7 +72,7 @@ const knownModels = [
   'podium', 'lectern', 'parade', 'kiln', 'archery', 'teeball', 'mullet', 'smartclass', 'tennis',
   // 本專案新增客製 3D 模型
   'torch_altar', 'fan_ribbon', 'bulletin', 'baton_relay', 'stand', 'hula_barrel', 'mascot_corner',
-  'podium_award', 'trophy_cup', 'calendar_kiosk'
+  'podium_award', 'trophy_cup', 'calendar_kiosk', 'pair_relay', 'leap_hoop', 'referee_timer'
 ];
 
 const islandIds = new Set(DATA.islands.map(d => d.id));
@@ -107,7 +107,7 @@ rep('function kitModel(name) {', modelsCode + '\nfunction kitModel(name) {');
 rep('track: kitMTrack,', 'track: kitMPurpleTrack,');
 rep(
   'smartclass: kitMSmartclass, tennis: kitMTennis',
-  'smartclass: kitMSmartclass, tennis: kitMTennis,\n    torch_altar: kitMTorchAltar, fan_ribbon: kitMFanRibbon, bulletin: kitMBulletin, baton_relay: kitMBatonRelay, stand: kitMStand, hula_barrel: kitMHulaBarrel, mascot_corner: kitMMascotCorner, podium_award: kitMPodiumAward, trophy_cup: kitMTrophyCup, calendar_kiosk: kitMCalendarKiosk'
+  'smartclass: kitMSmartclass, tennis: kitMTennis,\n    torch_altar: kitMTorchAltar, fan_ribbon: kitMFanRibbon, bulletin: kitMBulletin, baton_relay: kitMBatonRelay, stand: kitMStand, hula_barrel: kitMHulaBarrel, mascot_corner: kitMMascotCorner, podium_award: kitMPodiumAward, trophy_cup: kitMTrophyCup, calendar_kiosk: kitMCalendarKiosk, pair_relay: kitMPairRelay, leap_hoop: kitMLeapHoop, referee_timer: kitMRefereeTimer'
 );
 
 // ---- 4. 更新標題、Meta 與預設導覽順序 ----

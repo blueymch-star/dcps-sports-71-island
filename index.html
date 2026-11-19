@@ -7317,7 +7317,7 @@ const DATA = {
       "items": [
         {
           "id": "s07i1",
-          "model": "hula_barrel",
+          "model": "pair_relay",
           "name": "三四雙人默契道",
           "desc": "三年級《「巾」球運送》（兩人拉毛巾四角抬排球 10m 折返，手不碰球）與四年級《罐罐相連》（兩人握外側易開罐夾住中間罐 10m 折返）雙人默契賽道！",
           "facts": [
@@ -7377,7 +7377,7 @@ const DATA = {
         },
         {
           "id": "s07i2",
-          "model": "tent",
+          "model": "leap_hoop",
           "name": "五六技巧躍進道",
           "desc": "五年級《大庄躍進》（5 公尺折返，雙腳踩兩塊巧拼平衡前進不落地）與六年級《呼拉圈小鐵人》（A↔B 邊相距 10 公尺雙向接力，手拿呼拉圈繞圈跳繩過全身）挑戰區！",
           "facts": [
@@ -7428,7 +7428,7 @@ const DATA = {
         },
         {
           "id": "s07i3",
-          "model": "calendar_kiosk",
+          "model": "referee_timer",
           "name": "趣味規程與裁判計時亭",
           "desc": "趣味競賽大會裁判與計時資訊中心！收錄二至六年級完整規程、5 秒違規罰則一覽、各班碼表／號碼衣配發與場地動線圖解。",
           "facts": [
@@ -18624,6 +18624,88 @@ function kitMCalendarKiosk(p, o) {
   p.spill(0, 0, 0.6, 0.6, G + 0.02, 0.8);
 }
 
+// 12. pair_relay：三四雙人默契道（三年級「巾」球運送＋四年級罐罐相連）
+function kitMPairRelay(p, o) {
+  const G = kitG, C = kitC, S = sqC;
+  p.rbox(0, 0, 0, 1, G, 1, '#e0f2fe');
+  // 10m 雙道折返跑道與起點／預備線
+  p.box(0, G + 0.006, 0, 0.86, 0.012, 0.68, '#bae6fd');
+  p.box(-0.34, G + 0.014, 0, 0.014, 0.004, 0.64, '#64748b');
+  p.box(-0.22, G + 0.014, 0, 0.018, 0.004, 0.64, S.pureWhite);
+  // 遠端折返交通錐
+  for (const dz of [-0.18, 0.18]) {
+    p.box(0.36, G + 0.018, dz, 0.09, 0.012, 0.09, S.flame1);
+    p.cone(0.36, G + 0.024, dz, 0.038, 0.12, S.flame1);
+    p.torus(0.36, G + 0.075, dz, 0.025, S.pureWhite, Math.PI / 2, 0, 0, 0.22);
+  }
+  // 上半道：三年級「巾」球運送（兩人拉藍色毛巾＋中央排球）
+  p.box(0.02, G + 0.13, -0.18, 0.18, 0.012, 0.12, S.seaBlue);
+  p.sph(0.02, G + 0.185, -0.18, 0.052, S.flame2);
+  kitMini(p, -0.09, G + 0.012, -0.18, S.seaBlue, { hat: 'cap' });
+  kitMini(p, 0.13, G + 0.012, -0.18, S.mintGreen, { hat: 'cap' });
+  // 下半道：四年級「罐罐相連」（兩人夾住三連易開罐）
+  const canCols = ['#ef4444', S.silver, '#ef4444'];
+  for (let i = 0; i < 3; i++) {
+    p.cyl(-0.05 + i * 0.065, G + 0.15, 0.18, 0.026, 0.06, canCols[i], 0, 0, Math.PI / 2);
+  }
+  kitMini(p, -0.12, G + 0.012, 0.18, S.purple1, { hat: 'cap' });
+  kitMini(p, 0.16, G + 0.012, 0.18, S.gold, { hat: 'cap' });
+  p.spill(0, 0, 0.72, 0.65, G + 0.02, 0.85);
+}
+
+// 13. leap_hoop：五六技巧躍進道（五年級大庄躍進巧拼＋六年級呼拉圈小鐵人）
+function kitMLeapHoop(p, o) {
+  const G = kitG, C = kitC, S = sqC;
+  p.rbox(0, 0, 0, 1, G, 1, '#dcfce7');
+  // 跑道底面與 A/B 起點線
+  p.box(0, G + 0.006, 0, 0.86, 0.012, 0.72, '#ecfeff');
+  p.box(-0.34, G + 0.014, 0, 0.016, 0.004, 0.66, S.seaBlue);
+  p.box(0.34, G + 0.014, 0, 0.016, 0.004, 0.66, S.seaBlue);
+  // 上半道：五年級「大庄躍進」彩色巧拼踏墊 + 平衡前進小選手 + 5m 交通錐
+  const matCols = ['#f43f5e', S.goldL, S.skyBlue, S.mintGreen];
+  for (let i = 0; i < 4; i++) {
+    p.rbox(-0.22 + i * 0.14, G + 0.018, -0.19 + (i % 2 ? 0.03 : -0.02), 0.1, 0.018, 0.1, matCols[i]);
+  }
+  kitMini(p, -0.08, G + 0.036, -0.16, S.mintGreen, { hat: 'cap' });
+  p.cone(0.32, G + 0.014, -0.18, 0.036, 0.11, S.flame1);
+  // 下半道：六年級「呼拉圈小鐵人」A↔B 雙向彩色呼拉圈與跳繩小鐵人
+  p.torus(-0.08, G + 0.15, 0.18, 0.11, '#ec4899', 0, 0.35, 0.25, 0.12);
+  p.torus(0.14, G + 0.16, 0.18, 0.11, S.gold, 0, -0.3, -0.2, 0.12);
+  kitMini(p, -0.08, G + 0.014, 0.18, S.seaBlue, { hat: 'cap' });
+  kitMini(p, 0.18, G + 0.014, 0.18, S.purple1, { hat: 'cap' });
+  p.spill(0, 0, 0.72, 0.68, G + 0.02, 0.85);
+}
+
+// 14. referee_timer：趣味規程與裁判計時亭（巨型立體碼錶＋裁判遮陽亭＋5秒計時牌）
+function kitMRefereeTimer(p, o) {
+  const G = kitG, C = kitC, S = sqC;
+  p.rbox(0, 0, 0, 1, G, 1, '#f0f9ff');
+  // 圓形裁判台階
+  p.cyl(0, G, 0, 0.38, 0.022, S.seaBlue);
+  p.cyl(0, G + 0.022, 0, 0.32, 0.018, S.pureWhite);
+  // 四根立柱與藍白遮陽亭頂
+  for (const [dx, dz] of [[-0.22, -0.18], [0.22, -0.18], [-0.22, 0.14], [0.22, 0.14]]) {
+    p.cyl(dx, G + 0.04, dz, 0.016, 0.32, S.silver);
+  }
+  p.box(0, G + 0.37, -0.02, 0.52, 0.035, 0.4, S.seaBlue);
+  p.box(0, G + 0.39, -0.02, 0.46, 0.02, 0.34, S.pureWhite);
+  // 亭頂巨型立體黃金碼錶
+  p.cyl(0, G + 0.54, -0.02, 0.13, 0.055, S.gold, Math.PI / 2, 0, 0);
+  p.cyl(0, G + 0.54, 0.012, 0.105, 0.01, S.pureWhite, Math.PI / 2, 0, 0);
+  p.box(0, G + 0.56, 0.02, 0.014, 0.075, 0.008, '#ef4444');
+  p.box(0.03, G + 0.54, 0.02, 0.06, 0.012, 0.008, '#0f172a');
+  p.cyl(0, G + 0.68, -0.02, 0.026, 0.04, S.goldL);
+  // 裁判桌與「+5s」警示立牌
+  p.box(0, G + 0.11, -0.02, 0.34, 0.03, 0.14, S.pureWhite);
+  p.box(-0.14, G + 0.04, -0.02, 0.024, 0.07, 0.12, S.seaBlue);
+  p.box(0.14, G + 0.04, -0.02, 0.024, 0.07, 0.12, S.seaBlue);
+  p.gbox(0.24, G + 0.15, 0.16, 0.12, 0.14, 0.016, S.goldL);
+  p.box(0.24, G + 0.04, 0.16, 0.018, 0.08, 0.018, '#64748b');
+  // 裁判老師小人
+  kitMini(p, 0, G + 0.04, 0.18, S.seaBlue, { hat: 'cap' });
+  p.spill(0, 0, 0.68, 0.64, G + 0.02, 0.9);
+}
+
 function kitModel(name) {
   return ({
     academy: kitMAcademy, stall: kitMStall, busstop: kitMBusstop, pavilion: kitMPavilion, library: kitMLibrary, bigbook: kitMBigbook,
@@ -18633,7 +18715,7 @@ function kitModel(name) {
     newsroom: kitMNewsroom, windvane: kitMWindvane, flagpole: kitMFlagpole, podium: kitMPodium,
     lectern: kitMLectern, parade: kitMParade,
     kiln: kitMKiln, archery: kitMArchery, teeball: kitMTeeball, mullet: kitMMullet, smartclass: kitMSmartclass, tennis: kitMTennis,
-    torch_altar: kitMTorchAltar, fan_ribbon: kitMFanRibbon, bulletin: kitMBulletin, baton_relay: kitMBatonRelay, stand: kitMStand, hula_barrel: kitMHulaBarrel, mascot_corner: kitMMascotCorner, podium_award: kitMPodiumAward, trophy_cup: kitMTrophyCup, calendar_kiosk: kitMCalendarKiosk
+    torch_altar: kitMTorchAltar, fan_ribbon: kitMFanRibbon, bulletin: kitMBulletin, baton_relay: kitMBatonRelay, stand: kitMStand, hula_barrel: kitMHulaBarrel, mascot_corner: kitMMascotCorner, podium_award: kitMPodiumAward, trophy_cup: kitMTrophyCup, calendar_kiosk: kitMCalendarKiosk, pair_relay: kitMPairRelay, leap_hoop: kitMLeapHoop, referee_timer: kitMRefereeTimer
   })[name] || kitMHouse;
 }
 

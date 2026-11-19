@@ -1893,7 +1893,7 @@ module.exports = {
       "items": [
         {
           "id": "s07i1",
-          "model": "hula_barrel",
+          "model": "pair_relay",
           "name": "三四雙人默契道",
           "desc": "三年級《「巾」球運送》（兩人拉毛巾四角抬排球 10m 折返，手不碰球）與四年級《罐罐相連》（兩人握外側易開罐夾住中間罐 10m 折返）雙人默契賽道！",
           "facts": [
@@ -1928,7 +1928,7 @@ module.exports = {
         },
         {
           "id": "s07i2",
-          "model": "tent",
+          "model": "leap_hoop",
           "name": "五六技巧躍進道",
           "desc": "五年級《大庄躍進》（5 公尺折返，雙腳踩兩塊巧拼平衡前進不落地）與六年級《呼拉圈小鐵人》（A↔B 邊相距 10 公尺雙向接力，手拿呼拉圈繞圈跳繩過全身）挑戰區！",
           "facts": [
@@ -1959,7 +1959,7 @@ module.exports = {
         },
         {
           "id": "s07i3",
-          "model": "calendar_kiosk",
+          "model": "referee_timer",
           "name": "趣味規程與裁判計時亭",
           "desc": "趣味競賽大會裁判與計時資訊中心！收錄二至六年級完整規程、5 秒違規罰則一覽、各班碼表／號碼衣配發與場地動線圖解。",
           "facts": [
