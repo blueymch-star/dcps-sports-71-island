@@ -16019,7 +16019,7 @@ function initScene(ctx) {
   scene.fog = new THREE.Fog(0xf4eee3, 42, 150);
   const camera = new THREE.PerspectiveCamera(32, 1, 0.3, 320);
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true; controls.dampingFactor = 0.07; controls.enablePan = false;
+  controls.enableDamping = true; controls.dampingFactor = 0.07; controls.enablePan = true; controls.screenSpacePanning = false; controls.panSpeed = 0.85;
   const minPolar = 25 * Math.PI / 180;
   controls.minPolarAngle = minPolar; controls.maxPolarAngle = 70 * Math.PI / 180;
   controls.minDistance = 3; controls.maxDistance = 70;
@@ -24164,6 +24164,16 @@ function initSportsQuest(ctx) {
   }
 
   ctx.onFrame.push((dt) => {
+    if (ctx.controls && ctx.controls.target) {
+      const t = ctx.controls.target;
+      const cx = Math.max(-18, Math.min(18, t.x));
+      const cz = Math.max(-18, Math.min(18, t.z));
+      if (cx !== t.x || cz !== t.z) {
+        const dx = cx - t.x, dz = cz - t.z;
+        t.x = cx; t.z = cz;
+        if (ctx.camera) { ctx.camera.position.x += dx; ctx.camera.position.z += dz; }
+      }
+    }
     if (!fireworks.length) return;
     for (let i = fireworks.length - 1; i >= 0; i--) {
       const fw = fireworks[i];

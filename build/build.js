@@ -135,6 +135,10 @@ rep(
   'uShallow: { value: new THREE.Color(0x7dd3fc) }, uDeep: { value: new THREE.Color(0x0284c7) }'
 );
 
+rep(
+  'controls.enableDamping = true; controls.dampingFactor = 0.07; controls.enablePan = false;',
+  'controls.enableDamping = true; controls.dampingFactor = 0.07; controls.enablePan = true; controls.screenSpacePanning = false; controls.panSpeed = 0.85;'
+);
 // ---- 4b. 為 7 位台灣運動傳奇巨星設定專屬 3D 運動造型 (wkLook) ----
 rep(
   "coubertin: { style: 'suit', robe: '#36363e', tie: '#8a2f34', hair: '#3a2e28', mustache: 'handlebar', extra: 'torch' },",
@@ -5456,6 +5460,16 @@ function initSportsQuest(ctx) {
   }
 
   ctx.onFrame.push((dt) => {
+    if (ctx.controls && ctx.controls.target) {
+      const t = ctx.controls.target;
+      const cx = Math.max(-18, Math.min(18, t.x));
+      const cz = Math.max(-18, Math.min(18, t.z));
+      if (cx !== t.x || cz !== t.z) {
+        const dx = cx - t.x, dz = cz - t.z;
+        t.x = cx; t.z = cz;
+        if (ctx.camera) { ctx.camera.position.x += dx; ctx.camera.position.z += dz; }
+      }
+    }
     if (!fireworks.length) return;
     for (let i = fireworks.length - 1; i >= 0; i--) {
       const fw = fireworks[i];
