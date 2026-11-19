@@ -4968,7 +4968,7 @@ function initSportsQuest(ctx) {
     const modelsTbody = document.getElementById('sq-models-tbody');
     const modelRows = [];
     (DATA.islands || []).forEach(isl => {
-      const q = (DATA.quests || []).find(x => x.islandId === isl.id);
+      const q = (DATA.quests || []).find(x => x.islandId === isl.id || (isl.id === 's07' && x.id === 'q_knowledge'));
       const pName = q ? loc(q, 'power') : t('五力大圓滿', 'All Five Powers');
       isl.items.forEach(it => {
         const cleared = !!state.clearedItems[it.id];
@@ -5383,7 +5383,11 @@ function initSportsQuest(ctx) {
     document.getElementById('sq-pane-pre').hidden = tabName !== 'pre';
     document.getElementById('sq-pane-funraces').hidden = tabName !== 'funraces';
     document.getElementById('sq-pane-models').hidden = tabName !== 'models';
-    if (tabName === 'funraces') renderFunRaces();
+    if (tabName === 'funraces') {
+      renderFunRaces();
+    } else if (!document.getElementById('sq-prog-tbody')?.children.length) {
+      renderScheduleTables('ALL');
+    }
   }
 
   document.querySelectorAll('#sq-schedule-dialog .sq-tab').forEach(t => {
@@ -5403,6 +5407,7 @@ function initSportsQuest(ctx) {
   });
 
   document.getElementById('sq-btn-funraces')?.addEventListener('click', () => {
+    renderScheduleTables('ALL');
     renderFunRaces();
     switchSchedTab('funraces');
     if (!schedDlg.open) schedDlg.showModal();
