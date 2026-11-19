@@ -96,12 +96,13 @@ function applyEnglishData(sqData) {
   }
 
   const ROLE_EN = {
-    coubertin: ['Pierre de Coubertin (Olympic Founder)', 'Founder of the modern Olympic Games holding the ceremonial torch'],
-    brucelee: ['Bruce Lee (Martial & Rhythm Legend)', 'Iconic yellow-and-black tracksuit celebrating movement and martial rhythm'],
+    kuohc: ['Kuo Hsing-chun (Olympic Weightlifting Goddess)', 'Taiwan Olympic gold medalist & philanthropist holding the Sports Day torch for Moral Power'],
+    leeck: ['Lee Chih-kai (Prince of Pommel Horse)', 'Olympic gymnastics silver medalist celebrating rhythm, grace, and movement'],
     chicheng: ['Chi Cheng (The Flying Antelope)', 'Hsinchu-born track legend who set 50m/100m/200m world records'],
-    owens: ['Jesse Owens (4-Gold Relay Legend)', 'Olympic champion across 100m, 200m, and the 4x100m relay'],
-    jordan: ['Michael Jordan (Agility & Court Legend)', 'Iconic #23 jersey celebrating coordination, agility, and smart teamwork'],
+    chench: ['Chen Chieh-hsien (Team Taiwan Captain)', 'Premier12 champion captain & MVP symbolizing teamwork and cross-generation relay spirit'],
+    linyj: ['Lin Yun-ju (Table Tennis Prodigy)', 'Taiwan Olympic table tennis star known for sharp hand-eye agility and calm focus'],
     yangck: ['Yang Chuan-Kwang (Iron Man of Asia)', 'Taiwan Olympic decathlon icon symbolizing mastery of all Five Powers'],
+    taity: ['Tai Tzu-ying (Badminton World No. 1)', 'Taiwan badminton legend celebrated for clever strategy, deft footwork, and smart play'],
     student: ['Da-Chuang Athlete', 'Da-Chuang PE uniform'],
     teacher: ['Referee & Coach', 'Sports polo with clipboard and whistle'],
     parent: ['Cheering Parent', 'Enthusiastic sideline supporter'],
@@ -1006,12 +1007,12 @@ function applyEnglishData(sqData) {
   }
 
   const FLOW_NOTES_EN = {
-    f01: 'After the 08:35 Opening & Honors, Coubertin guides everyone to 02 Arts Stage for the 08:55 Six-Grade Dance Extravaganza.',
-    f02: 'Warmed up from 09:25 Banana Boogie, Bruce Lee leads the prop crew west to 05 Fun Sprout Park for Preschool, Lower-Grade & Family Fun Races!',
-    f07: 'From 09:40 to 10:15, Michael Jordan connects 05 Fun Sprout Park to 07 Smart Fun Arena for the four G3–G6 Fun-Race challenges!',
-    f03: 'Following the fun races, Michael Jordan escorts runners onto 03 Sprint Track for the 11:00 purple-track sprints!',
+    f01: 'After the 08:35 Opening & Honors, Kuo Hsing-chun guides everyone to 02 Arts Stage for the 08:55 Six-Grade Dance Extravaganza.',
+    f02: 'Warmed up from 09:25 Banana Boogie, Lee Chih-kai leads the prop crew west to 05 Fun Sprout Park for Preschool, Lower-Grade & Family Fun Races!',
+    f07: 'From 09:40 to 10:15, Lin Yun-ju connects 05 Fun Sprout Park to 07 Smart Fun Arena for the four G3–G6 Fun-Race challenges!',
+    f03: 'Following the fun races, Tai Tzu-ying escorts runners onto 03 Sprint Track for the 11:00 purple-track sprints!',
     f04: 'With sprints complete, Chi Cheng leads G3–5 relay teams to 04 Relay Arena for the 11:20 Class Relay Finals!',
-    f05: 'After the 12:00 Heritage Relay finish, Jesse Owens escorts relay pennants and medals to 06 Starlight Podium for 12:20 Closing!',
+    f05: 'After the 12:00 Heritage Relay finish, Chen Chieh-hsien escorts relay pennants and medals to 06 Starlight Podium for 12:20 Closing!',
     f06: 'With all 5 stamps stamped, Yang Chuan-Kwang leads challengers back to 01 Grand Plaza to fire 3D fireworks & claim the Gold Certificate!'
   };
   if (Array.isArray(sqData.flows)) {

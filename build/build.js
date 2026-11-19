@@ -135,15 +135,16 @@ rep(
   'uShallow: { value: new THREE.Color(0x7dd3fc) }, uDeep: { value: new THREE.Color(0x0284c7) }'
 );
 
-// ---- 4b. 為 6 位運動歷史傳奇巨星設定專屬 3D 運動造型 (wkLook) ----
+// ---- 4b. 為 7 位台灣運動傳奇巨星設定專屬 3D 運動造型 (wkLook) ----
 rep(
   "coubertin: { style: 'suit', robe: '#36363e', tie: '#8a2f34', hair: '#3a2e28', mustache: 'handlebar', extra: 'torch' },",
-  `coubertin: { style: 'suit', robe: '#0284c7', tie: '#f59e0b', hair: '#3a2e28', mustache: 'handlebar', extra: 'torch' },
-  brucelee: { style: 'uniform', robe: '#facc15', pants: '#1e293b', hair: '#111827', extra: 'bamboo' },
+  `kuohc: { style: 'uniform', robe: '#0284c7', pants: '#0f172a', hair: '#111827', extra: 'torch' },
+  leeck: { style: 'uniform', robe: '#facc15', pants: '#1e293b', hair: '#111827', extra: 'bamboo' },
   chicheng: { style: 'uniform', robe: '#dc2626', pants: '#1e3a8a', hat: 'cap', hair: '#1f2937', extra: 'clipboard' },
-  owens: { style: 'uniform', robe: '#f59e0b', pants: '#1e293b', hat: 'laurel', hair: '#111827', extra: 'torch' },
-  jordan: { style: 'uniform', robe: '#e11d48', pants: '#111827', hairStyle: 'bald', hair: '#111827', extra: 'blocks' },
-  yangck: { style: 'uniform', robe: '#0ea5e9', pants: '#0f172a', hat: 'laurel', hair: '#1f2937', extra: 'torch' },`
+  chench: { style: 'uniform', robe: '#10b981', pants: '#1e293b', hat: 'cap', hair: '#111827', extra: 'torch' },
+  linyj: { style: 'uniform', robe: '#e11d48', pants: '#111827', hair: '#111827', extra: 'blocks' },
+  yangck: { style: 'uniform', robe: '#0ea5e9', pants: '#0f172a', hat: 'laurel', hair: '#1f2937', extra: 'torch' },
+  taity: { style: 'uniform', robe: '#06b6d4', pants: '#0f172a', hair: '#111827', extra: 'blocks' },`
 );
 rep(
   "const wkWho = { student: ['同學', 'A student'], teacher: ['老師', 'A teacher'], parent: ['家長', 'A parent'], volunteer: ['志工', 'A volunteer'], scout: ['童軍', 'A scout'] };",
@@ -269,8 +270,8 @@ rep("a.k === 'intro' ? tr('關於大庄・學校簡介', 'About · The school') 
 rep("more in Campus news", "more in Highlights");
 rep("tr('這個條件下沒有課程。', 'No courses match.')", "tr('這個條件下沒有符合的賽區。', 'No arena isles match.')");
 rep("tr('這個年級沒有專屬的年度活動。', 'No yearly events for this grade.')", "tr('這個年級沒有專屬的典禮島。', 'No ceremony isles for this grade.')");
-rep("tr('低年級,高年級,陶藝,射箭,樂樂棒球,得獎', 'Grade 7,AI,club,reading,sports')", "tr('紫色跑道,大隊接力,趣味競賽,扇耀舞台,紀政,李小龍', 'Purple track,Relay,Fun games,Dance,Chi Cheng,Bruce Lee')");
-rep("tr('島與島的故事是讓地圖生動的故事設定；實線＝課程計畫寫明，其他是延伸連結。', 'Isle stories are a story layer; solid lines are written in the curriculum plan, others are further links.')", "tr('6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任各島島主，帶領大庄親師生在賽場間傳遞聖火與賽事裝備！', 'Six sports legends lead Da-Chuang athletes and families across the six Sports Day arenas.')");
+rep("tr('低年級,高年級,陶藝,射箭,樂樂棒球,得獎', 'Grade 7,AI,club,reading,sports')", "tr('紫色跑道,大隊接力,趣味競賽,扇耀舞台,戴資穎,郭婞淳', 'Purple track,Relay,Fun games,Dance,Tai Tzu-ying,Kuo Hsing-chun')");
+rep("tr('島與島的故事是讓地圖生動的故事設定；實線＝課程計畫寫明，其他是延伸連結。', 'Isle stories are a story layer; solid lines are written in the curriculum plan, others are further links.')", "tr('7 位台灣運動傳奇巨星（郭婞淳、李智凱、紀政、陳傑憲、林昀儒、楊傳廣、戴資穎）擔任七大賽區島主，帶領大庄親師生在賽場間傳遞聖火與賽事裝備！', 'Seven Taiwanese sports legends (Kuo Hsing-chun, Lee Chih-kai, Chi Cheng, Chen Chieh-hsien, Lin Yun-ju, Yang Chuan-Kwang & Tai Tzu-ying) lead Da-Chuang athletes and families across the seven Sports Day arenas!')");
 
 // 依年級看卡片 (gradeCard)
 rep("tr(g + '年級一覽', 'Grade ' + num + ' at a glance')", "tr(g + '年級賽程與闖關一覽', ({ '7': 'Lower Grades (G1–2)', '8': 'Middle Grades (G3–4)', '9': 'Upper Grades (G5–6)' }[num] || 'Grade ' + num) + ' Schedule')");
@@ -397,11 +398,11 @@ rep(
 rep('<h2 id="ui-help-title" data-en="Fourteen isles, one school year">十四座島，一整個大庄學年</h2>', '<h2 id="ui-help-title" data-en="Seven Arena Isles, One Glorious Sports Day">七座五力賽場島，一場熱血的 71 週年校慶運動會</h2>');
 rep(
   'data-en="Each hexagonal isle is one of Dazhuang ES\'s 9 flexible courses or 5 yearly events. Great educators from past and present act as isle hosts, walking the bridges with students, teachers, parents, volunteers and scouts to carry what one course needs to the next.">每座六角島是大庄國小的一門特色課程或一個年度活動。古今中外的教育家擔任島主，帶著學生、老師、家長、志工與童軍走過小橋，把一門課需要的東西送到下一站。',
-  'data-en="Each of the 7 hexagonal isles represents an arena zone of Da-Chuang ES’s 71st Anniversary Sports Day (purple 6-lane track, open-air stage, lower &amp; upper fun-race arenas, relay arena &amp; award podium). Six global sports legends host our athletes, teachers, parents &amp; volunteers across the isles!">7 座六角島代表大庄國小 71 週年校慶「七一大庄、五力飛揚」的七大主題賽區（包含中央盛會廣場、風起律動舞台、趣味萌芽樂園、智謀趣味競技島、六道立體紫色橡膠跑道、大隊接力競技場與金銀銅頒獎台）。6 位世界運動傳奇巨星（古柏坦、李小龍、紀政、歐文斯、喬丹、楊傳廣）擔任駐島島主，帶著大庄小選手、裁判老師、應援家長、校慶志工與聖火護衛隊在賽場間奔馳！'
+  'data-en="Each of the 7 hexagonal isles represents an arena zone of Da-Chuang ES’s 71st Anniversary Sports Day (purple 6-lane track, open-air stage, lower &amp; upper fun-race arenas, relay arena &amp; award podium). Seven Taiwanese sports legends host our athletes, teachers, parents &amp; volunteers across the isles!">7 座六角島代表大庄國小 71 週年校慶「七一大庄、五力飛揚」的七大主題賽區（包含中央盛會廣場、風起律動舞台、趣味萌芽樂園、智謀趣味競技島、六道立體紫色橡膠跑道、大隊接力競技場與金銀銅頒獎台）。7 位台灣運動傳奇巨星（郭婞淳、李智凱、紀政、陳傑憲、林昀儒、楊傳廣、戴資穎）擔任駐島島主，帶著大庄小選手、裁判老師、應援家長、校慶志工與聖火護衛隊在賽場間奔馳！'
 );
 rep(
   'data-en="Story elements: the educator hosts, the little walkers and the link lines between isles are a story layer to make the map lively. Course facts come from the school\'s curriculum plan.">「故事設定」：島主教育家、走來走去的小人和島與島之間的協作線，是讓地圖生動的故事元素；課程內容本身依學校課程計畫。',
-  'data-en="Story layer: the sports legend hosts and bridge runners bring the map to life; all 32 program times, sprint results, and relay rules follow official 71st Anniversary Sports Day regulations.">「故事設定」：6 位運動傳奇巨星島主與賽場間奔馳的小選手動線為趣味故事元素；32 項節目時間、個人賽與大隊接力規則皆依據大庄國小 71 週年校慶運動會正式程序表與競賽規程。'
+  'data-en="Story layer: the 7 Taiwanese sports legend hosts and bridge runners bring the map to life; all 32 program times, fun-race rules, sprint results, and relay rules follow official 71st Anniversary Sports Day regulations.">「故事設定」：7 位台灣運動傳奇巨星島主與賽場間奔馳的小選手動線為趣味故事元素；32 項節目時間、趣味競賽、個人賽與大隊接力規則皆依據大庄國小 71 週年校慶運動會正式程序表與競賽規程。'
 );
 rep('<div class="ui-eyebrow" data-en="ABOUT DAZHUANG">關於大庄</div>', '<div class="ui-eyebrow" data-en="ABOUT SPORTS DAY">大會簡介</div>');
 rep('<button class="ui-tab" role="tab" id="ui-abtab-intro" aria-selected="true" aria-controls="ui-about-intro" type="button" data-en="The school">學校簡介</button>', '<button class="ui-tab" role="tab" id="ui-abtab-intro" aria-selected="true" aria-controls="ui-about-intro" type="button" data-en="Overview">大會總覽</button>');

@@ -57,25 +57,25 @@ module.exports = {
     }
   },
   "customRoles": {
-    "coubertin": {
-      "name": "古柏坦（現代奧運之父）",
-      "nameEn": "Pierre de Coubertin",
+    "kuohc": {
+      "name": "郭婞淳（奧運舉重女神）",
+      "nameEn": "Kuo Hsing-chun",
       "ancient": true,
       "robe": "#0284c7",
       "hat": "none",
-      "beard": true,
+      "beard": false,
       "extra": "torch",
-      "look": "現代奧林匹克運動會創始人，手持聖火火炬"
+      "look": "台灣奧運舉重金牌得主與公益典範，手持校慶聖火火炬，象徵感恩與道德力"
     },
-    "brucelee": {
-      "name": "李小龍（武道律動傳奇）",
-      "nameEn": "Bruce Lee",
+    "leeck": {
+      "name": "李智凱（奧運鞍馬王子）",
+      "nameEn": "Lee Chih-kai",
       "ancient": true,
       "robe": "#facc15",
       "hat": "none",
       "beard": false,
       "extra": "bamboo",
-      "look": "經典黃黑運動服，武術與肢體律動歷史巨星"
+      "look": "《翻滾吧！男孩》奧運體操鞍馬銀牌，展現力與美及節奏律動"
     },
     "chicheng": {
       "name": "紀政（飛躍的羚羊）",
@@ -85,27 +85,27 @@ module.exports = {
       "hat": "cap",
       "beard": false,
       "extra": "torch",
-      "look": "新竹出身世界短跑傳奇，曾創 50m/100m/200m 世界紀錄"
+      "look": "新竹出身台灣短跑傳奇，曾創 50m/100m/200m 世界紀錄"
     },
-    "owens": {
-      "name": "傑西・歐文斯（奧運接力四金傳奇）",
-      "nameEn": "Jesse Owens",
+    "chench": {
+      "name": "陳傑憲（世界 12 強台灣隊長）",
+      "nameEn": "Chen Chieh-hsien",
       "ancient": true,
       "robe": "#10b981",
-      "hat": "laurel",
+      "hat": "cap",
       "beard": false,
       "extra": "torch",
-      "look": "奧運 100m、200m 與 4×100m 大隊接力四金田徑傳奇"
+      "look": "2024 世界 12 強棒球冠軍台灣隊長暨 MVP，象徵團隊凝聚力與世代薪傳"
     },
-    "jordan": {
-      "name": "麥可・喬丹（球類敏捷傳奇）",
-      "nameEn": "Michael Jordan",
+    "linyj": {
+      "name": "林昀儒（桌球國民金童）",
+      "nameEn": "Lin Yun-ju",
       "ancient": true,
       "robe": "#e11d48",
       "hat": "none",
       "beard": false,
       "extra": "blocks",
-      "look": "23 號紅色球衣，史上最具代表性的球類與協調智慧巨星"
+      "look": "台灣奧運桌球名將，國小起家以超強手眼協調與冷靜專注聞名"
     },
     "yangck": {
       "name": "楊傳廣（亞洲鐵人）",
@@ -116,6 +116,16 @@ module.exports = {
       "beard": false,
       "extra": "tablet",
       "look": "台灣奧運十項全能傳奇「亞洲鐵人」，象徵五力全能"
+    },
+    "taity": {
+      "name": "戴資穎（羽球世界球后）",
+      "nameEn": "Tai Tzu-ying",
+      "ancient": true,
+      "robe": "#06b6d4",
+      "hat": "none",
+      "beard": false,
+      "extra": "blocks",
+      "look": "台灣羽球世界球后，以巧思假動作、敏捷步法與智謀策略馳騁賽場"
     },
     "student": {
       "name": "大庄小選手",
@@ -750,7 +760,7 @@ module.exports = {
       "name": "七一盛會廣場",
       "full": "七一盛會廣場・道德力與群體力迎賓中樞",
       "icon": "聖",
-      "host": "coubertin",
+      "host": "kuohc",
       "kind": "event",
       "grade": "全校師生與來賓",
       "grades": [
@@ -951,7 +961,7 @@ module.exports = {
       "name": "美感藝能島",
       "full": "美感藝能島・社團開場與六學年主題舞蹈舞台",
       "icon": "美",
-      "host": "brucelee",
+      "host": "leeck",
       "kind": "course",
       "grade": "幼兒園至六年級＆社團新住民",
       "grades": [
@@ -1304,7 +1314,7 @@ module.exports = {
       "name": "薪傳接力競技場",
       "full": "薪傳接力競技場・大隊接力決賽與庄情薪傳接力賽",
       "icon": "群",
-      "host": "owens",
+      "host": "chench",
       "kind": "event",
       "grade": "幼兒園、三至六年級、校友親師",
       "grades": [
@@ -1473,7 +1483,7 @@ module.exports = {
       "name": "趣味萌芽樂園",
       "full": "趣味萌芽樂園・幼兒、低年級與親子趣味競賽",
       "icon": "樂",
-      "host": "jordan",
+      "host": "linyj",
       "kind": "course",
       "grade": "幼兒園、一二年級、學生與家長",
       "grades": [
@@ -1803,7 +1813,7 @@ module.exports = {
       "name": "智謀趣味競技島",
       "full": "智謀趣味競技島・三至六年級趣味競賽競技場",
       "icon": "智",
-      "host": "jordan",
+      "host": "taity",
       "kind": "course",
       "grade": "三至六年級全體同學",
       "grades": [
@@ -1979,12 +1989,12 @@ module.exports = {
       "carry": "note",
       "evidence": "plan",
       "crew": [
-        "coubertin",
+        "kuohc",
         "student",
         "student",
         "teacher"
       ],
-      "note": "08:35 開幕典禮與表揚完成後，古柏坦引導全校目光移師美感藝能島，展開 08:55 六學年大會舞盛典。"
+      "note": "08:35 開幕典禮與表揚完成後，郭婞淳引導全校目光移師美感藝能島，展開 08:55 六學年大會舞盛典。"
     },
     {
       "id": "f02",
@@ -1993,12 +2003,12 @@ module.exports = {
       "carry": "toolbox",
       "evidence": "plan",
       "crew": [
-        "brucelee",
+        "leeck",
         "student",
         "parent",
         "teacher"
       ],
-      "note": "09:25 親子律動「蕉你一起動一動」熱身完畢，李小龍帶隊護送道具箱前往趣味萌芽樂園展開 09:30 趣味競賽！"
+      "note": "09:25 親子律動「蕉你一起動一動」熱身完畢，李智凱帶隊護送道具箱前往趣味萌芽樂園展開 09:30 趣味競賽！"
     },
     {
       "id": "f07",
@@ -2007,12 +2017,12 @@ module.exports = {
       "carry": "toolbox",
       "evidence": "plan",
       "crew": [
-        "jordan",
+        "linyj",
         "student",
         "teacher",
         "volunteer"
       ],
-      "note": "09:40–10:15 趣味競賽熱戰接力！小選手從趣味萌芽樂園銜接至東北側智謀趣味競技島，展開三至六年級四大技巧賽。"
+      "note": "09:40–10:15 趣味競賽熱戰接力！林昀儒引導小選手從趣味萌芽樂園銜接至東北側智謀趣味競技島，展開三至六年級四大技巧賽。"
     },
     {
       "id": "f03",
@@ -2021,12 +2031,12 @@ module.exports = {
       "carry": "medal",
       "evidence": "plan",
       "crew": [
-        "jordan",
+        "taity",
         "student",
         "student",
         "volunteer"
       ],
-      "note": "趣味競賽圓滿完賽，喬丹帶領小選手前往六道紫色跑道準備 11:00 徑賽衝刺！"
+      "note": "趣味競賽圓滿完賽，戴資穎帶領小選手前往六道紫色跑道準備 11:00 徑賽衝刺！"
     },
     {
       "id": "f04",
@@ -2049,12 +2059,12 @@ module.exports = {
       "carry": "diploma",
       "evidence": "news",
       "crew": [
-        "owens",
+        "chench",
         "student",
         "parent",
         "teacher"
       ],
-      "note": "12:00 庄情薪傳接力賽圓滿衝線，歐文斯護送大隊接力錦旗與獎狀齊聚頒獎台迎接 12:20 閉幕典禮。"
+      "note": "12:00 庄情薪傳接力賽圓滿衝線，陳傑憲護送大隊接力錦旗與獎狀齊聚頒獎台迎接 12:20 閉幕典禮。"
     },
     {
       "id": "f06",
@@ -2208,14 +2218,21 @@ module.exports = {
     [
       "運動明星",
       "運動傳奇",
-      "古柏坦",
-      "李小龍",
+      "台灣之光",
+      "郭婞淳",
+      "舉重女神",
+      "李智凱",
+      "鞍馬王子",
       "紀政",
       "飛躍的羚羊",
-      "歐文斯",
-      "喬丹",
+      "陳傑憲",
+      "台灣隊長",
+      "林昀儒",
+      "國民金童",
       "楊傳廣",
-      "亞洲鐵人"
+      "亞洲鐵人",
+      "戴資穎",
+      "球后"
     ]
   ],
   "gradeStory": {
