@@ -122,7 +122,7 @@ rep(
 );
 rep(
   "return ['z10', 'z01', 'z02', 'z11', 'z03', 'z04', 'z09', 'z12', 'z05', 'z06', 'z07', 'z08', 'z13', 'z14']",
-  "return ['s01', 's02', 's05', 's03', 's04', 's06']"
+  "return ['s01', 's02', 's05', 's07', 's03', 's04', 's06']"
 );
 rep("'dzps-tour-v1'", "'sq-tour-v1'", true);
 rep("'dzps-big'", "'sq-big'", true);
@@ -169,14 +169,14 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
         <span class="sq-pill-icon">🏃</span>
         <span class="sq-pill-title" data-en="Glory Run Isle">奔馳榮耀島</span>
         <span class="sq-pill-dot">·</span>
-        <span class="sq-pill-badge" id="sq-pill-prog" data-en="🏅 0/5 · 0/19">🏅 0/5章 · 0/19關</span>
+        <span class="sq-pill-badge" id="sq-pill-prog" data-en="🏅 0/5 · 0/22">🏅 0/5章 · 0/22關</span>
         <span class="sq-pill-arrow">▾</span>
       </button>
 
       <!-- 展開卡片主體 -->
       <div class="sq-brand-body" id="sq-brand-body">
         <div class="sq-brand-header-actions">
-          <div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="DA-CHUANG 71ST · 6 ARENA ISLES · 32 EVENTS">71 週年校慶 · 6 座五力賽場島 · 32 項程序</div>
+          <div class="ui-eyebrow" id="ui-brand-eyebrow" data-en="DA-CHUANG 71ST · 7 ARENA ISLES · 32 EVENTS">71 週年校慶 · 7 座五力賽場島 · 32 項程序</div>
           <button type="button" class="sq-fold-btn" id="sq-fold-btn" title="收起卡片，釋放 3D 賽場視野" data-en-title="Collapse card for full 3D view" aria-label="收起卡片" data-en-label="Collapse card">
             <span class="sq-fold-txt" data-en="Fold">收合</span> <span class="sq-fold-icon">▲</span>
           </button>
@@ -189,6 +189,7 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
           <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書" data-en-title="View Five-Power Passport & claim Gold Certificate">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
           <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表" data-en-title="View full 32-event Sports Day timetable (08:00–13:00)">📅 程序表(32)</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報" data-en-title="View 16 sprint finals, honor roll & complete results">🏃 決賽戰報</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-funraces" title="查看二至六年級趣味競賽規則、器材與場地動線圖" data-en-title="View G2–G6 Fun Race rules, equipment & field diagrams" data-en="🎪 Fun Races">🎪 趣味競賽</button>
           <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂" data-en-title="Toggle background music">🎵 闖關音樂🔊</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分" data-en-title="Set athlete name & division"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label" data-en="Athlete">選手設定</span></button>
           <button type="button" class="sq-brand-pill is-gear sq-zh-only" id="sq-btn-gear" title="切換 3D 扮演角色與穿戴收集到的運動會裝備">🎒 裝備櫃 <span id="sq-gear-count-pill">0/24</span></button>
@@ -198,7 +199,7 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
 rep(origBrandHeader, sportsBrandHeader);
 rep(
   `$('ui-brand-eyebrow').textContent = tr(\`\${nC} 門特色課程 · \${nE} 個年度活動\`, \`\${nC} SIGNATURE COURSES · \${nE} YEARLY EVENTS\`);`,
-  `$('ui-brand-eyebrow').textContent = tr('71 週年校慶 · 6 座五力賽場島 · 32 項程序', '71ST ANNIVERSARY · 6 ARENA ISLES · 32 EVENTS');`
+  `$('ui-brand-eyebrow').textContent = tr('71 週年校慶 · 7 座五力賽場島 · 32 項程序', '71ST ANNIVERSARY · 7 ARENA ISLES · 32 EVENTS');`
 );
 rep(
   `q.querySelector('[data-quick="courses"]').innerHTML = tr(\`<b>\${nC}</b> 門課程\`, \`<b>\${nC}</b> courses\`);`,
@@ -248,7 +249,7 @@ rep(
 );
 rep(
   `$('ui-tour-text').textContent = tr(\`每座島是一門特色課程（\${nC} 門）或一個年度活動（\${nE} 個）。按「依年級看課程」看低、中、高年級各上什麼、怎麼評量；也可以看「六年旅程」，或直接\${uiIsMobile() ? '點' : '點選'}島名。\`, \`Each isle is a course (\${nC}) or a yearly event (\${nE}). Pick a grade to see its courses and how they’re assessed, watch the six-year journey, or just tap an isle.\`);`,
-  `$('ui-tour-text').textContent = tr('全場共 6 座五力主題賽場島（含六道立體紫色橡膠跑道與 32 項程序）。按「依年級看賽程」可查低、中、高年級參賽項目，或播放「運動會全覽」，並點選上方「五力集章護照」闖關領取金牌證書！', 'Explore 6 Five-Power Sports Day arena isles with the 6-lane purple track and 32 program events. Check schedules by grade, watch the guided tour, or complete the 5-Power Quest Passport!');`
+  `$('ui-tour-text').textContent = tr('全場共 7 座五力主題賽場島（含六道立體紫色橡膠跑道與 32 項程序）。按「依年級看賽程」可查低、中、高年級參賽項目，或播放「運動會全覽」，並點選上方「五力集章護照」闖關領取金牌證書！', 'Explore 7 Five-Power Sports Day arena isles with the 6-lane purple track and 32 program events. Check schedules by grade, watch the guided tour, or complete the 5-Power Quest Passport!');`
 );
 
 // 右側清單與搜尋面板 (#ui-side)
@@ -3099,6 +3100,141 @@ html[lang="en"] .sq-zh-only { display: none !important; }
   margin-bottom: 8px;
 }
 
+/* 趣味競賽規程圖鑑 */
+.sq-fun-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 10px;
+}
+.sq-fun-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(2, 132, 199, 0.22);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+}
+.sq-fun-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.sq-fun-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sq-fun-grade-badge {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.sq-fun-time-badge {
+  background: #ecfeff;
+  color: #0e7490;
+  border: 1px solid rgba(14, 116, 144, 0.22);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.sq-fun-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 900;
+  color: #0f172a;
+}
+.sq-fun-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sq-fun-meta-box {
+  background: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.45;
+}
+.sq-fun-meta-box strong {
+  display: block;
+  color: #0369a1;
+  font-size: 11.5px;
+  margin-bottom: 2px;
+}
+.sq-fun-equip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.sq-fun-eq-tag {
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 8px;
+}
+.sq-fun-rules {
+  margin: 0 0 10px 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #1e293b;
+  line-height: 1.55;
+}
+.sq-fun-rules li {
+  margin-bottom: 4px;
+}
+.sq-fun-penalties {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.sq-fun-penalty {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-left: 4px solid #f59e0b;
+  color: #92400e;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.sq-fun-svg-wrap {
+  background: #f8fafc;
+  border: 1px dashed rgba(2, 132, 199, 0.35);
+  border-radius: 12px;
+  padding: 8px 10px;
+  overflow-x: auto;
+}
+.sq-fun-svg-cap {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0369a1;
+  margin-bottom: 4px;
+}
+.sq-fun-svg-wrap svg {
+  width: 100%;
+  min-width: 320px;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 `;
 
@@ -3116,8 +3252,8 @@ const customHtml = `
       </div>
       <button type="button" class="sq-dlg-close" data-sq-close="sq-reg-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
-    <p style="margin:0 0 14px;font-size:14px;color:#334155;line-height:1.5;" data-en-html="Welcome to <strong>Glory Run · Five Powers</strong>! Enter your name and choose your athlete division. Click any of the <strong>19 landmarks across 6 arena isles</strong> to complete interactive quests, collect all 5 Power Stamps, ignite the cauldron <strong>3D Victory Fireworks</strong>, and claim your Gold Certificate!">
-      歡迎登上<strong>《奔馳榮耀島・五力飛揚》</strong>！請輸入你的姓名並選擇代表身分。點選地圖上 <strong>6 座島嶼中的 19 座建築地標</strong>，每座建築都有專屬的<strong>互動闖關任務</strong>，集滿 5 枚五力印章就能引燃中央聖火台<strong>全景 3D 勝利煙火</strong>並獲得專屬金牌證書！
+    <p style="margin:0 0 14px;font-size:14px;color:#334155;line-height:1.5;" data-en-html="Welcome to <strong>Glory Run · Five Powers</strong>! Enter your name and choose your athlete division. Click any of the <strong>22 landmarks across 7 arena isles</strong> to complete interactive quests, collect all 5 Power Stamps, ignite the cauldron <strong>3D Victory Fireworks</strong>, and claim your Gold Certificate!">
+      歡迎登上<strong>《奔馳榮耀島・五力飛揚》</strong>！請輸入你的姓名並選擇代表身分。點選地圖上 <strong>7 座島嶼中的 22 座建築地標</strong>，每座建築都有專屬的<strong>互動闖關任務</strong>，集滿 5 枚五力印章就能引燃中央聖火台<strong>全景 3D 勝利煙火</strong>並獲得專屬金牌證書！
     </p>
     <div class="sq-form-group">
       <label class="sq-form-label" for="sq-input-name"><span class="sq-nw" data-en="✍️ Athlete / Challenger Name">✍️ 運動員／挑戰者姓名</span><span class="sq-mob-br sq-label-note sq-nw" data-en=" (printed on your Gold Certificate):">（將印製於五力金牌證書上）：</span></label>
@@ -3205,7 +3341,8 @@ const customHtml = `
     <div class="sq-tabs">
       <button type="button" class="sq-tab is-active" data-sq-tab="prog" data-en="📅 Full Program (01–32)">📅 當日程序表（01–32 項）</button>
       <button type="button" class="sq-tab" data-sq-tab="pre" data-en="🏃 Sprint Finals &amp; Reports">🏃 個人賽決賽成績＆戰報</button>
-      <button type="button" class="sq-tab" data-sq-tab="models" data-en="🗺️ 19 3D Landmarks Guide">🗺️ 六島 19 座 3D 地標模型總覽</button>
+      <button type="button" class="sq-tab" data-sq-tab="funraces" data-en="🎪 Fun Race Rules (G2–6)">🎪 趣味競賽規程（二～六年級）</button>
+      <button type="button" class="sq-tab" data-sq-tab="models" data-en="🗺️ 22 3D Landmarks Guide">🗺️ 七島 22 座 3D 地標模型總覽</button>
     </div>
     <div id="sq-pane-prog">
       <div class="sq-filter-row" id="sq-prog-filters">
@@ -3329,6 +3466,17 @@ const customHtml = `
           <tbody id="sq-models-tbody"></tbody>
         </table>
       </div>
+    </div>
+    <div id="sq-pane-funraces" hidden>
+      <div class="sq-filter-row" id="sq-fun-filters">
+        <button type="button" class="sq-chip is-active" data-fungrade="ALL" data-en="All (G2–G6)">全部年級 (二～六年級)</button>
+        <button type="button" class="sq-chip" data-fungrade="2" data-en="Grade 2">二年級・粒粒皆辛苦</button>
+        <button type="button" class="sq-chip" data-fungrade="3" data-en="Grade 3">三年級・「巾」球運送</button>
+        <button type="button" class="sq-chip" data-fungrade="4" data-en="Grade 4">四年級・罐罐相連</button>
+        <button type="button" class="sq-chip" data-fungrade="5" data-en="Grade 5">五年級・大庄躍進</button>
+        <button type="button" class="sq-chip" data-fungrade="6" data-en="Grade 6">六年級・呼拉圈小鐵人</button>
+      </div>
+      <div id="sq-fun-list" class="sq-fun-list"></div>
     </div>
     <div style="margin-top:16px;text-align:right;"><button type="button" class="sq-primary-btn" data-sq-close="sq-schedule-dialog" style="padding:8px 18px;font-size:13px;" data-en="✕ Close Window">✕ 關閉此視窗</button></div>
   </div>
@@ -4059,8 +4207,8 @@ function initSportsQuest(ctx) {
       ? (state.name === '大庄小健將' ? 'Da-Chuang Runner' : roleDisplayName(state.role))
       : (state.name || roleDisplayName(state.role));
     const progStr = isEn
-      ? (stampedCount + '/5 Stamps · ' + clearedCount + '/19 Quests')
-      : (stampedCount + '/5章 · ' + clearedCount + '/19關');
+      ? (stampedCount + '/5 Stamps · ' + clearedCount + '/22 Quests')
+      : (stampedCount + '/5章 · ' + clearedCount + '/22關');
     if (icEl) icEl.textContent = state.icon || '🐯';
     if (lbEl) lbEl.textContent = hudName;
     if (prEl) prEl.textContent = progStr;
@@ -4172,7 +4320,7 @@ function initSportsQuest(ctx) {
   function resetQuestData() {
     const ok = window.confirm(t(
       '確定要重新開始闖關嗎？\\n\\n這將會清除您目前獲得的 5 枚五力印章與所有建築物的過關紀錄，讓您可以重新挑戰集章！\\n（運動員姓名與身分設定會保留）',
-      'Reset all quest progress?\\n\\nThis clears all 5 earned Five-Power Stamps and all 19 landmark clears so you can replay from scratch.\\n(Your athlete name and role will be kept.)'
+      'Reset all quest progress?\\n\\nThis clears all 5 earned Five-Power Stamps and all 22 landmark clears so you can replay from scratch.\\n(Your athlete name and role will be kept.)'
     ));
     if (!ok) return;
 
@@ -4455,8 +4603,8 @@ function initSportsQuest(ctx) {
     }
 
     const footProgHtml = isEn
-      ? ('🏅 Stamps: <strong>' + stampedCount + '/5</strong> ｜ Quests: <strong>' + clearedCount + '/19</strong>')
-      : ('🏅 五力印章：<strong>' + stampedCount + '/5</strong> ｜ 建築關卡：<strong>' + clearedCount + '/19</strong>');
+      ? ('🏅 Stamps: <strong>' + stampedCount + '/5</strong> ｜ Quests: <strong>' + clearedCount + '/22</strong>')
+      : ('🏅 五力印章：<strong>' + stampedCount + '/5</strong> ｜ 建築關卡：<strong>' + clearedCount + '/22</strong>');
 
     mount.innerHTML =
       '<div class="sq-bldg-quest ' + (isCleared ? 'is-cleared' : '') + '" id="sq-bldg-quest-card">' +
@@ -4642,8 +4790,8 @@ function initSportsQuest(ctx) {
           const newCleared = Object.keys(state.clearedItems || {}).filter(k => state.clearedItems[k]).length;
           const footEl = document.getElementById('sq-bq-prog-foot');
           if (footEl) footEl.innerHTML = isEn
-            ? ('🏅 Stamps: <strong>' + newStamped + '/5</strong> ｜ Quests: <strong>' + newCleared + '/19</strong>')
-            : ('🏅 五力印章：<strong>' + newStamped + '/5</strong> ｜ 建築關卡：<strong>' + newCleared + '/19</strong>');
+            ? ('🏅 Stamps: <strong>' + newStamped + '/5</strong> ｜ Quests: <strong>' + newCleared + '/22</strong>')
+            : ('🏅 五力印章：<strong>' + newStamped + '/5</strong> ｜ 建築關卡：<strong>' + newCleared + '/22</strong>');
 
           if (fbEl) {
             fbEl.hidden = false;
@@ -5116,13 +5264,124 @@ function initSportsQuest(ctx) {
     });
   }
 
+  let funRaceFilterGrade = 'ALL';
+  function buildFunRaceSvg(fr) {
+    const dist = isEn ? (fr.distanceEn || fr.distance) : fr.distance;
+    const isTwoWay = fr.layoutType === 'twoway';
+    if (isTwoWay) {
+      const lblWait = isEn ? 'Crouch' : '蹲下等待';
+      const lblReady = isEn ? 'Ready Line' : '預備線';
+      const lblZone = isEn ? 'Exchange' : '交接區';
+      const lblStartA = isEn ? 'Side A Start' : 'A 邊起點線';
+      const lblStartB = isEn ? 'Side B Start' : 'B 邊起點線';
+      return '<svg viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + escHtml(dist) + '">' +
+        '<rect x="4" y="4" width="532" height="112" rx="10" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>' +
+        '<rect x="76" y="18" width="52" height="82" fill="#e0f2fe" opacity="0.7"/>' +
+        '<rect x="412" y="18" width="52" height="82" fill="#e0f2fe" opacity="0.7"/>' +
+        '<line x1="76" y1="16" x2="76" y2="102" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>' +
+        '<line x1="128" y1="16" x2="128" y2="102" stroke="#0284c7" stroke-width="2.5"/>' +
+        '<line x1="412" y1="16" x2="412" y2="102" stroke="#0284c7" stroke-width="2.5"/>' +
+        '<line x1="464" y1="16" x2="464" y2="102" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>' +
+        '<text x="40" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">' + escHtml(lblWait) + '</text>' +
+        '<text x="76" y="13" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">' + escHtml(lblReady) + '</text>' +
+        '<text x="102" y="64" text-anchor="middle" font-size="10" font-weight="800" fill="#0369a1">' + escHtml(lblZone) + '</text>' +
+        '<text x="128" y="13" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0284c7">' + escHtml(lblStartA) + '</text>' +
+        '<text x="412" y="13" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0284c7">' + escHtml(lblStartB) + '</text>' +
+        '<text x="438" y="64" text-anchor="middle" font-size="10" font-weight="800" fill="#0369a1">' + escHtml(lblZone) + '</text>' +
+        '<text x="464" y="13" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">' + escHtml(lblReady) + '</text>' +
+        '<text x="500" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">' + escHtml(lblWait) + '</text>' +
+        '<line x1="146" y1="45" x2="394" y2="45" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>' +
+        '<polygon points="394,45 384,39 384,51" fill="#f97316"/>' +
+        '<line x1="394" y1="68" x2="146" y2="68" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round"/>' +
+        '<polygon points="146,68 156,62 156,74" fill="#0ea5e9"/>' +
+        '<text x="270" y="95" text-anchor="middle" font-size="12" font-weight="800" fill="#0f172a">↔ ' + escHtml(dist) + '</text>' +
+      '</svg>';
+    }
+    const lblWait = isEn ? 'Crouch' : '蹲下等待';
+    const lblReady = isEn ? 'Ready Line' : '預備線';
+    const lblZone = isEn ? 'Exchange' : '交接區';
+    const lblStart = isEn ? 'Start/Finish' : '起點線';
+    const lblTurn = isEn ? 'Turn Cone' : '折返交通錐';
+    return '<svg viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + escHtml(dist) + '">' +
+      '<rect x="4" y="4" width="532" height="112" rx="10" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>' +
+      '<rect x="86" y="18" width="60" height="82" fill="#e0f2fe" opacity="0.7"/>' +
+      '<line x1="86" y1="16" x2="86" y2="102" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>' +
+      '<line x1="146" y1="16" x2="146" y2="102" stroke="#0284c7" stroke-width="2.5"/>' +
+      '<line x1="468" y1="16" x2="468" y2="102" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3"/>' +
+      '<polygon points="468,42 456,74 480,74" fill="#f97316" stroke="#c2410c" stroke-width="1.5"/>' +
+      '<text x="44" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">' + escHtml(lblWait) + '</text>' +
+      '<text x="86" y="13" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">' + escHtml(lblReady) + '</text>' +
+      '<text x="116" y="64" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0369a1">' + escHtml(lblZone) + '</text>' +
+      '<text x="146" y="13" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0284c7">' + escHtml(lblStart) + '</text>' +
+      '<text x="468" y="13" text-anchor="middle" font-size="10.5" font-weight="800" fill="#dc2626">' + escHtml(lblTurn) + '</text>' +
+      '<line x1="164" y1="45" x2="444" y2="45" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>' +
+      '<polygon points="444,45 434,39 434,51" fill="#f97316"/>' +
+      '<line x1="444" y1="68" x2="164" y2="68" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round"/>' +
+      '<polygon points="164,68 174,62 174,74" fill="#0ea5e9"/>' +
+      '<text x="307" y="95" text-anchor="middle" font-size="12" font-weight="800" fill="#0f172a">⇄ ' + escHtml(dist) + '</text>' +
+    '</svg>';
+  }
+
+  function renderFunRaces(gradeFilter) {
+    if (gradeFilter !== undefined) funRaceFilterGrade = gradeFilter;
+    const mount = document.getElementById('sq-fun-list');
+    if (!mount) return;
+    const list = (DATA.funRaces || []).filter(fr => funRaceFilterGrade === 'ALL' || fr.grade === funRaceFilterGrade);
+    mount.innerHTML = list.map(fr => {
+      const gLbl = isEn ? (fr.gradeLabelEn || fr.gradeLabel) : fr.gradeLabel;
+      const title = isEn ? (fr.titleEn || fr.title) : fr.title;
+      const parts = isEn ? (fr.participantsEn || fr.participants) : fr.participants;
+      const timing = isEn ? (fr.timingRuleEn || fr.timingRule) : fr.timingRule;
+      const dist = isEn ? (fr.distanceEn || fr.distance) : fr.distance;
+      const eq = isEn ? (fr.equipmentEn || fr.equipment) : fr.equipment;
+      const rules = isEn ? (fr.rulesEn || fr.rules) : fr.rules;
+      const pens = isEn ? (fr.penaltiesEn || fr.penalties) : fr.penalties;
+      const flyLbl = isEn ? '🏝️ Fly to Isle' : '🏝️ 飛往賽場島';
+      return '<article class="sq-fun-card">' +
+        '<div class="sq-fun-head">' +
+          '<div class="sq-fun-title-wrap">' +
+            '<span class="sq-fun-grade-badge">' + escHtml(gLbl) + '</span>' +
+            '<span class="sq-fun-time-badge">' + escHtml((isEn ? 'Event ' : '項目 ') + fr.eventNo + ' · ' + fr.time) + '</span>' +
+            '<h3 class="sq-fun-title">' + escHtml(title) + '</h3>' +
+          '</div>' +
+          '<button type="button" class="sq-fly-btn" data-sq-fun-fly="' + escHtml(fr.islandId) + '">' + escHtml(flyLbl) + '</button>' +
+        '</div>' +
+        '<div class="sq-fun-meta-grid">' +
+          '<div class="sq-fun-meta-box"><strong>' + escHtml(isEn ? '👥 Participants' : '👥 參加人數') + '</strong>' + escHtml(parts) + '</div>' +
+          '<div class="sq-fun-meta-box"><strong>' + escHtml(isEn ? '📏 Course Distance' : '📏 賽道距離') + '</strong>' + escHtml(dist) + '</div>' +
+          '<div class="sq-fun-meta-box"><strong>' + escHtml(isEn ? '⏱️ Timing Basis' : '⏱️ 成績計算') + '</strong>' + escHtml(timing) + '</div>' +
+        '</div>' +
+        '<div class="sq-fun-equip">' + eq.map(item => '<span class="sq-fun-eq-tag">🧰 ' + escHtml(item) + '</span>').join('') + '</div>' +
+        '<ol class="sq-fun-rules">' + rules.map(r => '<li>' + escHtml(r) + '</li>').join('') + '</ol>' +
+        '<div class="sq-fun-penalties">' + pens.map(p => '<div class="sq-fun-penalty">⚠️ ' + escHtml(p) + '</div>').join('') + '</div>' +
+        '<div class="sq-fun-svg-wrap"><div class="sq-fun-svg-cap">' + escHtml(isEn ? '📍 Official Field & Exchange Zone Diagram' : '📍 場地站位與交接區動線圖示') + '</div>' + buildFunRaceSvg(fr) + '</div>' +
+      '</article>';
+    }).join('');
+    mount.querySelectorAll('[data-sq-fun-fly]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        schedDlg.close();
+        if (window.uiSelectIsland) window.uiSelectIsland(btn.dataset.sqFunFly);
+      });
+    });
+  }
+
+  document.querySelectorAll('#sq-fun-filters .sq-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#sq-fun-filters .sq-chip').forEach(x => x.classList.remove('is-active'));
+      c.classList.add('is-active');
+      renderFunRaces(c.dataset.fungrade);
+    });
+  });
+
   function switchSchedTab(tabName) {
     document.querySelectorAll('#sq-schedule-dialog .sq-tab').forEach(t => {
       t.classList.toggle('is-active', t.dataset.sqTab === tabName);
     });
     document.getElementById('sq-pane-prog').hidden = tabName !== 'prog';
     document.getElementById('sq-pane-pre').hidden = tabName !== 'pre';
+    document.getElementById('sq-pane-funraces').hidden = tabName !== 'funraces';
     document.getElementById('sq-pane-models').hidden = tabName !== 'models';
+    if (tabName === 'funraces') renderFunRaces();
   }
 
   document.querySelectorAll('#sq-schedule-dialog .sq-tab').forEach(t => {
@@ -5138,6 +5397,12 @@ function initSportsQuest(ctx) {
   document.getElementById('sq-btn-pre').addEventListener('click', () => {
     renderScheduleTables('ALL');
     switchSchedTab('pre');
+    if (!schedDlg.open) schedDlg.showModal();
+  });
+
+  document.getElementById('sq-btn-funraces')?.addEventListener('click', () => {
+    renderFunRaces();
+    switchSchedTab('funraces');
     if (!schedDlg.open) schedDlg.showModal();
   });
 
@@ -5303,7 +5568,7 @@ function initSportsQuest(ctx) {
     // 闖關地標建築物完成度進度條
     const allItems = [];
     (DATA.islands || []).forEach(isl => (isl.items || []).forEach(it => allItems.push(it.id)));
-    const totalItemsCount = allItems.length || 19;
+    const totalItemsCount = allItems.length || 22;
     const clearedCount = allItems.filter(id => !!state.clearedItems[id]).length;
     const clearedPct = Math.round((clearedCount / totalItemsCount) * 100);
 

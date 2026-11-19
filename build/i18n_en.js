@@ -634,62 +634,62 @@ function applyEnglishData(sqData) {
       }
     },
     s05: {
-      nameEn: 'Fun Games Isle',
-      fullEn: 'Fun Games Isle · 8 Knowledge Fun-Race Carnival',
-      gradeEn: 'Preschool, Grades 1–6 & Parents',
-      periodsEn: '09:30–10:40 Eight Fun-Race Events Back-to-Back',
-      periodsShortEn: '09:30–10:40 (8 Fun Races)',
-      leadEn: 'Knowledge Power | From String-a-Chain & Hula-Hoop Ironman to Family Ring Sprint—win with clever teamwork and coordination',
-      summaryEn: 'Fun Games Isle turns the lawn into a joyful game carnival! From 09:30 to 10:40, eight Knowledge Power fun races roll out: Preschool "String-a-Chain", G3 "Towel-Ball Relay", G4 "Linked Can-Chain", G5 "Da-Chuang Leap Forward", G6 "Hula-Hoop Ironman", G2 "Every Grain Counts", G1 "Bouncing Tiggers", and 10:40 Family "Ring-Power Sprint"!',
-      keywordsEn: ['Knowledge Power', 'Fun Races', 'String-a-Chain', 'Towel-Ball', 'Can-Chain', 'Da-Chuang Leap', 'Hula-Hoop Ironman', 'Every Grain Counts', 'Bouncing Tiggers', 'Ring Sprint'],
+      nameEn: 'Fun Sprout Park',
+      fullEn: 'Fun Sprout Park · Preschool, Lower Grades & Family Fun Races',
+      gradeEn: 'Preschool, Grades 1–2 & Parents',
+      periodsEn: '09:30 Preschool · 10:20–10:40 Lower Grades & Family Fun Races',
+      periodsShortEn: '09:30 & 10:20–10:40',
+      leadEn: 'Knowledge Power | Preschool String-a-Chain, G2 Every Grain Counts, G1 Bouncing Tiggers & Family Ring-Power Sprint',
+      summaryEn: 'Fun Sprout Park brings together our youngest athletes and families! Featuring 09:30 Preschool "String-a-Chain", 10:20 G2 "Every Grain Counts" (22 per class, 10m out-and-back placing 4 balls into 4 frisbees), 10:30 G1 "Bouncing Tiggers", and 10:40 Parent-Child "Ring-Power Sprint".',
+      keywordsEn: ['Knowledge Power', 'Fun Races', 'String-a-Chain', 'Every Grain Counts', 'Bouncing Tiggers', 'Ring Sprint'],
       assessEn: 'Complete any Knowledge Power fun-race quest here to earn your [Knowledge Power Stamp].',
-      skillsEn: ['Smart Strategy', 'Hand-Eye Agility', 'Parent-Child Bond'],
+      skillsEn: ['Hand-Eye Agility', 'Rule Awareness', 'Parent-Child Bond'],
       unitsEn: [
-        { semEn: '09:30-09:50', weeksEn: 'Events 16–18', nameEn: 'Preschool "String-a-Chain", G3 "Towel-Ball Relay" & G4 "Linked Can-Chain"' },
-        { semEn: '10:00-10:10', weeksEn: 'Events 19–20', nameEn: 'G5 "Da-Chuang Leap Forward" & G6 "Hula-Hoop Ironman"' },
-        { semEn: '10:20-10:30', weeksEn: 'Events 21–22', nameEn: 'G2 "Every Grain Counts" & G1 "Bouncing Tiggers"' },
+        { semEn: '09:30', weeksEn: 'Event 16', nameEn: 'Preschool Fun Race: "String-a-Chain" (Preschoolers & Parents)' },
+        { semEn: '10:20', weeksEn: 'Event 21', nameEn: 'G2 "Every Grain Counts" (22/class | 10m out-and-back ball & frisbee)' },
+        { semEn: '10:30', weeksEn: 'Event 22', nameEn: 'G1 "Bouncing Tiggers" (Grade 1 Energetic Relay)' },
         { semEn: '10:40', weeksEn: 'Event 23', nameEn: 'Parent-Child Fun Race: "Ring-Power Sprint" (Families & Teachers)' }
       ],
       itemsEn: {
         s05i1: {
           nameEn: 'Colorful Fun-Race Pavilion',
-          descEn: 'Equipment & staging hub where grade teachers check props and welcome each class onto the lawn for the 8 fun races.',
-          factsEn: ['09:30–10:40 Eight Fun Races', 'Grade-Specific Game Props', 'Play-to-Learn Knowledge Power'],
-          whenEn: '09:30–10:40 | Events 16–23: Fun-Race Staging HQ',
+          descEn: 'Staging & equipment hub for Preschool and Lower-Grade fun races, preparing G2 Every Grain Counts buckets (×5), 20 frisbees, 20 tee-balls, and bibs.',
+          factsEn: ['09:30 Preschool · 10:20–10:40 Lower & Family', 'G2: 22/class · Class-owned buckets', 'Final runner wears bib across start/finish line'],
+          whenEn: '09:30 | 10:20–10:40 | Events 16, 21–23: Lower & Family Staging HQ',
           ch: {
             powerEn: 'Knowledge Power',
-            titleEn: '[Fun Pavilion Quest] Prop Check & Dispatch',
-            taskDescEn: 'Tap "⛺ Inspect & Issue Fun-Race Props" 3 times to help teachers stage the equipment for all 8 events:',
+            titleEn: '[Fun Pavilion Quest] Lower-Grade Prop Check',
+            taskDescEn: 'Tap "⛺ Inspect & Issue Fun-Race Props" 3 times to help teachers stage the equipment:',
             actionBtnEn: '⛺ Inspect & Issue Props',
-            actionDoneEn: '⛺ All props staged cleanly! Eight fun races kick off right on schedule at 09:30!',
-            questionEn: 'In our 71st program (Events 16–23, 09:30–10:40), which of the Five Powers do all eight fun races primarily represent?',
+            actionDoneEn: '⛺ All props staged cleanly! Preschool, G1–2 & Family fun races ready to start!',
+            questionEn: 'In our 71st program (09:30–10:40), which of the Five Powers do all fun races primarily represent?',
             optionsEn: [
               'Sleep Power',
               'Submarine Power',
               'Knowledge Power (coordination, clever strategy & teamwork)'
             ],
-            explainEn: 'Right! All eight fun races (Events 16–23) showcase Knowledge Power—combining strategy, agility, and quick thinking!'
+            explainEn: 'Right! All fun races showcase Knowledge Power—combining strategy, agility, and quick thinking!'
           }
         },
         s05i2: {
-          nameEn: 'Hula-Hoop & Barrel Obstacle Zone',
-          descEn: 'Showcases the game props for G6 Hula-Hoop Ironman, G5 Da-Chuang Leap Forward, G4 Linked Can-Chain, and G3 Towel-Ball Relay.',
-          factsEn: ['09:40 G3 Towel-Ball Relay', '09:50 G4 Linked Can-Chain', '10:00 G5 Leap Forward & 10:10 G6 Hula-Hoop Ironman'],
-          whenEn: '09:40–10:15 | Events 17–20: G3–G6 Fun Races',
+          nameEn: 'G2 "Every Grain Counts" 10m Course',
+          descEn: 'Official 10m out-and-back course for Grade 2 "Every Grain Counts"! Includes a Ready Line & Exchange Zone behind the start line.',
+          factsEn: ['22 runners per class · Timed for all 22', '10m to turning cone (Ready Line & Exchange Zone)', '+5s penalty if ball rolls out or early handoff'],
+          whenEn: '10:20 | Event 21: Grade 2 "Every Grain Counts"',
           ch: {
             powerEn: 'Knowledge Power',
-            titleEn: '[Obstacle Zone Quest] G3–G6 Prop Match-Up',
-            taskDescEn: 'Tap the three grade prop stations in morning schedule order (09:40 -> 10:10):',
-            sequenceItemsEn: ['① G3 Towel-Ball Relay', '② G4 Linked Can-Chain', '③ G5 Leap & G6 Hula-Hoop'],
-            actionBtnEn: '⭕ Test G3–6 Game Props',
-            actionDoneEn: '🧠 Top balance & clever technique! Every G3–6 prop course cleared!',
-            questionEn: 'Between 09:40 and 10:10, which fun races belong to Grade 3 and Grade 6?',
+            titleEn: '[Every Grain Counts Quest] 10m Ball & Frisbee Relay',
+            taskDescEn: 'Tap the three steps of Grade 2 "Every Grain Counts" in exact order:',
+            sequenceItemsEn: ['① Place 4 balls into 4 frisbees', '② Round the 10m turning cone', '③ Collect balls & handoff in zone'],
+            actionBtnEn: '⚾ Run Every Grain Counts',
+            actionDoneEn: '⚾ Clean run! Zero balls rolled out and every handoff stayed inside the Exchange Zone!',
+            questionEn: 'In G2 "Every Grain Counts", what is the penalty per violation if a ball rolls out of the frisbee unplaced or a handoff crosses the start line early?',
             optionsEn: [
-              'G3: Curling; G6: Pole Vault',
-              'G3: Bouncing Tiggers; G6: String-a-Chain',
-              'G3: Towel-Ball Relay; G6: Hula-Hoop Ironman'
+              '+1 second per violation',
+              '+5 seconds per violation',
+              'No penalty; restart from scratch'
             ],
-            explainEn: 'Spot on! 09:40 G3 Towel-Ball Relay, 09:50 G4 Linked Can-Chain, 10:00 G5 Da-Chuang Leap Forward, and 10:10 G6 Hula-Hoop Ironman!'
+            explainEn: 'Spot on! Both unplaced balls and early handoffs past the start line carry a +5 second penalty per violation!'
           }
         },
         s05i3: {
@@ -794,8 +794,184 @@ function applyEnglishData(sqData) {
           }
         }
       }
+    },
+    s07: {
+      nameEn: 'Smart Fun Arena',
+      fullEn: 'Smart Fun Arena · Grades 3–6 Fun Race Stadium',
+      gradeEn: 'Grades 3–6 Students',
+      periodsEn: '09:40–10:15 Grades 3–6 Fun-Race Relays',
+      periodsShortEn: '09:40–10:15 (G3–G6)',
+      leadEn: 'Knowledge Power | G3 Towel-Ball, G4 Three-Can Link, G5 Da-Chuang Leap Forward & G6 Hula-Hoop Ironman',
+      summaryEn: 'Located northeast of the central plaza, Smart Fun Arena hosts the four Grade 3–6 fun races from 09:40 to 10:15, complete with team sizes, equipment lists, 5m/10m field layouts, and +5s penalty rules.',
+      keywordsEn: ['Knowledge Power', 'Towel-Ball', 'Three-Can Link', 'Da-Chuang Leap', 'Hula-Hoop Ironman', 'Ready Line', 'Exchange Zone'],
+      assessEn: 'Complete any Knowledge Power quest here to earn your [Knowledge Power Stamp].',
+      skillsEn: ['Smart Strategy', 'Pair Teamwork', 'Balance & Agility'],
+      unitsEn: [
+        { semEn: '09:40', weeksEn: 'Event 17', nameEn: 'G3 "Towel-Ball Relay" (24/class · 12 pairs | 10m volleyball carry)' },
+        { semEn: '09:50', weeksEn: 'Event 18', nameEn: 'G4 "Three-Can Link" (23/class · 12 pairs | 10m linked cans)' },
+        { semEn: '10:00', weeksEn: 'Event 19', nameEn: 'G5 "Da-Chuang Leap Forward" (22/class · 20th timed | 5m foam mats)' },
+        { semEn: '10:10', weeksEn: 'Event 20', nameEn: 'G6 "Hula-Hoop Ironman" (26/class · 24th timed | 10m A↔B hoop jump)' }
+      ],
+      itemsEn: {
+        s07i1: {
+          nameEn: 'G3–4 Pair Teamwork Track',
+          descEn: '10m out-and-back pair relay zone for Grade 3 "Towel-Ball Relay" (no hands on ball) and Grade 4 "Three-Can Link" (clamp middle can without touching it).',
+          factsEn: ['G3: 24/class, 12 pairs (11 timed) | Towels & Volleyballs', 'G4: 23/class, 12 pairs (11 timed) | 3 Cans × 5 lanes', 'Drop = stop & reset on spot · +5s penalty per violation'],
+          whenEn: '09:40–10:00 | Events 17–18: G3 & G4 Pair Fun Races',
+          ch: {
+            powerEn: 'Knowledge Power',
+            titleEn: '[Pair Track Quest] Towel-Ball & Three-Can Link',
+            taskDescEn: 'Tap the three official steps for Grade 3 & Grade 4 pair relays in order:',
+            sequenceItemsEn: ['① Crouch behind Ready Line', '② 10m turn (hands off ball/can)', '③ Handoff inside Exchange Zone'],
+            actionBtnEn: '🤝 Run Pair Relay',
+            actionDoneEn: '🤝 Smooth pair coordination! Both Towel-Ball and Three-Can Link cleared!',
+            questionEn: 'In G3 "Towel-Ball Relay" and G4 "Three-Can Link", what must a pair do if the ball or can drops mid-course?',
+            optionsEn: [
+              'Carry it in their hands back to the start',
+              'Stop on the spot and re-place/re-clamp it properly before moving forward',
+              'Kick it back to the start line'
+            ],
+            explainEn: 'Right! Players must stop on the spot to re-place or re-clamp before advancing; moving ahead without resetting adds +5 seconds per violation!'
+          }
+        },
+        s07i2: {
+          nameEn: 'G5–6 Agility & Leap Track',
+          descEn: 'Hosts Grade 5 "Da-Chuang Leap Forward" (5m out-and-back on 2 foam mats without touching ground) and Grade 6 "Hula-Hoop Ironman" (10m A↔B two-way hoop jump-rope).',
+          factsEn: ['G5: 22/class (20th timed) | 5m | 2 Foam Mats × 5', 'G6: 26/class (24th timed) | 10m A↔B | 5 Hula Hoops', 'Final runner wears bib across finish line'],
+          whenEn: '10:00–10:20 | Events 19–20: G5 & G6 Fun Races',
+          ch: {
+            powerEn: 'Knowledge Power',
+            titleEn: '[Agility Track Quest] Foam Mats & Hula-Hoop Jump',
+            taskDescEn: 'Tap "⭕ Practice Mat Balance & Hoop Jump" 3 times to master the upper-grade skills:',
+            actionBtnEn: '⭕ Practice G5–6 Skills',
+            actionDoneEn: '⭕ Zero ground touches and clean full-body hoop jumps!',
+            questionEn: 'In Grade 6 "Hula-Hoop Ironman" (10m between Line A and Line B), how must runners advance?',
+            optionsEn: [
+              'Spin the hoop around their waist while walking',
+              'Hold the hoop at their side and sprint',
+              'Hold the hoop and jump through it like a jump rope over the whole body'
+            ],
+            explainEn: 'Exact! Runners must jump through the hoop like a jump rope; if tripped or stuck, they must adjust on the spot rather than running with it!'
+          }
+        },
+        s07i3: {
+          nameEn: 'Fun-Race Rules & Timing Kiosk',
+          descEn: 'Official rulebook & timing kiosk for Grades 2–6 fun races! Covers +5s penalties, Ready Line crouching rules, and interactive SVG field diagrams.',
+          factsEn: ['Exchange Zone sits between Ready Line & Start Line', 'Waiting runners crouch behind Ready Line', 'Open "🎪 Fun Race Rules" for SVG field diagrams'],
+          whenEn: '09:30–10:40 | Fun-Race Rules & Timing HQ',
+          ch: {
+            powerEn: 'Knowledge Power',
+            titleEn: '[Timing Kiosk Quest] +5s Penalty Rule Check',
+            taskDescEn: 'Tap "⏱️ Sync Timers & Exchange Lines" 3 times to assist the referees:',
+            actionBtnEn: '⏱️ Sync Fun-Race Timers',
+            actionDoneEn: '⏱️ Timers and Ready Lines verified! Referees are ready!',
+            questionEn: 'What is the shared waiting and handoff rule across all Grade 2–6 fun races?',
+            optionsEn: [
+              'Waiting runners may stand past the start line',
+              'Waiting runners crouch behind the Ready Line; handoffs must occur behind the Start Line (Exchange Zone)',
+              'Runners may skip the Exchange Zone if they are fast'
+            ],
+            explainEn: 'Correct! Waiting runners crouch behind the Ready Line and handoffs must happen inside the Exchange Zone; early handoffs add +5s per violation!'
+          }
+        }
+      }
     }
   };
+  const FUN_RACES_EN = {
+    '2': {
+      gradeLabelEn: 'Grade 2',
+      titleEn: 'Every Grain Counts',
+      participantsEn: '22 per class',
+      timingRuleEn: 'Timer starts on the gun and records all 22 runners; the final runner wears a bib and stops the clock crossing the start/finish line.',
+      distanceEn: '10m Out-and-Back',
+      equipmentEn: ['Bucket ×5 (class-owned)', 'Frisbee ×4 × 5 = 20', 'Tee-ball ×4 × 5 = 20', 'Traffic Cone ×5', 'Bib ×5', 'Stopwatch ×5'],
+      rulesEn: [
+        '10m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.',
+        'First runner carries a bucket with 4 balls, places 1 ball into each of the 4 frisbees on the way out, rounds the cone, and collects all 4 balls back into the bucket on return.',
+        'Waiting runners crouch behind the Ready Line; handoff must happen inside the Exchange Zone.'
+      ],
+      penaltiesEn: [
+        'If a ball rolls out of a frisbee, stop and place it back before advancing (+5s per violation).',
+        'Crossing the Start Line for an early handoff adds +5s per violation.'
+      ]
+    },
+    '3': {
+      gradeLabelEn: 'Grade 3',
+      titleEn: 'Towel-Ball Relay',
+      participantsEn: '24 per class (12 pairs)',
+      timingRuleEn: 'Timer starts on the gun and records 11 pairs; the final pair wears a bib and stops the clock crossing the start/finish line.',
+      distanceEn: '10m Out-and-Back (Main Field)',
+      equipmentEn: ['Towel ×5 (class-owned)', 'Volleyball ×5', 'Traffic Cone ×5', 'Bib ×5', 'Stopwatch ×5'],
+      rulesEn: [
+        '10m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.',
+        'Pairs place a volleyball at the center of a towel and hold the four corners to carry it balanced (walk or run; ball cannot drop; hands cannot touch the ball).',
+        'Round the turning cone and hand off the towel corners inside the Exchange Zone; waiting pairs crouch behind the Ready Line.'
+      ],
+      penaltiesEn: [
+        'Touching the volleyball with hands adds +5s per violation.',
+        'If the ball drops, stop on the spot—one picks up the ball while the partner spreads the towel flat to reload (+5s if advancing early).',
+        'Early handoff past the Start Line adds +5s per violation.'
+      ]
+    },
+    '4': {
+      gradeLabelEn: 'Grade 4',
+      titleEn: 'Three-Can Link',
+      participantsEn: '23 per class (12 pairs)',
+      timingRuleEn: 'Timer starts on the gun and records 11 pairs; the final pair wears a bib and stops the clock crossing the start/finish line.',
+      distanceEn: '10m Out-and-Back',
+      equipmentEn: ['Soda Cans ×3 × 5 = 15', 'Bib ×5', 'Stopwatch ×5', 'Traffic Cone ×5'],
+      rulesEn: [
+        '10m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.',
+        'Pairs hold the outer ends of two outer cans to clamp the middle can in balance (walk or run; hands may not touch the middle can).',
+        'Round the turning cone and pass the cans inside the Exchange Zone; waiting pairs crouch behind the Ready Line.'
+      ],
+      penaltiesEn: [
+        'Touching the middle clamped can with hands adds +5s per violation.',
+        'If a can drops, stop on the spot and re-clamp before advancing (+5s per violation).',
+        'Early handoff past the Start Line adds +5s per violation.'
+      ]
+    },
+    '5': {
+      gradeLabelEn: 'Grade 5',
+      titleEn: 'Da-Chuang Leap Forward',
+      participantsEn: '22 per class',
+      timingRuleEn: 'Timer starts on the gun and records the 20th runner; the final runner wears a bib and stops the clock crossing the start/finish line.',
+      distanceEn: '5m Out-and-Back',
+      equipmentEn: ['Foam Mats ×2 × 5', 'Traffic Cone ×5', 'Bib ×5', 'Stopwatch ×5'],
+      rulesEn: [
+        '5m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.',
+        'Use 2 foam mats to advance in balance—both feet must stay on the mats without touching the ground.',
+        'Round the turning cone and pass the mats to the next runner; waiting runners crouch behind the Ready Line.'
+      ],
+      penaltiesEn: [
+        'If stepping off the mats, stop on the spot, place mats, and step back onto them before advancing (+5s per violation).',
+        'Early handoff past the Start Line adds +5s per violation.'
+      ]
+    },
+    '6': {
+      gradeLabelEn: 'Grade 6',
+      titleEn: 'Hula-Hoop Ironman',
+      participantsEn: '26 per class',
+      timingRuleEn: 'Timer starts on the gun and records 24 runners; the final runner on Side B (24th leg) wears a bib and stops the clock crossing Side A Start Line.',
+      distanceEn: '10m Two-Way (Side A ↔ Side B)',
+      equipmentEn: ['Hula Hoop ×5', 'Bib ×5', 'Stopwatch ×5'],
+      rulesEn: [
+        'Side A and Side B Start Lines are 10m apart, each with a Ready Line and Exchange Zone behind it.',
+        'Side A’s 1st runner advances to Side B by jumping through a hand-held hula hoop like a jump rope (must pass over the entire body).',
+        'Waiting runners crouch behind the Ready Line and enter the Exchange Zone only as their teammate approaches.'
+      ],
+      penaltiesEn: [
+        'If tripped or stuck, adjust on the spot—never run while holding the hoop (+5s after referee warning).',
+        'Early handoff past the Start Line adds +5s per violation.'
+      ]
+    }
+  };
+  if (Array.isArray(sqData.funRaces)) {
+    sqData.funRaces.forEach(fr => {
+      const en = FUN_RACES_EN[fr.grade];
+      if (en) Object.assign(fr, en);
+    });
+  }
   if (Array.isArray(sqData.islands)) {
     sqData.islands.forEach(isl => {
       const en = ISLAND_EN[isl.id];
