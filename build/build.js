@@ -3498,7 +3498,9 @@ const customHtml = `
       <button type="button" class="sq-dlg-close" data-sq-close="sq-cert-dialog" aria-label="關閉" data-en-label="Close">✕</button>
     </div>
     <p id="sq-cert-hint" style="margin:0 0 12px;font-size:13.5px;color:#334155;"></p>
-    <canvas id="sq-cert-canvas" width="1200" height="820" class="sq-cert-preview"></canvas>
+    <canvas id="sq-cert-canvas" width="1200" height="820" style="display:none;"></canvas>
+    <img id="sq-cert-img" class="sq-cert-preview" alt="五力金牌證書" />
+    <div style="margin:6px 0 2px;font-size:12px;color:#64748b;text-align:center;" data-en="📱 Tip: On mobile, you can also long-press the certificate image above to save to Photos.">📱 小提示：手機上除了點下方按鈕，也可直接<strong>長按上方證書圖片</strong>儲存到相簿！</div>
     <div class="sq-cert-actions">
       <button type="button" class="sq-primary-btn" id="sq-btn-dl-cert" data-en="💾 Download HD Gold Certificate (PNG)">💾 下載高畫質金牌證書 (PNG)</button>
       <button type="button" class="sq-act-btn is-gold" id="sq-btn-fireworks" style="justify-content:center;font-size:14.5px;padding:11px 16px;" data-en="🎆 Fly to Cauldron · Launch 3D Fireworks!">🎆 飛往聖火台・再次施放 3D 勝利煙火！</button>
@@ -5627,6 +5629,10 @@ function initSportsQuest(ctx) {
         : ('五力集章進度：' + stampedCount + ' / 5 章　｜　建築關卡：' + clearedCount + ' / ' + totalItemsCount + ' 座　｜　校長：許雅惠　｜　中華民國 115 年 12 月 12 日'),
       W / 2, 742
     );
+    const certImg = document.getElementById('sq-cert-img');
+    if (certImg) {
+      try { certImg.src = canvas.toDataURL('image/png'); } catch (e) {}
+    }
   }
 
   function triggerGrandFinale() {
@@ -5695,12 +5701,50 @@ function initSportsQuest(ctx) {
   document.getElementById('sq-btn-dl-cert').addEventListener('click', () => {
     drawCertificate();
     const canvas = document.getElementById('sq-cert-canvas');
-    const a = document.createElement('a');
-    a.download = isEn
+    const filename = isEn
       ? ('DaChuang_71st_FivePower_Certificate_' + ((!state.name || state.name === '大庄小健將') ? 'Runner' : state.name) + '.png')
       : ('大庄國小71週年校慶_五力金牌證書_' + (state.name || '運動健將') + '.png');
-    a.href = canvas.toDataURL('image/png');
-    a.click();
+
+    const triggerBlobDownload = (blob) => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+    };
+
+    const isMobileUA = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
+    if (canvas.toBlob) {
+      canvas.toBlob(async (blob) => {
+        if (!blob) return;
+        if (isMobileUA && navigator.share && navigator.canShare) {
+          try {
+            const file = new File([blob], filename, { type: 'image/png' });
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                files: [file],
+                title: isEn ? 'Da-Chuang 71st Five-Power Gold Certificate' : '大庄國小 71 週年校慶・五力金牌證書'
+              });
+              return;
+            }
+          } catch (err) {
+            if (err && err.name === 'AbortError') return;
+          }
+        }
+        triggerBlobDownload(blob);
+      }, 'image/png');
+    } else {
+      const a = document.createElement('a');
+      a.download = filename;
+      a.href = canvas.toDataURL('image/png');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   });
 
   // ================= 頂部品牌卡：折疊收合管理 (方案一正式採用) =================
