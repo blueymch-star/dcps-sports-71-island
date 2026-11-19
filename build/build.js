@@ -4850,7 +4850,7 @@ function initSportsQuest(ctx) {
     if (!cardBody) return;
     const isl = ctx.islandById.get(islId)?.data;
     if (!isl) return;
-    const q = (DATA.quests || []).find(x => x.islandId === islId);
+    const q = (DATA.quests || []).find(x => x.islandId === islId || (islId === 's07' && x.id === 'q_knowledge'));
     const totalBldgs = (isl.items || []).length;
     const doneBldgs = (isl.items || []).filter(it => state.clearedItems[it.id]).length;
     const stampDone = q ? !!state.stamps[q.id] : Object.keys(state.stamps).length >= 5;
@@ -5265,6 +5265,7 @@ function initSportsQuest(ctx) {
   }
 
   let funRaceFilterGrade = 'ALL';
+  const escHtml = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   function buildFunRaceSvg(fr) {
     const dist = isEn ? (fr.distanceEn || fr.distance) : fr.distance;
     const isTwoWay = fr.layoutType === 'twoway';
@@ -5344,7 +5345,7 @@ function initSportsQuest(ctx) {
             '<span class="sq-fun-time-badge">' + escHtml((isEn ? 'Event ' : '項目 ') + fr.eventNo + ' · ' + fr.time) + '</span>' +
             '<h3 class="sq-fun-title">' + escHtml(title) + '</h3>' +
           '</div>' +
-          '<button type="button" class="sq-fly-btn" data-sq-fun-fly="' + escHtml(fr.islandId) + '">' + escHtml(flyLbl) + '</button>' +
+          '<button type="button" class="sq-chip" data-sq-fun-fly="' + escHtml(fr.islandId) + '">' + escHtml(flyLbl) + '</button>' +
         '</div>' +
         '<div class="sq-fun-meta-grid">' +
           '<div class="sq-fun-meta-box"><strong>' + escHtml(isEn ? '👥 Participants' : '👥 參加人數') + '</strong>' + escHtml(parts) + '</div>' +
@@ -5359,8 +5360,9 @@ function initSportsQuest(ctx) {
     }).join('');
     mount.querySelectorAll('[data-sq-fun-fly]').forEach(btn => {
       btn.addEventListener('click', () => {
-        schedDlg.close();
-        if (window.uiSelectIsland) window.uiSelectIsland(btn.dataset.sqFunFly);
+        if (schedDlg.open) schedDlg.close();
+        if (ctx.select) ctx.select('island', btn.dataset.sqFunFly);
+        else if (ctx.frameIsland) ctx.frameIsland(btn.dataset.sqFunFly);
       });
     });
   }
