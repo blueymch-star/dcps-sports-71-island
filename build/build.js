@@ -194,7 +194,7 @@ const sportsBrandHeader = `<header id="ui-brand" class="ui-glass sq-brand-root">
           <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書" data-en-title="View Five-Power Passport & claim Gold Certificate">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
           <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表" data-en-title="View full 32-event Sports Day timetable (08:00–13:00)">📅 程序表(32)</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報" data-en-title="View 16 sprint finals, honor roll & complete results">🏃 決賽戰報</button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-funraces" title="查看二至六年級趣味競賽規則、器材與場地動線圖" data-en-title="View G2–G6 Fun Race rules, equipment & field diagrams" data-en="🎪 Fun Races">🎪 趣味競賽</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-funraces" title="查看一至六年級趣味競賽規則、器材與場地動線圖" data-en-title="View G1–G6 Fun Race rules, equipment & field diagrams" data-en="🎪 Fun Races">🎪 趣味競賽</button>
           <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂" data-en-title="Toggle background music">🎵 闖關音樂🔊</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分" data-en-title="Set athlete name & division"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label" data-en="Athlete">選手設定</span></button>
           <button type="button" class="sq-brand-pill is-gear sq-zh-only" id="sq-btn-gear" title="切換 3D 扮演角色與穿戴收集到的運動會裝備">🎒 裝備櫃 <span id="sq-gear-count-pill">0/24</span></button>
@@ -3350,7 +3350,7 @@ const customHtml = `
     <div class="sq-tabs">
       <button type="button" class="sq-tab is-active" data-sq-tab="prog" data-en="📅 Full Program (01–32)">📅 當日程序表（01–32 項）</button>
       <button type="button" class="sq-tab" data-sq-tab="pre" data-en="🏃 Sprint Finals &amp; Reports">🏃 個人賽決賽成績＆戰報</button>
-      <button type="button" class="sq-tab" data-sq-tab="funraces" data-en="🎪 Fun Race Rules (G2–6)">🎪 趣味競賽規程（二～六年級）</button>
+      <button type="button" class="sq-tab" data-sq-tab="funraces" data-en="🎪 Fun Race Rules (G1–6)">🎪 趣味競賽規程（一～六年級）</button>
       <button type="button" class="sq-tab" data-sq-tab="models" data-en="🗺️ 22 3D Landmarks Guide">🗺️ 七島 22 座 3D 地標模型總覽</button>
     </div>
     <div id="sq-pane-prog">
@@ -3478,7 +3478,8 @@ const customHtml = `
     </div>
     <div id="sq-pane-funraces" hidden>
       <div class="sq-filter-row" id="sq-fun-filters">
-        <button type="button" class="sq-chip is-active" data-fungrade="ALL" data-en="All (G2–G6)">全部年級 (二～六年級)</button>
+        <button type="button" class="sq-chip is-active" data-fungrade="ALL" data-en="All (G1–G6)">全部年級 (一～六年級)</button>
+        <button type="button" class="sq-chip" data-fungrade="1" data-en="Grade 1">一年級・螞蟻搬豆</button>
         <button type="button" class="sq-chip" data-fungrade="2" data-en="Grade 2">二年級・粒粒皆辛苦</button>
         <button type="button" class="sq-chip" data-fungrade="3" data-en="Grade 3">三年級・「巾」球運送</button>
         <button type="button" class="sq-chip" data-fungrade="4" data-en="Grade 4">四年級・罐罐相連</button>

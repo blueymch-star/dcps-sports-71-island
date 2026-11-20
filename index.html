@@ -3692,7 +3692,7 @@ html[lang="en"] .sq-zh-only { display: none !important; }
           <button type="button" class="sq-brand-pill is-gold" id="sq-btn-cert" title="查看五力集章進度與領取金牌證書" data-en-title="View Five-Power Passport & claim Gold Certificate">🏅 五力護照 <span id="sq-progress-txt">0/5章</span></button>
           <button type="button" class="sq-brand-pill" id="sq-btn-schedule" title="查看當日 08:00–13:00 完整 32 項程序表" data-en-title="View full 32-event Sports Day timetable (08:00–13:00)">📅 程序表(32)</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-pre" title="查看 16 項個人賽決賽成績、榮譽榜與完整戰報" data-en-title="View 16 sprint finals, honor roll & complete results">🏃 決賽戰報</button>
-          <button type="button" class="sq-brand-pill" id="sq-btn-funraces" title="查看二至六年級趣味競賽規則、器材與場地動線圖" data-en-title="View G2–G6 Fun Race rules, equipment & field diagrams" data-en="🎪 Fun Races">🎪 趣味競賽</button>
+          <button type="button" class="sq-brand-pill" id="sq-btn-funraces" title="查看一至六年級趣味競賽規則、器材與場地動線圖" data-en-title="View G1–G6 Fun Race rules, equipment & field diagrams" data-en="🎪 Fun Races">🎪 趣味競賽</button>
           <button type="button" class="sq-brand-pill is-audio" id="sq-btn-audio" title="切換闖關背景音樂" data-en-title="Toggle background music">🎵 闖關音樂🔊</button>
           <button type="button" class="sq-brand-pill" id="sq-btn-athlete" title="設定運動員姓名與參賽身分" data-en-title="Set athlete name & division"><span id="sq-athlete-icon">🐯</span> <span id="sq-athlete-label" data-en="Athlete">選手設定</span></button>
           <button type="button" class="sq-brand-pill is-gear sq-zh-only" id="sq-btn-gear" title="切換 3D 扮演角色與穿戴收集到的運動會裝備">🎒 裝備櫃 <span id="sq-gear-count-pill">0/24</span></button>
@@ -4034,7 +4034,7 @@ html[lang="en"] .sq-zh-only { display: none !important; }
     <div class="sq-tabs">
       <button type="button" class="sq-tab is-active" data-sq-tab="prog" data-en="📅 Full Program (01–32)">📅 當日程序表（01–32 項）</button>
       <button type="button" class="sq-tab" data-sq-tab="pre" data-en="🏃 Sprint Finals &amp; Reports">🏃 個人賽決賽成績＆戰報</button>
-      <button type="button" class="sq-tab" data-sq-tab="funraces" data-en="🎪 Fun Race Rules (G2–6)">🎪 趣味競賽規程（二～六年級）</button>
+      <button type="button" class="sq-tab" data-sq-tab="funraces" data-en="🎪 Fun Race Rules (G1–6)">🎪 趣味競賽規程（一～六年級）</button>
       <button type="button" class="sq-tab" data-sq-tab="models" data-en="🗺️ 22 3D Landmarks Guide">🗺️ 七島 22 座 3D 地標模型總覽</button>
     </div>
     <div id="sq-pane-prog">
@@ -4162,7 +4162,8 @@ html[lang="en"] .sq-zh-only { display: none !important; }
     </div>
     <div id="sq-pane-funraces" hidden>
       <div class="sq-filter-row" id="sq-fun-filters">
-        <button type="button" class="sq-chip is-active" data-fungrade="ALL" data-en="All (G2–G6)">全部年級 (二～六年級)</button>
+        <button type="button" class="sq-chip is-active" data-fungrade="ALL" data-en="All (G1–G6)">全部年級 (一～六年級)</button>
+        <button type="button" class="sq-chip" data-fungrade="1" data-en="Grade 1">一年級・螞蟻搬豆</button>
         <button type="button" class="sq-chip" data-fungrade="2" data-en="Grade 2">二年級・粒粒皆辛苦</button>
         <button type="button" class="sq-chip" data-fungrade="3" data-en="Grade 3">三年級・「巾」球運送</button>
         <button type="button" class="sq-chip" data-fungrade="4" data-en="Grade 4">四年級・罐罐相連</button>
@@ -4788,21 +4789,21 @@ const DATA = {
       "question": "09:30～10:40 登場的「知識力」趣味競賽中，請問三年級與六年級各是什麼趣味項目？",
       "options": [
         "三年級「巾」球運送；六年級「呼啦圈小鐵人」",
-        "三年級「跳跳虎」；六年級「串串接接」",
+        "三年級「螞蟻搬豆」；六年級「串串接接」",
         "三年級「拔河」；六年級「射箭」"
       ],
       "answer": 0,
-      "explain": "太厲害了！各年級趣味競賽分別為：幼兒園「串串接接」、一年級「跳跳虎」、二年級「粒粒皆辛苦」、三年級「『巾』球運送」、四年級「罐罐相連」、五年級「大庄躍進」、六年級「呼啦圈小鐵人」及親子「圈力衝刺」！",
+      "explain": "太厲害了！各年級趣味競賽分別為：幼兒園「串串接接」、一年級「螞蟻搬豆」、二年級「粒粒皆辛苦」、三年級「『巾』球運送」、四年級「罐罐相連」、五年級「大庄躍進」、六年級「呼拉圈小鐵人」及親子「圈力衝刺」！",
       "landmarkNameEn": "Every Grain Counts / G3–4 Pair Track",
       "titleEn": "[Knowledge Power Trial] Fun-Race Strategy Master",
       "clueEn": "Head west to 05 Fun Sprout Park or northeast to 07 Smart Fun Arena and tap any fun-race landmark!",
       "questionEn": "During the 09:30–10:40 Knowledge Power fun races, what are the events for Grade 3 and Grade 6?",
       "optionsEn": [
         "G3: Towel-Ball Relay; G6: Hula-Hoop Ironman",
-        "G3: Bouncing Tiggers; G6: String-a-Chain",
+        "G3: Ants Carrying Beans; G6: String-a-Chain",
         "G3: Tug-of-War; G6: Archery"
       ],
-      "explainEn": "Well done! From Preschool String-a-Chain and G1 Bouncing Tiggers to G3 Towel-Ball Relay, G6 Hula-Hoop Ironman, and 10:40 Family Ring Sprint, every fun race tests coordination and smart strategy!"
+      "explainEn": "Well done! From Preschool String-a-Chain and G1 Ants Carrying Beans to G3 Towel-Ball Relay, G6 Hula-Hoop Ironman, and 10:40 Family Ring Sprint, every fun race tests coordination and smart strategy!"
     }
   ],
   "programSchedule": [
@@ -5039,12 +5040,12 @@ const DATA = {
     },
     {
       "no": "22",
-      "title": "趣味競賽：跳跳虎",
+      "title": "趣味競賽：螞蟻搬豆",
       "power": "知識力",
       "performer": "一年級",
       "time": "10:30",
       "island": "s05",
-      "titleEn": "Fun Race: Bouncing Tiggers",
+      "titleEn": "Fun Race: Ants Carrying Beans",
       "powerEn": "Knowledge Power",
       "performerEn": "Grade 1"
     },
@@ -5290,6 +5291,55 @@ const DATA = {
     }
   ],
   "funRaces": [
+    {
+      "grade": "1",
+      "gradeLabel": "一年級",
+      "eventNo": "22",
+      "time": "10:30",
+      "title": "螞蟻搬豆",
+      "islandId": "s05",
+      "participants": "每班 24 人（2 人一組，共 12 組）",
+      "timingRule": "鳴槍後開始計時，採計 11 組小朋友完成時間；最後一組須穿號碼衣，通過起終點線為計時依據。",
+      "distance": "10 公尺折返（大操場）",
+      "layoutType": "roundtrip",
+      "equipment": [
+        "排球 ×5",
+        "交通錐 ×5",
+        "號碼衣 ×5",
+        "碼表 ×5"
+      ],
+      "rules": [
+        "起點與折返點相距 10 公尺；起點線後方設有「預備線」，兩線之間為交接區。",
+        "出發人員兩人一組，面對面站立（側身前進），雙手互相握住對方的手腕或前臂形成「轎子」，將排球放置在手臂上保持平衡前進（可走路或跑步，球不可落地）。",
+        "第一組繞過折返點交通錐後折返，以接力方式在起點線後方（交接區內）直接將球交接給下一組；未輪到組別須在「預備線」後方蹲下等待。"
+      ],
+      "penalties": [
+        "雙手不可夾住排球或抱住排球，違規者每次加罰 5 秒。",
+        "排球中途掉落須原地停下，由一位同學將球撿回重新放妥於手臂上才可前進；未在原地放妥即前進者，每次違規加罰 5 秒。",
+        "越過起點線提前交接，每次違規加罰 5 秒。"
+      ],
+      "gradeLabelEn": "Grade 1",
+      "titleEn": "Ants Carrying Beans",
+      "participantsEn": "24 per class (12 pairs)",
+      "timingRuleEn": "Timer starts on the gun and records 11 pairs; the final pair wears a bib and stops the clock crossing the start/finish line.",
+      "distanceEn": "10m Out-and-Back (Main Field)",
+      "equipmentEn": [
+        "Volleyball ×5",
+        "Traffic Cone ×5",
+        "Bib ×5",
+        "Stopwatch ×5"
+      ],
+      "rulesEn": [
+        "10m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.",
+        "Pairs stand face-to-face (moving sideways), holding each other’s wrists or forearms like a \"sedan chair\" with a volleyball balanced on top (walk or run; ball cannot drop).",
+        "Round the turning cone and pass the ball directly to the next pair inside the Exchange Zone; waiting pairs crouch behind the Ready Line."
+      ],
+      "penaltiesEn": [
+        "Clamping or hugging the volleyball with hands/arms adds +5s per violation.",
+        "If the ball drops, stop on the spot for one teammate to pick it up and re-balance it on the arms before moving (+5s per violation if advancing early).",
+        "Crossing the Start Line for an early handoff adds +5s per violation."
+      ]
+    },
     {
       "grade": "2",
       "gradeLabel": "二年級",
@@ -6715,7 +6765,7 @@ const DATA = {
       ],
       "periods": "09:30 幼兒・10:20–10:40 低年級與親子趣味賽",
       "gradePeriods": {
-        "7": "09:30 幼兒親子《串串接接》｜10:20 二年級《粒粒皆辛苦》｜10:30 一年級《跳跳虎》｜10:40 親子《圈力衝刺》"
+        "7": "09:30 幼兒親子《串串接接》｜10:20 二年級《粒粒皆辛苦》｜10:30 一年級《螞蟻搬豆》｜10:40 親子《圈力衝刺》"
       },
       "gradePeriodsEn": {
         "7": "09:30 Preschool｜10:20 G2｜10:30 G1｜10:40 Parent-Child"
@@ -6727,14 +6777,14 @@ const DATA = {
       "ground": "speckle",
       "tree": "willow",
       "color": "#14b8a6",
-      "lead": "知識力｜幼兒串串接接、二年級粒粒皆辛苦、一年級跳跳虎與親子圈力衝刺",
-      "summary": "「趣味萌芽樂園」匯集幼兒園、低年級與親子同樂的趣味競賽！包含 09:30 幼兒園「串串接接」、10:20 二年級「粒粒皆辛苦」（每班 22 人、10m 折返放球進飛盤再撿回水桶）、10:30 一年級「跳跳虎」，以及 10:40 親師生合作的「圈力衝刺」，在歡笑中展現手眼協調與團隊默契！",
+      "lead": "知識力｜幼兒串串接接、二年級粒粒皆辛苦、一年級螞蟻搬豆與親子圈力衝刺",
+      "summary": "「趣味萌芽樂園」匯集幼兒園、低年級與親子同樂的趣味競賽！包含 09:30 幼兒園「串串接接」、10:20 二年級「粒粒皆辛苦」（每班 22 人、10m 折返放球進飛盤再撿回水桶）、10:30 一年級「螞蟻搬豆」（每班 24 人／12 組、10m 折返雙人手轎運排球），以及 10:40 親師生合作的「圈力衝刺」，在歡笑中展現手眼協調與團隊默契！",
       "keywords": [
         "知識力",
         "趣味競賽",
         "串串接接",
         "粒粒皆辛苦",
-        "跳跳虎",
+        "螞蟻搬豆",
         "圈力衝刺"
       ],
       "units": [
@@ -6759,11 +6809,11 @@ const DATA = {
         {
           "sem": "10:30",
           "weeks": "項目 22",
-          "name": "一年級《跳跳虎》（一年級活力接力闖關）",
+          "name": "一年級《螞蟻搬豆》（24 人／12 組｜10m 折返雙人手轎運排球）",
           "periods": 10,
           "semEn": "10:30",
           "weeksEn": "Event 22",
-          "nameEn": "G1 \"Bouncing Tiggers\" (Grade 1 Energetic Relay)"
+          "nameEn": "G1 \"Ants Carrying Beans\" (24/class · 12 pairs | 10m arm-sedan volleyball)"
         },
         {
           "sem": "10:40",
@@ -6896,53 +6946,53 @@ const DATA = {
         {
           "id": "s05i3",
           "model": "mascot_corner",
-          "name": "跳跳虎與親子打卡角",
-          "desc": "最受低年級與幼兒園歡迎的「跳跳虎」、「串串接接」與 10:40 親子「圈力衝刺」歡樂起點。",
+          "name": "螞蟻搬豆與親子打卡角",
+          "desc": "一年級《螞蟻搬豆》（每班 24 人／12 組、兩人面對面握腕成「轎子」托排球 10m 折返，不可夾球抱球）、幼兒園《串串接接》與 10:40 親子《圈力衝刺》歡樂起點。",
           "facts": [
-            "09:30 幼兒園串串接接",
-            "10:20 二年級粒粒皆辛苦＆10:30 一年級跳跳虎",
-            "10:40 親子趣味競賽：圈力衝刺"
+            "10:30 一年級《螞蟻搬豆》：24 人/12 組（採 11 組）",
+            "雙手握腕成轎托排球・夾球抱球或越線加罰 5 秒",
+            "09:30 幼兒《串串接接》＆10:40 親子《圈力衝刺》"
           ],
-          "when": "09:30 幼兒賽｜10:20–10:40 一二年級與親子圈力衝刺",
+          "when": "09:30 幼兒賽｜10:30 一年級螞蟻搬豆｜10:40 親子圈力衝刺",
           "phase": 2,
           "challenge": {
             "mode": "tap_charge",
             "targetCount": 3,
             "power": "知識力",
             "questId": "q_knowledge",
-            "title": "【跳跳虎打卡角關卡】跳跳虎三連跳＆親子圈力衝刺",
-            "taskDesc": "請連點 3 下「🐯 跟著跳跳虎活力彈跳」完成暖身，並選出低年級與親子趣味競賽項目：",
-            "actionBtn": "🐯 跟著跳跳虎活力彈跳",
-            "actionDone": "🐯 跳跳虎三連跳成功！全場大小朋友笑聲不斷！",
-            "question": "10:20、10:30 與 10:40 依序登場的二年級、一年級與學生家長親子趣味競賽，名稱分別是什麼？",
+            "title": "【螞蟻搬豆關卡】雙人手轎運排球＆親子圈力衝刺",
+            "taskDesc": "請連點 3 下「🐜 搭起雙人手轎穩穩托起排球」完成暖身，並回答一年級《螞蟻搬豆》規則：",
+            "actionBtn": "🐜 搭起雙人手轎運排球",
+            "actionDone": "🐜 手轎超穩！排球沒落地也沒用手夾，順利繞過 10 公尺交通錐！",
+            "question": "一年級《螞蟻搬豆》兩人面對面互握手腕或前臂形成「轎子」托排球前進，請問哪一種行為會被加罰 5 秒？",
             "options": [
-              "全部都是跑 200 公尺",
-              "拔河大賽",
-              "二年級《粒粒皆辛苦》、一年級《跳跳虎》、親子《圈力衝刺》"
+              "在預備線後方蹲下等待",
+              "雙手夾住或抱住排球、掉球未原地放妥即前進，或越過起點線提前交接",
+              "最後一組同學穿上號碼衣通過起終點線"
             ],
-            "answer": 2,
-            "explain": "完全正確！加上 09:30 幼兒園的《串串接接》，讓幼兒園、低年級與爸爸媽媽都能在草地上盡情同樂！",
+            "answer": 1,
+            "explain": "完全正確！《螞蟻搬豆》規定排球須平放手臂上平衡前進，不可夾球或抱球，掉球須原地放妥、交接須在交接區內，違規每次加罰 5 秒！",
             "powerEn": "Knowledge Power",
-            "titleEn": "[Tigger Corner Quest] Triple Hop & Family Sprint",
-            "taskDescEn": "Tap \"🐯 Hop Along with Tigger!\" 3 times to warm up, then identify the G2, G1, and Parent-Child fun races:",
-            "actionBtnEn": "🐯 Hop Along with Tigger!",
-            "actionDoneEn": "🐯 Three energetic hops! Smiles and laughter echo all across the grass!",
-            "questionEn": "In order at 10:20, 10:30, and 10:40, what are the Grade 2, Grade 1, and Parent-Child fun races called?",
+            "titleEn": "[Ants Carrying Beans Quest] Arm-Sedan Volleyball & Family Sprint",
+            "taskDescEn": "Tap \"🐜 Form the Arm-Sedan & Balance the Ball\" 3 times to warm up, then answer the Grade 1 Ants Carrying Beans rule:",
+            "actionBtnEn": "🐜 Form Arm-Sedan & Balance Ball",
+            "actionDoneEn": "🐜 Super steady! The volleyball never dropped or got clamped around the 10m cone!",
+            "questionEn": "In Grade 1 \"Ants Carrying Beans\", pairs hold each other’s wrists/forearms face-to-face to balance a volleyball. Which action incurs a +5s penalty?",
             "optionsEn": [
-              "All of them run 200m sprints",
-              "Tug-of-War Tournament",
-              "G2 Every Grain Counts, G1 Bouncing Tiggers & Family Ring-Power Sprint"
+              "Waiting crouched behind the Ready Line",
+              "Clamping/hugging the ball, moving on without re-placing a dropped ball on the spot, or handing off past the Start Line",
+              "Having the final pair wear a bib crossing the start/finish line"
             ],
-            "explainEn": "Correct! Together with Preschool \"String-a-Chain\" at 09:30, our youngest runners and parents share unforgettable lawn fun!"
+            "explainEn": "Spot on! In Ants Carrying Beans, the ball must rest balanced on the forearms without clamping or hugging; dropped balls must be reset on the spot and handoffs must stay in the Exchange Zone (+5s per violation)!"
           },
-          "nameEn": "Tigger & Family Photo Corner",
-          "descEn": "Vibrant starting zone for Preschool String-a-Chain, G2 Every Grain Counts, G1 Bouncing Tiggers, and 10:40 Family Ring-Power Sprint.",
+          "nameEn": "Ants Carrying Beans & Family Corner",
+          "descEn": "Vibrant starting zone for G1 \"Ants Carrying Beans\" (24/class · 12 pairs holding wrists/forearms like a sedan chair to balance a volleyball 10m out-and-back), Preschool String-a-Chain, and 10:40 Family Ring-Power Sprint.",
           "factsEn": [
-            "09:30 Preschool String-a-Chain",
-            "10:20 G2 Grains & 10:30 G1 Tiggers",
-            "10:40 Family Ring-Power Sprint"
+            "10:30 G1 Ants Carrying Beans: 24/class · 12 pairs (11 timed)",
+            "Wrist-grip arm-sedan · No clamping/hugging or early handoff (+5s)",
+            "09:30 Preschool String-a-Chain & 10:40 Family Ring Sprint"
           ],
-          "whenEn": "09:30 Preschool | 10:20–10:40 Lower Grades & Family Sprint"
+          "whenEn": "09:30 Preschool | 10:30 G1 Ants Carrying Beans | 10:40 Family Sprint"
         }
       ],
       "nameEn": "Fun Sprout Park",
@@ -6950,14 +7000,14 @@ const DATA = {
       "gradeEn": "Preschool, Grades 1–2 & Parents",
       "periodsEn": "09:30 Preschool · 10:20–10:40 Lower Grades & Family Fun Races",
       "periodsShortEn": "09:30 & 10:20–10:40",
-      "leadEn": "Knowledge Power | Preschool String-a-Chain, G2 Every Grain Counts, G1 Bouncing Tiggers & Family Ring-Power Sprint",
-      "summaryEn": "Fun Sprout Park brings together our youngest athletes and families! Featuring 09:30 Preschool \"String-a-Chain\", 10:20 G2 \"Every Grain Counts\" (22 per class, 10m out-and-back placing 4 balls into 4 frisbees), 10:30 G1 \"Bouncing Tiggers\", and 10:40 Parent-Child \"Ring-Power Sprint\".",
+      "leadEn": "Knowledge Power | Preschool String-a-Chain, G2 Every Grain Counts, G1 Ants Carrying Beans & Family Ring-Power Sprint",
+      "summaryEn": "Fun Sprout Park brings together our youngest athletes and families! Featuring 09:30 Preschool \"String-a-Chain\", 10:20 G2 \"Every Grain Counts\" (22 per class, 10m out-and-back placing 4 balls into 4 frisbees), 10:30 G1 \"Ants Carrying Beans\" (24 per class / 12 pairs, wrist-grip arm-sedan balancing a volleyball 10m out-and-back), and 10:40 Parent-Child \"Ring-Power Sprint\".",
       "keywordsEn": [
         "Knowledge Power",
         "Fun Races",
         "String-a-Chain",
         "Every Grain Counts",
-        "Bouncing Tiggers",
+        "Ants Carrying Beans",
         "Ring Sprint"
       ],
       "assessEn": "Complete any Knowledge Power fun-race quest here to earn your [Knowledge Power Stamp].",
@@ -7430,7 +7480,7 @@ const DATA = {
           "id": "s07i3",
           "model": "referee_timer",
           "name": "趣味規程與裁判計時亭",
-          "desc": "趣味競賽大會裁判與計時資訊中心！收錄二至六年級完整規程、5 秒違規罰則一覽、各班碼表／號碼衣配發與場地動線圖解。",
+          "desc": "趣味競賽大會裁判與計時資訊中心！收錄一至六年級完整規程、5 秒違規罰則一覽、各班碼表／號碼衣配發與場地動線圖解。",
           "facts": [
             "預備線與起點線之間為「交接區」",
             "未輪到選手須在預備線後方「蹲下等待」",
@@ -7447,7 +7497,7 @@ const DATA = {
             "taskDesc": "請連點 3 下「⏱️ 校對碼表與交接區標線」協助裁判就位：",
             "actionBtn": "⏱️ 校對趣味競賽計時器",
             "actionDone": "⏱️ 碼表與預備線標記完成！裁判團隊準備就緒！",
-            "question": "二至六年級趣味競賽共同的「交接區與等候規定」為何？",
+            "question": "一至六年級趣味競賽共同的「交接區與等候規定」為何？",
             "options": [
               "未輪到的人可以站著超越起點線先拿道具",
               "未輪到的學生須在預備線後方蹲下等待，交接必須在起點線後方（交接區內）完成",
@@ -7460,7 +7510,7 @@ const DATA = {
             "taskDescEn": "Tap \"⏱️ Sync Timers & Exchange Lines\" 3 times to assist the referees:",
             "actionBtnEn": "⏱️ Sync Fun-Race Timers",
             "actionDoneEn": "⏱️ Timers and Ready Lines verified! Referees are ready!",
-            "questionEn": "What is the shared waiting and handoff rule across all Grade 2–6 fun races?",
+            "questionEn": "What is the shared waiting and handoff rule across all Grade 1–6 fun races?",
             "optionsEn": [
               "Waiting runners may stand past the start line",
               "Waiting runners crouch behind the Ready Line; handoffs must occur behind the Start Line (Exchange Zone)",
@@ -7469,7 +7519,7 @@ const DATA = {
             "explainEn": "Correct! Waiting runners crouch behind the Ready Line and handoffs must happen inside the Exchange Zone; early handoffs add +5s per violation!"
           },
           "nameEn": "Fun-Race Rules & Timing Kiosk",
-          "descEn": "Official rulebook & timing kiosk for Grades 2–6 fun races! Covers +5s penalties, Ready Line crouching rules, and interactive SVG field diagrams.",
+          "descEn": "Official rulebook & timing kiosk for Grades 1–6 fun races! Covers +5s penalties, Ready Line crouching rules, and interactive SVG field diagrams.",
           "factsEn": [
             "Exchange Zone sits between Ready Line & Start Line",
             "Waiting runners crouch behind Ready Line",
@@ -7746,7 +7796,7 @@ const DATA = {
       "大庄躍進",
       "呼啦圈小鐵人",
       "粒粒皆辛苦",
-      "跳跳虎",
+      "螞蟻搬豆",
       "圈力衝刺"
     ],
     [
@@ -7781,7 +7831,7 @@ const DATA = {
   "gradeStory": {
     "7": {
       "title": "低年級＆幼兒園｜歡樂起跑、親子同樂",
-      "zh": "幼兒園帶來「『蕉』你一起動一動」、「串串接接」與「親子大隊接力」；一年級演出「想成功向前衝」與「跳跳虎」；二年級帶來「大夢想家」與「粒粒皆辛苦」，並在 11:00 站上六道紫色跑道挑戰 50 公尺跑走！",
+      "zh": "幼兒園帶來「『蕉』你一起動一動」、「串串接接」與「親子大隊接力」；一年級演出「想成功向前衝」與「螞蟻搬豆」；二年級帶來「大夢想家」與「粒粒皆辛苦」，並在 11:00 站上六道紫色跑道挑戰 50 公尺跑走！",
       "islands": [
         "s01",
         "s02",
@@ -7791,7 +7841,7 @@ const DATA = {
         "s06"
       ],
       "titleEn": "Lower Grades & Preschool | Joyful Start & Family Fun",
-      "en": "Preschool presents \"Banana Boogie\", \"String-a-Chain\" & Family Relay; G1 brings \"Aim for Success\" & \"Bouncing Tiggers\"; G2 performs \"Big Dreamers\" & \"Every Grain Counts\", then both hit the purple track at 11:00 for 50m Run & Walk!"
+      "en": "Preschool presents \"Banana Boogie\", \"String-a-Chain\" & Family Relay; G1 brings \"Aim for Success\" & \"Ants Carrying Beans\" (pair arm-sedan volleyball); G2 performs \"Big Dreamers\" & \"Every Grain Counts\", then both hit the purple track at 11:00 for 50m Run & Walk!"
     },
     "8": {
       "title": "中年級（三四年級）｜個人賽初登場、半圈接力衝刺",
@@ -7849,8 +7899,8 @@ const DATA = {
     },
     {
       "island": "s05",
-      "zh": "第三站【趣味萌芽樂園】：幼兒園《串串接接》、二年級《粒粒皆辛苦》（22 人 10m 放球進飛盤）、一年級《跳跳虎》與 10:40 親子《圈力衝刺》（知識力）。",
-      "en": "Stop 3 [05 Fun Sprout Park]: Preschool String-a-Chain, G2 Every Grain Counts (22/class, 10m ball & frisbee), G1 Bouncing Tiggers & 10:40 Family Ring Sprint (Knowledge Power)."
+      "zh": "第三站【趣味萌芽樂園】：幼兒園《串串接接》、二年級《粒粒皆辛苦》（22 人 10m 放球進飛盤）、一年級《螞蟻搬豆》（24 人/12 組 10m 雙人手轎運排球）與 10:40 親子《圈力衝刺》（知識力）。",
+      "en": "Stop 3 [05 Fun Sprout Park]: Preschool String-a-Chain, G2 Every Grain Counts (22/class, 10m ball & frisbee), G1 Ants Carrying Beans (24/class · 12 pairs arm-sedan volleyball) & 10:40 Family Ring Sprint (Knowledge Power)."
     },
     {
       "island": "s07",
@@ -7880,9 +7930,9 @@ const DATA = {
         "name": "低年級小選手",
         "icon": "🐯",
         "start": "grade",
-        "hint": "挑戰跳跳虎、粒粒皆辛苦與 50 公尺紫色跑道跑走！",
+        "hint": "挑戰螞蟻搬豆、粒粒皆辛苦與 50 公尺紫色跑道跑走！",
         "nameEn": "Lower Grade Sprinter (G1–2)",
-        "hintEn": "Take on Bouncing Tiggers, Every Grain Counts & the 50m Purple Track Sprint!"
+        "hintEn": "Take on Ants Carrying Beans, Every Grain Counts & the 50m Purple Track Sprint!"
       },
       {
         "id": "middle",
@@ -8466,11 +8516,11 @@ const DATA = {
       "id": "n10",
       "date": "2026-12-12",
       "island": "s05",
-      "title": "【低年級與親子趣味賽】幼兒《串串接接》、二年級《粒粒皆辛苦》、一年級《跳跳虎》與親子《圈力衝刺》歡樂登場！",
-      "summary": "趣味萌芽樂園匯集幼兒園、低年級與家長同樂，包含二年級每班 22 人 10m 折返放球進飛盤再撿回水桶，考驗手眼協調與交接默契！",
+      "title": "【低年級與親子趣味賽】幼兒《串串接接》、二年級《粒粒皆辛苦》、一年級《螞蟻搬豆》與親子《圈力衝刺》歡樂登場！",
+      "summary": "趣味萌芽樂園匯集幼兒園、低年級與家長同樂，包含一年級《螞蟻搬豆》（24 人/12 組雙人手轎運排球）與二年級《粒粒皆辛苦》（22 人 10m 放球進飛盤），考驗手眼協調與交接默契！",
       "url": "#schedule",
-      "titleEn": "[Lower Grades & Family Fun Races] Preschool String-a-Chain, G2 Every Grain Counts, G1 Tiggers & Family Ring Sprint!",
-      "summaryEn": "Fun Sprout Park unites preschoolers, Grades 1–2, and parents—including G2’s 22-runner 10m ball-and-frisbee relay testing hand-eye agility!"
+      "titleEn": "[Lower Grades & Family Fun Races] Preschool String-a-Chain, G2 Every Grain Counts, G1 Ants Carrying Beans & Family Ring Sprint!",
+      "summaryEn": "Fun Sprout Park unites preschoolers, Grades 1–2, and parents—including G1’s 12-pair arm-sedan volleyball relay and G2’s 22-runner 10m ball-and-frisbee relay!"
     },
     {
       "id": "n13",

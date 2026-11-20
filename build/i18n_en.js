@@ -179,10 +179,10 @@ function applyEnglishData(sqData) {
       questionEn: 'During the 09:30–10:40 Knowledge Power fun races, what are the events for Grade 3 and Grade 6?',
       optionsEn: [
         'G3: Towel-Ball Relay; G6: Hula-Hoop Ironman',
-        'G3: Bouncing Tiggers; G6: String-a-Chain',
+        'G3: Ants Carrying Beans; G6: String-a-Chain',
         'G3: Tug-of-War; G6: Archery'
       ],
-      explainEn: 'Well done! From Preschool String-a-Chain and G1 Bouncing Tiggers to G3 Towel-Ball Relay, G6 Hula-Hoop Ironman, and 10:40 Family Ring Sprint, every fun race tests coordination and smart strategy!'
+      explainEn: 'Well done! From Preschool String-a-Chain and G1 Ants Carrying Beans to G3 Towel-Ball Relay, G6 Hula-Hoop Ironman, and 10:40 Family Ring Sprint, every fun race tests coordination and smart strategy!'
     }
   };
   if (Array.isArray(sqData.quests)) {
@@ -214,7 +214,7 @@ function applyEnglishData(sqData) {
     '19': { titleEn: 'Fun Race: Da-Chuang Leap Forward', powerEn: 'Knowledge Power', performerEn: 'Grade 5' },
     '20': { titleEn: 'Fun Race: Hula-Hoop Ironman', powerEn: 'Knowledge Power', performerEn: 'Grade 6' },
     '21': { titleEn: 'Fun Race: Every Grain Counts', powerEn: 'Knowledge Power', performerEn: 'Grade 2' },
-    '22': { titleEn: 'Fun Race: Bouncing Tiggers', powerEn: 'Knowledge Power', performerEn: 'Grade 1' },
+    '22': { titleEn: 'Fun Race: Ants Carrying Beans', powerEn: 'Knowledge Power', performerEn: 'Grade 1' },
     '23': { titleEn: 'Parent-Child Fun Race: Ring-Power Sprint', powerEn: 'Knowledge Power', performerEn: 'Students & Parents' },
     '24': { titleEn: 'Parent-Child Grand Relay', powerEn: 'Physical Power', performerEn: 'Preschool' },
     '25': { titleEn: '50m Run & Walk', powerEn: 'Physical Power', performerEn: 'Grade 1' },
@@ -640,15 +640,15 @@ function applyEnglishData(sqData) {
       gradeEn: 'Preschool, Grades 1–2 & Parents',
       periodsEn: '09:30 Preschool · 10:20–10:40 Lower Grades & Family Fun Races',
       periodsShortEn: '09:30 & 10:20–10:40',
-      leadEn: 'Knowledge Power | Preschool String-a-Chain, G2 Every Grain Counts, G1 Bouncing Tiggers & Family Ring-Power Sprint',
-      summaryEn: 'Fun Sprout Park brings together our youngest athletes and families! Featuring 09:30 Preschool "String-a-Chain", 10:20 G2 "Every Grain Counts" (22 per class, 10m out-and-back placing 4 balls into 4 frisbees), 10:30 G1 "Bouncing Tiggers", and 10:40 Parent-Child "Ring-Power Sprint".',
-      keywordsEn: ['Knowledge Power', 'Fun Races', 'String-a-Chain', 'Every Grain Counts', 'Bouncing Tiggers', 'Ring Sprint'],
+      leadEn: 'Knowledge Power | Preschool String-a-Chain, G2 Every Grain Counts, G1 Ants Carrying Beans & Family Ring-Power Sprint',
+      summaryEn: 'Fun Sprout Park brings together our youngest athletes and families! Featuring 09:30 Preschool "String-a-Chain", 10:20 G2 "Every Grain Counts" (22 per class, 10m out-and-back placing 4 balls into 4 frisbees), 10:30 G1 "Ants Carrying Beans" (24 per class / 12 pairs, wrist-grip arm-sedan balancing a volleyball 10m out-and-back), and 10:40 Parent-Child "Ring-Power Sprint".',
+      keywordsEn: ['Knowledge Power', 'Fun Races', 'String-a-Chain', 'Every Grain Counts', 'Ants Carrying Beans', 'Ring Sprint'],
       assessEn: 'Complete any Knowledge Power fun-race quest here to earn your [Knowledge Power Stamp].',
       skillsEn: ['Hand-Eye Agility', 'Rule Awareness', 'Parent-Child Bond'],
       unitsEn: [
         { semEn: '09:30', weeksEn: 'Event 16', nameEn: 'Preschool Fun Race: "String-a-Chain" (Preschoolers & Parents)' },
         { semEn: '10:20', weeksEn: 'Event 21', nameEn: 'G2 "Every Grain Counts" (22/class | 10m out-and-back ball & frisbee)' },
-        { semEn: '10:30', weeksEn: 'Event 22', nameEn: 'G1 "Bouncing Tiggers" (Grade 1 Energetic Relay)' },
+        { semEn: '10:30', weeksEn: 'Event 22', nameEn: 'G1 "Ants Carrying Beans" (24/class · 12 pairs | 10m arm-sedan volleyball)' },
         { semEn: '10:40', weeksEn: 'Event 23', nameEn: 'Parent-Child Fun Race: "Ring-Power Sprint" (Families & Teachers)' }
       ],
       itemsEn: {
@@ -694,23 +694,23 @@ function applyEnglishData(sqData) {
           }
         },
         s05i3: {
-          nameEn: 'Tigger & Family Photo Corner',
-          descEn: 'Vibrant starting zone for Preschool String-a-Chain, G2 Every Grain Counts, G1 Bouncing Tiggers, and 10:40 Family Ring-Power Sprint.',
-          factsEn: ['09:30 Preschool String-a-Chain', '10:20 G2 Grains & 10:30 G1 Tiggers', '10:40 Family Ring-Power Sprint'],
-          whenEn: '09:30 Preschool | 10:20–10:40 Lower Grades & Family Sprint',
+          nameEn: 'Ants Carrying Beans & Family Corner',
+          descEn: 'Vibrant starting zone for G1 "Ants Carrying Beans" (24/class · 12 pairs holding wrists/forearms like a sedan chair to balance a volleyball 10m out-and-back), Preschool String-a-Chain, and 10:40 Family Ring-Power Sprint.',
+          factsEn: ['10:30 G1 Ants Carrying Beans: 24/class · 12 pairs (11 timed)', 'Wrist-grip arm-sedan · No clamping/hugging or early handoff (+5s)', '09:30 Preschool String-a-Chain & 10:40 Family Ring Sprint'],
+          whenEn: '09:30 Preschool | 10:30 G1 Ants Carrying Beans | 10:40 Family Sprint',
           ch: {
             powerEn: 'Knowledge Power',
-            titleEn: '[Tigger Corner Quest] Triple Hop & Family Sprint',
-            taskDescEn: 'Tap "🐯 Hop Along with Tigger!" 3 times to warm up, then identify the G2, G1, and Parent-Child fun races:',
-            actionBtnEn: '🐯 Hop Along with Tigger!',
-            actionDoneEn: '🐯 Three energetic hops! Smiles and laughter echo all across the grass!',
-            questionEn: 'In order at 10:20, 10:30, and 10:40, what are the Grade 2, Grade 1, and Parent-Child fun races called?',
+            titleEn: '[Ants Carrying Beans Quest] Arm-Sedan Volleyball & Family Sprint',
+            taskDescEn: 'Tap "🐜 Form the Arm-Sedan & Balance the Ball" 3 times to warm up, then answer the Grade 1 Ants Carrying Beans rule:',
+            actionBtnEn: '🐜 Form Arm-Sedan & Balance Ball',
+            actionDoneEn: '🐜 Super steady! The volleyball never dropped or got clamped around the 10m cone!',
+            questionEn: 'In Grade 1 "Ants Carrying Beans", pairs hold each other’s wrists/forearms face-to-face to balance a volleyball. Which action incurs a +5s penalty?',
             optionsEn: [
-              'All of them run 200m sprints',
-              'Tug-of-War Tournament',
-              'G2 Every Grain Counts, G1 Bouncing Tiggers & Family Ring-Power Sprint'
+              'Waiting crouched behind the Ready Line',
+              'Clamping/hugging the ball, moving on without re-placing a dropped ball on the spot, or handing off past the Start Line',
+              'Having the final pair wear a bib crossing the start/finish line'
             ],
-            explainEn: 'Correct! Together with Preschool "String-a-Chain" at 09:30, our youngest runners and parents share unforgettable lawn fun!'
+            explainEn: 'Spot on! In Ants Carrying Beans, the ball must rest balanced on the forearms without clamping or hugging; dropped balls must be reset on the spot and handoffs must stay in the Exchange Zone (+5s per violation)!'
           }
         }
       }
@@ -857,7 +857,7 @@ function applyEnglishData(sqData) {
         },
         s07i3: {
           nameEn: 'Fun-Race Rules & Timing Kiosk',
-          descEn: 'Official rulebook & timing kiosk for Grades 2–6 fun races! Covers +5s penalties, Ready Line crouching rules, and interactive SVG field diagrams.',
+          descEn: 'Official rulebook & timing kiosk for Grades 1–6 fun races! Covers +5s penalties, Ready Line crouching rules, and interactive SVG field diagrams.',
           factsEn: ['Exchange Zone sits between Ready Line & Start Line', 'Waiting runners crouch behind Ready Line', 'Open "🎪 Fun Race Rules" for SVG field diagrams'],
           whenEn: '09:30–10:40 | Fun-Race Rules & Timing HQ',
           ch: {
@@ -866,7 +866,7 @@ function applyEnglishData(sqData) {
             taskDescEn: 'Tap "⏱️ Sync Timers & Exchange Lines" 3 times to assist the referees:',
             actionBtnEn: '⏱️ Sync Fun-Race Timers',
             actionDoneEn: '⏱️ Timers and Ready Lines verified! Referees are ready!',
-            questionEn: 'What is the shared waiting and handoff rule across all Grade 2–6 fun races?',
+            questionEn: 'What is the shared waiting and handoff rule across all Grade 1–6 fun races?',
             optionsEn: [
               'Waiting runners may stand past the start line',
               'Waiting runners crouch behind the Ready Line; handoffs must occur behind the Start Line (Exchange Zone)',
@@ -879,6 +879,24 @@ function applyEnglishData(sqData) {
     }
   };
   const FUN_RACES_EN = {
+    '1': {
+      gradeLabelEn: 'Grade 1',
+      titleEn: 'Ants Carrying Beans',
+      participantsEn: '24 per class (12 pairs)',
+      timingRuleEn: 'Timer starts on the gun and records 11 pairs; the final pair wears a bib and stops the clock crossing the start/finish line.',
+      distanceEn: '10m Out-and-Back (Main Field)',
+      equipmentEn: ['Volleyball ×5', 'Traffic Cone ×5', 'Bib ×5', 'Stopwatch ×5'],
+      rulesEn: [
+        '10m between Start Line and turning cone; Ready Line behind Start Line forms the Exchange Zone.',
+        'Pairs stand face-to-face (moving sideways), holding each other’s wrists or forearms like a "sedan chair" with a volleyball balanced on top (walk or run; ball cannot drop).',
+        'Round the turning cone and pass the ball directly to the next pair inside the Exchange Zone; waiting pairs crouch behind the Ready Line.'
+      ],
+      penaltiesEn: [
+        'Clamping or hugging the volleyball with hands/arms adds +5s per violation.',
+        'If the ball drops, stop on the spot for one teammate to pick it up and re-balance it on the arms before moving (+5s per violation if advancing early).',
+        'Crossing the Start Line for an early handoff adds +5s per violation.'
+      ]
+    },
     '2': {
       gradeLabelEn: 'Grade 2',
       titleEn: 'Every Grain Counts',
@@ -1064,7 +1082,7 @@ function applyEnglishData(sqData) {
   if (sqData.gradeStory) {
     if (sqData.gradeStory['7']) {
       sqData.gradeStory['7'].titleEn = 'Lower Grades & Preschool | Joyful Start & Family Fun';
-      sqData.gradeStory['7'].en = 'Preschool presents "Banana Boogie", "String-a-Chain" & Family Relay; G1 brings "Aim for Success" & "Bouncing Tiggers"; G2 performs "Big Dreamers" & "Every Grain Counts", then both hit the purple track at 11:00 for 50m Run & Walk!';
+      sqData.gradeStory['7'].en = 'Preschool presents "Banana Boogie", "String-a-Chain" & Family Relay; G1 brings "Aim for Success" & "Ants Carrying Beans" (pair arm-sedan volleyball); G2 performs "Big Dreamers" & "Every Grain Counts", then both hit the purple track at 11:00 for 50m Run & Walk!';
     }
     if (sqData.gradeStory['8']) {
       sqData.gradeStory['8'].titleEn = 'Middle Grades (G3–4) | Track Debut & Half-Lap Relays';
@@ -1084,7 +1102,7 @@ function applyEnglishData(sqData) {
   const TOUR_EN = [
     'Stop 1 [01 Grand Plaza]: 08:15 Athletes March-In followed by Principal Hsu Ya-Hui’s Opening Ceremony and volunteer honors (Moral Power).',
     'Stop 2 [02 Arts Stage]: Watch Miki Street Dance, Taekwondo, Parasol Dance, all six grade dances, and Preschool Banana Boogie (Aesthetic Power).',
-    'Stop 3 [05 Fun Sprout Park]: Preschool String-a-Chain, G2 Every Grain Counts (22/class, 10m ball & frisbee), G1 Bouncing Tiggers & 10:40 Family Ring Sprint (Knowledge Power).',
+    'Stop 3 [05 Fun Sprout Park]: Preschool String-a-Chain, G2 Every Grain Counts (22/class, 10m ball & frisbee), G1 Ants Carrying Beans (24/class · 12 pairs arm-sedan volleyball) & 10:40 Family Ring Sprint (Knowledge Power).',
     'Stop 4 [07 Smart Fun Arena]: 09:40–10:15 Grades 3–6 Fun Races—Towel-Ball Relay, Three-Can Link, Da-Chuang Leap Forward & Hula-Hoop Ironman with full rules & +5s penalties (Knowledge Power).',
     'Stop 5 [03 Sprint Track]: Step onto the 6-lane purple track (50m/60m/100m/200m) for G3–6 sprint champions and 11:00 G1–2 50m runs (Physical Power).',
     'Stop 6 [04 Relay Arena]: 11:20 G3–5 Class Relay Finals and the 12:00 Heritage Relay uniting alumni, staff, parents & students (Team Power).',
@@ -1097,7 +1115,7 @@ function applyEnglishData(sqData) {
   }
 
   const TRAVELER_ROLES_EN = {
-    lower: ['Lower Grade Sprinter (G1–2)', 'Take on Bouncing Tiggers, Every Grain Counts & the 50m Purple Track Sprint!'],
+    lower: ['Lower Grade Sprinter (G1–2)', 'Take on Ants Carrying Beans, Every Grain Counts & the 50m Purple Track Sprint!'],
     middle: ['Middle Grade Flyer (G3–4)', 'Conquer 60m/100m sprints, Towel-Ball Relay, Can-Chain & Half-Lap Relays!'],
     upper: ['Upper Grade Pacesetter (G5–6)', 'Lead Radiant Fans & Staff Dance, 100m/200m Finals & Full-Lap Relays!'],
     parent: ['Cheering Parent Supporter', 'Follow the 32-event schedule, Family Ring-Power Sprint & Heritage Relay!'],
@@ -1200,8 +1218,8 @@ function applyEnglishData(sqData) {
       summaryEn: 'With 8 girls running Legs 1–8 and 8 boys running Legs 9–16, middle grades break at Leg 3 and Grade 5 breaks at Leg 2 in an electrifying battle for pennants!'
     },
     n10: {
-      titleEn: '[Lower Grades & Family Fun Races] Preschool String-a-Chain, G2 Every Grain Counts, G1 Tiggers & Family Ring Sprint!',
-      summaryEn: 'Fun Sprout Park unites preschoolers, Grades 1–2, and parents—including G2’s 22-runner 10m ball-and-frisbee relay testing hand-eye agility!'
+      titleEn: '[Lower Grades & Family Fun Races] Preschool String-a-Chain, G2 Every Grain Counts, G1 Ants Carrying Beans & Family Ring Sprint!',
+      summaryEn: 'Fun Sprout Park unites preschoolers, Grades 1–2, and parents—including G1’s 12-pair arm-sedan volleyball relay and G2’s 22-runner 10m ball-and-frisbee relay!'
     },
     n13: {
       titleEn: '[G3–G6 Fun-Race Rulebook Live] Full rules, equipment & field diagrams for Smart Fun Arena!',
